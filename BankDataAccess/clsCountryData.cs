@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankDataAccess
 {
-    internal class clsCountryData
+    public class clsCountryData
     {
         public static bool GetCountryByID(int CountryID,ref string CountryName)
         {
