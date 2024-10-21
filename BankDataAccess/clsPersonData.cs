@@ -44,7 +44,12 @@ namespace BankDataAccess
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
                     NationalityCountryID = (int)reader["NationalityCountryID"];
                     Phone = (string)reader["Phone"];
-                    Email = (string)reader["Email"];
+
+                    if (reader["Email"] == DBNull.Value)
+                        Email = "";
+                    else
+                        Email = (string)reader["Email"];
+
                     Address = (string)reader["Address"];
 
                     if (reader["ImagePath"] == DBNull.Value)
@@ -100,7 +105,12 @@ namespace BankDataAccess
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
                     NationalityCountryID = (int)reader["NationalityCountryID"];
                     Phone = (string)reader["Phone"];
-                    Email = (string)reader["Email"];
+                    
+                    if (reader["Email"] == DBNull.Value)
+                        Email = "";
+                    else
+                        Email = (string)reader["Email"];
+                    
                     Address = (string)reader["Address"];
 
                     if (reader["ImagePath"] == DBNull.Value)
@@ -315,22 +325,27 @@ namespace BankDataAccess
         {
             DataTable dt = new DataTable();
 
-            string query = @"SELECT PersonID
-                            ,NationalNo
-                            ,(FirstName +' '+ SecondName +' '+ ISNULL(ThirdName,'') +' '+ LastName) AS FullName
-                            ,CASE 
-		                      WHEN Gendor = 0 THEN 'Male'
-		                      WHEN Gendor = 1 THEN 'Female'
-	                         END
-	                         AS Gendor
-                            ,DateOfBirth
-                            ,NationalityCountryID
-                            ,Phone
-                            ,Email
-                            ,Address
-                            ,ImagePath
-                          FROM People";
-
+                        string query = @"SELECT PersonID
+                                        ,NationalNo
+                                        ,FirstName
+                                        ,SecondName
+                                        ,ThirdName
+                                        ,LastName
+                                        ,CASE 
+                                          WHEN Gendor = 0 THEN 'Male'
+                                          WHEN Gendor = 1 THEN 'Female'
+                                         END
+                                         AS Gendor
+                                        ,DateOfBirth
+                                        ,Countries.CountryName As CountryName
+                                        ,Phone
+                                        ,Email
+                                        ,Address
+                                        ,ImagePath
+                                      FROM People INNER JOIN Countries
+                                      ON People.NationalityCountryID = Countries.CountryID
+                                      ORDER BY PersonID DESC";
+           
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -338,7 +353,7 @@ namespace BankDataAccess
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                if (reader.Read()) 
+                if (reader.HasRows) 
                 {
                     dt.Load(reader);
                 }

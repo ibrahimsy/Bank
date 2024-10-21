@@ -1,17 +1,21 @@
 ﻿using BankDataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BankBussiness
 {
     public class clsPerson
     {
+        public enum enMode { enAddNew = 1,enUpdate = 2 }
+        enMode _Mode = enMode.enAddNew;
         public int PersonID { get; set; }
         public string NationalNo { get; set; }
-        public string FirstName  { get; set; }
+        public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
@@ -22,17 +26,17 @@ namespace BankBussiness
                 return FirstName + SecondName + ThirdName + LastName;
             }
         }
-        public short Gendor {  get; set; }  
+        public short Gendor { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int NationalityCountryID {  get; set; }
+        public int NationalityCountryID { get; set; }
         public clsCountry Country;
-        public string Phone {  get; set; }  
+        public string Phone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public string ImagePath { get; set; }
 
 
-        private clsPerson() 
+        private clsPerson()
         {
             this.PersonID = -1;
             this.NationalNo = "";
@@ -47,6 +51,8 @@ namespace BankBussiness
             this.Email = "";
             this.Address = "";
             this.ImagePath = "";
+
+            _Mode = enMode.enAddNew;
         }
 
         public clsPerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
@@ -67,32 +73,34 @@ namespace BankBussiness
             this.Email = Email;
             this.Address = Address;
             this.ImagePath = ImagePath;
+
+            _Mode = enMode.enUpdate;
         }
 
         private bool _AddNewPerson()
         {
-            PersonID = clsPersonData.AddNewPerson(NationalNo,FirstName,SecondName,ThirdName,LastName,
+            PersonID = clsPersonData.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName,
                 Gendor, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
 
-            return (PersonID != -1);                                     
-        } 
+            return (PersonID != -1);
+        }
 
         private bool _UpdatePerson()
         {
-           return clsPersonData.UpdatePersonByID(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
-                Gendor, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);      
+            return clsPersonData.UpdatePersonByID(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
+                 Gendor, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
         }
 
         public static clsPerson FindPersonByID(int PersonID)
         {
-           
+
             string NationalNo = "";
             string FirstName = "";
             string SecondName = "";
             string ThirdName = "";
             string LastName = "";
             int NationalityCountryID = -1;
-           
+
             short Gendor = 0;
             DateTime DateOfBirth = DateTime.Now;
             string Phone = "";
@@ -100,11 +108,11 @@ namespace BankBussiness
             string Address = "";
             string ImagePath = "";
 
-            if (clsPersonData.GetPersonByID(PersonID,ref NationalNo,ref FirstName,ref SecondName,ref ThirdName,ref LastName,
-                ref Gendor,ref DateOfBirth,ref NationalityCountryID,ref Phone,ref Email,ref Address,ref ImagePath))
+            if (clsPersonData.GetPersonByID(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName,
+                ref Gendor, ref DateOfBirth, ref NationalityCountryID, ref Phone, ref Email, ref Address, ref ImagePath))
             {
-                return new clsPerson(PersonID,NationalNo,  FirstName,  SecondName,  ThirdName,  LastName,
-                 Gendor,  DateOfBirth,  NationalityCountryID,  Phone,  Email,  Address,  ImagePath);
+                return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
+                 Gendor, DateOfBirth, NationalityCountryID, Phone, Email, Address, ImagePath);
             }
             else
             {
@@ -139,6 +147,43 @@ namespace BankBussiness
             {
                 return null;
             }
+        }
+
+        public static bool IsExistByPersonID(int PersonID)
+        {
+            return clsPersonData.IsPersonExist(PersonID);
+        }
+        
+        public static bool DeletePerson(int PersonID)
+        {
+            return clsPersonData.DeletePersonByID(PersonID);
+        }
+
+        public static DataTable GetPeopleList()
+        {
+            return clsPersonData.GetAllPeople();
+        }
+    
+        public bool Save()
+        {
+            switch (_Mode) 
+            {
+                case enMode.enAddNew:
+                    if (_AddNewPerson())
+                    {
+                        _Mode = enMode.enUpdate;
+                        return true;
+                    }
+                    else
+                        return false;
+                    
+                case enMode.enUpdate:
+                    if (_UpdatePerson())
+                        return true;
+                    else
+                        return false;
+            }
+            return false;
         }
     }
 }

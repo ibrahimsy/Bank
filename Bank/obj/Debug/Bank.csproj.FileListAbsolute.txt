@@ -1,0 +1,16 @@
+D:\Devlopment\C#\My-Github\Bank\Bank\bin\Debug\Bank.exe.config
+D:\Devlopment\C#\My-Github\Bank\Bank\bin\Debug\Bank.exe
+D:\Devlopment\C#\My-Github\Bank\Bank\bin\Debug\Bank.pdb
+D:\Devlopment\C#\My-Github\Bank\Bank\bin\Debug\BankBussiness.dll
+D:\Devlopment\C#\My-Github\Bank\Bank\bin\Debug\BankDataAccess.dll
+D:\Devlopment\C#\My-Github\Bank\Bank\bin\Debug\BankBussiness.pdb
+D:\Devlopment\C#\My-Github\Bank\Bank\bin\Debug\BankDataAccess.pdb
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.csproj.AssemblyReference.cache
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.frmMainForm.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.frmManagePeople.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Properties.Resources.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.csproj.GenerateResource.cache
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.csproj.CoreCompileInputs.cache
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.csproj.Up2Date
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.exe
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.pdb
