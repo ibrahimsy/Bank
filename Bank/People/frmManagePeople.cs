@@ -144,6 +144,19 @@ namespace Bank.People
 
             lblRecordsCount.Text = dgvPeople.Rows.Count.ToString();
         }
-    
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frm = new frmAddEditPerson();
+            frm.ShowDialog();
+
+            _RefreshPeopleList();
+        }
+
+        private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frm = new frmAddEditPerson((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

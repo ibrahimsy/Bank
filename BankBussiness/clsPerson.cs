@@ -29,14 +29,14 @@ namespace BankBussiness
         public short Gendor { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int NationalityCountryID { get; set; }
-        public clsCountry Country;
+        public clsCountry CountryInfo;
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public string ImagePath { get; set; }
 
 
-        private clsPerson()
+        public clsPerson()
         {
             this.PersonID = -1;
             this.NationalNo = "";
@@ -55,7 +55,7 @@ namespace BankBussiness
             _Mode = enMode.enAddNew;
         }
 
-        public clsPerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
+        private clsPerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
                                             short Gendor, DateTime DateOfBirth, int NationalityCountryID, string Phone, string Email,
                                             string Address, string ImagePath)
         {
@@ -66,7 +66,7 @@ namespace BankBussiness
             this.ThirdName = ThirdName;
             this.LastName = LastName;
             this.NationalityCountryID = NationalityCountryID;
-            this.Country = clsCountry.FindByID(NationalityCountryID);
+            this.CountryInfo = clsCountry.FindByID(NationalityCountryID);
             this.Gendor = Gendor;
             this.DateOfBirth = DateOfBirth;
             this.Phone = Phone;
@@ -153,7 +153,12 @@ namespace BankBussiness
         {
             return clsPersonData.IsPersonExist(PersonID);
         }
-        
+
+        public static bool IsExistByNationalNo(string NationalNo)
+        {
+            return clsPersonData.IsPersonExist(NationalNo);
+        }
+
         public static bool DeletePerson(int PersonID)
         {
             return clsPersonData.DeletePersonByID(PersonID);

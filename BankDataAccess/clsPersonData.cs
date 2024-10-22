@@ -321,6 +321,36 @@ namespace BankDataAccess
             return IsFound;
         }
 
+        public static bool IsPersonExist(string NationalNo)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM People WHERE NationalNo = @NationalNo";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteNonQuery();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+        
         public static DataTable GetAllPeople()
         {
             DataTable dt = new DataTable();
