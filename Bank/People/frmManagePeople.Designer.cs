@@ -42,6 +42,11 @@
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.lblRecordsCount = new System.Windows.Forms.Label();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.callPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -75,6 +80,7 @@
             this.dgvPeople.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPeople.Size = new System.Drawing.Size(1152, 302);
             this.dgvPeople.TabIndex = 2;
+            this.dgvPeople.DoubleClick += new System.EventHandler(this.dgvPeople_DoubleClick);
             // 
             // contextMenuStrip1
             // 
@@ -83,15 +89,21 @@
             this.toolStripMenuItem1,
             this.addNewPersonToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.editPersonToolStripMenuItem});
+            this.editPersonToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.deletePersonToolStripMenuItem,
+            this.toolStripMenuItem4,
+            this.callPersonToolStripMenuItem,
+            this.sendEmailToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 104);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 160);
             // 
             // showPersonDetailsToolStripMenuItem
             // 
             this.showPersonDetailsToolStripMenuItem.Name = "showPersonDetailsToolStripMenuItem";
             this.showPersonDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showPersonDetailsToolStripMenuItem.Text = "Show Person Details";
+            this.showPersonDetailsToolStripMenuItem.Click += new System.EventHandler(this.showPersonDetailsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -160,11 +172,9 @@
             "Third Name",
             "Last Name",
             "Gendor",
-            "Date Of Birth",
-            "Nationality",
-            "Phone",
-            "Email",
-            "Address"});
+            "",
+            "",
+            ""});
             this.cbFilterBy.Location = new System.Drawing.Point(121, 191);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(133, 28);
@@ -180,6 +190,35 @@
             this.lblRecordsCount.Size = new System.Drawing.Size(45, 19);
             this.lblRecordsCount.TabIndex = 9;
             this.lblRecordsCount.Text = " ? ? ?";
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+            // 
+            // deletePersonToolStripMenuItem
+            // 
+            this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
+            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deletePersonToolStripMenuItem.Text = "Delete Person";
+            this.deletePersonToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            // 
+            // callPersonToolStripMenuItem
+            // 
+            this.callPersonToolStripMenuItem.Name = "callPersonToolStripMenuItem";
+            this.callPersonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.callPersonToolStripMenuItem.Text = "Call Person";
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // btnClose
             // 
@@ -260,5 +299,10 @@
         private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem editPersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem deletePersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem callPersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
     }
 }

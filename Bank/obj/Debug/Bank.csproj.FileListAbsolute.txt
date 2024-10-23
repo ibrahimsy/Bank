@@ -15,3 +15,6 @@ D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.csproj.Up2Date
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.exe
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.pdb
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.frmAddEditPerson.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.Controls.ctrlPersonInfo.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.frmPersonInfo.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.Controls.ctrlPersonInfoWithFilter.resources

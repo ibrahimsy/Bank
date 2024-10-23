@@ -23,7 +23,7 @@ namespace BankBussiness
         {
             get
             {
-                return FirstName + SecondName + ThirdName + LastName;
+                return FirstName + " " + SecondName + " " + ThirdName + " " + LastName;
             }
         }
         public short Gendor { get; set; }

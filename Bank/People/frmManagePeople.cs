@@ -168,5 +168,44 @@ namespace Bank.People
 
             _RefreshPeopleList();
         }
+
+        private void deletePersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
+            if (MessageBox.Show($"Are You Sure You Want To Delete Person With ID [{PersonID}]",
+                                    "Confirm",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (clsPerson.DeletePerson(PersonID))
+                {
+                    MessageBox.Show("Person Deleted Successfuly",
+                                    "Success",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    _RefreshPeopleList();
+                }
+                else
+                {
+                    MessageBox.Show("An Error Occurred",
+                                    "Faild",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+            
+        }
+
+        private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPersonInfo frm = new frmPersonInfo((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void dgvPeople_DoubleClick(object sender, EventArgs e)
+        {
+            frmPersonInfo frm = new frmPersonInfo((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }
