@@ -74,7 +74,11 @@ namespace Bank.People
         void _LoadPersonInfo()
         {
             _PersonInfo = clsPerson.FindPersonByID(_PersonID);
-
+            if (_PersonInfo == null)
+            {
+                MessageBox.Show($"No Person Found With ID = [{_PersonID}]","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             lblPersonID.Text = _PersonInfo.PersonID.ToString();
 
             txtNationalNo.Text = _PersonInfo.NationalNo.ToString();
@@ -111,6 +115,7 @@ namespace Bank.People
                     MessageBox.Show("Person Image Not Found","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
+            llRemoveImage.Visible = pbPersonImage.ImageLocation != null;
         }
        
         private void btnClose_Click(object sender, EventArgs e)
@@ -160,6 +165,7 @@ namespace Bank.People
                 pbPersonImage.Image = Resources.Male_512;
             else
                 pbPersonImage.Image = Resources.Female_512;
+            llRemoveImage.Visible = false;
         }
 
         private void txtInputs_Validating(object sender, CancelEventArgs e)
@@ -210,7 +216,7 @@ namespace Bank.People
 
             if (!clsUtility.IsValidEmail(txtEmail.Text.Trim()))
             {
-                errorProvider1.SetError(txtEmail, "This Feild Is Required");
+                errorProvider1.SetError(txtEmail, "Invalid Email");
                 e.Cancel = true;
             }
             else
@@ -283,8 +289,24 @@ namespace Bank.People
             else
                 _PersonInfo.Gendor = 1;
 
-            _PersonInfo.ImagePath = pbPersonImage.ImageLocation;
-            
+            if (pbPersonImage.ImageLocation == null)
+                _PersonInfo.ImagePath = "";
+            else 
+                _PersonInfo.ImagePath = pbPersonImage.ImageLocation;
+
+            if (_PersonInfo.Save())
+            {
+                MessageBox.Show("Person Saved Successfuly","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                _Mode = enMode.enUpdate;
+                this.Text = "UPDATE PERSON";
+
+                lblTitle.Text = this.Text;
+                lblPersonID.Text = _PersonInfo.PersonID.ToString();
+            }
+            else
+            {
+                MessageBox.Show("An Error Occurred", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

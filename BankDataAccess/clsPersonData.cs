@@ -25,6 +25,8 @@ namespace BankDataAccess
 
             try
             {
+                connection.Open();
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -331,10 +333,12 @@ namespace BankDataAccess
 
             SqlCommand command = new SqlCommand(query, connection);
 
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
             try
             {
                 connection.Open();
-                object result = command.ExecuteNonQuery();
+                object result = command.ExecuteScalar();
                 if (result != null)
                 {
                     IsFound = true;

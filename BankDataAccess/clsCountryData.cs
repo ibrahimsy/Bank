@@ -57,7 +57,7 @@ namespace BankDataAccess
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@CountryID", CountryID);
+            command.Parameters.AddWithValue("@CountryName", CountryName);
 
             try
             {

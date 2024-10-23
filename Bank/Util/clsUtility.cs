@@ -19,7 +19,7 @@ namespace Bank.Util
 
         static string _GenerateGUID()
         {
-            Guid guid = new Guid();
+            Guid guid = Guid.NewGuid();
 
             return guid.ToString();
         }
@@ -32,13 +32,32 @@ namespace Bank.Util
             return _GenerateGUID() + Extention;
         }
 
+        static bool _CreateDirectoryIfDoesntExist(string ImagesFolder)
+        {
+            if (!Directory.Exists(ImagesFolder))
+            {
+                try
+                {
+                    Directory.CreateDirectory(ImagesFolder);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
         public static bool CopyImageToProjectImagesFolder(ref string SourceFile)
         {
-            string ImagesFolder = Directory.GetCurrentDirectory() + "\\Images\\";
-            
-            if (!Directory.Exists(ImagesFolder)) 
-            {
-                Directory.CreateDirectory(ImagesFolder);
+            string ImagesFolder = @"D:\Devlopment\C#\My-Github\Bank\Images\";
+           
+                if (!_CreateDirectoryIfDoesntExist(ImagesFolder))
+                {
+                    return false;
+                }
 
                 string DestinationFile = ImagesFolder + _RenameImage(SourceFile);
                 try
@@ -50,7 +69,7 @@ namespace Bank.Util
                     return false;
                 }
                 SourceFile = DestinationFile;
-            }
+         
             return true;
         }
 

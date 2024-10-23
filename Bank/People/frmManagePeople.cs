@@ -157,6 +157,16 @@ namespace Bank.People
         {
             frmAddEditPerson frm = new frmAddEditPerson((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+
+            _RefreshPeopleList();
+        }
+
+        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frm = new frmAddEditPerson();
+            frm.ShowDialog();
+
+            _RefreshPeopleList();
         }
     }
 }
