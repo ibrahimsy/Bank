@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -157,6 +158,11 @@ namespace BankBussiness
         public static bool IsExistByNationalNo(string NationalNo)
         {
             return clsPersonData.IsPersonExist(NationalNo);
+        }
+
+        public static bool IsPersonLinkedWithUSer(int PersonID)
+        {
+            return clsPersonData.IsPersonLinkedWithUser(PersonID);
         }
 
         public static bool DeletePerson(int PersonID)

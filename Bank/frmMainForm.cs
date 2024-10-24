@@ -1,4 +1,5 @@
 ﻿using Bank.People;
+using Bank.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,12 @@ namespace Bank
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManagePeople frm = new frmManagePeople();
+            frm.ShowDialog();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser();
             frm.ShowDialog();
         }
     }

@@ -93,7 +93,12 @@ namespace BankBussiness
 
         public static bool IsExistByUserID(int UserID)
         {
-            return clsUserData.IsUserExist(UserID);
+            return clsUserData.IsUserExistByUserID(UserID);
+        }
+
+        public static bool IsExistByUserName(string UserName)
+        {
+            return clsUserData.IsUserExistByUserName(UserName);
         }
 
         public static bool DeleteUser(int UserID)

@@ -100,6 +100,7 @@
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(121, 32);
             this.cbFilterBy.TabIndex = 0;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // ctrlPersonInfoWithFilter
             // 

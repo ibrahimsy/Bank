@@ -189,7 +189,7 @@ namespace BankDataAccess
             return AffectedRows > 0;
         }
 
-        public static bool IsUserExist(int UserID)
+        public static bool IsUserExistByUserID(int UserID)
         {
             bool IsFound = false;
 
@@ -219,6 +219,36 @@ namespace BankDataAccess
             return IsFound;
         }
 
+        public static bool IsUserExistByUserName(string UserName)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM Users WHERE UserName = @UserName";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteNonQuery();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+        
         public static DataTable GetAllUsers()
         {
             DataTable dt = new DataTable();

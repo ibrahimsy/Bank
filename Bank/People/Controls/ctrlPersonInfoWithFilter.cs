@@ -20,7 +20,7 @@ namespace Bank.People.Controls
             }
         }
         
-        bool _FilterEnable = false;
+        bool _FilterEnable = true;
         public bool FilterEnabled
         {
             set
@@ -38,6 +38,7 @@ namespace Bank.People.Controls
         {
             InitializeComponent();
             cbFilterBy.SelectedIndex = 0;
+            txtFilterValue.Focus();
         }
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
@@ -45,8 +46,18 @@ namespace Bank.People.Controls
 
         }
 
+        public void LoadPersonInfo()
+        {
+            txtFilterValue.Text = PersonID.ToString();
+            cbFilterBy.Text = "Person ID";
+
+            _FindNow();
+        }
+
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtFilterValue.Text))
+                return;
             _FindNow();
         }
 
@@ -65,10 +76,29 @@ namespace Bank.People.Controls
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
+                return; 
+
+           
             if (cbFilterBy.Text == "Person ID")
             {
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
+
+            if(e.KeyChar == (char)13)
+            {
+                _FindNow();
+            }
+        }
+
+        public void TextValueFocus()
+        {
+            txtFilterValue.Focus();
+        }
+
+        private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TextValueFocus();
         }
     }
 }

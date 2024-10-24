@@ -18,3 +18,5 @@ D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.frmAddEditPerson.reso
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.Controls.ctrlPersonInfo.resources
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.frmPersonInfo.resources
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.Controls.ctrlPersonInfoWithFilter.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Users.frmAddEditUser.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Users.frmManageUsers.resources

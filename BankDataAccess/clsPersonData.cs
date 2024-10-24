@@ -355,6 +355,39 @@ namespace BankDataAccess
             return IsFound;
         }
         
+        public static bool IsPersonLinkedWithUser(int PersonID)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM Users WHERE PersonID = @PersonID";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
+
         public static DataTable GetAllPeople()
         {
             DataTable dt = new DataTable();

@@ -50,6 +50,7 @@ namespace Bank.People.Controls
             lblEmail.Text = _PersonInfo.Email;  
             lblPhone.Text = _PersonInfo.Phone;
             lblAddress.Text = _PersonInfo.Address;
+            lblCountry.Text = clsCountry.FindByID(_PersonInfo.NationalityCountryID).CountryName;
 
             if (_PersonInfo.Gendor == 0)
                 pbPersonImage.Image = Resources.Male_512;
@@ -83,6 +84,7 @@ namespace Bank.People.Controls
             lblEmail.Text = _PersonInfo.Email;
             lblPhone.Text = _PersonInfo.Phone;
             lblAddress.Text = _PersonInfo.Address;
+            lblCountry.Text = clsCountry.FindByID(_PersonInfo.NationalityCountryID).CountryName;
 
             if (_PersonInfo.Gendor == 0)
                 pbPersonImage.Image = Resources.Male_512;
