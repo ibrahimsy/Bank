@@ -37,16 +37,16 @@
             this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.editPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFilterValue = new System.Windows.Forms.TextBox();
-            this.cbFilterBy = new System.Windows.Forms.ComboBox();
-            this.lblRecordsCount = new System.Windows.Forms.Label();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.callPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtFilterValue = new System.Windows.Forms.TextBox();
+            this.cbFilterBy = new System.Windows.Forms.ComboBox();
+            this.lblRecordsCount = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -57,7 +57,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label1.Location = new System.Drawing.Point(29, 143);
             this.label1.Name = "label1";
@@ -129,68 +129,6 @@
             this.editPersonToolStripMenuItem.Text = "Edit Person";
             this.editPersonToolStripMenuItem.Click += new System.EventHandler(this.editPersonToolStripMenuItem_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 538);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 23);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Records :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Filter By :";
-            // 
-            // txtFilterValue
-            // 
-            this.txtFilterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFilterValue.Location = new System.Drawing.Point(260, 191);
-            this.txtFilterValue.Name = "txtFilterValue";
-            this.txtFilterValue.Size = new System.Drawing.Size(133, 26);
-            this.txtFilterValue.TabIndex = 7;
-            this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
-            // 
-            // cbFilterBy
-            // 
-            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFilterBy.FormattingEnabled = true;
-            this.cbFilterBy.Items.AddRange(new object[] {
-            "None",
-            "Person ID",
-            "National No",
-            "First Name",
-            "Second Name",
-            "Third Name",
-            "Last Name",
-            "Gendor",
-            "",
-            "",
-            ""});
-            this.cbFilterBy.Location = new System.Drawing.Point(121, 191);
-            this.cbFilterBy.Name = "cbFilterBy";
-            this.cbFilterBy.Size = new System.Drawing.Size(133, 28);
-            this.cbFilterBy.TabIndex = 8;
-            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
-            // 
-            // lblRecordsCount
-            // 
-            this.lblRecordsCount.AutoSize = true;
-            this.lblRecordsCount.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordsCount.Location = new System.Drawing.Point(127, 541);
-            this.lblRecordsCount.Name = "lblRecordsCount";
-            this.lblRecordsCount.Size = new System.Drawing.Size(45, 19);
-            this.lblRecordsCount.TabIndex = 9;
-            this.lblRecordsCount.Text = " ? ? ?";
-            // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
@@ -220,9 +158,68 @@
             this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(30, 538);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 24);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Records :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(30, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Filter By :";
+            // 
+            // txtFilterValue
+            // 
+            this.txtFilterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFilterValue.Location = new System.Drawing.Point(260, 191);
+            this.txtFilterValue.Name = "txtFilterValue";
+            this.txtFilterValue.Size = new System.Drawing.Size(133, 26);
+            this.txtFilterValue.TabIndex = 7;
+            this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
+            // 
+            // cbFilterBy
+            // 
+            this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilterBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFilterBy.FormattingEnabled = true;
+            this.cbFilterBy.Items.AddRange(new object[] {
+            "None",
+            "Person ID",
+            "National No",
+            "First Name",
+            "Second Name",
+            "Third Name",
+            "Last Name",
+            "Gendor"});
+            this.cbFilterBy.Location = new System.Drawing.Point(121, 191);
+            this.cbFilterBy.Name = "cbFilterBy";
+            this.cbFilterBy.Size = new System.Drawing.Size(133, 28);
+            this.cbFilterBy.TabIndex = 8;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
+            // 
+            // lblRecordsCount
+            // 
+            this.lblRecordsCount.AutoSize = true;
+            this.lblRecordsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordsCount.Location = new System.Drawing.Point(127, 541);
+            this.lblRecordsCount.Name = "lblRecordsCount";
+            this.lblRecordsCount.Size = new System.Drawing.Size(54, 20);
+            this.lblRecordsCount.TabIndex = 9;
+            this.lblRecordsCount.Text = " ? ? ?";
+            // 
             // btnClose
             // 
-            this.btnClose.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::Bank.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(1087, 538);

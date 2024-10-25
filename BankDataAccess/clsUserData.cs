@@ -248,12 +248,51 @@ namespace BankDataAccess
             }
             return IsFound;
         }
+
+        public static bool IsUserExistByUsernameAndPassword(string UserName, string Password)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM Users
+                            WHERE UserName = @UserName AND Password = @Password";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteNonQuery();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
         
         public static DataTable GetAllUsers()
         {
             DataTable dt = new DataTable();
 
-            string query = @"SELECT * FROM Users";
+            string query = @"SELECT        
+                            Users.UserID,
+                            Users.PersonID,
+                            (People.FirstName +' '+ People.SecondName +' '+ People.ThirdName +' '+ People.LastName) AS FullName,
+                            Users.UserName,
+                            Users.Password,
+                            Users.IsActive
+                            FROM   Users INNER JOIN
+                                   People ON Users.PersonID = People.PersonID";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);
@@ -279,6 +318,6 @@ namespace BankDataAccess
             return dt;
         }
     
-
+      
     }
 }

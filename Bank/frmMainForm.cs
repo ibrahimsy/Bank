@@ -27,8 +27,8 @@ namespace Bank
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditUser frm = new frmAddEditUser();
-            frm.ShowDialog();
+            frmManageUsers frm = new frmManageUsers();
+            frm.ShowDialog(); 
         }
     }
 }

@@ -24,11 +24,12 @@ namespace Bank.People
         {
             _dtPeopleList = clsPerson.GetPeopleList();
             _dtPeople = _dtPeopleList.DefaultView.ToTable(true, "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName",
-                                                                "Gendor", "CountryName", "DateOfBirth", "Phone", "Email");
+                                                    "Gendor", "CountryName", "DateOfBirth", "Phone", "Email");
             dgvPeople.DataSource = _dtPeople;
 
             if (dgvPeople.Rows.Count > 0)
             {
+                
                 dgvPeople.Columns[0].HeaderText = "Person ID";
                 dgvPeople.Columns[0].Width = 100;
 

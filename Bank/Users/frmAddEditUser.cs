@@ -35,6 +35,7 @@ namespace Bank.Users
         {
             if(_Mode == enMode.enAddNew)
             {
+                _UserInfo = new clsUser();
                 this.Text = "Add User";
                 lblTitle.Text = this.Text;
 
@@ -124,12 +125,82 @@ namespace Bank.Users
             }
             else
             {
-                errorProvider1.SetError(txtUserName,null);
+                errorProvider1.SetError(txtUserName, null);
             }
 
             if (clsUser.IsExistByUserName(txtUserName.Text.Trim()) && _Mode == enMode.enAddNew)
             {
+                errorProvider1.SetError(txtUserName, "UserName Is Exist");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtUserName, null);
+            }
+         }
 
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUserName.Text.Trim()))
+            {
+                errorProvider1.SetError(txtUserName, "This Feild Is Required");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtUserName, null);
+            }
+        }
+
+        private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtConfirmPassword.Text != txtPassword.Text)
+            {
+                errorProvider1.SetError(txtConfirmPassword, "Password Must Be Match");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtConfirmPassword, null); 
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!this.ValidateChildren())
+            {
+                MessageBox.Show($"Some Feild Are Invalid,Put Mouse On Red Icon",
+                    "Faild",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            _UserInfo.PersonID = ctrlPersonInfoWithFilter1.PersonID;
+            _UserInfo.UserName = txtUserName.Text;
+            _UserInfo.Password = txtPassword.Text;
+            _UserInfo.IsActive = chkIsActive.Checked;
+
+            if (_UserInfo.Save())
+            {
+                MessageBox.Show($"User Created Successfuly With ID = [{_UserInfo.UserID}]",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                _Mode = enMode.enUpdate;
+                lblTitle.Text = "UPDATE USER";
+                this.Text = lblTitle.Text;
+                ctrlPersonInfoWithFilter1.FilterEnabled = false;
+                lblUserID.Text = _UserInfo.UserID.ToString();
+                
+            }
+            else
+            {
+                MessageBox.Show($"An Error Occurred",
+                    "Faild",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
     }

@@ -46,8 +46,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
             this.tabControl1.SuspendLayout();
             this.tbPersonInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -80,7 +80,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.Image = global::Bank.Properties.Resources.Next_32;
             this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNext.Location = new System.Drawing.Point(861, 405);
@@ -160,6 +160,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(189, 29);
             this.txtConfirmPassword.TabIndex = 6;
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
             // 
             // txtPassword
             // 
@@ -169,6 +170,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(189, 29);
             this.txtPassword.TabIndex = 5;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // txtUserName
             // 
@@ -212,7 +214,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = global::Bank.Properties.Resources.Save_321;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(897, 555);
@@ -222,10 +224,11 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblTitle
             // 
-            this.lblTitle.Font = new System.Drawing.Font("Roboto", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Blue;
             this.lblTitle.Location = new System.Drawing.Point(16, 30);
             this.lblTitle.Name = "lblTitle";
@@ -236,7 +239,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::Bank.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(799, 555);
@@ -248,6 +251,10 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ctrlPersonInfoWithFilter1
             // 
             this.ctrlPersonInfoWithFilter1.FilterEnabled = true;
@@ -255,10 +262,6 @@
             this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
             this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(952, 381);
             this.ctrlPersonInfoWithFilter1.TabIndex = 16;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // frmAddEditUser
             // 

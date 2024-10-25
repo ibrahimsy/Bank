@@ -7,3 +7,12 @@ D:\Devlopment\C#\My-Github\Bank\BankBussiness\obj\Debug\BankBussiness.csproj.Cor
 D:\Devlopment\C#\My-Github\Bank\BankBussiness\obj\Debug\BankBuss.A0667879.Up2Date
 D:\Devlopment\C#\My-Github\Bank\BankBussiness\obj\Debug\BankBussiness.dll
 D:\Devlopment\C#\My-Github\Bank\BankBussiness\obj\Debug\BankBussiness.pdb
+C:\My-Github\Bank\BankBussiness\obj\Debug\BankBussiness.csproj.AssemblyReference.cache
+C:\My-Github\Bank\BankBussiness\obj\Debug\BankBussiness.csproj.CoreCompileInputs.cache
+C:\My-Github\Bank\BankBussiness\obj\Debug\BankBussiness.dll
+C:\My-Github\Bank\BankBussiness\obj\Debug\BankBussiness.pdb
+C:\My-Github\Bank\BankBussiness\bin\Debug\BankBussiness.dll
+C:\My-Github\Bank\BankBussiness\bin\Debug\BankBussiness.pdb
+C:\My-Github\Bank\BankBussiness\bin\Debug\BankDataAccess.dll
+C:\My-Github\Bank\BankBussiness\bin\Debug\BankDataAccess.pdb
+C:\My-Github\Bank\BankBussiness\obj\Debug\BankBuss.A0667879.Up2Date

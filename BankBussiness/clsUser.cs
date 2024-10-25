@@ -21,7 +21,7 @@ namespace BankBussiness
         public string Password { get; set; }
         public bool IsActive { get; set; }
       
-        private clsUser()
+        public clsUser()
         {
             this.UserID = -1;
             this.PersonID = -1;
@@ -32,7 +32,7 @@ namespace BankBussiness
             _Mode = enMode.enAddNew;
         }
 
-        public clsUser(int UserID,int PersonID,string UserName,string Password,bool IsActive)
+        private clsUser(int UserID,int PersonID,string UserName,string Password,bool IsActive)
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
@@ -99,6 +99,11 @@ namespace BankBussiness
         public static bool IsExistByUserName(string UserName)
         {
             return clsUserData.IsUserExistByUserName(UserName);
+        }
+
+        public static bool IsExistByUserNameAndPassword(string UserName,string Password)
+        {
+            return clsUserData.IsUserExistByUsernameAndPassword(UserName,Password);
         }
 
         public static bool DeleteUser(int UserID)

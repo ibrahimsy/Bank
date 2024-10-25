@@ -27,19 +27,22 @@ namespace Bank.Users
             if (dgvUsers.Rows.Count > 0)
             {
                 dgvUsers.Columns[0].HeaderText = "User ID";
-                dgvUsers.Columns[0].Width = 100;
+                dgvUsers.Columns[0].Width = 150;
 
                 dgvUsers.Columns[1].HeaderText = "Person ID";
-                dgvUsers.Columns[1].Width = 100;
+                dgvUsers.Columns[1].Width = 150;
 
-                dgvUsers.Columns[2].HeaderText = "UserName";
-                dgvUsers.Columns[2].Width = 100;
+                dgvUsers.Columns[2].HeaderText = "Full Name";
+                dgvUsers.Columns[2].Width = 250;
 
-                dgvUsers.Columns[3].HeaderText = "Password";
-                dgvUsers.Columns[3].Width = 100;
+                dgvUsers.Columns[3].HeaderText = "UserName";
+                dgvUsers.Columns[3].Width = 150;
 
-                dgvUsers.Columns[4].HeaderText = "Is Active";
-                dgvUsers.Columns[4].Width = 100;
+                dgvUsers.Columns[4].HeaderText = "Password";
+                dgvUsers.Columns[4].Width = 150;
+
+                dgvUsers.Columns[5].HeaderText = "Is Active";
+                dgvUsers.Columns[5].Width = 150;
             }
 
 
@@ -64,6 +67,8 @@ namespace Bank.Users
                     return "UserID";
                 case "Person ID":
                     return "PersonID";
+                case "Full Name":
+                    return "FullName";
                 case "UserName":
                     return "UserName";
                 case "Password":
@@ -125,7 +130,10 @@ namespace Bank.Users
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
+            frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
 
+            _RefreshPeopleList();
         }
     }
 }

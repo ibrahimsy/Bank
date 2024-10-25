@@ -387,7 +387,6 @@ namespace BankDataAccess
             return IsFound;
         }
 
-
         public static DataTable GetAllPeople()
         {
             DataTable dt = new DataTable();
