@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\My-Github\\Bank\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|c:\\my-github\\bank\\bank\\login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|C:\\My-Github\\Bank\\bank\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|c:\\my-github\\bank\\bank\\users\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\users\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|C:\\My-Github\\Bank\\bank\\login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -11,20 +19,20 @@
       "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\login\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|c:\\my-github\\bank\\bank\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|c:\\my-github\\bank\\bank\\users\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\users\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|C:\\My-Github\\Bank\\bank\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|c:\\my-github\\bank\\bank\\users\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\users\\frmchangepassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|C:\\My-Github\\Bank\\bank\\users\\frmaddedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\users\\frmaddedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|C:\\My-Github\\Bank\\bankdataaccess\\clsuserdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clsuserdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|C:\\My-Github\\Bank\\bank\\users\\frmaddedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\users\\frmaddedituser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|C:\\My-Github\\Bank\\bankbussiness\\clsuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,79 +42,107 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\Program.cs",
-              "RelativeDocumentMoniker": "Bank\\Program.cs",
-              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Program.cs",
-              "RelativeToolTip": "Bank\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBMAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "frmManageUsers.cs [Design]",
+              "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\Users\\frmManageUsers.cs",
+              "RelativeDocumentMoniker": "Bank\\Users\\frmManageUsers.cs",
+              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Users\\frmManageUsers.cs [Design]",
+              "RelativeToolTip": "Bank\\Users\\frmManageUsers.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T23:25:29.379Z",
+              "WhenOpened": "2024-10-26T15:08:04.665Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmChangePassword.cs",
+              "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\Users\\frmChangePassword.cs",
+              "RelativeDocumentMoniker": "Bank\\Users\\frmChangePassword.cs",
+              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Users\\frmChangePassword.cs",
+              "RelativeToolTip": "Bank\\Users\\frmChangePassword.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAuwEkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T14:42:43.193Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "frmChangePassword.cs [Design]",
+              "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\Users\\frmChangePassword.cs",
+              "RelativeDocumentMoniker": "Bank\\Users\\frmChangePassword.cs",
+              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Users\\frmChangePassword.cs [Design]",
+              "RelativeToolTip": "Bank\\Users\\frmChangePassword.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T14:42:37.969Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "clsUser.cs",
+              "DocumentMoniker": "C:\\My-Github\\Bank\\BankBussiness\\clsUser.cs",
+              "RelativeDocumentMoniker": "BankBussiness\\clsUser.cs",
+              "ToolTip": "C:\\My-Github\\Bank\\BankBussiness\\clsUser.cs",
+              "RelativeToolTip": "BankBussiness\\clsUser.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAcwHkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T23:34:23.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "clsUserData.cs",
+              "DocumentMoniker": "C:\\My-Github\\Bank\\BankDataAccess\\clsUserData.cs",
+              "RelativeDocumentMoniker": "BankDataAccess\\clsUserData.cs",
+              "ToolTip": "C:\\My-Github\\Bank\\BankDataAccess\\clsUserData.cs",
+              "RelativeToolTip": "BankDataAccess\\clsUserData.cs",
+              "ViewState": "AgIAADIBAAAAAAAAAAAlwDgBAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T23:30:56.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "frmLogin.cs",
               "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\Login\\frmLogin.cs",
               "RelativeDocumentMoniker": "Bank\\Login\\frmLogin.cs",
-              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Login\\frmLogin.cs*",
-              "RelativeToolTip": "Bank\\Login\\frmLogin.cs*",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAowBUAAAAZAAAAAAAAAA==",
+              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Login\\frmLogin.cs",
+              "RelativeToolTip": "Bank\\Login\\frmLogin.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAcwCEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T23:13:35.41Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "frmLogin.cs [Design]",
               "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\Login\\frmLogin.cs",
               "RelativeDocumentMoniker": "Bank\\Login\\frmLogin.cs",
-              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Login\\frmLogin.cs [Design]*",
-              "RelativeToolTip": "Bank\\Login\\frmLogin.cs [Design]*",
+              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Login\\frmLogin.cs [Design]",
+              "RelativeToolTip": "Bank\\Login\\frmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T22:56:49.429Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "frmMainForm.cs [Design]",
               "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\frmMainForm.cs",
               "RelativeDocumentMoniker": "Bank\\frmMainForm.cs",
               "ToolTip": "C:\\My-Github\\Bank\\Bank\\frmMainForm.cs [Design]",
               "RelativeToolTip": "Bank\\frmMainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T22:34:51.39Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmAddEditUser.cs",
-              "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\Users\\frmAddEditUser.cs",
-              "RelativeDocumentMoniker": "Bank\\Users\\frmAddEditUser.cs",
-              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Users\\frmAddEditUser.cs",
-              "RelativeToolTip": "Bank\\Users\\frmAddEditUser.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAcwMEAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T21:55:26.983Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmAddEditUser.cs [Design]",
-              "DocumentMoniker": "C:\\My-Github\\Bank\\Bank\\Users\\frmAddEditUser.cs",
-              "RelativeDocumentMoniker": "Bank\\Users\\frmAddEditUser.cs",
-              "ToolTip": "C:\\My-Github\\Bank\\Bank\\Users\\frmAddEditUser.cs [Design]",
-              "RelativeToolTip": "Bank\\Users\\frmAddEditUser.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T01:11:01.292Z"
+              "WhenOpened": "2024-10-25T22:34:51.39Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

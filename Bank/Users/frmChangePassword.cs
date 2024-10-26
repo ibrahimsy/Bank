@@ -71,10 +71,10 @@ namespace Bank.Users
         {
             _ValidateEmptyInput(txtCurrentPassword,e);
 
-            if (!clsUser.IsExistByUserNameAndPassword(_UserInfo.UserName,txtCurrentPassword.Text))
+            if (!clsUser.IsExistByUserNameAndPassword(ctrlUserCard1.UserInfo.UserName,txtCurrentPassword.Text.Trim()))
             {
                 errorProvider1.SetError(txtCurrentPassword, "InCorrect Password");
-                e.Cancel = true;
+                e.Cancel= true;
             }
             else
             {
@@ -84,22 +84,20 @@ namespace Bank.Users
 
         private void txtNewPassword_Validating(object sender, CancelEventArgs e)
         {
-            _ValidateEmptyInput(txtCurrentPassword, e);
+            _ValidateEmptyInput(txtNewPassword, e);
         }
 
         private void txtConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (!txtConfirmPassword.Equals(txtNewPassword))
+            if (txtConfirmPassword.Text.Trim() != txtNewPassword.Text.Trim())
             {
-                errorProvider1.SetError(txtCurrentPassword, "InCorrect Password");
+                errorProvider1.SetError(txtConfirmPassword, "Password Must Be Matched");
                 e.Cancel = true;
             }
             else
             {
-                errorProvider1.SetError(txtCurrentPassword, null);
+                errorProvider1.SetError(txtConfirmPassword, null);
             }
         }
-        
-
     }
 }

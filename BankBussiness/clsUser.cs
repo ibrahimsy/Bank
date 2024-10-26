@@ -91,6 +91,22 @@ namespace BankBussiness
             }
         }
 
+        public static clsUser FindUserByUserName(string UserName)
+        {
+            int UserID = -1;
+            int PersonID = -1;
+            string Password = "";
+            bool IsActive = false;
+
+            if (clsUserData.GetUserByUserName(ref UserID,ref PersonID, UserName, ref Password, ref IsActive))
+            {
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static bool IsExistByUserID(int UserID)
         {
             return clsUserData.IsUserExistByUserID(UserID);

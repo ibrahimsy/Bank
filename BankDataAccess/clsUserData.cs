@@ -24,6 +24,8 @@ namespace BankDataAccess
 
             try
             {
+                connection.Open();
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -61,6 +63,8 @@ namespace BankDataAccess
 
             try
             {
+                connection.Open();
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -69,6 +73,46 @@ namespace BankDataAccess
 
                     UserID = (int)reader["UserID"];
                     UserName = (string)reader["UserName"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool)reader["IsActive"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
+        public static bool GetUserByUserName(ref int UserID,ref int PersonID,string UserName, ref string Password, ref bool IsActive)
+        {
+            bool IsFound = false;
+
+            string query = "SELECT * FROM Users WHERE UserName = @UserName";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@UserName", UserName);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+
+                    UserID = (int)reader["UserID"];
+                    PersonID = (int)reader["PersonID"];
                     Password = (string)reader["Password"];
                     IsActive = (bool)reader["IsActive"];
                 }
@@ -260,10 +304,13 @@ namespace BankDataAccess
 
             SqlCommand command = new SqlCommand(query, connection);
 
+            command.Parameters.AddWithValue("@UserName", UserName);
+            command.Parameters.AddWithValue("@Password", Password);
             try
             {
                 connection.Open();
-                object result = command.ExecuteNonQuery();
+
+                object result = command.ExecuteScalar();
                 if (result != null)
                 {
                     IsFound = true;
