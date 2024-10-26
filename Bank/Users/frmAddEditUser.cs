@@ -63,7 +63,7 @@ namespace Bank.Users
             }
 
             ctrlPersonInfoWithFilter1.FilterEnabled = false;
-            ctrlPersonInfoWithFilter1.LoadPersonInfo();
+            ctrlPersonInfoWithFilter1.LoadPersonInfo(_UserInfo.PersonID);
 
             lblUserID.Text = _UserInfo.UserID.ToString();
             txtUserName.Text = _UserInfo.UserName.ToString();

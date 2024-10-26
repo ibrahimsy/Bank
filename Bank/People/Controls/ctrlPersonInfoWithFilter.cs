@@ -46,7 +46,7 @@ namespace Bank.People.Controls
 
         }
 
-        public void LoadPersonInfo()
+        public void LoadPersonInfo(int PersonID)
         {
             txtFilterValue.Text = PersonID.ToString();
             cbFilterBy.Text = "Person ID";
@@ -76,8 +76,8 @@ namespace Bank.People.Controls
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
-                return; 
+            //if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
+            //    return; 
 
            
             if (cbFilterBy.Text == "Person ID")

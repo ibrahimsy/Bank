@@ -135,5 +135,55 @@ namespace Bank.Users
 
             _RefreshPeopleList();
         }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showUserDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void addNewUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
+        }
+
+        private void editUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
+
+            DialogResult result = MessageBox.Show($"Are You Sure You Want To Delete User With ID[{UserID}]",
+                                                   "Confirm",
+                                                   MessageBoxButtons.YesNo,
+                                                   MessageBoxIcon.Question);
+            if (result == DialogResult.Yes) 
+            {
+                if (clsUser.DeleteUser(UserID))
+                {
+                    MessageBox.Show($"User Deleted Successfuly",
+                                                   "Success",
+                                                   MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"An Error Occurred",
+                                                   "Faild",
+                                                   MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

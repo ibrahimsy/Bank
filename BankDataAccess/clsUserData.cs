@@ -243,6 +243,8 @@ namespace BankDataAccess
 
             SqlCommand command = new SqlCommand(query, connection);
 
+            command.Parameters.AddWithValue("@UserID", UserID);
+
             try
             {
                 connection.Open();
@@ -273,6 +275,7 @@ namespace BankDataAccess
 
             SqlCommand command = new SqlCommand(query, connection);
 
+            command.Parameters.AddWithValue("@UserName", UserName);
             try
             {
                 connection.Open();

@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\frmAddEditClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\frmAddEditClient.Designer.cs">
+      <DependentUpon>frmAddEditClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\frmManageClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\frmManageClients.Designer.cs">
+      <DependentUpon>frmManageClients.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +128,18 @@
       <DependentUpon>frmManageUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\clsUtility.cs" />
+    <Compile Include="Users\frmUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUserInfo.Designer.cs">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Client\frmAddEditClient.resx">
+      <DependentUpon>frmAddEditClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\frmManageClients.resx">
+      <DependentUpon>frmManageClients.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +183,9 @@
     <EmbeddedResource Include="Users\frmManageUsers.resx">
       <DependentUpon>frmManageUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUserInfo.resx">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -179,7 +206,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Clients\" />
+    <None Include="Resources\ClientImage.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Bank Vault.png" />
@@ -231,6 +258,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Banking-system-Image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ManageGear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -188,7 +188,7 @@ namespace Bank.People
                 }
                 else
                 {
-                    MessageBox.Show("An Error Occurred",
+                    MessageBox.Show("You can't Delete This Person Because There Are Data Connected with.",
                                     "Faild",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
