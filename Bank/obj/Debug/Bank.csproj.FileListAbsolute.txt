@@ -15,7 +15,6 @@ D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.csproj.Up2Date
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.exe
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.pdb
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.frmAddEditPerson.resources
-D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.Controls.ctrlPersonInfo.resources
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.frmPersonInfo.resources
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.Controls.ctrlPersonInfoWithFilter.resources
 D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Users.frmAddEditUser.resources
@@ -43,3 +42,7 @@ C:\My-Github\Bank\Bank\bin\Debug\BankBussiness.pdb
 C:\My-Github\Bank\Bank\bin\Debug\BankDataAccess.pdb
 C:\My-Github\Bank\Bank\obj\Debug\Bank.csproj.Up2Date
 C:\My-Github\Bank\Bank\obj\Debug\Bank.Login.frmLogin.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Login.frmLogin.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Users.Controls.ctrlUserCard.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Users.frmChangePassword.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.People.Controls.ctrlPersonCard.resources

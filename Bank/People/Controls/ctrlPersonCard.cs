@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Bank.People.Controls
 {
-    public partial class ctrlPersonInfo : UserControl
+    public partial class ctrlPersonCard : UserControl
     {
         int _PersonID = -1;
         clsPerson _PersonInfo;
@@ -24,7 +24,7 @@ namespace Bank.People.Controls
                 return _PersonID;
             }
         }
-        public ctrlPersonInfo()
+        public ctrlPersonCard()
         {
             InitializeComponent();
         }

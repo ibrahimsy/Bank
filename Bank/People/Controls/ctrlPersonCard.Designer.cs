@@ -1,6 +1,6 @@
 ﻿namespace Bank.People.Controls
 {
-    partial class ctrlPersonInfo
+    partial class ctrlPersonCard
     {
         /// <summary> 
         /// Required designer variable.

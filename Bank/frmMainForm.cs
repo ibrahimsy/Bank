@@ -1,4 +1,5 @@
-﻿using Bank.People;
+﻿using Bank.Global_Classes;
+using Bank.People;
 using Bank.Users;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,11 @@ namespace Bank
 {
     public partial class frmMainForm : Form
     {
-        public frmMainForm()
+        Form _LoginForm;
+        public frmMainForm(Form LoginForm)
         {
             InitializeComponent();
+            _LoginForm = LoginForm;
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -29,6 +32,40 @@ namespace Bank
         {
             frmManageUsers frm = new frmManageUsers();
             frm.ShowDialog(); 
+        }
+
+        private void frmMainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           if(MessageBox.Show("Are You Sure You Want To Close Program",
+                            "Confirm",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _LoginForm.Show();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+
+        }
+
+        private void showCurrentUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPersonInfo frm = new frmPersonInfo(clsGlobalSettings.CurrentUser.PersonID);
+            frm.ShowDialog();
+
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword(clsGlobalSettings.CurrentUser.UserID);
+            frm.ShowDialog();
         }
     }
 }

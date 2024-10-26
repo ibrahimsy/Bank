@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonInfo1 = new Bank.People.Controls.ctrlPersonInfo();
+            this.ctrlPersonInfo1 = new Bank.People.Controls.ctrlPersonCard();
             this.gpFilter = new System.Windows.Forms.GroupBox();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.btnFindPerson = new System.Windows.Forms.Button();
@@ -118,7 +118,7 @@
 
         #endregion
 
-        private ctrlPersonInfo ctrlPersonInfo1;
+        private ctrlPersonCard ctrlPersonInfo1;
         private System.Windows.Forms.GroupBox gpFilter;
         private System.Windows.Forms.Button btnAddNewPerson;
         private System.Windows.Forms.Button btnFindPerson;

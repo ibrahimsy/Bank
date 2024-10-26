@@ -1,4 +1,5 @@
-﻿using BankBussiness;
+﻿using Bank.Global_Classes;
+using BankBussiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,9 +31,60 @@ namespace Bank.Login
             _UserName = txtUsername.Text;
             _Password = txtPassword.Text;
 
-            if (clsUser.IsExistByUserNameAndPassword(_UserName,_Password))
+            if (!clsUser.IsExistByUserNameAndPassword(_UserName,_Password))
             {
+                MessageBox.Show("Invalid Username/Password ,try Again.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
 
+            clsGlobalSettings.CurrentUser = clsUser.FindUserByUserName(_UserName);
+            
+            if (!clsGlobalSettings.CurrentUser.IsActive)
+            {
+                MessageBox.Show("Your Account Is not Active ,Contact Your Admin.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (chkRememberMe.Checked)
+                clsGlobalSettings.RememberUserNameAndPassword(_UserName, _Password);
+            else
+                clsGlobalSettings.RememberUserNameAndPassword("", "");
+
+
+            this.Hide();
+
+            frmMainForm frm = new frmMainForm(this);
+            frm.ShowDialog();
+
+            //this.Close();
+
+
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            string Username = "";
+            string Password = "";
+
+            if(clsGlobalSettings.GetRestoredUserNameAndPassword(ref Username,ref Password))
+            {
+                txtUsername.Text = Username;
+                txtPassword.Text = Password;
+
+                chkRememberMe.Checked = true;
+            }
+            else
+            {
+                txtUsername.Text = "";
+                txtPassword.Text = "";
+
+                chkRememberMe.Checked = false;
             }
         }
     }

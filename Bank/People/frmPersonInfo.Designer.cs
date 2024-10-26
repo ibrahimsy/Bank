@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrlPersonInfo1 = new Bank.People.Controls.ctrlPersonInfo();
+            this.ctrlPersonInfo1 = new Bank.People.Controls.ctrlPersonCard();
             this.SuspendLayout();
             // 
             // btnClose
@@ -72,7 +72,7 @@
 
         #endregion
 
-        private Controls.ctrlPersonInfo ctrlPersonInfo1;
+        private Controls.ctrlPersonCard ctrlPersonInfo1;
         private System.Windows.Forms.Button btnClose;
     }
 }
