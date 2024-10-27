@@ -15,8 +15,8 @@ namespace Bank.Global_Classes
 
         public static bool RememberUserNameAndPassword(string Username, string Password)
         {
-             //string FilePath = @"D:\Devlopment\C#\My-Github\Bank\Login.txt";
-            string FilePath = @"C:\My-Github\Bank\Login.txt";
+             string FilePath = @"D:\Devlopment\C#\My-Github\Bank\Login.txt";
+            //string FilePath = @"C:\My-Github\Bank\Login.txt";
             if (Username != "")
             {
                 string LoginInfo = $"{Username}#//#{Password}";
@@ -50,8 +50,8 @@ namespace Bank.Global_Classes
     
         public static bool GetRestoredUserNameAndPassword(ref string Username,ref string Password)
         {
-            //string FilePath = @"D:\Devlopment\C#\My-Github\Bank\Login.txt";
-            string FilePath = @"C:\My-Github\Bank\Login.txt";
+            string FilePath = @"D:\Devlopment\C#\My-Github\Bank\Login.txt";
+            //string FilePath = @"C:\My-Github\Bank\Login.txt";
             if (File.Exists(FilePath))
             {
                 try

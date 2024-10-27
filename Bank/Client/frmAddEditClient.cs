@@ -59,7 +59,7 @@ namespace Bank.Client
             _ClientInfo = clsClient.FindClientByID(_ClientID);
             if (_ClientInfo == null)
             {
-                MessageBox.Show($"User Not Found With ID = [{_ClientID}]", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Client Not Found With ID = [{_ClientID}]", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -68,7 +68,7 @@ namespace Bank.Client
 
             lblClientID.Text = _ClientInfo.ClientID.ToString();
             txtAccountNo.Text = _ClientInfo.AccountNumber.ToString();
-            txtPinCode.Text = _ClientInfo.PinCode.ToString();
+            txtMaskedPinCode.Text = _ClientInfo.PinCode.ToString();
             chkIsActive.Checked = _ClientInfo.IsActive;
 
             btnSave.Enabled = true;
@@ -125,18 +125,7 @@ namespace Bank.Client
             }
         }
 
-        private void txtPinCode_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtPinCode.Text.Trim()))
-            {
-                errorProvider1.SetError(txtPinCode, "This Feild Is Required");
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider1.SetError(txtPinCode, null);
-            }
-        }
+       
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -151,7 +140,7 @@ namespace Bank.Client
 
             _ClientInfo.PersonID = ctrlPersonInfoWithFilter1.PersonID;
             _ClientInfo.AccountNumber = txtAccountNo.Text;
-            _ClientInfo.PinCode = Convert.ToInt16(txtPinCode.Text.Trim());
+            _ClientInfo.PinCode = Convert.ToInt16(txtMaskedPinCode.Text.Trim());
             _ClientInfo.IsActive = chkIsActive.Checked;
             _ClientInfo.CreatedByID = clsGlobalSettings.CurrentUser.UserID;
 
@@ -195,6 +184,24 @@ namespace Bank.Client
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPinCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaskedPinCode_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaskedPinCode.Text.Trim()))
+            {
+                errorProvider1.SetError(txtMaskedPinCode, "This Feild Is Required");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtMaskedPinCode, null);
+            }
         }
     }
 }

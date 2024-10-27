@@ -18,7 +18,7 @@ namespace Bank.Client
         {
             InitializeComponent();
         }
-        void _RefreshPeopleList()
+        void _RefreshClientsList()
         {
             _dtClientList = clsClient.GetClientsList();
             dgvClients.DataSource = _dtClientList;
@@ -30,10 +30,10 @@ namespace Bank.Client
                 dgvClients.Columns[0].Width = 100;
 
                 dgvClients.Columns[1].HeaderText = "Person ID";
-                dgvClients.Columns[1].Width = 100;
+                dgvClients.Columns[1].Width = 150;
 
                 dgvClients.Columns[2].HeaderText = "Full Name";
-                dgvClients.Columns[2].Width = 250;
+                dgvClients.Columns[2].Width = 300;
 
                 dgvClients.Columns[3].HeaderText = "Account Number";
                 dgvClients.Columns[3].Width = 150;
@@ -49,6 +49,7 @@ namespace Bank.Client
 
             lblRecordsCount.Text = _dtClientList.Rows.Count.ToString();
         }
+       
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -56,7 +57,7 @@ namespace Bank.Client
 
         private void frmManageClients_Load(object sender, EventArgs e)
         {
-            _RefreshPeopleList();
+            _RefreshClientsList();
             cbFilterBy.SelectedIndex = 0;
         }
 
@@ -119,22 +120,74 @@ namespace Bank.Client
 
         private void showClientInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmClientInfo frm = new frmClientInfo((int)dgvClients.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
 
         private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmAddEditClient frm = new frmAddEditClient();
+            frm.ShowDialog();
 
+            _RefreshClientsList();
         }
 
         private void editClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmAddEditClient frm = new frmAddEditClient((int)dgvClients.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
 
+            _RefreshClientsList();
         }
 
         private void deleteClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int ClientID = (int)dgvClients.CurrentRow.Cells[0].Value;
 
+            DialogResult result = MessageBox.Show($"Are You Sure You Want To Delete Client With ID[{ClientID}]",
+                                                   "Confirm",
+                                                   MessageBoxButtons.YesNo,
+                                                   MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                if (clsClient.DeleteClient(ClientID))
+                {
+                    MessageBox.Show($"Client Deleted Successfuly",
+                                                   "Success",
+                                                   MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"An Error Occurred",
+                                                   "Faild",
+                                                   MessageBoxButtons.OK,
+                                                   MessageBoxIcon.Error);
+                }
+            }
+            _RefreshClientsList();
+        }
+
+        private void btnAddClient_Click(object sender, EventArgs e)
+        {
+            frmAddEditClient frm = new frmAddEditClient();
+            frm.ShowDialog();
+
+            _RefreshClientsList();
+        }
+
+        private void ChangePinCode_toolStripe(object sender, EventArgs e)
+        {
+            frmChangePinCode frm = new frmChangePinCode((int)dgvClients.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+
+            _RefreshClientsList();
+        }
+
+        private void dgvClients_DoubleClick(object sender, EventArgs e)
+        {
+            frmClientInfo frm = new frmClientInfo((int)dgvClients.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
     }
 }

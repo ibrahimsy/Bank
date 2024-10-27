@@ -54,3 +54,6 @@ D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Client.frmManageClients.reso
 C:\My-Github\Bank\Bank\obj\Debug\Bank.Client.frmAddEditClient.resources
 C:\My-Github\Bank\Bank\obj\Debug\Bank.Client.frmManageClients.resources
 C:\My-Github\Bank\Bank\obj\Debug\Bank.Users.frmUserInfo.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Client.Controls.ctrlClientCard.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Client.frmClientInfo.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Client.frmChangePinCode.resources

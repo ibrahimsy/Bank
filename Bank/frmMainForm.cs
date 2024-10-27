@@ -80,5 +80,17 @@ namespace Bank
             frmManageClients frm = new frmManageClients();
             frm.ShowDialog();
         }
+
+        private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frm = new frmAddEditPerson();
+            frm.ShowDialog();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
+        }
     }
 }

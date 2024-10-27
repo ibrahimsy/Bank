@@ -39,12 +39,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblClientID = new System.Windows.Forms.Label();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
-            this.txtPinCode = new System.Windows.Forms.TextBox();
             this.txtAccountNo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtMaskedPinCode = new System.Windows.Forms.MaskedTextBox();
             this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
             this.tabControl1.SuspendLayout();
             this.tbPersonInfo.SuspendLayout();
@@ -130,10 +130,10 @@
             // 
             // tpClientInfo
             // 
+            this.tpClientInfo.Controls.Add(this.txtMaskedPinCode);
             this.tpClientInfo.Controls.Add(this.pictureBox1);
             this.tpClientInfo.Controls.Add(this.lblClientID);
             this.tpClientInfo.Controls.Add(this.chkIsActive);
-            this.tpClientInfo.Controls.Add(this.txtPinCode);
             this.tpClientInfo.Controls.Add(this.txtAccountNo);
             this.tpClientInfo.Controls.Add(this.label3);
             this.tpClientInfo.Controls.Add(this.label2);
@@ -175,17 +175,6 @@
             this.chkIsActive.TabIndex = 8;
             this.chkIsActive.Text = "Is Active";
             this.chkIsActive.UseVisualStyleBackColor = true;
-            // 
-            // txtPinCode
-            // 
-            this.txtPinCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPinCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPinCode.Location = new System.Drawing.Point(212, 179);
-            this.txtPinCode.Name = "txtPinCode";
-            this.txtPinCode.Size = new System.Drawing.Size(189, 29);
-            this.txtPinCode.TabIndex = 5;
-            this.txtPinCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPinCode_KeyPress);
-            this.txtPinCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtPinCode_Validating);
             // 
             // txtAccountNo
             // 
@@ -230,6 +219,18 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // txtMaskedPinCode
+            // 
+            this.txtMaskedPinCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMaskedPinCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaskedPinCode.Location = new System.Drawing.Point(212, 173);
+            this.txtMaskedPinCode.Mask = "0000";
+            this.txtMaskedPinCode.Name = "txtMaskedPinCode";
+            this.txtMaskedPinCode.Size = new System.Drawing.Size(97, 31);
+            this.txtMaskedPinCode.TabIndex = 11;
+            this.txtMaskedPinCode.ValidatingType = typeof(int);
+            this.txtMaskedPinCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaskedPinCode_Validating);
             // 
             // ctrlPersonInfoWithFilter1
             // 
@@ -277,11 +278,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblClientID;
         private System.Windows.Forms.CheckBox chkIsActive;
-        private System.Windows.Forms.TextBox txtPinCode;
         private System.Windows.Forms.TextBox txtAccountNo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.MaskedTextBox txtMaskedPinCode;
     }
 }
