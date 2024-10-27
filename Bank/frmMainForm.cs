@@ -53,7 +53,7 @@ namespace Bank
 
         private void showCurrentUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPersonInfo frm = new frmPersonInfo(clsGlobalSettings.CurrentUser.PersonID);
+            frmUserInfo frm = new frmUserInfo(clsGlobalSettings.CurrentUser.UserID);
             frm.ShowDialog();
 
         }
@@ -92,5 +92,6 @@ namespace Bank
             frmAddEditUser frm = new frmAddEditUser();
             frm.ShowDialog();
         }
+
     }
 }

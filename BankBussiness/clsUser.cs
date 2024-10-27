@@ -13,6 +13,11 @@ namespace BankBussiness
 
         public enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
+
+        public enum enPermission { enِAddPerson = 1,enEditPerson = 2,enDeletePerson = 4,enShowPersonInfo = 8,
+                                   enUserManagment = 16,enAddClient = 32,enEditClient = 64,enDeleteClient = 128,
+                                   enShowClientInfo = 256,enChangePinCode = 512,enTransaction = 1024 }
+        enPermission _Permission;
         public int UserID { get; set; }
         public int PersonID { get; set; }
 
@@ -20,6 +25,7 @@ namespace BankBussiness
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
+        public int Permission {  get; set; }
       
         public clsUser()
         {
@@ -28,32 +34,33 @@ namespace BankBussiness
             this.UserName = "";
             this.Password = "";
             this.IsActive = false;
-            
+            this.Permission = -1;
             _Mode = enMode.enAddNew;
         }
 
-        private clsUser(int UserID,int PersonID,string UserName,string Password,bool IsActive)
+        private clsUser(int UserID,int PersonID,string UserName,string Password,bool IsActive,int Permission)
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
             this.PersonInfo = clsPerson.FindPersonByID(PersonID);
             this.UserName = UserName;
             this.Password = Password;
-            this.IsActive = IsActive;   
+            this.IsActive = IsActive;  
+            this.Permission = Permission;
 
             _Mode = enMode.enUpdate;
         }
 
         private bool _AddNewUser()
         {
-            UserID = clsUserData.AddNewUser(PersonID,UserName,Password,IsActive);
+            UserID = clsUserData.AddNewUser(PersonID,UserName,Password,IsActive,Permission);
 
             return (UserID != -1);
         }
 
         private bool _UpdateUser()
         {
-            return clsUserData.UpdateUserByID(UserID,PersonID, UserName, Password, IsActive);
+            return clsUserData.UpdateUserByID(UserID,PersonID, UserName, Password, IsActive, Permission);
         }
 
         public static clsUser FindUserByID(int UserID)
@@ -61,12 +68,13 @@ namespace BankBussiness
             int PersonID = -1;
             string UserName = "";
             string Password = "";
+            int Permission = -1;
             bool IsActive = false;
             
 
-            if (clsUserData.GetUserByID(UserID,ref PersonID,ref UserName,ref Password,ref IsActive))
+            if (clsUserData.GetUserByID(UserID,ref PersonID,ref UserName,ref Password,ref IsActive,ref Permission))
             {
-                return new clsUser(UserID, PersonID,UserName,Password,IsActive);
+                return new clsUser(UserID, PersonID,UserName,Password,IsActive, Permission);
             }
             else
             {
@@ -80,10 +88,11 @@ namespace BankBussiness
             string UserName = "";
             string Password = "";
             bool IsActive = false;
+            int Permission = -1;
 
-            if (clsUserData.GetUserByPersonID(ref UserID,PersonID, ref UserName, ref Password, ref IsActive))
+            if (clsUserData.GetUserByPersonID(ref UserID,PersonID, ref UserName, ref Password, ref IsActive,ref Permission))
             {
-                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive, Permission);
             }
             else
             {
@@ -96,11 +105,12 @@ namespace BankBussiness
             int UserID = -1;
             int PersonID = -1;
             string Password = "";
+            int Permission = -1;
             bool IsActive = false;
 
-            if (clsUserData.GetUserByUserName(ref UserID,ref PersonID, UserName, ref Password, ref IsActive))
+            if (clsUserData.GetUserByUserName(ref UserID,ref PersonID, UserName, ref Password, ref IsActive,ref Permission))
             {
-                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive, Permission);
             }
             else
             {

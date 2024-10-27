@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,10 @@ namespace BankBussiness
     {
         public enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
+
+        public enum enTransactionMode { enWithdraw = 1, enDeposit = 2,enTransfer = 3 }
+        enTransactionMode _TransactionMode = enTransactionMode.enWithdraw;
+
         public int ClientID { get; set; }
         public int PersonID { get; set; }
 
@@ -98,18 +103,49 @@ namespace BankBussiness
                 return null;
             }
         }
+
+        public static clsClient FindClientByAccountNumber(string AccountNumber)
+        {
+            int PersonID = -1;
+            int ClientID = -1;
+            short PinCode = -1;
+            double Balance = 0;
+            bool IsActive = false;
+            int CreatedByID = -1;
+
+            if (clsClientData.GetClientByAccountNumber(ref ClientID, ref PersonID, AccountNumber, ref PinCode, ref Balance, ref IsActive, ref CreatedByID))
+            {
+                return new clsClient(ClientID, PersonID, AccountNumber, PinCode, Balance, IsActive, CreatedByID);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static bool IsExistByClientID(int ClientID)
         {
             return clsClientData.IsClientExistByClientID(ClientID);
         }
+        
         public static bool IsExistByClientAccountNo(string AccountNo)
         {
             return clsClientData.IsClientExistByAccountNo(AccountNo);
         }
 
+        public static bool IsExistByClientAccountNoAndPinCode(string AccountNo,short PinCode)
+        {
+            return clsClientData.IsClientExistByAccountNoAndPinCode(AccountNo,PinCode);
+        }
+
         public static bool IsExistByPersonID(int PersonID)
         {
             return clsClientData.IsClientExistByPersonID(PersonID);
+        }
+
+        public static bool IsClientActive(string AccountNumber)
+        {
+            return clsClientData.IsClientActiveByAccountNumber(AccountNumber);
         }
 
         public static bool DeleteClient(int ClientID)
@@ -141,5 +177,31 @@ namespace BankBussiness
             }
             return false;
         }
+            
+        public bool WithDraw(double WithDrawAmount)
+        {
+            if (Balance < WithDrawAmount)
+            {
+                return false;
+            }
+            
+            Balance -= WithDrawAmount;
+            return Save();
+            
+        }
+        public bool Deposit(double DepositAmount)
+        {
+            Balance += DepositAmount;
+            return Save();
+        }
+
+        public bool Transfer(string DestinationAccount,double TrnsferAmount)
+        {
+            if (!this.WithDraw(TrnsferAmount))
+                return false;
+
+           return clsClient.FindClientByAccountNumber(DestinationAccount).Deposit(TrnsferAmount);
+        }
+
     }
 }

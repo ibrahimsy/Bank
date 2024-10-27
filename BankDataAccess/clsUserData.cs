@@ -10,7 +10,7 @@ namespace BankDataAccess
 {
     public class clsUserData
     {
-        public static bool GetUserByID(int UserID,ref int PersonID,ref string UserName,ref string Password,ref bool IsActive)
+        public static bool GetUserByID(int UserID,ref int PersonID,ref string UserName,ref string Password,ref bool IsActive,ref int Permission)
         {
             bool IsFound = false;
 
@@ -34,7 +34,8 @@ namespace BankDataAccess
                     PersonID = (int)reader["PersonID"];
                     UserName = (string)reader["UserName"];
                     Password = (string)reader["Password"];
-                    IsActive = (bool)reader["IsActive"];    
+                    IsActive = (bool)reader["IsActive"];
+                    Permission = (int)reader["Permission"];
                 }
                 reader.Close();
             }
@@ -49,7 +50,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetUserByPersonID(ref int UserID,int PersonID, ref string UserName, ref string Password, ref bool IsActive)
+        public static bool GetUserByPersonID(ref int UserID,int PersonID, ref string UserName, ref string Password, ref bool IsActive, ref int Permission)
         {
             bool IsFound = false;
 
@@ -75,6 +76,7 @@ namespace BankDataAccess
                     UserName = (string)reader["UserName"];
                     Password = (string)reader["Password"];
                     IsActive = (bool)reader["IsActive"];
+                    Permission = (int)reader["Permission"];
                 }
                 reader.Close();
             }
@@ -89,7 +91,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetUserByUserName(ref int UserID,ref int PersonID,string UserName, ref string Password, ref bool IsActive)
+        public static bool GetUserByUserName(ref int UserID,ref int PersonID,string UserName, ref string Password, ref bool IsActive, ref int Permission)
         {
             bool IsFound = false;
 
@@ -115,6 +117,7 @@ namespace BankDataAccess
                     PersonID = (int)reader["PersonID"];
                     Password = (string)reader["Password"];
                     IsActive = (bool)reader["IsActive"];
+                    Permission = (int)reader["Permission"];
                 }
                 reader.Close();
             }
@@ -129,14 +132,14 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static int AddNewUser(int PersonID, string UserName, string Password, bool IsActive)
+        public static int AddNewUser(int PersonID, string UserName, string Password, bool IsActive, int Permission)
         {
             int UserID = -1;
 
             string query = @"INSERT INTO Users
-                           (PersonID,UserName,Password,IsActive)
+                           (PersonID,UserName,Password,IsActive,Permission)
                      VALUES
-                           (@PersonID,@UserName,@Password,@IsActive);
+                           (@PersonID,@UserName,@Password,@IsActive,@Permission);
                             SELECT SCOPE_IDENTITY();";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -147,6 +150,7 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@UserName", UserName);
             command.Parameters.AddWithValue("@Password", Password);
             command.Parameters.AddWithValue("@IsActive", IsActive);
+            command.Parameters.AddWithValue("@Permission", Permission);
 
             try
             {
@@ -168,7 +172,7 @@ namespace BankDataAccess
             return UserID;
         }
         
-        public static bool UpdateUserByID(int UserID,int PersonID, string UserName, string Password, bool IsActive)
+        public static bool UpdateUserByID(int UserID,int PersonID, string UserName, string Password, bool IsActive, int Permission)
         {
             int AffectedRows = 0;
 
@@ -177,6 +181,7 @@ namespace BankDataAccess
                                 ,UserName = @UserName
                                 ,Password = @Password
                                 ,IsActive = @IsActive
+                                ,Permission = @Permission
                              WHERE UserID = @UserID";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -187,6 +192,7 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@Password", Password);
             command.Parameters.AddWithValue("@IsActive", IsActive);
             command.Parameters.AddWithValue("@UserID", UserID);
+            command.Parameters.AddWithValue("@Permission", Permission);
 
             try
             {
@@ -279,7 +285,7 @@ namespace BankDataAccess
             try
             {
                 connection.Open();
-                object result = command.ExecuteNonQuery();
+                object result = command.ExecuteScalar();
                 if (result != null)
                 {
                     IsFound = true;
@@ -340,7 +346,8 @@ namespace BankDataAccess
                             (People.FirstName +' '+ People.SecondName +' '+ People.ThirdName +' '+ People.LastName) AS FullName,
                             Users.UserName,
                             Users.Password,
-                            Users.IsActive
+                            Users.IsActive,
+                            Users.Permission
                             FROM   Users INNER JOIN
                                    People ON Users.PersonID = People.PersonID";
 

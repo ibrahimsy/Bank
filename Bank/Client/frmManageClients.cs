@@ -1,4 +1,5 @@
-﻿using BankBussiness;
+﻿using Bank.Transactions;
+using BankBussiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -188,6 +189,30 @@ namespace Bank.Client
         {
             frmClientInfo frm = new frmClientInfo((int)dgvClients.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+        }
+
+        private void _PerformTransaction(clsClient.enTransactionMode transactionMode)
+        {
+            frmWithDrawDeposit frm = new frmWithDrawDeposit((int)dgvClients.CurrentRow.Cells[0].Value, transactionMode);
+            frm.ShowDialog();
+        }
+
+        private void withDrawToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _PerformTransaction(clsClient.enTransactionMode.enWithdraw);
+            _RefreshClientsList();
+        }
+
+        private void depositToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _PerformTransaction(clsClient.enTransactionMode.enDeposit);
+            _RefreshClientsList();
+        }
+
+        private void transferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _PerformTransaction(clsClient.enTransactionMode.enTransfer);
+            _RefreshClientsList();
         }
     }
 }

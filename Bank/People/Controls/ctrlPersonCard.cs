@@ -79,6 +79,7 @@ namespace Bank.People.Controls
                                 MessageBoxIcon.Error);
                 return;
             }
+            _PersonID = _PersonInfo.PersonID;
 
             lblPersonID.Text = _PersonInfo.PersonID.ToString();
             lblNationalNo.Text = NationalNo;

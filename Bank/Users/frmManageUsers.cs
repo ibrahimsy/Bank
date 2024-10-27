@@ -43,6 +43,9 @@ namespace Bank.Users
 
                 dgvUsers.Columns[5].HeaderText = "Is Active";
                 dgvUsers.Columns[5].Width = 150;
+
+                dgvUsers.Columns[6].HeaderText = "Permission";
+                dgvUsers.Columns[6].Width = 150;
             }
 
 

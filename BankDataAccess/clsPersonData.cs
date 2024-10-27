@@ -87,6 +87,8 @@ namespace BankDataAccess
 
             try
             {
+                connection.Open(); 
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.Read())

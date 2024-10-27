@@ -34,7 +34,7 @@ namespace BankDataAccess
                     PersonID = (int)reader["PersonID"];
                     AccountNumber = (string)reader["AccountNumber"];
                     PinCode = (short)reader["PinCode"];
-                    Balance = (double)reader["Balance"];
+                    Balance = Convert.ToDouble(reader["Balance"]);
                     IsActive = (bool)reader["IsActive"];
                     CreatedBy = (int)reader["CreatedBy"];
                 }
@@ -75,7 +75,7 @@ namespace BankDataAccess
                     ClientID = (int)reader["ClientID"];
                     AccountNumber = (string)reader["AccountNumber"];
                     PinCode = (short)reader["PinCode"];
-                    Balance = (double)reader["Balance"];
+                    Balance = Convert.ToDouble(reader["Balance"]);
                     IsActive = (bool)reader["IsActive"];
                     CreatedBy = (int)reader["CreatedBy"];
                 }
@@ -91,7 +91,48 @@ namespace BankDataAccess
             }
             return IsFound;
         }
-       
+
+        public static bool GetClientByAccountNumber(ref int ClientID,ref int PersonID,string AccountNumber, ref short PinCode, ref double Balance, ref bool IsActive, ref int CreatedBy)
+        {
+            bool IsFound = false;
+
+            string query = "SELECT * FROM Clients WHERE AccountNumber = @AccountNumber";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    ClientID = (int)reader["ClientID"];
+                    PersonID = (int)reader["PersonID"];
+                    PinCode = (short)reader["PinCode"];
+                    Balance = Convert.ToDouble(reader["Balance"]);
+                    IsActive = (bool)reader["IsActive"];
+                    CreatedBy = (int)reader["CreatedBy"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+        
         public static int AddNewClient( int PersonID,  string AccountNumber,  short PinCode,  double Balance,bool IsActive,int CreatedByID)
         {
             int ClientID = -1;
@@ -266,6 +307,40 @@ namespace BankDataAccess
             return IsFound;
         }
 
+        public static bool IsClientExistByAccountNoAndPinCode(string AccountNumber,short PinCode)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM Clients 
+                             WHERE AccountNumber = @AccountNumber AND PinCode = @PinCode";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+            command.Parameters.AddWithValue("@PinCode", PinCode);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+       
         public static bool IsClientExistByPersonID(int PersonID)
         {
             bool IsFound = false;
@@ -299,7 +374,39 @@ namespace BankDataAccess
             }
             return IsFound;
         }
-       
+
+        public static bool IsClientActiveByAccountNumber(string AccountNumber)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM Clients WHERE AccountNumber = @AccountNumber AND IsActive = 1";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
         public static DataTable GetAllClients()
         {
             DataTable dtClients = new DataTable();
