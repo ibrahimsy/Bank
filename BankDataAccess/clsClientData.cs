@@ -10,7 +10,7 @@ namespace BankDataAccess
 {
     public static class clsClientData
     {
-        public static bool GetClientByID(int ClientID, ref int PersonID, ref string AccountNumber, ref short PinCode, ref double Balance)
+        public static bool GetClientByID(int ClientID, ref int PersonID, ref string AccountNumber,ref short PinCode ,ref double Balance, ref bool IsActive, ref int CreatedBy)
         {
             bool IsFound = false;
 
@@ -35,6 +35,8 @@ namespace BankDataAccess
                     AccountNumber = (string)reader["AccountNumber"];
                     PinCode = (short)reader["PinCode"];
                     Balance = (double)reader["Balance"];
+                    IsActive = (bool)reader["IsActive"];
+                    CreatedBy = (int)reader["CreatedBy"];
                 }
                 reader.Close();
             }
@@ -49,7 +51,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetClientByPersonID(ref int ClientID, int PersonID, ref string AccountNumber, ref short PinCode, ref double Balance)
+        public static bool GetClientByPersonID(ref int ClientID, int PersonID, ref string AccountNumber, ref short PinCode, ref double Balance,ref bool IsActive,ref int CreatedBy)
         {
             bool IsFound = false;
 
@@ -74,6 +76,8 @@ namespace BankDataAccess
                     AccountNumber = (string)reader["AccountNumber"];
                     PinCode = (short)reader["PinCode"];
                     Balance = (double)reader["Balance"];
+                    IsActive = (bool)reader["IsActive"];
+                    CreatedBy = (int)reader["CreatedBy"];
                 }
                 reader.Close();
             }
@@ -88,14 +92,14 @@ namespace BankDataAccess
             return IsFound;
         }
        
-        public static int AddNewClient( int PersonID,  string AccountNumber,  short PinCode,  double Balance)
+        public static int AddNewClient( int PersonID,  string AccountNumber,  short PinCode,  double Balance,bool IsActive,int CreatedByID)
         {
             int ClientID = -1;
 
             string query = @"INSERT INTO Clients
-                           (PersonID,AccountNumber,PinCode,Balance)
+                           (PersonID,AccountNumber,PinCode,Balance,IsActive,CreatedBy)
                      VALUES
-                           (@PersonID,@AccountNumber,@PinCode,@Balance);
+                           (@PersonID,@AccountNumber,@PinCode,@Balance,@IsActive,@CreatedBy);
                             SELECT SCOPE_IDENTITY();";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -106,6 +110,8 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
             command.Parameters.AddWithValue("@PinCode", PinCode);
             command.Parameters.AddWithValue("@Balance", Balance);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
+            command.Parameters.AddWithValue("@CreatedBy", CreatedByID);
 
             try
             {
@@ -127,7 +133,7 @@ namespace BankDataAccess
             return ClientID;
         }
 
-        public static bool UpdateClientByID(int ClientID, int PersonID, string AccountNumber, short PinCode, double Balance)
+        public static bool UpdateClientByID(int ClientID, int PersonID, string AccountNumber, short PinCode, double Balance,bool IsActive, int CreatedByID)
         {
             int AffectedRows = 0;
 
@@ -136,6 +142,8 @@ namespace BankDataAccess
                                 ,AccountNumber = @AccountNumber
                                 ,PinCode = @PinCode
                                 ,Balance = @Balance
+                                ,IsActive = @IsActive
+                                ,CreatedBy = @CreatedBy
                              WHERE ClientID = @ClientID";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -146,6 +154,8 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@PinCode", PinCode);
             command.Parameters.AddWithValue("@Balance", Balance);
             command.Parameters.AddWithValue("@ClientID", ClientID);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
+            command.Parameters.AddWithValue("@CreatedBy", CreatedByID);
 
             try
             {
@@ -224,6 +234,38 @@ namespace BankDataAccess
             return IsFound;
         }
 
+        public static bool IsClientExistByAccountNo(string AccountNumber)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM Clients WHERE AccountNumber = @AccountNumber";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
         public static bool IsClientExistByPersonID(int PersonID)
         {
             bool IsFound = false;
@@ -263,12 +305,13 @@ namespace BankDataAccess
             DataTable dtClients = new DataTable();
 
             string query = @"SELECT        
-                            Clients.ClientID,
+                            ClientID,
                             Clients.PersonID,
                             (People.FirstName +' '+ People.SecondName +' '+ People.ThirdName +' '+ People.LastName) AS FullName,
-                            Clients.AccountNumber,
-                            Clients.pinCode,
-                            Clients.Balance
+                            AccountNumber,
+                            pinCode,
+                            Balance,
+                            IsActive
                             FROM   Clients INNER JOIN
                                    People ON Clients.PersonID = People.PersonID";
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,10 @@ namespace BankBussiness
         public string AccountNumber { get; set; }
         public short PinCode { get; set; }
         public double Balance { get; set; }
+        public bool IsActive { get; set; }  
+        public int CreatedByID {  get; set; }
 
+        public clsUser UserInfo;
         public clsClient()
         {
             this.ClientID = -1;
@@ -27,11 +31,12 @@ namespace BankBussiness
             this.AccountNumber = "";
             this.PinCode = -1;
             this.Balance = 0;
-
+            this.IsActive = true;
+            this.CreatedByID = -1;
             _Mode = enMode.enAddNew;
         }
 
-        private clsClient(int ClientID, int PersonID, string AccountNumber, short PinCode, double Balance)
+        private clsClient(int ClientID, int PersonID, string AccountNumber, short PinCode, double Balance,bool IsActive,int CreatedByID)
         {
             this.ClientID = ClientID;
             this.PersonID = PersonID;
@@ -39,20 +44,22 @@ namespace BankBussiness
             this.AccountNumber = AccountNumber;
             this.PinCode = PinCode;
             this.Balance = Balance;
-
+            this.IsActive = IsActive;
+            this.CreatedByID = CreatedByID;
+            UserInfo = clsUser.FindUserByID(CreatedByID);
             _Mode = enMode.enUpdate;
         }
 
         private bool _AddNewClient()
         {
-            ClientID = clsClientData.AddNewClient(PersonID, AccountNumber, PinCode, Balance);
+            ClientID = clsClientData.AddNewClient(PersonID, AccountNumber, PinCode, Balance,IsActive,CreatedByID);
 
             return (ClientID != -1);
         }
 
         private bool _UpdateClient()
         {
-            return clsClientData.UpdateClientByID(ClientID, PersonID, AccountNumber, PinCode, Balance);
+            return clsClientData.UpdateClientByID(ClientID, PersonID, AccountNumber, PinCode, Balance, IsActive, CreatedByID);
         }
 
         public static clsClient FindClientByID(int ClientID)
@@ -61,11 +68,12 @@ namespace BankBussiness
             string AccountNumber = "";
             short PinCode = -1;
             double Balance = 0;
+            bool IsActive = false;
+            int CreatedByID = -1;
 
-
-            if (clsClientData.GetClientByID(ClientID, ref PersonID, ref AccountNumber, ref PinCode, ref Balance))
+            if (clsClientData.GetClientByID(ClientID, ref PersonID, ref AccountNumber, ref PinCode, ref Balance,ref IsActive,ref CreatedByID))
             {
-                return new clsClient(ClientID, PersonID, AccountNumber, PinCode, Balance);
+                return new clsClient(ClientID, PersonID, AccountNumber, PinCode, Balance, IsActive, CreatedByID);
             }
             else
             {
@@ -79,21 +87,24 @@ namespace BankBussiness
             string AccountNumber = "";
             short PinCode = -1;
             double Balance = 0;
-
-            if (clsClientData.GetClientByPersonID(ref ClientID, PersonID, ref AccountNumber, ref PinCode, ref Balance))
+            bool IsActive = true;
+            int CreatedByID = -1;
+            if (clsClientData.GetClientByPersonID(ref ClientID, PersonID, ref AccountNumber, ref PinCode, ref Balance,ref IsActive,ref CreatedByID))
             {
-                return new clsClient(ClientID, PersonID, AccountNumber, PinCode, Balance);
+                return new clsClient(ClientID, PersonID, AccountNumber, PinCode, Balance,IsActive,CreatedByID);
             }
             else
             {
                 return null;
             }
         }
-
-
         public static bool IsExistByClientID(int ClientID)
         {
             return clsClientData.IsClientExistByClientID(ClientID);
+        }
+        public static bool IsExistByClientAccountNo(string AccountNo)
+        {
+            return clsClientData.IsClientExistByAccountNo(AccountNo);
         }
 
         public static bool IsExistByPersonID(int PersonID)

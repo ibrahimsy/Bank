@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
@@ -39,9 +41,21 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showClientInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.addClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.editClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.deleteClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.callClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRecordsCount
@@ -107,6 +121,14 @@
             this.dgvClients.AllowUserToOrderColumns = true;
             this.dgvClients.BackgroundColor = System.Drawing.Color.White;
             this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClients.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClients.Location = new System.Drawing.Point(14, 266);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
@@ -169,6 +191,82 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showClientInfoToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.addClientToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.editClientToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.deleteClientToolStripMenuItem,
+            this.toolStripMenuItem4,
+            this.callClientToolStripMenuItem,
+            this.sendEmailToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 160);
+            // 
+            // showClientInfoToolStripMenuItem
+            // 
+            this.showClientInfoToolStripMenuItem.Name = "showClientInfoToolStripMenuItem";
+            this.showClientInfoToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.showClientInfoToolStripMenuItem.Text = "Show Client Info";
+            this.showClientInfoToolStripMenuItem.Click += new System.EventHandler(this.showClientInfoToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(158, 6);
+            // 
+            // addClientToolStripMenuItem
+            // 
+            this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.addClientToolStripMenuItem.Text = "Add Client";
+            this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(158, 6);
+            // 
+            // editClientToolStripMenuItem
+            // 
+            this.editClientToolStripMenuItem.Name = "editClientToolStripMenuItem";
+            this.editClientToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.editClientToolStripMenuItem.Text = "Edit Client";
+            this.editClientToolStripMenuItem.Click += new System.EventHandler(this.editClientToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(158, 6);
+            // 
+            // deleteClientToolStripMenuItem
+            // 
+            this.deleteClientToolStripMenuItem.Name = "deleteClientToolStripMenuItem";
+            this.deleteClientToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.deleteClientToolStripMenuItem.Text = "Delete Client";
+            this.deleteClientToolStripMenuItem.Click += new System.EventHandler(this.deleteClientToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(158, 6);
+            // 
+            // callClientToolStripMenuItem
+            // 
+            this.callClientToolStripMenuItem.Name = "callClientToolStripMenuItem";
+            this.callClientToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.callClientToolStripMenuItem.Text = "Call Client";
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.sendEmailToolStripMenuItem.Text = "Send Email";
+            // 
             // frmManageClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +290,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +309,16 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem showClientInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem addClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem editClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem deleteClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem callClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
     }
 }

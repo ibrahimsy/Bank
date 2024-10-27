@@ -1,4 +1,5 @@
-﻿using Bank.Global_Classes;
+﻿using Bank.Client;
+using Bank.Global_Classes;
 using Bank.People;
 using Bank.Users;
 using System;
@@ -65,6 +66,18 @@ namespace Bank
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChangePassword frm = new frmChangePassword(clsGlobalSettings.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void addClientToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmAddEditClient frm = new frmAddEditClient();
+            frm.ShowDialog();
+        }
+
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageClients frm = new frmManageClients();
             frm.ShowDialog();
         }
     }

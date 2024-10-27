@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbPersonInfo = new System.Windows.Forms.TabPage();
+            this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
             this.btnNext = new System.Windows.Forms.Button();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -47,7 +48,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
             this.tabControl1.SuspendLayout();
             this.tbPersonInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -77,6 +77,14 @@
             this.tbPersonInfo.TabIndex = 0;
             this.tbPersonInfo.Text = "Person Info";
             this.tbPersonInfo.UseVisualStyleBackColor = true;
+            // 
+            // ctrlPersonInfoWithFilter1
+            // 
+            this.ctrlPersonInfoWithFilter1.FilterEnabled = true;
+            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(6, 18);
+            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
+            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(952, 381);
+            this.ctrlPersonInfoWithFilter1.TabIndex = 16;
             // 
             // btnNext
             // 
@@ -254,14 +262,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // ctrlPersonInfoWithFilter1
-            // 
-            this.ctrlPersonInfoWithFilter1.FilterEnabled = true;
-            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(6, 18);
-            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
-            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(952, 381);
-            this.ctrlPersonInfoWithFilter1.TabIndex = 16;
             // 
             // frmAddEditUser
             // 

@@ -17,6 +17,10 @@ namespace Bank.People
 {
     public partial class frmAddEditPerson : Form
     {
+        public delegate void DataBackEventHandler(int PersonID);
+
+        public event DataBackEventHandler DataBack;
+
         enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
@@ -302,6 +306,10 @@ namespace Bank.People
 
                 lblTitle.Text = this.Text;
                 lblPersonID.Text = _PersonInfo.PersonID.ToString();
+
+                //Send Data Back
+                DataBack?.Invoke(_PersonInfo.PersonID);
+               
             }
             else
             {

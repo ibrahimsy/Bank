@@ -116,7 +116,25 @@ namespace Bank.Client
 
             lblRecordsCount.Text = _dtClientList.Rows.Count.ToString();
         }
-    
-    
+
+        private void showClientInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

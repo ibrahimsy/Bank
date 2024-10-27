@@ -12,11 +12,18 @@ namespace Bank.People.Controls
 {
     public partial class ctrlPersonInfoWithFilter : UserControl
     {
+
+        int _PersonID = -1;
         public int PersonID
         {
             get
             {
-                return ctrlPersonInfo1.PersonID;
+                _PersonID = ctrlPersonInfo1.PersonID;
+                return _PersonID;
+            }
+            set 
+            {
+                _PersonID = value;
             }
         }
         
@@ -43,7 +50,15 @@ namespace Bank.People.Controls
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
+            frmAddEditPerson frm = new frmAddEditPerson();
+            frm.DataBack += PersonID_DataBack;
+            frm.ShowDialog();
+        }
 
+        private void PersonID_DataBack(int PersonID)
+        {
+            _PersonID = PersonID;
+            LoadPersonInfo(_PersonID);
         }
 
         public void LoadPersonInfo(int PersonID)

@@ -23,6 +23,10 @@ namespace Bank.People.Controls
             {
                 return _PersonID;
             }
+            set
+            {
+                _PersonID = value;
+            }
         }
         public ctrlPersonCard()
         {
@@ -31,7 +35,6 @@ namespace Bank.People.Controls
 
         public void LoadPersonInfo(int PersonID)
         {
-            _PersonID = PersonID;
             _PersonInfo = clsPerson.FindPersonByID(PersonID);
             if (_PersonInfo == null)
             {
@@ -41,6 +44,7 @@ namespace Bank.People.Controls
                                 MessageBoxIcon.Error);
                 return;
             }
+            _PersonID = PersonID;
 
             lblPersonID.Text = _PersonID.ToString();
             lblNationalNo.Text = _PersonInfo.NationalNo;
