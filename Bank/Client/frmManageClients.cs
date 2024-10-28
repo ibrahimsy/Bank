@@ -1,4 +1,5 @@
-﻿using Bank.Transactions;
+﻿using Bank.Global_Classes;
+using Bank.Transactions;
 using BankBussiness;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Bank.Client
 {
-    public partial class frmManageClients : Form
+    public partial class frmManageClients : PermissionForm
     {
         DataTable _dtClientList;
         public frmManageClients()
@@ -213,6 +214,12 @@ namespace Bank.Client
         {
             _PerformTransaction(clsClient.enTransactionMode.enTransfer);
             _RefreshClientsList();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if(!CheckPermission(clsUser.enPermission.Transaction))
+                TransactiontoolStripMenuItem.Enabled = false;
         }
     }
 }

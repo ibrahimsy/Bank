@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bank.Global_Classes;
+using BankBussiness;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,6 +12,12 @@ namespace Bank.Util
 {
     public class clsUtility
     {
+
+        public static bool CheckHasPermission(clsUser.enPermission Permission)
+        {
+            return (clsGlobalSettings.CurrentUser.Permission & (short)Permission) == (short)Permission;
+        }
+
         public static bool IsValidEmail(string Email)
         {
             string Patern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";

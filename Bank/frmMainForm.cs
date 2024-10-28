@@ -2,6 +2,7 @@
 using Bank.Global_Classes;
 using Bank.People;
 using Bank.Users;
+using BankBussiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Bank
 {
-    public partial class frmMainForm : Form
+    public partial class frmMainForm : PermissionForm
     {
         Form _LoginForm;
         public frmMainForm(Form LoginForm)
@@ -31,6 +32,9 @@ namespace Bank
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!DoesUserHavePermission(clsUser.enPermission.UserManagment))
+                return;
+
             frmManageUsers frm = new frmManageUsers();
             frm.ShowDialog(); 
         }

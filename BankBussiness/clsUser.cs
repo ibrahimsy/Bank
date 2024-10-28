@@ -14,9 +14,9 @@ namespace BankBussiness
         public enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-        public enum enPermission { enِAddPerson = 1,enEditPerson = 2,enDeletePerson = 4,enShowPersonInfo = 8,
-                                   enUserManagment = 16,enAddClient = 32,enEditClient = 64,enDeleteClient = 128,
-                                   enShowClientInfo = 256,enChangePinCode = 512,enTransaction = 1024 }
+        public enum enPermission { AddPerson = 1,EditPerson = 2,DeletePerson = 4,ShowPersonInfo = 8,
+                                   UserManagment = 16,AddClient = 32,EditClient = 64,DeleteClient = 128,
+                                   ShowClientInfo = 256,ChangePinCode = 512,Transaction = 1024 }
         enPermission _Permission;
         public int UserID { get; set; }
         public int PersonID { get; set; }

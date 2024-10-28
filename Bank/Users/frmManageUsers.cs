@@ -19,7 +19,7 @@ namespace Bank.Users
             InitializeComponent();
         }
 
-        void _RefreshPeopleList()
+        void _RefreshUsersList()
         {
             _dtUserList = clsUser.GetUsersList();
             dgvUsers.DataSource = _dtUserList;
@@ -54,7 +54,7 @@ namespace Bank.Users
 
         private void frmManageUsers_Load(object sender, EventArgs e)
         {
-            _RefreshPeopleList();
+            _RefreshUsersList();
             cbFilterBy.SelectedIndex = 0;
         }
         private void btnClose_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace Bank.Users
             frmAddEditUser frm = new frmAddEditUser();
             frm.ShowDialog();
 
-            _RefreshPeopleList();
+            _RefreshUsersList();
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -160,6 +160,8 @@ namespace Bank.Users
         {
             frmAddEditUser frm = new frmAddEditUser((int)dgvUsers.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+
+            _RefreshUsersList();
         }
 
         private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)

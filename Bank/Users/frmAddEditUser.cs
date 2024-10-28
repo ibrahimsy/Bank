@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,6 +32,21 @@ namespace Bank.Users
             _Mode = enMode.enUpdate;
         }
 
+        void _FillCheckelBoxListWithItem()
+        {
+            chkLPermissions.Items.Add(clsUser.enPermission.AddPerson);
+            chkLPermissions.Items.Add(clsUser.enPermission.EditPerson);
+            chkLPermissions.Items.Add(clsUser.enPermission.DeletePerson);
+            chkLPermissions.Items.Add(clsUser.enPermission.ShowPersonInfo);
+            chkLPermissions.Items.Add(clsUser.enPermission.UserManagment);
+            chkLPermissions.Items.Add(clsUser.enPermission.AddClient);
+            chkLPermissions.Items.Add(clsUser.enPermission.EditClient);
+            chkLPermissions.Items.Add(clsUser.enPermission.DeleteClient);
+            chkLPermissions.Items.Add(clsUser.enPermission.ShowClientInfo);
+            chkLPermissions.Items.Add(clsUser.enPermission.ChangePinCode);
+            chkLPermissions.Items.Add(clsUser.enPermission.Transaction);
+        }
+
         void _ResetDefaultValue()
         {
             if(_Mode == enMode.enAddNew)
@@ -51,6 +67,8 @@ namespace Bank.Users
                 tpLoginInfo.Enabled = true;
                 btnSave.Enabled = Enabled; 
             }
+
+            _FillCheckelBoxListWithItem();
         }
 
         void _LoadUserInfo()
@@ -71,9 +89,29 @@ namespace Bank.Users
             txtConfirmPassword.Text = _UserInfo.Password.ToString();
             chkIsActive.Checked = _UserInfo.IsActive;
 
+            foreach (CheckedListBox Item in chkLPermissions.Items)
+            {
+               
+            }
+
+
+
+
             btnSave.Enabled = true;
 
         }
+        
+        int _GetUserPermission()
+        {
+            int Permissions = 0;
+
+            foreach (clsUser.enPermission permission in chkLPermissions.CheckedItems)
+            {
+                Permissions += (int)permission;
+            }
+            return Permissions;
+        }
+        
         private void frmAddEditUser_Load(object sender, EventArgs e)
         {
             _ResetDefaultValue();
@@ -180,6 +218,7 @@ namespace Bank.Users
             _UserInfo.UserName = txtUserName.Text;
             _UserInfo.Password = txtPassword.Text;
             _UserInfo.IsActive = chkIsActive.Checked;
+            _UserInfo.Permission = _GetUserPermission();
 
             if (_UserInfo.Save())
             {

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbPersonInfo = new System.Windows.Forms.TabPage();
-            this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
             this.btnNext = new System.Windows.Forms.Button();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,6 +47,9 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.chkLPermissions = new System.Windows.Forms.CheckedListBox();
+            this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
             this.tabControl1.SuspendLayout();
             this.tbPersonInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -60,10 +62,10 @@
             this.tabControl1.Controls.Add(this.tbPersonInfo);
             this.tabControl1.Controls.Add(this.tpLoginInfo);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 68);
+            this.tabControl1.Location = new System.Drawing.Point(15, 47);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(977, 481);
+            this.tabControl1.Size = new System.Drawing.Size(977, 556);
             this.tabControl1.TabIndex = 0;
             // 
             // tbPersonInfo
@@ -73,18 +75,10 @@
             this.tbPersonInfo.Location = new System.Drawing.Point(4, 22);
             this.tbPersonInfo.Name = "tbPersonInfo";
             this.tbPersonInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPersonInfo.Size = new System.Drawing.Size(969, 455);
+            this.tbPersonInfo.Size = new System.Drawing.Size(969, 530);
             this.tbPersonInfo.TabIndex = 0;
             this.tbPersonInfo.Text = "Person Info";
             this.tbPersonInfo.UseVisualStyleBackColor = true;
-            // 
-            // ctrlPersonInfoWithFilter1
-            // 
-            this.ctrlPersonInfoWithFilter1.FilterEnabled = true;
-            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(6, 18);
-            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
-            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(952, 381);
-            this.ctrlPersonInfoWithFilter1.TabIndex = 16;
             // 
             // btnNext
             // 
@@ -102,6 +96,8 @@
             // 
             // tpLoginInfo
             // 
+            this.tpLoginInfo.Controls.Add(this.chkLPermissions);
+            this.tpLoginInfo.Controls.Add(this.label4);
             this.tpLoginInfo.Controls.Add(this.pictureBox1);
             this.tpLoginInfo.Controls.Add(this.lblUserID);
             this.tpLoginInfo.Controls.Add(this.chkIsActive);
@@ -115,7 +111,7 @@
             this.tpLoginInfo.Location = new System.Drawing.Point(4, 22);
             this.tpLoginInfo.Name = "tpLoginInfo";
             this.tpLoginInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpLoginInfo.Size = new System.Drawing.Size(969, 455);
+            this.tpLoginInfo.Size = new System.Drawing.Size(969, 530);
             this.tpLoginInfo.TabIndex = 1;
             this.tpLoginInfo.Text = "Login Info";
             this.tpLoginInfo.UseVisualStyleBackColor = true;
@@ -143,7 +139,7 @@
             // 
             this.chkIsActive.AutoSize = true;
             this.chkIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIsActive.Location = new System.Drawing.Point(212, 275);
+            this.chkIsActive.Location = new System.Drawing.Point(212, 482);
             this.chkIsActive.Name = "chkIsActive";
             this.chkIsActive.Size = new System.Drawing.Size(97, 24);
             this.chkIsActive.TabIndex = 8;
@@ -166,7 +162,7 @@
             this.txtConfirmPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPassword.Location = new System.Drawing.Point(212, 220);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(189, 29);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(399, 29);
             this.txtConfirmPassword.TabIndex = 6;
             this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirmPassword_Validating);
             // 
@@ -176,7 +172,7 @@
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(212, 179);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(189, 29);
+            this.txtPassword.Size = new System.Drawing.Size(399, 29);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
@@ -186,7 +182,7 @@
             this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(212, 133);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(189, 29);
+            this.txtUserName.Size = new System.Drawing.Size(399, 29);
             this.txtUserName.TabIndex = 4;
             this.txtUserName.Validating += new System.ComponentModel.CancelEventHandler(this.txtUserName_Validating);
             // 
@@ -225,7 +221,7 @@
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Image = global::Bank.Properties.Resources.Save_321;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(897, 555);
+            this.btnSave.Location = new System.Drawing.Point(900, 609);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(92, 36);
             this.btnSave.TabIndex = 15;
@@ -238,7 +234,7 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Blue;
-            this.lblTitle.Location = new System.Drawing.Point(16, 30);
+            this.lblTitle.Location = new System.Drawing.Point(16, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(969, 35);
             this.lblTitle.TabIndex = 17;
@@ -250,7 +246,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::Bank.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(799, 555);
+            this.btnClose.Location = new System.Drawing.Point(802, 609);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(92, 36);
             this.btnClose.TabIndex = 18;
@@ -263,11 +259,46 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(103, 273);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Permission :";
+            // 
+            // chkLPermissions
+            // 
+            this.chkLPermissions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.chkLPermissions.ColumnWidth = 200;
+            this.chkLPermissions.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkLPermissions.FormattingEnabled = true;
+            this.chkLPermissions.HorizontalExtent = 10;
+            this.chkLPermissions.HorizontalScrollbar = true;
+            this.chkLPermissions.Location = new System.Drawing.Point(212, 273);
+            this.chkLPermissions.MultiColumn = true;
+            this.chkLPermissions.Name = "chkLPermissions";
+            this.chkLPermissions.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chkLPermissions.ScrollAlwaysVisible = true;
+            this.chkLPermissions.Size = new System.Drawing.Size(399, 191);
+            this.chkLPermissions.TabIndex = 12;
+            // 
+            // ctrlPersonInfoWithFilter1
+            // 
+            this.ctrlPersonInfoWithFilter1.FilterEnabled = true;
+            this.ctrlPersonInfoWithFilter1.Location = new System.Drawing.Point(6, 18);
+            this.ctrlPersonInfoWithFilter1.Name = "ctrlPersonInfoWithFilter1";
+            this.ctrlPersonInfoWithFilter1.PersonID = -1;
+            this.ctrlPersonInfoWithFilter1.Size = new System.Drawing.Size(952, 381);
+            this.ctrlPersonInfoWithFilter1.TabIndex = 16;
+            // 
             // frmAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 622);
+            this.ClientSize = new System.Drawing.Size(1004, 657);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnSave);
@@ -309,5 +340,7 @@
         private System.Windows.Forms.Button btnClose;
         private People.Controls.ctrlPersonInfoWithFilter ctrlPersonInfoWithFilter1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.CheckedListBox chkLPermissions;
+        private System.Windows.Forms.Label label4;
     }
 }

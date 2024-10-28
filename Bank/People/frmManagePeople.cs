@@ -1,4 +1,6 @@
-﻿using BankBussiness;
+﻿using Bank.Global_Classes;
+using Bank.Util;
+using BankBussiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Bank.People
 {
-    public partial class frmManagePeople : Form
+    public partial class frmManagePeople :PermissionForm
     {
         DataTable _dtPeopleList;
         DataTable _dtPeople;
@@ -149,6 +151,8 @@ namespace Bank.People
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
 
+            if (!DoesUserHavePermission(clsUser.enPermission.AddPerson))
+                return;
 
             frmAddEditPerson frm = new frmAddEditPerson();
             frm.ShowDialog();
@@ -158,6 +162,9 @@ namespace Bank.People
 
         private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!DoesUserHavePermission(clsUser.enPermission.EditPerson))
+                return;
+
             frmAddEditPerson frm = new frmAddEditPerson((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
 
@@ -166,6 +173,9 @@ namespace Bank.People
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!DoesUserHavePermission(clsUser.enPermission.AddPerson))
+                return;
+
             frmAddEditPerson frm = new frmAddEditPerson();
             frm.ShowDialog();
 
@@ -174,6 +184,9 @@ namespace Bank.People
 
         private void deletePersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!DoesUserHavePermission(clsUser.enPermission.EditPerson))
+                return;
+
             int PersonID = (int)dgvPeople.CurrentRow.Cells[0].Value;
             if (MessageBox.Show($"Are You Sure You Want To Delete Person With ID [{PersonID}]",
                                     "Confirm",
@@ -201,12 +214,18 @@ namespace Bank.People
 
         private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!DoesUserHavePermission(clsUser.enPermission.ShowPersonInfo))
+                return;
+
             frmPersonInfo frm = new frmPersonInfo((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
 
         private void dgvPeople_DoubleClick(object sender, EventArgs e)
         {
+            if (!DoesUserHavePermission(clsUser.enPermission.ShowPersonInfo))
+                return;
+
             frmPersonInfo frm = new frmPersonInfo((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
