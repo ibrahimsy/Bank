@@ -33,6 +33,8 @@
             this.tbPersonInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
+            this.chkLPermissions = new System.Windows.Forms.CheckedListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUserID = new System.Windows.Forms.Label();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
@@ -47,8 +49,8 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.chkLPermissions = new System.Windows.Forms.CheckedListBox();
+            this.rbFullAccess = new System.Windows.Forms.RadioButton();
+            this.rbCustomPermission = new System.Windows.Forms.RadioButton();
             this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
             this.tabControl1.SuspendLayout();
             this.tbPersonInfo.SuspendLayout();
@@ -96,6 +98,8 @@
             // 
             // tpLoginInfo
             // 
+            this.tpLoginInfo.Controls.Add(this.rbCustomPermission);
+            this.tpLoginInfo.Controls.Add(this.rbFullAccess);
             this.tpLoginInfo.Controls.Add(this.chkLPermissions);
             this.tpLoginInfo.Controls.Add(this.label4);
             this.tpLoginInfo.Controls.Add(this.pictureBox1);
@@ -115,6 +119,32 @@
             this.tpLoginInfo.TabIndex = 1;
             this.tpLoginInfo.Text = "Login Info";
             this.tpLoginInfo.UseVisualStyleBackColor = true;
+            // 
+            // chkLPermissions
+            // 
+            this.chkLPermissions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.chkLPermissions.ColumnWidth = 200;
+            this.chkLPermissions.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkLPermissions.FormattingEnabled = true;
+            this.chkLPermissions.HorizontalExtent = 10;
+            this.chkLPermissions.HorizontalScrollbar = true;
+            this.chkLPermissions.Location = new System.Drawing.Point(212, 310);
+            this.chkLPermissions.MultiColumn = true;
+            this.chkLPermissions.Name = "chkLPermissions";
+            this.chkLPermissions.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chkLPermissions.ScrollAlwaysVisible = true;
+            this.chkLPermissions.Size = new System.Drawing.Size(399, 164);
+            this.chkLPermissions.TabIndex = 12;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(100, 270);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 20);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Permission :";
             // 
             // pictureBox1
             // 
@@ -139,7 +169,7 @@
             // 
             this.chkIsActive.AutoSize = true;
             this.chkIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIsActive.Location = new System.Drawing.Point(212, 482);
+            this.chkIsActive.Location = new System.Drawing.Point(212, 489);
             this.chkIsActive.Name = "chkIsActive";
             this.chkIsActive.Size = new System.Drawing.Size(97, 24);
             this.chkIsActive.TabIndex = 8;
@@ -259,31 +289,31 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label4
+            // rbFullAccess
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(103, 273);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 20);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Permission :";
+            this.rbFullAccess.AutoSize = true;
+            this.rbFullAccess.Font = new System.Drawing.Font("Titillium Web SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFullAccess.Location = new System.Drawing.Point(212, 266);
+            this.rbFullAccess.Name = "rbFullAccess";
+            this.rbFullAccess.Size = new System.Drawing.Size(105, 28);
+            this.rbFullAccess.TabIndex = 13;
+            this.rbFullAccess.TabStop = true;
+            this.rbFullAccess.Text = "Full Access";
+            this.rbFullAccess.UseVisualStyleBackColor = true;
+            this.rbFullAccess.CheckedChanged += new System.EventHandler(this.rbFullAccess_CheckedChanged);
             // 
-            // chkLPermissions
+            // rbCustomPermission
             // 
-            this.chkLPermissions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.chkLPermissions.ColumnWidth = 200;
-            this.chkLPermissions.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkLPermissions.FormattingEnabled = true;
-            this.chkLPermissions.HorizontalExtent = 10;
-            this.chkLPermissions.HorizontalScrollbar = true;
-            this.chkLPermissions.Location = new System.Drawing.Point(212, 273);
-            this.chkLPermissions.MultiColumn = true;
-            this.chkLPermissions.Name = "chkLPermissions";
-            this.chkLPermissions.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.chkLPermissions.ScrollAlwaysVisible = true;
-            this.chkLPermissions.Size = new System.Drawing.Size(399, 191);
-            this.chkLPermissions.TabIndex = 12;
+            this.rbCustomPermission.AutoSize = true;
+            this.rbCustomPermission.Font = new System.Drawing.Font("Titillium Web SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCustomPermission.Location = new System.Drawing.Point(333, 266);
+            this.rbCustomPermission.Name = "rbCustomPermission";
+            this.rbCustomPermission.Size = new System.Drawing.Size(162, 28);
+            this.rbCustomPermission.TabIndex = 14;
+            this.rbCustomPermission.TabStop = true;
+            this.rbCustomPermission.Text = "Custom Permission";
+            this.rbCustomPermission.UseVisualStyleBackColor = true;
+            this.rbCustomPermission.CheckedChanged += new System.EventHandler(this.rbCustomPermission_CheckedChanged);
             // 
             // ctrlPersonInfoWithFilter1
             // 
@@ -342,5 +372,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.CheckedListBox chkLPermissions;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton rbCustomPermission;
+        private System.Windows.Forms.RadioButton rbFullAccess;
     }
 }

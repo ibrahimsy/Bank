@@ -172,6 +172,9 @@ namespace Bank.Client
 
         private void btnAddClient_Click(object sender, EventArgs e)
         {
+            if (!DoesUserHavePermission(clsUser.enPermission.AddClient))
+                return;
+
             frmAddEditClient frm = new frmAddEditClient();
             frm.ShowDialog();
 
@@ -220,6 +223,9 @@ namespace Bank.Client
         {
             if(!CheckPermission(clsUser.enPermission.Transaction))
                 TransactiontoolStripMenuItem.Enabled = false;
+
+            if (!CheckPermission(clsUser.enPermission.AddClient))
+                addClientToolStripMenuItem.Enabled = false;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BankBussiness;
+﻿using Bank.Global_Classes;
+using BankBussiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +59,7 @@ namespace Bank.Users
                 tpLoginInfo.Enabled = false;
                 btnSave.Enabled = false;
                 ctrlPersonInfoWithFilter1.TextValueFocus();
+                rbFullAccess.Checked = true;
             }
             else
             {
@@ -67,10 +69,43 @@ namespace Bank.Users
                 tpLoginInfo.Enabled = true;
                 btnSave.Enabled = Enabled; 
             }
-
+             
+            (rbFullAccess.Checked) = !chkLPermissions.Enabled;
+            
             _FillCheckelBoxListWithItem();
         }
 
+        void _CheckPermissionList()
+        {
+            if (_UserInfo.Permission == -1)
+            { 
+                rbFullAccess.Checked = true;
+                return;
+            }else
+                rbCustomPermission.Checked = true;
+
+            for (int i = 0;i< chkLPermissions.Items.Count;i++) 
+            { 
+                if ((_UserInfo.Permission & (int)chkLPermissions.Items[i]) == (int)chkLPermissions.Items[i])
+                {
+                    chkLPermissions.SetItemChecked(i, true);
+                }
+            }
+        }
+
+        int _GetUserPermission()
+        {
+            if (rbFullAccess.Checked)
+                return -1;
+
+            int Permissions = 0;
+            foreach (clsUser.enPermission permission in chkLPermissions.CheckedItems)
+            {
+                Permissions += (int)permission;
+            }
+            return Permissions;
+        }
+        
         void _LoadUserInfo()
         {
             _UserInfo = clsUser.FindUserByID(_UserID);
@@ -88,29 +123,13 @@ namespace Bank.Users
             txtPassword.Text = _UserInfo.Password.ToString();
             txtConfirmPassword.Text = _UserInfo.Password.ToString();
             chkIsActive.Checked = _UserInfo.IsActive;
-
-            foreach (CheckedListBox Item in chkLPermissions.Items)
-            {
-               
-            }
-
-
-
+            _CheckPermissionList();
 
             btnSave.Enabled = true;
 
         }
         
-        int _GetUserPermission()
-        {
-            int Permissions = 0;
-
-            foreach (clsUser.enPermission permission in chkLPermissions.CheckedItems)
-            {
-                Permissions += (int)permission;
-            }
-            return Permissions;
-        }
+        
         
         private void frmAddEditUser_Load(object sender, EventArgs e)
         {
@@ -241,6 +260,16 @@ namespace Bank.Users
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void rbFullAccess_CheckedChanged(object sender, EventArgs e)
+        {
+            chkLPermissions.Enabled = false;
+        }
+
+        private void rbCustomPermission_CheckedChanged(object sender, EventArgs e)
+        {
+            chkLPermissions.Enabled = true;
         }
     }
 }
