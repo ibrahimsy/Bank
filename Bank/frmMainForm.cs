@@ -97,5 +97,13 @@ namespace Bank
             frm.ShowDialog();
         }
 
+        private void fileToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+        {
+            if (!CheckPermission(clsUser.enPermission.AddPerson))
+                addPersontToolStripMenuItem.Enabled = false;
+            if (!CheckPermission(clsUser.enPermission.AddClient))
+                addClientToolStripMenuItem1.Enabled = false;
+
+        }
     }
 }
