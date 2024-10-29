@@ -9,21 +9,12 @@ using System.Threading.Tasks;
 namespace BankDataAccess
 {
     public class clsBranchData
-    {
-        /*
-         BranchID
-         BranchName
-         Address
-         PhoneNumber
-         Email
-         OpeningHours
-         Status
-         */
+    {    
         public static bool GetBranchByID(int BranchID, ref string BranchName, ref string Address,ref string PhoneNumber,ref string Email,ref string OpeningHours,ref byte Status)
         {
             bool IsFound = false;
 
-            string query = "SELECT * FROM Branchs WHERE BranchID = @BranchID";
+            string query = "SELECT * FROM Branches WHERE BranchID = @BranchID";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -241,16 +232,7 @@ namespace BankDataAccess
         {
             DataTable dt = new DataTable();
 
-            string query = @"SELECT        
-                            Branchs.BranchID,
-                            Branchs.PersonID,
-                            (People.FirstName +' '+ People.SecondName +' '+ People.ThirdName +' '+ People.LastName) AS FullName,
-                            Branchs.BranchName,
-                            Branchs.Password,
-                            Branchs.IsActive,
-                            Branchs.Permission
-                            FROM   Branchs INNER JOIN
-                                   People ON Branchs.PersonID = People.PersonID";
+            string query = @"SELECT * FROM Branches";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);

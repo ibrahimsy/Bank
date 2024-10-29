@@ -64,3 +64,5 @@ C:\My-Github\Bank\Bank\obj\Debug\Bank.Client.frmChangePinCode.resources
 C:\My-Github\Bank\Bank\obj\Debug\Bank.Client.frmClientInfo.resources
 C:\My-Github\Bank\Bank\obj\Debug\Bank.Global_Classes.PermissionForm.resources
 C:\My-Github\Bank\Bank\obj\Debug\Bank.Transactions.frmWithDrawDeposit.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Branches.frmBrancesManagment.resources
+D:\Devlopment\C#\My-Github\Bank\Bank\obj\Debug\Bank.Branches.frmEditBranch.resources

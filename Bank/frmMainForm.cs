@@ -1,4 +1,5 @@
-﻿using Bank.Client;
+﻿using Bank.Branches;
+using Bank.Client;
 using Bank.Global_Classes;
 using Bank.People;
 using Bank.Users;
@@ -104,6 +105,12 @@ namespace Bank
             if (!CheckPermission(clsUser.enPermission.AddClient))
                 addClientToolStripMenuItem1.Enabled = false;
 
+        }
+
+        private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
+        {
+            frmBrancesManagment frm = new frmBrancesManagment();
+            frm.ShowDialog();
         }
     }
 }

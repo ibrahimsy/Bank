@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Branches\frmBrancesManagment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Branches\frmBrancesManagment.Designer.cs">
+      <DependentUpon>frmBrancesManagment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Branches\frmEditBranch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Branches\frmEditBranch.Designer.cs">
+      <DependentUpon>frmEditBranch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\Controls\ctrlClientCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +176,12 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Branches\frmBrancesManagment.resx">
+      <DependentUpon>frmBrancesManagment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Branches\frmEditBranch.resx">
+      <DependentUpon>frmEditBranch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client\Controls\ctrlClientCard.resx">
       <DependentUpon>ctrlClientCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +328,11 @@
   <ItemGroup>
     <None Include="Resources\ManageGear.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\bank-Branch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditGear.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
