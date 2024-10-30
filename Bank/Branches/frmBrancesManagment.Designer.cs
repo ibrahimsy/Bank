@@ -33,10 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvBranches = new System.Windows.Forms.DataGridView();
-            this.lblRecordsCount = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblRecordsCount = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBranches)).BeginInit();
@@ -78,8 +78,23 @@
             this.dgvBranches.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBranches.Location = new System.Drawing.Point(12, 194);
             this.dgvBranches.Name = "dgvBranches";
+            this.dgvBranches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBranches.Size = new System.Drawing.Size(1150, 265);
             this.dgvBranches.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editBranchToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 26);
+            // 
+            // editBranchToolStripMenuItem
+            // 
+            this.editBranchToolStripMenuItem.Name = "editBranchToolStripMenuItem";
+            this.editBranchToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.editBranchToolStripMenuItem.Text = "Edit Branch";
+            this.editBranchToolStripMenuItem.Click += new System.EventHandler(this.editBranchToolStripMenuItem_Click);
             // 
             // lblRecordsCount
             // 
@@ -100,20 +115,6 @@
             this.label2.Size = new System.Drawing.Size(100, 24);
             this.label2.TabIndex = 10;
             this.label2.Text = "Records :";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editBranchToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
-            // 
-            // editBranchToolStripMenuItem
-            // 
-            this.editBranchToolStripMenuItem.Name = "editBranchToolStripMenuItem";
-            this.editBranchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editBranchToolStripMenuItem.Text = "Edit Branch";
-            this.editBranchToolStripMenuItem.Click += new System.EventHandler(this.editBranchToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 

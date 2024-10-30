@@ -23,7 +23,7 @@ namespace BankBussiness
     {
         enum enMode { enAddNew = 1,enUpdate = 2}
         enMode _Mode = enMode.enAddNew;
-        enum enBranchStatus { Opened = 1, TemporarilyClosed = 2, PermanentlyClosed = 3 }
+        public enum enBranchStatus { Active = 1, Inactive = 2, UnderConstruction = 3, Closed = 4, TemporarilyClosed = 5 }
         public int BranchID { set; get; }
         public string BranchName { set; get; }
         public string Address { set; get; }
@@ -40,7 +40,7 @@ namespace BankBussiness
             this.PhoneNumber = "";
             this.Email = "";
             this.OpeningHours = "";
-            this.Status = (byte)enBranchStatus.Opened;
+            this.Status = (byte)enBranchStatus.Active;
 
             _Mode = enMode.enAddNew;
         }
@@ -71,7 +71,7 @@ namespace BankBussiness
             string PhoneNumber = "";
             string Email = "";
             string OpeningHours = "";
-            byte Status = 1;
+            byte Status = (byte)1;
 
             if (clsBranchData.GetBranchByID( BranchID,ref BranchName,ref Address,ref PhoneNumber,ref Email,ref OpeningHours,ref Status))
             {

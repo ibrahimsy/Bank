@@ -232,7 +232,20 @@ namespace BankDataAccess
         {
             DataTable dt = new DataTable();
 
-            string query = @"SELECT * FROM Branches";
+            string query = @"SELECT BranchID
+                              ,BranchName
+                              ,Address
+                              ,PhoneNumber
+                              ,Email
+                              ,OpeningHours
+                              ,CASE
+		                        WHEN Status = 1 THEN 'Active'
+		                        WHEN Status = 2 THEN 'Inactive'
+		                        WHEN Status = 3 THEN 'Under Construction'
+		                        WHEN Status = 4 THEN 'Closed'
+		                        WHEN Status = 5 THEN 'Temporarily Closed'
+	                          END AS BranchStatus
+                          FROM Branches";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);

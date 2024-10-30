@@ -198,10 +198,6 @@
             // 
             this.cbBranchStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBranchStatus.FormattingEnabled = true;
-            this.cbBranchStatus.Items.AddRange(new object[] {
-            "Opened",
-            "Temporarily Closed",
-            "Permanently Closed"});
             this.cbBranchStatus.Location = new System.Drawing.Point(214, 492);
             this.cbBranchStatus.Name = "cbBranchStatus";
             this.cbBranchStatus.Size = new System.Drawing.Size(193, 28);

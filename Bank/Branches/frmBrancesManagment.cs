@@ -37,16 +37,16 @@ namespace Bank.Branches
                 dgvBranches.Columns[2].Width = 200;
 
                 dgvBranches.Columns[3].HeaderText = "Phone Number";
-                dgvBranches.Columns[3].Width = 200;
+                dgvBranches.Columns[3].Width = 150;
 
                 dgvBranches.Columns[4].HeaderText = "Email";
-                dgvBranches.Columns[4].Width = 200;
+                dgvBranches.Columns[4].Width = 180;
 
-                dgvBranches.Columns[5].HeaderText = "OpeningHours";
+                dgvBranches.Columns[5].HeaderText = "Opening Hours";
                 dgvBranches.Columns[5].Width = 150;
 
-                dgvBranches.Columns[6].HeaderText = "Status";
-                dgvBranches.Columns[6].Width = 100;
+                dgvBranches.Columns[6].HeaderText = "Branch Status";
+                dgvBranches.Columns[6].Width = 150;
             }
             
         }

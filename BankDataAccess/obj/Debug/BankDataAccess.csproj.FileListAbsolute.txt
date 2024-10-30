@@ -10,3 +10,9 @@ C:\My-Github\Bank\BankDataAccess\obj\Debug\BankDataAccess.csproj.AssemblyReferen
 C:\My-Github\Bank\BankDataAccess\obj\Debug\BankDataAccess.csproj.CoreCompileInputs.cache
 C:\My-Github\Bank\BankDataAccess\obj\Debug\BankDataAccess.dll
 C:\My-Github\Bank\BankDataAccess\obj\Debug\BankDataAccess.pdb
+D:\Development\C#\My-Github\Bank\BankDataAccess\bin\Debug\BankDataAccess.dll
+D:\Development\C#\My-Github\Bank\BankDataAccess\bin\Debug\BankDataAccess.pdb
+D:\Development\C#\My-Github\Bank\BankDataAccess\obj\Debug\BankDataAccess.csproj.AssemblyReference.cache
+D:\Development\C#\My-Github\Bank\BankDataAccess\obj\Debug\BankDataAccess.csproj.CoreCompileInputs.cache
+D:\Development\C#\My-Github\Bank\BankDataAccess\obj\Debug\BankDataAccess.dll
+D:\Development\C#\My-Github\Bank\BankDataAccess\obj\Debug\BankDataAccess.pdb

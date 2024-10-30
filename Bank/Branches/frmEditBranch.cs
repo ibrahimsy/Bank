@@ -16,12 +16,20 @@ namespace Bank.Branches
     {
         int _BranchID = -1;
         clsBranch _BranchInfo;
-        public frmEditBranch(int branchID)
+        public frmEditBranch(int BranchID)
         {
             InitializeComponent();
-            _BranchID = branchID;
+            _BranchID = BranchID;
         }
 
+        void _FillBranchStatusInComboBox()
+        {
+            cbBranchStatus.Items.Add(clsBranch.enBranchStatus.Active);
+            cbBranchStatus.Items.Add(clsBranch.enBranchStatus.Inactive);
+            cbBranchStatus.Items.Add(clsBranch.enBranchStatus.UnderConstruction);
+            cbBranchStatus.Items.Add(clsBranch.enBranchStatus.Closed);
+            cbBranchStatus.Items.Add(clsBranch.enBranchStatus.TemporarilyClosed);
+        }
         void _LoadBranchInfo()
         {
             _BranchInfo = clsBranch.FindBranchByID(_BranchID);
@@ -37,12 +45,14 @@ namespace Bank.Branches
             txtEmail.Text = _BranchInfo.Email.ToString();
             txtPhoneNumber.Text = _BranchInfo.PhoneNumber.ToString();
             txtOpeningHours.Text  = _BranchInfo.OpeningHours.ToString();
-
-            cbBranchStatus.SelectedIndex = 0;
+            cbBranchStatus.Text = ((clsBranch.enBranchStatus)_BranchInfo.Status).ToString();
+            
         }
 
         private void frmEditBranch_Load(object sender, EventArgs e)
         {
+            _FillBranchStatusInComboBox(); 
+
             _LoadBranchInfo();
         }
 
@@ -58,7 +68,7 @@ namespace Bank.Branches
             _BranchInfo.PhoneNumber = txtPhoneNumber.Text.Trim();
             _BranchInfo.Address = txtAddress.Text.Trim();
             _BranchInfo.OpeningHours = txtOpeningHours.Text.Trim();
-            _BranchInfo.Status = clsBranch.FindBranchByBranchName(txtBranchName.Text).Status;
+            _BranchInfo.Status = (byte)((clsBranch.enBranchStatus)cbBranchStatus.SelectedItem);
 
             if (_BranchInfo.Save())
             {
