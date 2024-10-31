@@ -57,6 +57,9 @@
             // 
             // dgvBranches
             // 
+            this.dgvBranches.AllowUserToAddRows = false;
+            this.dgvBranches.AllowUserToDeleteRows = false;
+            this.dgvBranches.AllowUserToOrderColumns = true;
             this.dgvBranches.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -78,6 +81,7 @@
             this.dgvBranches.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBranches.Location = new System.Drawing.Point(12, 194);
             this.dgvBranches.Name = "dgvBranches";
+            this.dgvBranches.ReadOnly = true;
             this.dgvBranches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBranches.Size = new System.Drawing.Size(1150, 265);
             this.dgvBranches.TabIndex = 2;

@@ -1,4 +1,5 @@
-﻿using Bank.Branches;
+﻿using Bank.AccountTypes;
+using Bank.Branches;
 using Bank.Client;
 using Bank.Global_Classes;
 using Bank.People;
@@ -110,6 +111,12 @@ namespace Bank
         private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
         {
             frmBrancesManagment frm = new frmBrancesManagment();
+            frm.ShowDialog();
+        }
+
+        private void accountTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAccountTypesManagment frm = new frmAccountTypesManagment();
             frm.ShowDialog();
         }
     }

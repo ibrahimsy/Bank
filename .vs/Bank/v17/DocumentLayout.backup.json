@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "D:\\Development\\C#\\My-Github\\Bank\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\branches\\frmeditbranch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\branches\\frmeditbranch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\accounttypes\\frmeditaccounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\accounttypes\\frmeditaccounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|D:\\Development\\C#\\My-Github\\Bank\\bankdataaccess\\clsbranchdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clsbranchdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|d:\\development\\c#\\my-github\\bank\\bankdataaccess\\clsaccounttypedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clsaccounttypedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|D:\\Development\\C#\\My-Github\\Bank\\bankbussiness\\clsbranch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsbranch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\accounttypes\\frmeditaccounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\accounttypes\\frmeditaccounttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\branches\\frmbrancesmanagment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\branches\\frmbrancesmanagment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\accounttypes\\frmaccounttypesmanagment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\accounttypes\\frmaccounttypesmanagment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\branches\\frmeditbranch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\branches\\frmeditbranch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\accounttypes\\frmaccounttypesmanagment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\accounttypes\\frmaccounttypesmanagment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\branches\\frmbrancesmanagment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\branches\\frmbrancesmanagment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\accounttypes\\frmeditaccounttype.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\accounttypes\\frmeditaccounttype.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,82 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "clsBranchData.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsBranchData.cs",
-              "RelativeDocumentMoniker": "BankDataAccess\\clsBranchData.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsBranchData.cs",
-              "RelativeToolTip": "BankDataAccess\\clsBranchData.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCkAAAAfAAAAAAAAAA==",
+              "Title": "clsAccountTypeData.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsAccountTypeData.cs",
+              "RelativeDocumentMoniker": "BankDataAccess\\clsAccountTypeData.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsAccountTypeData.cs",
+              "RelativeToolTip": "BankDataAccess\\clsAccountTypeData.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAADgv1cAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T19:19:59.054Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmEditBranch.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Branches\\frmEditBranch.cs",
-              "RelativeDocumentMoniker": "Bank\\Branches\\frmEditBranch.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Branches\\frmEditBranch.cs*",
-              "RelativeToolTip": "Bank\\Branches\\frmEditBranch.cs*",
-              "ViewState": "AgIAADoAAAAAAAAAAAAzwEYAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T19:03:06.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "clsBranch.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsBranch.cs",
-              "RelativeDocumentMoniker": "BankBussiness\\clsBranch.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsBranch.cs",
-              "RelativeToolTip": "BankBussiness\\clsBranch.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAiwEsAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T18:03:50.425Z",
+              "WhenOpened": "2024-10-31T00:22:19.941Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "frmBrancesManagment.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Branches\\frmBrancesManagment.cs",
-              "RelativeDocumentMoniker": "Bank\\Branches\\frmBrancesManagment.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Branches\\frmBrancesManagment.cs",
-              "RelativeToolTip": "Bank\\Branches\\frmBrancesManagment.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAwDAAAAAyAAAAAAAAAA==",
+              "Title": "frmEditAccountType.Designer.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmEditAccountType.Designer.cs",
+              "RelativeDocumentMoniker": "Bank\\AccountTypes\\frmEditAccountType.Designer.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmEditAccountType.Designer.cs",
+              "RelativeToolTip": "Bank\\AccountTypes\\frmEditAccountType.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T17:44:39.139Z",
+              "WhenOpened": "2024-10-31T00:19:04.874Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "frmEditBranch.cs [Design]",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Branches\\frmEditBranch.cs",
-              "RelativeDocumentMoniker": "Bank\\Branches\\frmEditBranch.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Branches\\frmEditBranch.cs [Design]*",
-              "RelativeToolTip": "Bank\\Branches\\frmEditBranch.cs [Design]*",
+              "Title": "frmAccountTypesManagment.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmAccountTypesManagment.cs",
+              "RelativeDocumentMoniker": "Bank\\AccountTypes\\frmAccountTypesManagment.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmAccountTypesManagment.cs",
+              "RelativeToolTip": "Bank\\AccountTypes\\frmAccountTypesManagment.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAcwEYAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T18:42:22.248Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-31T00:15:20.641Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "frmBrancesManagment.cs [Design]",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Branches\\frmBrancesManagment.cs",
-              "RelativeDocumentMoniker": "Bank\\Branches\\frmBrancesManagment.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Branches\\frmBrancesManagment.cs [Design]",
-              "RelativeToolTip": "Bank\\Branches\\frmBrancesManagment.cs [Design]",
+              "Title": "frmAccountTypesManagment.cs [Design]",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmAccountTypesManagment.cs",
+              "RelativeDocumentMoniker": "Bank\\AccountTypes\\frmAccountTypesManagment.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmAccountTypesManagment.cs [Design]",
+              "RelativeToolTip": "Bank\\AccountTypes\\frmAccountTypesManagment.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T17:29:21.598Z",
+              "WhenOpened": "2024-10-31T00:14:59.259Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmEditAccountType.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmEditAccountType.cs",
+              "RelativeDocumentMoniker": "Bank\\AccountTypes\\frmEditAccountType.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmEditAccountType.cs",
+              "RelativeToolTip": "Bank\\AccountTypes\\frmEditAccountType.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAYwBsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T23:58:13.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmEditAccountType.cs [Design]",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmEditAccountType.cs",
+              "RelativeDocumentMoniker": "Bank\\AccountTypes\\frmEditAccountType.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\AccountTypes\\frmEditAccountType.cs [Design]",
+              "RelativeToolTip": "Bank\\AccountTypes\\frmEditAccountType.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T23:48:37.029Z",
               "EditorCaption": " [Design]"
             }
           ]

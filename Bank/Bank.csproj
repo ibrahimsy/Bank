@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountTypes\frmAccountTypesManagment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountTypes\frmAccountTypesManagment.Designer.cs">
+      <DependentUpon>frmAccountTypesManagment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountTypes\frmEditAccountType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountTypes\frmEditAccountType.Designer.cs">
+      <DependentUpon>frmEditAccountType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Branches\frmBrancesManagment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +188,12 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountTypes\frmAccountTypesManagment.resx">
+      <DependentUpon>frmAccountTypesManagment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountTypes\frmEditAccountType.resx">
+      <DependentUpon>frmEditAccountType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Branches\frmBrancesManagment.resx">
       <DependentUpon>frmBrancesManagment.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +351,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EditGear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atm-card.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

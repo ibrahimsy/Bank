@@ -101,3 +101,5 @@ D:\Development\C#\My-Github\Bank\Bank\bin\Debug\BankDataAccess.dll
 D:\Development\C#\My-Github\Bank\Bank\bin\Debug\BankBussiness.pdb
 D:\Development\C#\My-Github\Bank\Bank\bin\Debug\BankDataAccess.pdb
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.csproj.Up2Date
+D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.AccountTypes.frmAccountTypesManagment.resources
+D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.AccountTypes.frmEditAccountType.resources
