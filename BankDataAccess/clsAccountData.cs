@@ -181,7 +181,70 @@ namespace BankDataAccess
             return AccountID;
         }
 
+        public static bool IsAccountExistByAccountID(int AccountID)
+        {
+            bool IsFound = false;
 
+            string query = @"SELECT found = 1 FROM Accounts WHERE AccountID = @AccountID";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountID", AccountID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteNonQuery();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
+        public static bool IsAccountExistByAccountNumber(int AccountNumber)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM Accounts WHERE AccountNumber = @AccountNumber";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteNonQuery();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+        
         public static bool UpdateAccountByID(int AccountID, int ClientID, string AccountNumber, int AccountTypeID, short PinCode, double Balance,
                                 byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy)
         {
