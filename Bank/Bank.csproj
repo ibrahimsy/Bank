@@ -358,5 +358,11 @@
   <ItemGroup>
     <Folder Include="Accounts\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refund-bro %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Revenue-bro.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

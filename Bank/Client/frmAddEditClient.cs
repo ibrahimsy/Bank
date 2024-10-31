@@ -40,7 +40,7 @@ namespace Bank.Client
                 this.Text = "Add Client";
                 lblTitle.Text = this.Text;
 
-                tpClientInfo.Enabled = false;
+                tpPrimaryAccount.Enabled = false;
                 btnSave.Enabled = false;
                 ctrlPersonInfoWithFilter1.TextValueFocus();
             }
@@ -49,7 +49,7 @@ namespace Bank.Client
                 this.Text = "Update Client";
                 lblTitle.Text = this.Text;
 
-                tpClientInfo.Enabled = true;
+                tpPrimaryAccount.Enabled = true;
                 btnSave.Enabled = Enabled;
             }
         }
@@ -85,8 +85,8 @@ namespace Bank.Client
                 }
                 else
                 {
-                    tabControl1.SelectedTab = tpClientInfo;
-                    tpClientInfo.Enabled = true;
+                    tabControl1.SelectedTab = tpPrimaryAccount;
+                    tpPrimaryAccount.Enabled = true;
                     btnSave.Enabled = true;
                 }
             }

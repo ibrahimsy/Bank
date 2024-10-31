@@ -117,6 +117,7 @@ namespace BankBussiness
                 return null;
             }
         }
+        
         public static bool IsExistByUserID(int UserID)
         {
             return clsUserData.IsUserExistByUserID(UserID);

@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "D:\\Development\\C#\\My-Github\\Bank\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|d:\\development\\c#\\my-github\\bank\\bankbussiness\\clsaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\client\\frmaddeditclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\client\\frmaddeditclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|D:\\Development\\C#\\My-Github\\Bank\\bankbussiness\\clsuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|d:\\development\\c#\\my-github\\bank\\bankbussiness\\clsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|D:\\Development\\C#\\My-Github\\Bank\\bankdataaccess\\clsaccountdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|d:\\development\\c#\\my-github\\bank\\bankdataaccess\\clsclientdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clsclientdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\client\\controls\\ctrlclientcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\client\\controls\\ctrlclientcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|d:\\development\\c#\\my-github\\bank\\bankdataaccess\\clsaccountdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clsaccountdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|D:\\Development\\C#\\My-Github\\Bank\\bankdataaccess\\clsaccounttypedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clsaccounttypedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|d:\\development\\c#\\my-github\\bank\\bankbussiness\\clsaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +34,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "clsUser.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsUser.cs",
-              "RelativeDocumentMoniker": "BankBussiness\\clsUser.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsUser.cs",
-              "RelativeToolTip": "BankBussiness\\clsUser.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAnAAAAAAAAAA==",
+              "Title": "clsClient.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsClient.cs",
+              "RelativeDocumentMoniker": "BankBussiness\\clsClient.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsClient.cs",
+              "RelativeToolTip": "BankBussiness\\clsClient.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowHgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T14:46:19.313Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "clsAccountTypeData.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsAccountTypeData.cs",
-              "RelativeDocumentMoniker": "BankDataAccess\\clsAccountTypeData.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsAccountTypeData.cs",
-              "RelativeToolTip": "BankDataAccess\\clsAccountTypeData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T11:06:41.759Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "clsAccount.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsAccount.cs",
-              "RelativeDocumentMoniker": "BankBussiness\\clsAccount.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsAccount.cs",
-              "RelativeToolTip": "BankBussiness\\clsAccount.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAADAAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T10:30:18.289Z",
+              "WhenOpened": "2024-10-31T20:08:10.887Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "clsClientData.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsClientData.cs",
+              "RelativeDocumentMoniker": "BankDataAccess\\clsClientData.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsClientData.cs",
+              "RelativeToolTip": "BankDataAccess\\clsClientData.cs",
+              "ViewState": "AgIAANMAAAAAAAAAAAAIwOcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T19:57:23.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "clsAccount.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsAccount.cs",
+              "RelativeDocumentMoniker": "BankBussiness\\clsAccount.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsAccount.cs",
+              "RelativeToolTip": "BankBussiness\\clsAccount.cs",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAYwJIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T19:42:11.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "clsAccountData.cs",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsAccountData.cs",
               "RelativeDocumentMoniker": "BankDataAccess\\clsAccountData.cs",
               "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsAccountData.cs",
               "RelativeToolTip": "BankDataAccess\\clsAccountData.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAwwAsAAACFAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T10:29:58.505Z"
+              "WhenOpened": "2024-10-31T19:39:43.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ctrlClientCard.cs [Design]",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\Controls\\ctrlClientCard.cs",
+              "RelativeDocumentMoniker": "Bank\\Client\\Controls\\ctrlClientCard.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\Controls\\ctrlClientCard.cs [Design]",
+              "RelativeToolTip": "Bank\\Client\\Controls\\ctrlClientCard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T19:21:06.301Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmAddEditClient.cs [Design]",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\frmAddEditClient.cs",
+              "RelativeDocumentMoniker": "Bank\\Client\\frmAddEditClient.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\frmAddEditClient.cs [Design]",
+              "RelativeToolTip": "Bank\\Client\\frmAddEditClient.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T19:17:54.043Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

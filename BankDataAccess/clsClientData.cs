@@ -10,7 +10,19 @@ namespace BankDataAccess
 {
     public static class clsClientData
     {
-        public static bool GetClientByID(int ClientID, ref int PersonID, ref string AccountNumber,ref short PinCode ,ref double Balance, ref bool IsActive, ref int CreatedBy)
+        /*
+         ClientID
+         PersonID
+         PrimaryAccountNumber
+         AccountStatus
+         CreatedBy
+         CreatedDate
+         UpdatedDate
+         BranchID
+         Notes
+         */
+        public static bool GetClientByID(int ClientID, ref int PersonID, ref string PrimaryAccountNumber, ref byte AccountStatus,
+                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime? UpdatedDate,ref int BranchID,ref string Notes)
         {
             bool IsFound = false;
 
@@ -31,12 +43,40 @@ namespace BankDataAccess
                 if (reader.Read())
                 {
                     IsFound = true;
-                    PersonID = (int)reader["PersonID"];
-                    AccountNumber = (string)reader["AccountNumber"];
-                    PinCode = (short)reader["PinCode"];
-                    Balance = Convert.ToDouble(reader["Balance"]);
-                    IsActive = (bool)reader["IsActive"];
+
+                    PersonID = (int)reader["PrimaryAccountNumber"];
+                    if (reader["PrimaryAccountNumber"] == DBNull.Value)
+                    {
+                        PrimaryAccountNumber = "";
+                    }
+                    else
+                    {
+                        PrimaryAccountNumber = (string)reader["PrimaryAccountNumber"];
+                    }
+                   
+                    AccountStatus = (byte)reader["AccountStatus"];
                     CreatedBy = (int)reader["CreatedBy"];
+                    CreatedDate = (DateTime)reader["CreatedDate"];
+                   
+                    if (reader["UpdatedDate"] == DBNull.Value)
+                    {
+                        UpdatedDate = null;
+                    }
+                    else
+                    {
+                        UpdatedDate = (DateTime)reader["UpdatedDate"];
+                    }
+                    BranchID = (int)reader["BranchID"];
+                    if (reader["Notes"] == DBNull.Value)
+                    {
+                        Notes = "";
+                    }
+                    else
+                    {
+                        Notes = (string)reader["Notes"];
+                    }
+                    
+
                 }
                 reader.Close();
             }
@@ -51,7 +91,8 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetClientByPersonID(ref int ClientID, int PersonID, ref string AccountNumber, ref short PinCode, ref double Balance,ref bool IsActive,ref int CreatedBy)
+        public static bool GetClientByPersonID(int PersonID, ref int ClientID, ref string PrimaryAccountNumber, ref byte AccountStatus,
+                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime? UpdatedDate, ref int BranchID, ref string Notes)
         {
             bool IsFound = false;
 
@@ -71,54 +112,35 @@ namespace BankDataAccess
 
                 if (reader.Read())
                 {
-                    IsFound = true;
                     ClientID = (int)reader["ClientID"];
-                    AccountNumber = (string)reader["AccountNumber"];
-                    PinCode = (short)reader["PinCode"];
-                    Balance = Convert.ToDouble(reader["Balance"]);
-                    IsActive = (bool)reader["IsActive"];
+                    if (reader["PrimaryAccountNumber"] == DBNull.Value)
+                    {
+                        PrimaryAccountNumber = "";
+                    }
+                    else
+                    {
+                        PrimaryAccountNumber = (string)reader["PrimaryAccountNumber"];
+                    }
+                    AccountStatus = (byte)reader["AccountStatus"];
                     CreatedBy = (int)reader["CreatedBy"];
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                IsFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return IsFound;
-        }
-
-        public static bool GetClientByAccountNumber(ref int ClientID,ref int PersonID,string AccountNumber, ref short PinCode, ref double Balance, ref bool IsActive, ref int CreatedBy)
-        {
-            bool IsFound = false;
-
-            string query = "SELECT * FROM Clients WHERE AccountNumber = @AccountNumber";
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
-
-            try
-            {
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    IsFound = true;
-                    ClientID = (int)reader["ClientID"];
-                    PersonID = (int)reader["PersonID"];
-                    PinCode = (short)reader["PinCode"];
-                    Balance = Convert.ToDouble(reader["Balance"]);
-                    IsActive = (bool)reader["IsActive"];
-                    CreatedBy = (int)reader["CreatedBy"];
+                    CreatedDate = (DateTime)reader["CreatedDate"];
+                    if (reader["UpdatedDate"] == DBNull.Value)
+                    {
+                        UpdatedDate = null;
+                    }
+                    else
+                    {
+                        UpdatedDate = (DateTime)reader["UpdatedDate"];
+                    }
+                    BranchID = (int)reader["BranchID"];
+                    if (reader["Notes"] == DBNull.Value)
+                    {
+                        Notes = "";
+                    }
+                    else
+                    {
+                        Notes = (string)reader["Notes"];
+                    }
                 }
                 reader.Close();
             }
@@ -133,14 +155,17 @@ namespace BankDataAccess
             return IsFound;
         }
         
-        public static int AddNewClient( int PersonID,  string AccountNumber,  short PinCode,  double Balance,bool IsActive,int CreatedByID)
+        public static int AddNewClient(int PersonID,  string PrimaryAccountNumber,  byte AccountStatus,
+                  int CreatedBy,  DateTime CreatedDate,  DateTime? UpdatedDate,  int BranchID,  string Notes)
         {
             int ClientID = -1;
 
             string query = @"INSERT INTO Clients
-                           (PersonID,AccountNumber,PinCode,Balance,IsActive,CreatedBy)
+                           (PersonID,PrimaryAccountNumber,AccountStatus,CreatedBy,CreatedDate
+                           ,UpdatedDate,BranchID,Notes)
                      VALUES
-                           (@PersonID,@AccountNumber,@PinCode,@Balance,@IsActive,@CreatedBy);
+                           (@PersonID,@PrimaryAccountNumber,@AccountStatus,@CreatedBy,@CreatedDate
+                           ,@UpdatedDate,@BranchID,@Notes);
                             SELECT SCOPE_IDENTITY();";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -148,11 +173,37 @@ namespace BankDataAccess
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
-            command.Parameters.AddWithValue("@PinCode", PinCode);
-            command.Parameters.AddWithValue("@Balance", Balance);
-            command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@CreatedBy", CreatedByID);
+            if (PrimaryAccountNumber == "")
+            {
+                command.Parameters.AddWithValue("@PrimaryAccountNumber", DBNull.Value);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@PrimaryAccountNumber", PrimaryAccountNumber);
+            }
+           
+            command.Parameters.AddWithValue("@AccountStatus", AccountStatus);
+            command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
+            command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
+            if (UpdatedDate == null)
+            {
+                command.Parameters.AddWithValue("@UpdatedDate", DBNull.Value);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@UpdatedDate", UpdatedDate);
+            }
+           
+            command.Parameters.AddWithValue("@BranchID", BranchID);
+            if (Notes == "")
+            {
+                command.Parameters.AddWithValue("@Notes", DBNull.Value);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@Notes", Notes);
+            }
+
 
             try
             {
@@ -174,29 +225,55 @@ namespace BankDataAccess
             return ClientID;
         }
 
-        public static bool UpdateClientByID(int ClientID, int PersonID, string AccountNumber, short PinCode, double Balance,bool IsActive, int CreatedByID)
+        public static bool UpdateClientByID(int ClientID,int PersonID, string PrimaryAccountNumber, byte AccountStatus,
+                         int CreatedBy, DateTime CreatedDate, DateTime? UpdatedDate, int BranchID, string Notes)
         {
             int AffectedRows = 0;
 
             string query = @"UPDATE Clients
                              SET PersonID = @PersonID
-                                ,AccountNumber = @AccountNumber
-                                ,PinCode = @PinCode
-                                ,Balance = @Balance
-                                ,IsActive = @IsActive
+                                ,PrimaryAccountNumber = @PrimaryAccountNumber
+                                ,AccountStatus = @AccountStatus
                                 ,CreatedBy = @CreatedBy
-                             WHERE ClientID = @ClientID";
+                                ,CreatedDate = @CreatedDate
+                                ,UpdatedDate = @UpdatedDate
+                                ,BranchID = @BranchID
+                                ,Notes = @Notes
+                              WHERE ClientID = @ClientID";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@PersonID", PersonID);
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
-            command.Parameters.AddWithValue("@PinCode", PinCode);
-            command.Parameters.AddWithValue("@Balance", Balance);
             command.Parameters.AddWithValue("@ClientID", ClientID);
-            command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@CreatedBy", CreatedByID);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            if (PrimaryAccountNumber == "")
+            {
+                command.Parameters.AddWithValue("@PrimaryAccountNumber", DBNull.Value);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@PrimaryAccountNumber", PrimaryAccountNumber);
+            }
+            command.Parameters.AddWithValue("@AccountStatus", AccountStatus);
+            command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
+            command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
+            if (UpdatedDate == null)
+            {
+                command.Parameters.AddWithValue("@UpdatedDate", DBNull.Value);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@UpdatedDate", UpdatedDate);
+            }
+            command.Parameters.AddWithValue("@BranchID", BranchID);
+            if (Notes == "")
+            {
+                command.Parameters.AddWithValue("@Notes", DBNull.Value);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@Notes", Notes);
+            }
 
             try
             {
@@ -274,72 +351,6 @@ namespace BankDataAccess
             }
             return IsFound;
         }
-
-        public static bool IsClientExistByAccountNo(string AccountNumber)
-        {
-            bool IsFound = false;
-
-            string query = @"SELECT found = 1 FROM Clients WHERE AccountNumber = @AccountNumber";
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    IsFound = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return IsFound;
-        }
-
-        public static bool IsClientExistByAccountNoAndPinCode(string AccountNumber,short PinCode)
-        {
-            bool IsFound = false;
-
-            string query = @"SELECT found = 1 FROM Clients 
-                             WHERE AccountNumber = @AccountNumber AND PinCode = @PinCode";
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
-            command.Parameters.AddWithValue("@PinCode", PinCode);
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    IsFound = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return IsFound;
-        }
        
         public static bool IsClientExistByPersonID(int PersonID)
         {
@@ -375,39 +386,9 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool IsClientActiveByAccountNumber(string AccountNumber)
-        {
-            bool IsFound = false;
-
-            string query = @"SELECT found = 1 FROM Clients WHERE AccountNumber = @AccountNumber AND IsActive = 1";
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
-
-            try
-            {
-                connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    IsFound = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return IsFound;
-        }
 
         public static DataTable GetAllClients()
+        
         {
             DataTable dtClients = new DataTable();
 
@@ -415,10 +396,13 @@ namespace BankDataAccess
                             ClientID,
                             Clients.PersonID,
                             (People.FirstName +' '+ People.SecondName +' '+ People.ThirdName +' '+ People.LastName) AS FullName,
-                            AccountNumber,
-                            pinCode,
-                            Balance,
-                            IsActive
+                            PrimaryAccountNumber,
+                            AccountStatus,
+                            CreatedBy,
+                            CreatedDate,
+                            UpdatedDate,
+                            BranchID,
+                            Notes
                             FROM   Clients INNER JOIN
                                    People ON Clients.PersonID = People.PersonID";
 
