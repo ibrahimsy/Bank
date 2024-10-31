@@ -355,5 +355,8 @@
   <ItemGroup>
     <None Include="Resources\atm-card.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Accounts\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

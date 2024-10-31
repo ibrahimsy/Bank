@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAccountData.cs" />
     <Compile Include="clsAccountTypeData.cs" />
     <Compile Include="clsBranchData.cs" />
     <Compile Include="clsClientData.cs" />
