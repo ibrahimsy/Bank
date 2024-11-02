@@ -35,7 +35,7 @@ namespace Bank.Client.Controls
             InitializeComponent();
         }
 
-        public void LoadClientInfo(int ClientID)
+        public void LoadClientInfoByID(int ClientID)
         {
             _ClientInfo = clsClient.FindClientByID(ClientID);
             if (_ClientInfo == null)
@@ -54,9 +54,28 @@ namespace Bank.Client.Controls
             lblIsActive.Text = _ClientInfo.AccountStatus ? "Yes" : "No";
         }
 
-        public void LoadClientInfo(string NationalNumber)
+        public void LoadClientInfoByNationalNo(string NationalNo)
         {
-            _ClientInfo = clsClient.FindClientByID(ClientID);
+            _ClientInfo = clsClient.FindClientByNationalNo(NationalNo);
+            if (_ClientInfo == null)
+            {
+                MessageBox.Show($"User With ID [{ClientID}] Is Not Found",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+            _ClientID = ClientID;
+
+            ctrlPersonCard1.LoadPersonInfo(_ClientInfo.PersonID);
+            lblClientID.Text = ClientID.ToString();
+            lblPrimaryAccountNo.Text = clsAccount.FindPrimaryAccountByClientID(_ClientID).AccountNumber;
+            lblIsActive.Text = _ClientInfo.AccountStatus ? "Yes" : "No";
+        }
+
+        public void LoadClientInfoByAccountNumber(string PrimaryAccount)
+        {
+            _ClientInfo = clsClient.FindClientByPrimaryAccountNumber(PrimaryAccount);
             if (_ClientInfo == null)
             {
                 MessageBox.Show($"User With ID [{ClientID}] Is Not Found",

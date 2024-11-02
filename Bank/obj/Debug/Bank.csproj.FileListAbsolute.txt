@@ -106,3 +106,5 @@ D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.frmTest.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.frmManageAccounts.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.Controls.ctrlAccountCard.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.frmShowAccountInfo.resources
+D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.frmAddNewAccount.resources
+D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Client.Controls.ctrlClientCardWithFilter.resources

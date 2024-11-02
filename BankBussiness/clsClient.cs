@@ -35,7 +35,7 @@ namespace BankBussiness
         
         public clsUser UserInfo;
         public DateTime CreatedDate { get; set; }  
-        public DateTime? UpdatedDate  {  get; set; }
+        public DateTime UpdatedDate  {  get; set; }
         public int BranchID { get; set; }
 
         public clsBranch BranchInfo;
@@ -48,19 +48,18 @@ namespace BankBussiness
             this.AccountStatus = true;
             this.CreatedBy = -1;
             this.CreatedDate = DateTime.Now;
-            this.UpdatedDate = null;
+            this.UpdatedDate = DateTime.MaxValue;
             this.BranchID = -1;
             this.Notes = "";
             _Mode = enMode.enAddNew;
         }
 
         private clsClient(int ClientID, int PersonID,bool AccountStatus,
-                         int CreatedBy, DateTime CreatedDate, DateTime? UpdatedDate, int BranchID, string Notes)
+                         int CreatedBy, DateTime CreatedDate, DateTime UpdatedDate, int BranchID, string Notes)
         {
             this.ClientID = ClientID;
             this.PersonID = PersonID;
-            PersonInfo = clsPerson.FindPersonByID(PersonID);
-        
+            PersonInfo = clsPerson.FindPersonByID(PersonID);  
             this.AccountStatus = AccountStatus;
             this.CreatedBy = CreatedBy;
             UserInfo = clsUser.FindUserByID(CreatedBy);
@@ -75,7 +74,7 @@ namespace BankBussiness
         private bool _AddNewClient()
         {
             ClientID = clsClientData.AddNewClient( PersonID,  AccountStatus,
-                          CreatedBy,  CreatedDate,  UpdatedDate,  BranchID,  Notes);
+                          CreatedBy,  CreatedDate,  BranchID,  Notes);
 
             return (ClientID != -1);
         }
@@ -94,7 +93,7 @@ namespace BankBussiness
             bool AccountStatus = true;
             int CreatedBy = -1;
             DateTime CreatedDate = DateTime.Now;
-            DateTime? UpdatedDate = null;
+            DateTime UpdatedDate = DateTime.MaxValue;
             int BranchID = -1;
             string Notes = "";
 
@@ -117,7 +116,7 @@ namespace BankBussiness
             bool AccountStatus = true;
             int CreatedBy = -1;
             DateTime CreatedDate = DateTime.Now;
-            DateTime? UpdatedDate = null;
+            DateTime UpdatedDate = DateTime.MaxValue;
             int BranchID = -1;
             string Notes = "";
             if (clsClientData.GetClientByPersonID(PersonID, ref ClientID,  ref AccountStatus,
@@ -153,6 +152,29 @@ namespace BankBussiness
                 return null;
             }
         }
+
+        public static clsClient FindClientByPrimaryAccountNumber(string PrimaryAccountNumber)
+        {
+            int ClientID = -1;
+            int PersonID = -1;
+            bool AccountStatus = true;
+            int CreatedBy = -1;
+            DateTime CreatedDate = DateTime.Now;
+            DateTime UpdatedDate = DateTime.MaxValue;
+            int BranchID = -1;
+            string Notes = "";
+            if (clsClientData.GetClientByNationalNumber(PrimaryAccountNumber, ref ClientID, ref PersonID, ref AccountStatus,
+                                                     ref CreatedBy, ref CreatedDate, ref UpdatedDate, ref BranchID, ref Notes))
+            {
+                return new clsClient(ClientID, PersonID, AccountStatus,
+                                                      CreatedBy, CreatedDate, UpdatedDate, BranchID, Notes);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public static bool IsExistByClientID(int ClientID)
         {
             return clsClientData.IsClientExistByClientID(ClientID);

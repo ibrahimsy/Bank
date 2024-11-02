@@ -36,7 +36,7 @@ namespace Bank.Client
 
         private void frmChangePinCode_Load(object sender, EventArgs e)
         {
-            ctrlClientCard1.LoadClientInfo(_ClientID);
+          
             txtCurrentPinCode.Focus();
             _ClientInfo = ctrlClientCard1.ClientInfo;
         }

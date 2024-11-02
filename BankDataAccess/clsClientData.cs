@@ -199,6 +199,66 @@ namespace BankDataAccess
             return IsFound;
         }
 
+        public static bool GetClientByPrimaryAccountNumber(string PrimaryAccountNumber, ref int ClientID, ref int PersonID, ref bool AccountStatus,
+                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime UpdatedDate, ref int BranchID, ref string Notes)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT Clients.ClientID, Clients.PersonID, Clients.AccountStatus, Clients.CreatedBy, Clients.CreatedDate, Clients.UpdatedDate, Clients.BranchID, Clients.Notes
+                            FROM  Accounts INNER JOIN
+                                   Clients ON Accounts.ClientID = Clients.ClientID
+                            WHERE  (Accounts.AccountNumber = @PrimaryAccountNumber) AND (Accounts.IsPrimary = 1)";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PrimaryAccountNumber", PrimaryAccountNumber);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    ClientID = (int)reader["ClientID"];
+                    PersonID = (int)reader["PersonID"];
+                    AccountStatus = (bool)reader["AccountStatus"];
+                    CreatedBy = (int)reader["CreatedBy"];
+                    CreatedDate = (DateTime)reader["CreatedDate"];
+                    if (reader["UpdatedDate"] == DBNull.Value)
+                    {
+                        UpdatedDate = DateTime.MaxValue;
+                    }
+                    else
+                    {
+                        UpdatedDate = (DateTime)reader["UpdatedDate"];
+                    }
+                    BranchID = (int)reader["BranchID"];
+                    if (reader["Notes"] == DBNull.Value)
+                    {
+                        Notes = "";
+                    }
+                    else
+                    {
+                        Notes = (string)reader["Notes"];
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
         public static int AddNewClient(int PersonID,  bool AccountStatus,
                   int CreatedBy,  DateTime CreatedDate,  int BranchID,  string Notes )
         {

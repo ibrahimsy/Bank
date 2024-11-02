@@ -74,6 +74,7 @@
             this.btnFindClient.Size = new System.Drawing.Size(50, 40);
             this.btnFindClient.TabIndex = 6;
             this.btnFindClient.UseVisualStyleBackColor = true;
+            this.btnFindClient.Click += new System.EventHandler(this.btnFindClient_Click);
             // 
             // txtFilterValue
             // 
@@ -83,6 +84,7 @@
             this.txtFilterValue.Name = "txtFilterValue";
             this.txtFilterValue.Size = new System.Drawing.Size(121, 29);
             this.txtFilterValue.TabIndex = 5;
+            this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
             // 
             // cbFilterBy
             // 
@@ -97,6 +99,7 @@
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(232, 32);
             this.cbFilterBy.TabIndex = 4;
+            this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
             // 
             // ctrlClientCardWithFilter
             // 

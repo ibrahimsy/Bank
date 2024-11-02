@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Bank.Accounts
 {
-    public partial class frmAddNewAccount : Form
+    public partial class frmAddEditAccount : Form
     {
-        public frmAddNewAccount()
+        public frmAddEditAccount()
         {
             InitializeComponent();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

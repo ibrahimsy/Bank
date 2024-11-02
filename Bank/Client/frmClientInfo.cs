@@ -26,7 +26,7 @@ namespace Bank.Client
 
         private void frmClientInfo_Load(object sender, EventArgs e)
         {
-            ctrlClientCard1.LoadClientInfo(_ClientID);
+           
         }
     }
 }
