@@ -28,25 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCard1 = new Bank.People.Controls.ctrlPersonCard();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblIsActive = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblAccountNo = new System.Windows.Forms.Label();
+            this.lblPrimaryAccountNo = new System.Windows.Forms.Label();
             this.lblClientID = new System.Windows.Forms.Label();
+            this.ctrlPersonCard1 = new Bank.People.Controls.ctrlPersonCard();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.Beige;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.PersonID = -1;
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(935, 281);
-            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -55,7 +46,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblIsActive);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.lblAccountNo);
+            this.groupBox1.Controls.Add(this.lblPrimaryAccountNo);
             this.groupBox1.Controls.Add(this.lblClientID);
             this.groupBox1.Location = new System.Drawing.Point(4, 287);
             this.groupBox1.Name = "groupBox1";
@@ -97,21 +88,21 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(378, 16);
+            this.label2.Location = new System.Drawing.Point(303, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 29);
+            this.label2.Size = new System.Drawing.Size(184, 29);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Account No :";
+            this.label2.Text = "Primary Account No :";
             // 
-            // lblAccountNo
+            // lblPrimaryAccountNo
             // 
-            this.lblAccountNo.AutoSize = true;
-            this.lblAccountNo.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountNo.Location = new System.Drawing.Point(493, 16);
-            this.lblAccountNo.Name = "lblAccountNo";
-            this.lblAccountNo.Size = new System.Drawing.Size(43, 29);
-            this.lblAccountNo.TabIndex = 5;
-            this.lblAccountNo.Text = "[ ? ]";
+            this.lblPrimaryAccountNo.AutoSize = true;
+            this.lblPrimaryAccountNo.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrimaryAccountNo.Location = new System.Drawing.Point(493, 16);
+            this.lblPrimaryAccountNo.Name = "lblPrimaryAccountNo";
+            this.lblPrimaryAccountNo.Size = new System.Drawing.Size(43, 29);
+            this.lblPrimaryAccountNo.TabIndex = 5;
+            this.lblPrimaryAccountNo.Text = "[ ? ]";
             // 
             // lblClientID
             // 
@@ -122,6 +113,15 @@
             this.lblClientID.Size = new System.Drawing.Size(43, 29);
             this.lblClientID.TabIndex = 4;
             this.lblClientID.Text = "[ ? ]";
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.Beige;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.PersonID = -1;
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(935, 281);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // ctrlClientCard
             // 
@@ -145,7 +145,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblIsActive;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblAccountNo;
+        private System.Windows.Forms.Label lblPrimaryAccountNo;
         private System.Windows.Forms.Label lblClientID;
     }
 }

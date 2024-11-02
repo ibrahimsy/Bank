@@ -13,7 +13,6 @@ namespace BankDataAccess
         /*
          ClientID
          PersonID
-         PrimaryAccountNumber
          AccountStatus
          CreatedBy
          CreatedDate
@@ -21,7 +20,7 @@ namespace BankDataAccess
          BranchID
          Notes
          */
-        public static bool GetClientByID(int ClientID, ref int PersonID, ref string PrimaryAccountNumber, ref byte AccountStatus,
+        public static bool GetClientByID(int ClientID, ref int PersonID, ref bool AccountStatus,
                  ref int CreatedBy, ref DateTime CreatedDate, ref DateTime? UpdatedDate,ref int BranchID,ref string Notes)
         {
             bool IsFound = false;
@@ -44,17 +43,10 @@ namespace BankDataAccess
                 {
                     IsFound = true;
 
-                    PersonID = (int)reader["PrimaryAccountNumber"];
-                    if (reader["PrimaryAccountNumber"] == DBNull.Value)
-                    {
-                        PrimaryAccountNumber = "";
-                    }
-                    else
-                    {
-                        PrimaryAccountNumber = (string)reader["PrimaryAccountNumber"];
-                    }
+                    PersonID = (int)reader["PersonID"];
                    
-                    AccountStatus = (byte)reader["AccountStatus"];
+                   
+                    AccountStatus = (bool)reader["AccountStatus"];
                     CreatedBy = (int)reader["CreatedBy"];
                     CreatedDate = (DateTime)reader["CreatedDate"];
                    
@@ -91,7 +83,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetClientByPersonID(int PersonID, ref int ClientID, ref string PrimaryAccountNumber, ref byte AccountStatus,
+        public static bool GetClientByPersonID(int PersonID, ref int ClientID, ref bool AccountStatus,
                  ref int CreatedBy, ref DateTime CreatedDate, ref DateTime? UpdatedDate, ref int BranchID, ref string Notes)
         {
             bool IsFound = false;
@@ -113,15 +105,8 @@ namespace BankDataAccess
                 if (reader.Read())
                 {
                     ClientID = (int)reader["ClientID"];
-                    if (reader["PrimaryAccountNumber"] == DBNull.Value)
-                    {
-                        PrimaryAccountNumber = "";
-                    }
-                    else
-                    {
-                        PrimaryAccountNumber = (string)reader["PrimaryAccountNumber"];
-                    }
-                    AccountStatus = (byte)reader["AccountStatus"];
+                    
+                    AccountStatus = (bool)reader["AccountStatus"];
                     CreatedBy = (int)reader["CreatedBy"];
                     CreatedDate = (DateTime)reader["CreatedDate"];
                     if (reader["UpdatedDate"] == DBNull.Value)
@@ -155,16 +140,16 @@ namespace BankDataAccess
             return IsFound;
         }
         
-        public static int AddNewClient(int PersonID,  string PrimaryAccountNumber,  byte AccountStatus,
-                  int CreatedBy,  DateTime CreatedDate,  DateTime? UpdatedDate,  int BranchID,  string Notes)
+        public static int AddNewClient(int PersonID,  bool AccountStatus,
+                  int CreatedBy,  DateTime CreatedDate,  DateTime? UpdatedDate,  int BranchID,  string Notes )
         {
             int ClientID = -1;
 
             string query = @"INSERT INTO Clients
-                           (PersonID,PrimaryAccountNumber,AccountStatus,CreatedBy,CreatedDate
+                           (PersonID,AccountStatus,CreatedBy,CreatedDate
                            ,UpdatedDate,BranchID,Notes)
                      VALUES
-                           (@PersonID,@PrimaryAccountNumber,@AccountStatus,@CreatedBy,@CreatedDate
+                           (@PersonID,@AccountStatus,@CreatedBy,@CreatedDate
                            ,@UpdatedDate,@BranchID,@Notes);
                             SELECT SCOPE_IDENTITY();";
 
@@ -173,14 +158,7 @@ namespace BankDataAccess
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@PersonID", PersonID);
-            if (PrimaryAccountNumber == "")
-            {
-                command.Parameters.AddWithValue("@PrimaryAccountNumber", DBNull.Value);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@PrimaryAccountNumber", PrimaryAccountNumber);
-            }
+           
            
             command.Parameters.AddWithValue("@AccountStatus", AccountStatus);
             command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
@@ -225,14 +203,13 @@ namespace BankDataAccess
             return ClientID;
         }
 
-        public static bool UpdateClientByID(int ClientID,int PersonID, string PrimaryAccountNumber, byte AccountStatus,
+        public static bool UpdateClientByID(int ClientID,int PersonID,  bool AccountStatus,
                          int CreatedBy, DateTime CreatedDate, DateTime? UpdatedDate, int BranchID, string Notes)
         {
             int AffectedRows = 0;
 
             string query = @"UPDATE Clients
                              SET PersonID = @PersonID
-                                ,PrimaryAccountNumber = @PrimaryAccountNumber
                                 ,AccountStatus = @AccountStatus
                                 ,CreatedBy = @CreatedBy
                                 ,CreatedDate = @CreatedDate
@@ -246,14 +223,7 @@ namespace BankDataAccess
 
             command.Parameters.AddWithValue("@ClientID", ClientID);
             command.Parameters.AddWithValue("@PersonID", PersonID);
-            if (PrimaryAccountNumber == "")
-            {
-                command.Parameters.AddWithValue("@PrimaryAccountNumber", DBNull.Value);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@PrimaryAccountNumber", PrimaryAccountNumber);
-            }
+           
             command.Parameters.AddWithValue("@AccountStatus", AccountStatus);
             command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
             command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
@@ -393,18 +363,19 @@ namespace BankDataAccess
             DataTable dtClients = new DataTable();
 
             string query = @"SELECT        
-                            ClientID,
-                            Clients.PersonID,
-                            (People.FirstName +' '+ People.SecondName +' '+ People.ThirdName +' '+ People.LastName) AS FullName,
-                            PrimaryAccountNumber,
-                            AccountStatus,
-                            CreatedBy,
-                            CreatedDate,
-                            UpdatedDate,
-                            BranchID,
-                            Notes
-                            FROM   Clients INNER JOIN
-                                   People ON Clients.PersonID = People.PersonID";
+                               ClientID,
+                               Clients.PersonID,
+                               (People.FirstName +' '+ People.SecondName +' '+ People.ThirdName +' '+ People.LastName) AS FullName,
+                               CASE 
+	                            WHEN AccountStatus = 1 THEN 'Active'
+	                            WHEN AccountStatus = 0 THEN 'InActive'
+                               END
+                                AS AccountStatus,
+                               CreatedDate,
+                               (SELECT BranchName FROM Branches WHERE BranchID = Clients.BranchID) AS BranchName,
+                               Notes
+                               FROM   Clients INNER JOIN
+                                      People ON Clients.PersonID = People.PersonID";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);

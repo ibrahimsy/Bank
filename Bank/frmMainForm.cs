@@ -1,4 +1,5 @@
-﻿using Bank.AccountTypes;
+﻿using Bank.Accounts;
+using Bank.AccountTypes;
 using Bank.Branches;
 using Bank.Client;
 using Bank.Global_Classes;
@@ -77,7 +78,7 @@ namespace Bank
 
         private void addClientToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmAddEditClient frm = new frmAddEditClient();
+            frmAddClient frm = new frmAddClient();
             frm.ShowDialog();
         }
 
@@ -117,6 +118,12 @@ namespace Bank
         private void accountTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAccountTypesManagment frm = new frmAccountTypesManagment();
+            frm.ShowDialog();
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            frmManageAccounts frm = new frmManageAccounts();    
             frm.ShowDialog();
         }
     }

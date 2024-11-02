@@ -56,8 +56,7 @@ namespace Bank.Util
             }
             return true;
         }
-
-
+  
         public static bool CopyImageToProjectImagesFolder(ref string SourceFile)
         {
             string ImagesFolder = @"C:My-Github\Bank\Images\";
@@ -79,6 +78,13 @@ namespace Bank.Util
                 SourceFile = DestinationFile;
          
             return true;
+        }
+
+        public static string GenerateAccountNumber(int DigitsCount)
+        {
+            Random random = new Random();
+            return (random.Next(10000000,99999999)).ToString();
+            //0000 0000     9999 9999
         }
 
     }

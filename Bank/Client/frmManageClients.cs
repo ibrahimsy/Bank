@@ -1,5 +1,4 @@
 ﻿using Bank.Global_Classes;
-using Bank.Transactions;
 using BankBussiness;
 using System;
 using System.Collections.Generic;
@@ -32,18 +31,21 @@ namespace Bank.Client
                 dgvClients.Columns[0].Width = 100;
 
                 dgvClients.Columns[1].HeaderText = "Person ID";
-                dgvClients.Columns[1].Width = 150;
+                dgvClients.Columns[1].Width = 110;
 
                 dgvClients.Columns[2].HeaderText = "Full Name";
                 dgvClients.Columns[2].Width = 300;
 
-                dgvClients.Columns[3].HeaderText = "Account Number";
+                dgvClients.Columns[3].HeaderText = "Account Status";
                 dgvClients.Columns[3].Width = 150;
 
-                dgvClients.Columns[4].HeaderText = "Pin Code";
-                dgvClients.Columns[4].Width = 100;
+                dgvClients.Columns[4].HeaderText = "Created Date";
+                dgvClients.Columns[4].Width = 180;
 
-                dgvClients.Columns[5].HeaderText = "Balance";
+                dgvClients.Columns[5].HeaderText = "Branch Name";
+                dgvClients.Columns[5].Width = 100;
+
+                dgvClients.Columns[5].HeaderText = "Notes";
                 dgvClients.Columns[5].Width = 100;
 
             }
@@ -73,8 +75,6 @@ namespace Bank.Client
                     return "ClientID";
                 case "Full Name":
                     return "FullName";
-                case "Account Number":
-                    return "AccountNumber";
                 default:
                     return "";
             }
@@ -117,7 +117,7 @@ namespace Bank.Client
                 _dtClientList.DefaultView.RowFilter = string.Format("[{0}] Like '{1}%'", FilterColumn, FilterValue);
             }
 
-            lblRecordsCount.Text = _dtClientList.Rows.Count.ToString();
+            lblRecordsCount.Text = _dtClientList.DefaultView.Count.ToString();
         }
 
         private void showClientInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace Bank.Client
 
         private void addClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditClient frm = new frmAddEditClient();
+            frmAddClient frm = new frmAddClient();
             frm.ShowDialog();
 
             _RefreshClientsList();
@@ -136,9 +136,8 @@ namespace Bank.Client
 
         private void editClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddEditClient frm = new frmAddEditClient((int)dgvClients.CurrentRow.Cells[0].Value);
+            frmAddClient frm = new frmAddClient((int)dgvClients.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
-
             _RefreshClientsList();
         }
 
@@ -175,7 +174,7 @@ namespace Bank.Client
             if (!DoesUserHavePermission(clsUser.enPermission.AddClient))
                 return;
 
-            frmAddEditClient frm = new frmAddEditClient();
+            frmAddClient frm = new frmAddClient();
             frm.ShowDialog();
 
             _RefreshClientsList();
@@ -193,29 +192,27 @@ namespace Bank.Client
         {
             frmClientInfo frm = new frmClientInfo((int)dgvClients.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+
+            _RefreshClientsList();
         }
 
-        private void _PerformTransaction(clsClient.enTransactionMode transactionMode)
-        {
-            frmWithDrawDeposit frm = new frmWithDrawDeposit((int)dgvClients.CurrentRow.Cells[0].Value, transactionMode);
-            frm.ShowDialog();
-        }
+       
 
         private void withDrawToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _PerformTransaction(clsClient.enTransactionMode.enWithdraw);
+         
             _RefreshClientsList();
         }
 
         private void depositToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _PerformTransaction(clsClient.enTransactionMode.enDeposit);
+            
             _RefreshClientsList();
         }
 
         private void transferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _PerformTransaction(clsClient.enTransactionMode.enTransfer);
+           
             _RefreshClientsList();
         }
 

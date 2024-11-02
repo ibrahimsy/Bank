@@ -45,15 +45,7 @@ namespace Bank.Client
         {
             _ValidateEmptyInput(txtCurrentPinCode, e);
 
-            if (!clsClient.IsExistByClientAccountNoAndPinCode(ctrlClientCard1.ClientInfo.AccountNumber, Convert.ToInt16(txtCurrentPinCode.Text.Trim())))
-            {
-                errorProvider1.SetError(txtCurrentPinCode, "InCorrect PinCode");
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider1.SetError(txtCurrentPinCode, null);
-            }
+            
         }
 
         private void txtNewPinCode_Validating(object sender, CancelEventArgs e)
@@ -87,7 +79,7 @@ namespace Bank.Client
                 return;
             }
 
-            _ClientInfo.PinCode = Convert.ToInt16(txtNewPinCode.Text.Trim());
+          
             if (_ClientInfo.Save())
             {
                 MessageBox.Show("PinCode Changed Successfuly", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

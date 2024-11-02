@@ -12,8 +12,8 @@ namespace BankBussiness
         int         AccountID
         int         ClientID
         string      AccountNumber
+        bool        IsPrimary
         int         AccountID
-        short       PinCode
         double      Balance
         byte        AccountStatus
         DateTime    DateOpened
@@ -28,13 +28,15 @@ namespace BankBussiness
         public enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-        enum enAccountStatus { Active = 1,InActive = 2,Closed = 3,Pending = 4,Frozen = 5,Blocked = 6}
+        public enum enAccountStatus { Active = 1,InActive = 2,Closed = 3,Pending = 4,Frozen = 5,Blocked = 6}
 
         public int AccountID { get; set; }
         public int ClientID { get; set; }
 
         public clsClient ClientInfo;
         public string AccountNumber { get; set; }
+
+        public bool IsPrimary {  get; set; }
         public int AccountTypeID { get; set; }
 
         public clsAccountType AccountTypeInfo;
@@ -57,7 +59,7 @@ namespace BankBussiness
             this.ClientID = -1;
             this.AccountNumber = "";
             this.AccountTypeID = -1;
-         
+            this.IsPrimary = false;
             this.Balance = 0d;
             this.AccountStatus = 1;
             this.DateOpened = DateTime.Now;
@@ -69,7 +71,7 @@ namespace BankBussiness
            
         }
 
-        private clsAccount(int AccountID, int ClientID, string AccountNumber, int AccountTypeID, double Balance,
+        private clsAccount(int AccountID, int ClientID, string AccountNumber,bool IsPrimary, int AccountTypeID, double Balance,
                 byte AccountStatus,DateTime DateOpened,DateTime? DateClosed,int BranchID,DateTime? LastTransactionDate,string Notes,int CreatedBy)
         {
              this.AccountID = AccountID;
@@ -78,7 +80,7 @@ namespace BankBussiness
              this.AccountNumber = AccountNumber;
              this.AccountTypeID = AccountTypeID;
              this.AccountTypeInfo = clsAccountType.FindAccountTypeByID(this.AccountTypeID);
-        
+             this.IsPrimary = IsPrimary;
              this.Balance = Balance;
              this.AccountStatus = AccountStatus;
              this.DateOpened = DateOpened;
@@ -93,7 +95,7 @@ namespace BankBussiness
 
         private bool _AddNewAccount()
         {
-            AccountID = clsAccountData.AddNewAccount( ClientID,  AccountNumber,  AccountTypeID,  Balance,
+            AccountID = clsAccountData.AddNewAccount( ClientID,  AccountNumber,IsPrimary,  AccountTypeID,  Balance,
                                  AccountStatus,  DateOpened,  DateClosed,  BranchID,  LastTransactionDate,  Notes,  CreatedBy);
 
             return (AccountID != -1);
@@ -101,7 +103,7 @@ namespace BankBussiness
 
         private bool _UpdateAccount()
         {
-            return clsAccountData.UpdateAccountByID(AccountID, ClientID,  AccountNumber,  AccountTypeID,  Balance,
+            return clsAccountData.UpdateAccountByID(AccountID, ClientID,  AccountNumber,IsPrimary,  AccountTypeID,  Balance,
                                  AccountStatus,  DateOpened,  DateClosed,  BranchID,  LastTransactionDate,  Notes,  CreatedBy);
         }
 
@@ -110,7 +112,7 @@ namespace BankBussiness
             int ClientID = -1;
             string AccountNumber = "";
             int AccountTypeID = -1;
-          
+            bool IsPrimary = false;
             double Balance = 0d;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
@@ -121,10 +123,10 @@ namespace BankBussiness
             int CreatedBy = -1;
 
 
-            if (clsAccountData.GetAccountByID(AccountID,ref ClientID,ref AccountNumber,ref AccountTypeID,ref Balance,
+            if (clsAccountData.GetAccountByID(AccountID,ref ClientID,ref AccountNumber,ref IsPrimary,ref AccountTypeID,ref Balance,
                                  ref AccountStatus,ref DateOpened,ref DateClosed,ref BranchID,ref LastTransactionDate,ref Notes,ref CreatedBy))
             {
-                return new clsAccount(AccountID ,ClientID,  AccountNumber,  AccountTypeID,Balance,
+                return new clsAccount(AccountID ,ClientID,  AccountNumber,IsPrimary,  AccountTypeID,Balance,
                                   AccountStatus,  DateOpened, DateClosed, BranchID,  LastTransactionDate,  Notes,  CreatedBy);
             }
             else
@@ -138,7 +140,7 @@ namespace BankBussiness
             int AccountID = -1;
             int ClientID = -1;
             int AccountTypeID = -1;
-          
+            bool IsPrimary = false;
             double Balance = 0d;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
@@ -148,10 +150,10 @@ namespace BankBussiness
             string Notes = "";
             int CreatedBy = -1;
 
-            if (clsAccountData.GetAccountByAccountNumber(AccountNumber, ref AccountID, ref ClientID, ref AccountTypeID,  ref Balance,
+            if (clsAccountData.GetAccountByAccountNumber(AccountNumber, ref AccountID, ref ClientID,ref IsPrimary, ref AccountTypeID,  ref Balance,
                                  ref AccountStatus, ref DateOpened, ref DateClosed, ref BranchID, ref LastTransactionDate, ref Notes, ref CreatedBy))
             {
-                return new clsAccount(AccountID, ClientID, AccountNumber, AccountTypeID,  Balance,
+                return new clsAccount(AccountID, ClientID, AccountNumber,IsPrimary, AccountTypeID,  Balance,
                                   AccountStatus, DateOpened, DateClosed, BranchID, LastTransactionDate, Notes, CreatedBy);
             }
             else
@@ -160,6 +162,33 @@ namespace BankBussiness
             }
         }
 
+        public static clsAccount FindPrimaryAccountByClientID(int ClientID)
+        {
+            int AccountID = -1;
+            string AccountNumber = "";
+            int AccountTypeID = -1;
+            bool IsPrimary = false;
+            double Balance = 0d;
+            byte AccountStatus = 1;
+            DateTime DateOpened = DateTime.Now;
+            DateTime? DateClosed = DateTime.Now;
+            int BranchID = -1;
+            DateTime? LastTransactionDate = DateTime.Now;
+            string Notes = "";
+            int CreatedBy = -1;
+
+            if (clsAccountData.GetPrimaryAccountNumberByClientID(ClientID, ref AccountID, ref AccountNumber, ref IsPrimary, ref AccountTypeID, ref Balance,
+                                 ref AccountStatus, ref DateOpened, ref DateClosed, ref BranchID, ref LastTransactionDate, ref Notes, ref CreatedBy))
+            {
+                return new clsAccount(AccountID, ClientID, AccountNumber, IsPrimary, AccountTypeID, Balance,
+                                  AccountStatus, DateOpened, DateClosed, BranchID, LastTransactionDate, Notes, CreatedBy);
+            }
+            else
+            {
+                return null;
+            }
+        }
+       
         public static bool IsExistByAccountID(int AccountID)
         {
             return clsAccountData.IsAccountExistByAccountID(AccountID);

@@ -175,68 +175,68 @@
             this.callClientToolStripMenuItem,
             this.sendEmailToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 238);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 216);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // showClientInfoToolStripMenuItem
             // 
             this.showClientInfoToolStripMenuItem.Name = "showClientInfoToolStripMenuItem";
-            this.showClientInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showClientInfoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.showClientInfoToolStripMenuItem.Text = "Show Client Info";
             this.showClientInfoToolStripMenuItem.Click += new System.EventHandler(this.showClientInfoToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(163, 6);
             // 
             // addClientToolStripMenuItem
             // 
             this.addClientToolStripMenuItem.Name = "addClientToolStripMenuItem";
-            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addClientToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.addClientToolStripMenuItem.Text = "Add Client";
             this.addClientToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(163, 6);
             // 
             // editClientToolStripMenuItem
             // 
             this.editClientToolStripMenuItem.Name = "editClientToolStripMenuItem";
-            this.editClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editClientToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.editClientToolStripMenuItem.Text = "Edit Client";
             this.editClientToolStripMenuItem.Click += new System.EventHandler(this.editClientToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(163, 6);
             // 
             // deleteClientToolStripMenuItem
             // 
             this.deleteClientToolStripMenuItem.Name = "deleteClientToolStripMenuItem";
-            this.deleteClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteClientToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.deleteClientToolStripMenuItem.Text = "Delete Client";
             this.deleteClientToolStripMenuItem.Click += new System.EventHandler(this.deleteClientToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(163, 6);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(166, 22);
             this.toolStripMenuItem5.Text = "Change Pin Code";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.ChangePinCode_toolStripe);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(163, 6);
             // 
             // TransactiontoolStripMenuItem
             // 
@@ -248,60 +248,60 @@
             this.transferToolStripMenuItem,
             this.toolStripMenuItem11});
             this.TransactiontoolStripMenuItem.Name = "TransactiontoolStripMenuItem";
-            this.TransactiontoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.TransactiontoolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.TransactiontoolStripMenuItem.Text = "Transaction";
             // 
             // withDrawToolStripMenuItem
             // 
             this.withDrawToolStripMenuItem.Name = "withDrawToolStripMenuItem";
-            this.withDrawToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.withDrawToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.withDrawToolStripMenuItem.Text = "WithDraw";
             this.withDrawToolStripMenuItem.Click += new System.EventHandler(this.withDrawToolStripMenuItem_Click);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(123, 6);
             // 
             // depositToolStripMenuItem
             // 
             this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
-            this.depositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.depositToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.depositToolStripMenuItem.Text = "Deposit";
             this.depositToolStripMenuItem.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(123, 6);
             // 
             // transferToolStripMenuItem
             // 
             this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-            this.transferToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.transferToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.transferToolStripMenuItem.Text = "Transfer";
             this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(123, 6);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(163, 6);
             // 
             // callClientToolStripMenuItem
             // 
             this.callClientToolStripMenuItem.Name = "callClientToolStripMenuItem";
-            this.callClientToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.callClientToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.callClientToolStripMenuItem.Text = "Call Client";
             // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // label1

@@ -50,8 +50,8 @@ namespace Bank.Client.Controls
         
             ctrlPersonCard1.LoadPersonInfo(_ClientInfo.PersonID);
             lblClientID.Text = ClientID.ToString();
-            lblAccountNo.Text = _ClientInfo.AccountNumber;
-            lblIsActive.Text = _ClientInfo.IsActive ? "Yes" : "No";
+            lblPrimaryAccountNo.Text = clsAccount.FindPrimaryAccountByClientID(_ClientID).AccountNumber;
+            lblIsActive.Text = _ClientInfo.AccountStatus ? "Yes" : "No";
         }
     }
 }

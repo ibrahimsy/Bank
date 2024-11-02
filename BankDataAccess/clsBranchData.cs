@@ -56,7 +56,7 @@ namespace BankDataAccess
         {
             bool IsFound = false;
 
-            string query = "SELECT * FROM Branchs WHERE BranchName = @BranchName";
+            string query = "SELECT * FROM Branches WHERE BranchName = @BranchName";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 

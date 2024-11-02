@@ -31,6 +31,7 @@ namespace Bank.People.Controls
         public ctrlPersonCard()
         {
             InitializeComponent();
+            llEditPersonInfo.Enabled = false;
         }
 
         public void LoadPersonInfo(int PersonID)
@@ -55,6 +56,7 @@ namespace Bank.People.Controls
             lblPhone.Text = _PersonInfo.Phone;
             lblAddress.Text = _PersonInfo.Address;
             lblCountry.Text = clsCountry.FindByID(_PersonInfo.NationalityCountryID).CountryName;
+            llEditPersonInfo.Enabled = true;
 
             if (_PersonInfo.Gendor == 0)
                 pbPersonImage.Image = Resources.Male_512;
@@ -90,6 +92,7 @@ namespace Bank.People.Controls
             lblPhone.Text = _PersonInfo.Phone;
             lblAddress.Text = _PersonInfo.Address;
             lblCountry.Text = clsCountry.FindByID(_PersonInfo.NationalityCountryID).CountryName;
+            llEditPersonInfo.Enabled = true;
 
             if (_PersonInfo.Gendor == 0)
                 pbPersonImage.Image = Resources.Male_512;
@@ -101,6 +104,14 @@ namespace Bank.People.Controls
                 pbPersonImage.ImageLocation = _PersonInfo.ImagePath;
             }
 
+        }
+
+        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAddEditPerson frm = new frmAddEditPerson(_PersonID);
+            frm.ShowDialog();
+
+            LoadPersonInfo(PersonID);
         }
     }
 }

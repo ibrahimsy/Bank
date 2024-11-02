@@ -28,26 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonInfo1 = new Bank.People.Controls.ctrlPersonCard();
             this.gpFilter = new System.Windows.Forms.GroupBox();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.btnFindPerson = new System.Windows.Forms.Button();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
+            this.ctrlPersonInfo1 = new Bank.People.Controls.ctrlPersonCard();
             this.gpFilter.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ctrlPersonInfo1
-            // 
-            this.ctrlPersonInfo1.BackColor = System.Drawing.Color.Beige;
-            this.ctrlPersonInfo1.Location = new System.Drawing.Point(7, 93);
-            this.ctrlPersonInfo1.Name = "ctrlPersonInfo1";
-            this.ctrlPersonInfo1.Size = new System.Drawing.Size(935, 281);
-            this.ctrlPersonInfo1.TabIndex = 0;
-            // 
             // gpFilter
             // 
-            this.gpFilter.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.gpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(159)))), ((int)(((byte)(61)))));
             this.gpFilter.Controls.Add(this.btnAddNewPerson);
             this.gpFilter.Controls.Add(this.btnFindPerson);
             this.gpFilter.Controls.Add(this.txtFilterValue);
@@ -101,6 +93,15 @@
             this.cbFilterBy.Size = new System.Drawing.Size(121, 32);
             this.cbFilterBy.TabIndex = 0;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
+            // 
+            // ctrlPersonInfo1
+            // 
+            this.ctrlPersonInfo1.BackColor = System.Drawing.Color.Beige;
+            this.ctrlPersonInfo1.Location = new System.Drawing.Point(7, 93);
+            this.ctrlPersonInfo1.Name = "ctrlPersonInfo1";
+            this.ctrlPersonInfo1.PersonID = -1;
+            this.ctrlPersonInfo1.Size = new System.Drawing.Size(935, 281);
+            this.ctrlPersonInfo1.TabIndex = 0;
             // 
             // ctrlPersonInfoWithFilter
             // 
