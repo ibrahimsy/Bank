@@ -132,6 +132,27 @@ namespace BankBussiness
             }
         }
 
+        public static clsClient FindClientByNationalNo(string NationalNo)
+        {
+            int ClientID = -1;
+            int PersonID = -1;
+            bool AccountStatus = true;
+            int CreatedBy = -1;
+            DateTime CreatedDate = DateTime.Now;
+            DateTime UpdatedDate = DateTime.MaxValue;
+            int BranchID = -1;
+            string Notes = "";
+            if (clsClientData.GetClientByNationalNumber(NationalNo, ref ClientID,ref PersonID, ref AccountStatus,
+                                                     ref CreatedBy, ref CreatedDate, ref UpdatedDate, ref BranchID, ref Notes))
+            {
+                return new clsClient(ClientID, PersonID, AccountStatus,
+                                                      CreatedBy, CreatedDate, UpdatedDate, BranchID, Notes);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static bool IsExistByClientID(int ClientID)
         {
             return clsClientData.IsClientExistByClientID(ClientID);

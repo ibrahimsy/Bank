@@ -111,6 +111,7 @@
             this.Controls.Add(this.ctrlPersonInfo1);
             this.Name = "ctrlPersonInfoWithFilter";
             this.Size = new System.Drawing.Size(952, 381);
+            this.Load += new System.EventHandler(this.ctrlPersonInfoWithFilter_Load);
             this.gpFilter.ResumeLayout(false);
             this.gpFilter.PerformLayout();
             this.ResumeLayout(false);

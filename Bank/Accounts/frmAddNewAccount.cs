@@ -1,5 +1,4 @@
-﻿using Bank.Util;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bank
+namespace Bank.Accounts
 {
-    public partial class frmTest : Form
+    public partial class frmAddNewAccount : Form
     {
-        public frmTest()
+        public frmAddNewAccount()
         {
             InitializeComponent();
-        }
-
-        private void frmTest_Load(object sender, EventArgs e)
-        {
-            lblAccountNumber.Text = DateTime.MaxValue.ToString();
         }
     }
 }

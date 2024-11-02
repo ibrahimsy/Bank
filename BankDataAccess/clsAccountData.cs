@@ -28,7 +28,7 @@ namespace BankDataAccess
     public class clsAccountData
     {
         public static bool GetAccountByID(int AccountID,ref int ClientID,ref string AccountNumber,ref bool IsPrimary,ref int AccountTypeID,ref double Balance,
-                               ref byte AccountStatus,ref DateTime DateOpened,ref DateTime? DateClosed,ref int BranchID,ref DateTime? LastTransactionDate,ref string Notes,ref int CreatedBy)
+                               ref byte AccountStatus,ref DateTime DateOpened,ref DateTime DateClosed,ref int BranchID,ref DateTime LastTransactionDate,ref string Notes,ref int CreatedBy)
         {
             bool IsFound = false;
 
@@ -61,7 +61,7 @@ namespace BankDataAccess
                     
                     if (reader["DateClosed"] == DBNull.Value)
                     {
-                        DateClosed = null;
+                        DateClosed = DateTime.MaxValue;
                     }
                     else
                     {
@@ -73,7 +73,7 @@ namespace BankDataAccess
 
                     if (reader["LastTransactionDate"] == DBNull.Value)
                     {
-                        LastTransactionDate = null;
+                        LastTransactionDate = DateTime.MaxValue;
                     }
                     else
                     {
@@ -105,7 +105,7 @@ namespace BankDataAccess
         }
 
         public static bool GetAccountByAccountNumber(string AccountNumber ,ref int AccountID, ref int ClientID,ref bool IsPrimary, ref int AccountTypeID, ref double Balance,
-                               ref byte AccountStatus, ref DateTime DateOpened, ref DateTime? DateClosed, ref int BranchID, ref DateTime? LastTransactionDate, ref string Notes, ref int CreatedBy)
+                               ref byte AccountStatus, ref DateTime DateOpened, ref DateTime DateClosed, ref int BranchID, ref DateTime LastTransactionDate, ref string Notes, ref int CreatedBy)
         {
             bool IsFound = false;
 
@@ -137,7 +137,7 @@ namespace BankDataAccess
                     DateOpened = (DateTime)reader["DateOpened"];
                     if (reader["DateClosed"] == DBNull.Value)
                     {
-                        DateClosed = null;
+                        DateClosed = DateTime.MaxValue;
                     }
                     else
                     {
@@ -147,7 +147,7 @@ namespace BankDataAccess
                     LastTransactionDate = (DateTime)reader["LastTransactionDate"];
                     if (reader["LastTransactionDate"] == DBNull.Value)
                     {
-                        LastTransactionDate = null;
+                        LastTransactionDate = DateTime.MaxValue;
                     }
                     else
                     {
@@ -177,7 +177,7 @@ namespace BankDataAccess
         }
 
         public static bool GetPrimaryAccountNumberByClientID(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref double Balance,
-                               ref byte AccountStatus, ref DateTime DateOpened, ref DateTime? DateClosed, ref int BranchID, ref DateTime? LastTransactionDate, ref string Notes, ref int CreatedBy)
+                               ref byte AccountStatus, ref DateTime DateOpened, ref DateTime DateClosed, ref int BranchID, ref DateTime LastTransactionDate, ref string Notes, ref int CreatedBy)
         {
             bool IsFound = false;
 
@@ -210,7 +210,7 @@ namespace BankDataAccess
                     DateOpened = (DateTime)reader["DateOpened"];
                     if (reader["DateClosed"] == DBNull.Value)
                     {
-                        DateClosed = null;
+                        DateClosed = DateTime.MaxValue;
                     }
                     else
                     {
@@ -220,7 +220,7 @@ namespace BankDataAccess
                     
                     if (reader["LastTransactionDate"] == DBNull.Value)
                     {
-                        LastTransactionDate = null;
+                        LastTransactionDate = DateTime.MaxValue;
                     }
                     else
                     {
@@ -251,16 +251,16 @@ namespace BankDataAccess
         } 
 
         public static int AddNewAccount(int ClientID, string AccountNumber,bool IsPrimary,  int AccountTypeID,  double Balance,
-                                byte AccountStatus,  DateTime DateOpened,  DateTime? DateClosed,  int BranchID,  DateTime? LastTransactionDate,  string Notes,  int CreatedBy)
+                                byte AccountStatus,  DateTime DateOpened,  int BranchID, string Notes,  int CreatedBy)
         {
             int AccountID = -1;
 
             string query = @"INSERT INTO Accounts
                                (ClientID,AccountNumber,IsPrimary,AccountTypeID,Balance,AccountStatus,DateOpened
-                               ,DateClosed,BranchID,LastTransactionDate,Notes,CreatedBy)
+                               ,BranchID,Notes,CreatedBy)
                          VALUES
                                (@ClientID,@AccountNumber,@IsPrimary,@AccountTypeID,@Balance,@AccountStatus,@DateOpened
-                               ,@DateClosed,@BranchID,@LastTransactionDate,@Notes,@CreatedBy);
+                               ,@BranchID,@Notes,@CreatedBy);
                             SELECT SCOPE_IDENTITY();";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -277,28 +277,8 @@ namespace BankDataAccess
 
             command.Parameters.AddWithValue("@DateOpened", DateOpened);
             
-            if (DateClosed == null)
-            {
-                command.Parameters.AddWithValue("@DateClosed", DBNull.Value);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@DateClosed", DateClosed);
-            }
-            
-            
             command.Parameters.AddWithValue("@BranchID", BranchID);
            
-            
-
-            if (LastTransactionDate == null)
-            {
-                command.Parameters.AddWithValue("@LastTransactionDate", DBNull.Value);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@LastTransactionDate", LastTransactionDate);
-            }
 
             if (Notes == null)
             {
@@ -399,7 +379,7 @@ namespace BankDataAccess
         }
         
         public static bool UpdateAccountByID(int AccountID, int ClientID, string AccountNumber,bool IsPrimary, int AccountTypeID, double Balance,
-                                byte AccountStatus,DateTime DateOpened,DateTime? DateClosed,int BranchID,DateTime? LastTransactionDate,string Notes,int CreatedBy)
+                                byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy)
         {
             int AffectedRows = 0;
 
@@ -430,7 +410,7 @@ namespace BankDataAccess
 
             command.Parameters.AddWithValue("@DateOpened", DateOpened);
             
-            if (DateClosed == null)
+            if (DateClosed == DateTime.MaxValue)
             {
                 command.Parameters.AddWithValue("@DateClosed", DBNull.Value);
             }

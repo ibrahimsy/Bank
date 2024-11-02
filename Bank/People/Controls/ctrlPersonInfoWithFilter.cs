@@ -115,5 +115,13 @@ namespace Bank.People.Controls
         {
             TextValueFocus();
         }
+
+        private void ctrlPersonInfoWithFilter_Load(object sender, EventArgs e)
+        {
+            cbFilterBy.SelectedIndex = 0;
+            txtFilterValue.Focus();
+        }
+
+       
     }
 }

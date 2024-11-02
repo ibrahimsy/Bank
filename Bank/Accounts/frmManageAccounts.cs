@@ -155,5 +155,16 @@ namespace Bank.Accounts
             if(cbFilterBy.Text == "AccountID" || cbFilterBy.Text == "ClientID")
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+
+        private void showAccountDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowAccountInfo frm = new frmShowAccountInfo((int)dgvAccounts.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void btnAddAccount_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

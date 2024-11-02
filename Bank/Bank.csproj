@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\Controls\ctrlAccountCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Accounts\Controls\ctrlAccountCard.Designer.cs">
+      <DependentUpon>ctrlAccountCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\frmAddNewAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\frmAddNewAccount.Designer.cs">
+      <DependentUpon>frmAddNewAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accounts\frmManageAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Accounts\frmManageAccounts.Designer.cs">
       <DependentUpon>frmManageAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\frmShowAccountInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\frmShowAccountInfo.Designer.cs">
+      <DependentUpon>frmShowAccountInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="AccountTypes\frmAccountTypesManagment.cs">
       <SubType>Form</SubType>
@@ -81,6 +99,12 @@
     </Compile>
     <Compile Include="Client\Controls\ctrlClientCard.Designer.cs">
       <DependentUpon>ctrlClientCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\Controls\ctrlClientCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Client\Controls\ctrlClientCardWithFilter.Designer.cs">
+      <DependentUpon>ctrlClientCardWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\frmAddClient.cs">
       <SubType>Form</SubType>
@@ -118,6 +142,7 @@
     <Compile Include="frmTest.Designer.cs">
       <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\clsFormat.cs" />
     <Compile Include="Global Classes\PermissionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,8 +219,17 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Accounts\Controls\ctrlAccountCard.resx">
+      <DependentUpon>ctrlAccountCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\frmAddNewAccount.resx">
+      <DependentUpon>frmAddNewAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounts\frmManageAccounts.resx">
       <DependentUpon>frmManageAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\frmShowAccountInfo.resx">
+      <DependentUpon>frmShowAccountInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AccountTypes\frmAccountTypesManagment.resx">
       <DependentUpon>frmAccountTypesManagment.cs</DependentUpon>
@@ -211,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Controls\ctrlClientCard.resx">
       <DependentUpon>ctrlClientCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Client\Controls\ctrlClientCardWithFilter.resx">
+      <DependentUpon>ctrlClientCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\frmAddClient.resx">
       <DependentUpon>frmAddClient.cs</DependentUpon>

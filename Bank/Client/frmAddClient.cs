@@ -156,9 +156,7 @@ namespace Bank.Client
             _PrimaryAccountInfo.Balance = Convert.ToDouble(txtBalance.Text);
             _PrimaryAccountInfo.AccountStatus = (byte)((clsAccount.enAccountStatus)cbAccountStatus.SelectedItem);
             _PrimaryAccountInfo.DateOpened = DateTime.Now;
-            _PrimaryAccountInfo.DateClosed = null;
             _PrimaryAccountInfo.BranchID = _ClientInfo.BranchID;
-            _PrimaryAccountInfo.LastTransactionDate = null;
             _PrimaryAccountInfo.Notes = txtNotes.Text;
             _PrimaryAccountInfo.CreatedBy = _ClientInfo.CreatedBy;
 

@@ -21,7 +21,7 @@ namespace BankDataAccess
          Notes
          */
         public static bool GetClientByID(int ClientID, ref int PersonID, ref bool AccountStatus,
-                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime? UpdatedDate,ref int BranchID,ref string Notes)
+                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime UpdatedDate,ref int BranchID,ref string Notes)
         {
             bool IsFound = false;
 
@@ -52,7 +52,7 @@ namespace BankDataAccess
                    
                     if (reader["UpdatedDate"] == DBNull.Value)
                     {
-                        UpdatedDate = null;
+                        UpdatedDate = DateTime.MaxValue;
                     }
                     else
                     {
@@ -84,7 +84,7 @@ namespace BankDataAccess
         }
 
         public static bool GetClientByPersonID(int PersonID, ref int ClientID, ref bool AccountStatus,
-                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime? UpdatedDate, ref int BranchID, ref string Notes)
+                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime UpdatedDate, ref int BranchID, ref string Notes)
         {
             bool IsFound = false;
 
@@ -111,7 +111,7 @@ namespace BankDataAccess
                     CreatedDate = (DateTime)reader["CreatedDate"];
                     if (reader["UpdatedDate"] == DBNull.Value)
                     {
-                        UpdatedDate = null;
+                        UpdatedDate = DateTime.MaxValue;
                     }
                     else
                     {
@@ -139,9 +139,68 @@ namespace BankDataAccess
             }
             return IsFound;
         }
-        
+
+        public static bool GetClientByNationalNumber(string NationalNo, ref int ClientID,ref int PersonID, ref bool AccountStatus,
+                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime UpdatedDate, ref int BranchID, ref string Notes)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT * FROM  Clients INNER JOIN People 
+                             ON Clients.PersonID = People.PersonID 
+                            WHERE    (People.NationalNo = @NationalNo)";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    ClientID = (int)reader["ClientID"];
+                    PersonID = (int)reader["PersonID"];
+                    AccountStatus = (bool)reader["AccountStatus"];
+                    CreatedBy = (int)reader["CreatedBy"];
+                    CreatedDate = (DateTime)reader["CreatedDate"];
+                    if (reader["UpdatedDate"] == DBNull.Value)
+                    {
+                        UpdatedDate = DateTime.MaxValue;
+                    }
+                    else
+                    {
+                        UpdatedDate = (DateTime)reader["UpdatedDate"];
+                    }
+                    BranchID = (int)reader["BranchID"];
+                    if (reader["Notes"] == DBNull.Value)
+                    {
+                        Notes = "";
+                    }
+                    else
+                    {
+                        Notes = (string)reader["Notes"];
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
         public static int AddNewClient(int PersonID,  bool AccountStatus,
-                  int CreatedBy,  DateTime CreatedDate,  DateTime? UpdatedDate,  int BranchID,  string Notes )
+                  int CreatedBy,  DateTime CreatedDate,  int BranchID,  string Notes )
         {
             int ClientID = -1;
 
@@ -163,15 +222,7 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@AccountStatus", AccountStatus);
             command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
             command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
-            if (UpdatedDate == null)
-            {
-                command.Parameters.AddWithValue("@UpdatedDate", DBNull.Value);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@UpdatedDate", UpdatedDate);
-            }
-           
+            
             command.Parameters.AddWithValue("@BranchID", BranchID);
             if (Notes == "")
             {
@@ -204,7 +255,7 @@ namespace BankDataAccess
         }
 
         public static bool UpdateClientByID(int ClientID,int PersonID,  bool AccountStatus,
-                         int CreatedBy, DateTime CreatedDate, DateTime? UpdatedDate, int BranchID, string Notes)
+                         int CreatedBy, DateTime CreatedDate, DateTime UpdatedDate, int BranchID, string Notes)
         {
             int AffectedRows = 0;
 
@@ -227,7 +278,7 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@AccountStatus", AccountStatus);
             command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
             command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
-            if (UpdatedDate == null)
+            if (UpdatedDate ==  DateTime.MaxValue)
             {
                 command.Parameters.AddWithValue("@UpdatedDate", DBNull.Value);
             }
@@ -355,7 +406,6 @@ namespace BankDataAccess
             }
             return IsFound;
         }
-
 
         public static DataTable GetAllClients()
         

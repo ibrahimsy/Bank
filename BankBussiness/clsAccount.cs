@@ -44,11 +44,11 @@ namespace BankBussiness
         public double Balance { get; set; }
         public byte AccountStatus { get; set; }
         public DateTime DateOpened { get; set; }
-        public DateTime? DateClosed { get; set; }
+        public DateTime DateClosed { get; set; }
         public int BranchID { get; set; }
 
         public clsBranch BranchInfo;
-        public DateTime? LastTransactionDate { get; set; }
+        public DateTime LastTransactionDate { get; set; }
         public string Notes { get; set; }
         public int CreatedBy { get; set; }
 
@@ -63,16 +63,16 @@ namespace BankBussiness
             this.Balance = 0d;
             this.AccountStatus = 1;
             this.DateOpened = DateTime.Now;
-            this.DateClosed = DateTime.Now;
+            this.DateClosed = DateTime.MaxValue;
             this.BranchID = -1;
-            this.LastTransactionDate = DateTime.Now;
+            this.LastTransactionDate = DateTime.MaxValue;
             this.Notes = "";
             this.CreatedBy = -1;
            
         }
 
         private clsAccount(int AccountID, int ClientID, string AccountNumber,bool IsPrimary, int AccountTypeID, double Balance,
-                byte AccountStatus,DateTime DateOpened,DateTime? DateClosed,int BranchID,DateTime? LastTransactionDate,string Notes,int CreatedBy)
+                byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy)
         {
              this.AccountID = AccountID;
              this.ClientID = ClientID;
@@ -96,7 +96,7 @@ namespace BankBussiness
         private bool _AddNewAccount()
         {
             AccountID = clsAccountData.AddNewAccount( ClientID,  AccountNumber,IsPrimary,  AccountTypeID,  Balance,
-                                 AccountStatus,  DateOpened,  DateClosed,  BranchID,  LastTransactionDate,  Notes,  CreatedBy);
+                                 AccountStatus,  DateOpened,  BranchID,  Notes,  CreatedBy);
 
             return (AccountID != -1);
         }
@@ -116,9 +116,9 @@ namespace BankBussiness
             double Balance = 0d;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
-            DateTime? DateClosed = DateTime.Now;
+            DateTime DateClosed = DateTime.MaxValue;
             int BranchID = -1;
-            DateTime? LastTransactionDate = DateTime.Now;
+            DateTime LastTransactionDate = DateTime.MaxValue;
             string Notes = "";
             int CreatedBy = -1;
 
@@ -144,9 +144,9 @@ namespace BankBussiness
             double Balance = 0d;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
-            DateTime? DateClosed = DateTime.Now;
+            DateTime DateClosed = DateTime.MaxValue;
             int BranchID = -1;
-            DateTime? LastTransactionDate = DateTime.Now;
+            DateTime LastTransactionDate = DateTime.MaxValue;
             string Notes = "";
             int CreatedBy = -1;
 
@@ -171,14 +171,14 @@ namespace BankBussiness
             double Balance = 0d;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
-            DateTime? DateClosed = DateTime.Now;
+            DateTime DateClosed = DateTime.MaxValue;
             int BranchID = -1;
-            DateTime? LastTransactionDate = DateTime.Now;
+            DateTime LastTransactionDate = DateTime.MaxValue;
             string Notes = "";
             int CreatedBy = -1;
 
             if (clsAccountData.GetPrimaryAccountNumberByClientID(ClientID, ref AccountID, ref AccountNumber, ref IsPrimary, ref AccountTypeID, ref Balance,
-                                 ref AccountStatus, ref DateOpened, ref DateClosed, ref BranchID, ref LastTransactionDate, ref Notes, ref CreatedBy))
+                                 ref AccountStatus, ref DateOpened,ref DateClosed, ref BranchID,ref LastTransactionDate, ref Notes, ref CreatedBy))
             {
                 return new clsAccount(AccountID, ClientID, AccountNumber, IsPrimary, AccountTypeID, Balance,
                                   AccountStatus, DateOpened, DateClosed, BranchID, LastTransactionDate, Notes, CreatedBy);

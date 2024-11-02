@@ -53,5 +53,26 @@ namespace Bank.Client.Controls
             lblPrimaryAccountNo.Text = clsAccount.FindPrimaryAccountByClientID(_ClientID).AccountNumber;
             lblIsActive.Text = _ClientInfo.AccountStatus ? "Yes" : "No";
         }
+
+        public void LoadClientInfo(string NationalNumber)
+        {
+            _ClientInfo = clsClient.FindClientByID(ClientID);
+            if (_ClientInfo == null)
+            {
+                MessageBox.Show($"User With ID [{ClientID}] Is Not Found",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+            _ClientID = ClientID;
+
+            ctrlPersonCard1.LoadPersonInfo(_ClientInfo.PersonID);
+            lblClientID.Text = ClientID.ToString();
+            lblPrimaryAccountNo.Text = clsAccount.FindPrimaryAccountByClientID(_ClientID).AccountNumber;
+            lblIsActive.Text = _ClientInfo.AccountStatus ? "Yes" : "No";
+        }
+
+
     }
 }
