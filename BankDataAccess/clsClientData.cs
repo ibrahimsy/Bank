@@ -163,6 +163,7 @@ namespace BankDataAccess
 
                 if (reader.Read())
                 {
+                    IsFound = true;
                     ClientID = (int)reader["ClientID"];
                     PersonID = (int)reader["PersonID"];
                     AccountStatus = (bool)reader["AccountStatus"];
@@ -223,6 +224,7 @@ namespace BankDataAccess
 
                 if (reader.Read())
                 {
+                    IsFound = true;
                     ClientID = (int)reader["ClientID"];
                     PersonID = (int)reader["PersonID"];
                     AccountStatus = (bool)reader["AccountStatus"];

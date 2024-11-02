@@ -184,7 +184,7 @@ namespace BankDataAccess
             string query = @"SELECT *
                             FROM          Accounts INNER JOIN
                                           Clients ON Accounts.ClientID = Clients.ClientID
-                            WHERE Clients.ClientID = @ClientID And Accounts.AccountStatus = 1";
+                            WHERE Clients.ClientID = @ClientID And Accounts.IsPrimary = 1";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             SqlCommand command = new SqlCommand(query, connection);

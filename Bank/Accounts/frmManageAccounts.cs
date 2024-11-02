@@ -18,7 +18,7 @@ namespace Bank.Accounts
         {
             InitializeComponent();
         }
-        void _RefreshClientsList()
+        void _RefreshAccountsList()
         {
             _dtAccountsList = clsAccount.GetAccountsList();
             dgvAccounts.DataSource = _dtAccountsList;
@@ -69,7 +69,7 @@ namespace Bank.Accounts
 
         private void frmManageAccounts_Load(object sender, EventArgs e)
         {
-            _RefreshClientsList();
+            _RefreshAccountsList();
             cbFilterBy.SelectedIndex = 0;
         }
         string _ColumnText(string ColumnName)
@@ -164,7 +164,10 @@ namespace Bank.Accounts
 
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
+            frmAddEditAccount frm = new frmAddEditAccount();
+            frm.ShowDialog();
 
+            _RefreshAccountsList();
         }
     }
 }

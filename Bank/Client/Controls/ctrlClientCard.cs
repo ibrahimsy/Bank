@@ -13,7 +13,7 @@ namespace Bank.Client.Controls
 {
     public partial class ctrlClientCard : UserControl
     {
-        int _ClientID;
+        int _ClientID = -1;
         clsClient _ClientInfo;
         public int ClientID
         {
@@ -65,7 +65,7 @@ namespace Bank.Client.Controls
                                 MessageBoxIcon.Error);
                 return;
             }
-            _ClientID = ClientID;
+            _ClientID = _ClientInfo.ClientID;
 
             ctrlPersonCard1.LoadPersonInfo(_ClientInfo.PersonID);
             lblClientID.Text = ClientID.ToString();
@@ -84,7 +84,7 @@ namespace Bank.Client.Controls
                                 MessageBoxIcon.Error);
                 return;
             }
-            _ClientID = ClientID;
+            _ClientID = _ClientInfo.ClientID;
 
             ctrlPersonCard1.LoadPersonInfo(_ClientInfo.PersonID);
             lblClientID.Text = ClientID.ToString();

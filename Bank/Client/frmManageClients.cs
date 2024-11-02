@@ -196,8 +196,6 @@ namespace Bank.Client
             _RefreshClientsList();
         }
 
-       
-
         private void withDrawToolStripMenuItem_Click(object sender, EventArgs e)
         {
          

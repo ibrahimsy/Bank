@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.ctrlClientCardWithFilter1 = new Bank.Client.Controls.ctrlClientCardWithFilter();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpClientInfo = new System.Windows.Forms.TabPage();
-            this.tpAccountInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.tpAccountInfo = new System.Windows.Forms.TabPage();
             this.cbAccountStatus = new System.Windows.Forms.ComboBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.cbBranches = new System.Windows.Forms.ComboBox();
@@ -51,32 +48,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtBalance = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.ctrlClientCardWithFilter1 = new Bank.Client.Controls.ctrlClientCardWithFilter();
             this.tabControl1.SuspendLayout();
             this.tpClientInfo.SuspendLayout();
             this.tpAccountInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Titillium Web", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Firebrick;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1007, 36);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "ADD ACCOUNT";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ctrlClientCardWithFilter1
-            // 
-            this.ctrlClientCardWithFilter1.ClientID = 0;
-            this.ctrlClientCardWithFilter1.FilterEnabled = true;
-            this.ctrlClientCardWithFilter1.Location = new System.Drawing.Point(21, 6);
-            this.ctrlClientCardWithFilter1.Name = "ctrlClientCardWithFilter1";
-            this.ctrlClientCardWithFilter1.Size = new System.Drawing.Size(945, 419);
-            this.ctrlClientCardWithFilter1.TabIndex = 30;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Titillium Web", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(1007, 36);
+            this.lblTitle.TabIndex = 29;
+            this.lblTitle.Text = "ADD ACCOUNT";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabControl1
             // 
@@ -99,6 +90,20 @@
             this.tpClientInfo.TabIndex = 0;
             this.tpClientInfo.Text = "Client Info";
             this.tpClientInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Image = global::Bank.Properties.Resources.Next_32;
+            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNext.Location = new System.Drawing.Point(874, 431);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(92, 36);
+            this.btnNext.TabIndex = 31;
+            this.btnNext.Text = "Next";
+            this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // tpAccountInfo
             // 
@@ -125,51 +130,11 @@
             this.tpAccountInfo.Text = "Account Information";
             this.tpAccountInfo.UseVisualStyleBackColor = true;
             // 
-            // btnNext
-            // 
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Image = global::Bank.Properties.Resources.Next_32;
-            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNext.Location = new System.Drawing.Point(865, 422);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(92, 36);
-            this.btnNext.TabIndex = 31;
-            this.btnNext.Text = "Next";
-            this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = global::Bank.Properties.Resources.Close_32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(833, 556);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(92, 36);
-            this.btnClose.TabIndex = 33;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = global::Bank.Properties.Resources.Save_321;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(931, 556);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(92, 36);
-            this.btnSave.TabIndex = 32;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
             // cbAccountStatus
             // 
             this.cbAccountStatus.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAccountStatus.FormattingEnabled = true;
-            this.cbAccountStatus.Location = new System.Drawing.Point(223, 248);
+            this.cbAccountStatus.Location = new System.Drawing.Point(210, 204);
             this.cbAccountStatus.Name = "cbAccountStatus";
             this.cbAccountStatus.Size = new System.Drawing.Size(176, 28);
             this.cbAccountStatus.TabIndex = 43;
@@ -177,7 +142,7 @@
             // txtNotes
             // 
             this.txtNotes.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotes.Location = new System.Drawing.Point(212, 317);
+            this.txtNotes.Location = new System.Drawing.Point(199, 273);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(492, 106);
@@ -187,7 +152,7 @@
             // 
             this.cbBranches.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBranches.FormattingEnabled = true;
-            this.cbBranches.Location = new System.Drawing.Point(537, 203);
+            this.cbBranches.Location = new System.Drawing.Point(524, 159);
             this.cbBranches.Name = "cbBranches";
             this.cbBranches.Size = new System.Drawing.Size(167, 28);
             this.cbBranches.TabIndex = 41;
@@ -196,7 +161,7 @@
             // 
             this.cbAccountType.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAccountType.FormattingEnabled = true;
-            this.cbAccountType.Location = new System.Drawing.Point(223, 201);
+            this.cbAccountType.Location = new System.Drawing.Point(210, 157);
             this.cbAccountType.Name = "cbAccountType";
             this.cbAccountType.Size = new System.Drawing.Size(176, 28);
             this.cbAccountType.TabIndex = 40;
@@ -225,7 +190,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(129, 307);
+            this.label12.Location = new System.Drawing.Point(116, 263);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 32);
             this.label12.TabIndex = 37;
@@ -235,7 +200,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(445, 197);
+            this.label11.Location = new System.Drawing.Point(432, 153);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 32);
             this.label11.TabIndex = 36;
@@ -245,7 +210,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(54, 242);
+            this.label9.Location = new System.Drawing.Point(41, 198);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(157, 32);
             this.label9.TabIndex = 35;
@@ -255,7 +220,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(436, 244);
+            this.label8.Location = new System.Drawing.Point(423, 200);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 32);
             this.label8.TabIndex = 34;
@@ -265,7 +230,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(69, 195);
+            this.label6.Location = new System.Drawing.Point(56, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(142, 32);
             this.label6.TabIndex = 33;
@@ -295,7 +260,7 @@
             // 
             this.txtBalance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBalance.Location = new System.Drawing.Point(537, 247);
+            this.txtBalance.Location = new System.Drawing.Point(524, 203);
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.Size = new System.Drawing.Size(167, 29);
             this.txtBalance.TabIndex = 29;
@@ -310,7 +275,44 @@
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
             // 
-            // frmAddNewAccount
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::Bank.Properties.Resources.Close_32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(833, 556);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(92, 36);
+            this.btnClose.TabIndex = 33;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Image = global::Bank.Properties.Resources.Save_321;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(931, 556);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(92, 36);
+            this.btnSave.TabIndex = 32;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // ctrlClientCardWithFilter1
+            // 
+            this.ctrlClientCardWithFilter1.ClientID = -1;
+            this.ctrlClientCardWithFilter1.FilterEnabled = true;
+            this.ctrlClientCardWithFilter1.Location = new System.Drawing.Point(21, 6);
+            this.ctrlClientCardWithFilter1.Name = "ctrlClientCardWithFilter1";
+            this.ctrlClientCardWithFilter1.Size = new System.Drawing.Size(945, 419);
+            this.ctrlClientCardWithFilter1.TabIndex = 30;
+            // 
+            // frmAddEditAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -318,9 +320,11 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.label1);
-            this.Name = "frmAddNewAccount";
+            this.Controls.Add(this.lblTitle);
+            this.Name = "frmAddEditAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditAccount";
+            this.Activated += new System.EventHandler(this.frmAddEditAccount_Activated);
             this.tabControl1.ResumeLayout(false);
             this.tpClientInfo.ResumeLayout(false);
             this.tpAccountInfo.ResumeLayout(false);
@@ -332,7 +336,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private Client.Controls.ctrlClientCardWithFilter ctrlClientCardWithFilter1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpClientInfo;

@@ -163,7 +163,7 @@ namespace BankBussiness
             DateTime UpdatedDate = DateTime.MaxValue;
             int BranchID = -1;
             string Notes = "";
-            if (clsClientData.GetClientByNationalNumber(PrimaryAccountNumber, ref ClientID, ref PersonID, ref AccountStatus,
+            if (clsClientData.GetClientByPrimaryAccountNumber(PrimaryAccountNumber, ref ClientID, ref PersonID, ref AccountStatus,
                                                      ref CreatedBy, ref CreatedDate, ref UpdatedDate, ref BranchID, ref Notes))
             {
                 return new clsClient(ClientID, PersonID, AccountStatus,

@@ -92,6 +92,7 @@ namespace Bank.Client.Controls
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtFilterValue.Clear();
             TextValueFocus();
         }
     }
