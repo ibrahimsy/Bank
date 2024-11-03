@@ -5,7 +5,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace BankBussiness
 {
     /*
@@ -71,6 +70,11 @@ namespace BankBussiness
            
         }
 
+        string _GenerateAccountNumber(int DigitsCount)
+        {
+            Random random = new Random();
+            return (random.Next(10000000, 99999999)).ToString();
+        }
         private clsAccount(int AccountID, int ClientID, string AccountNumber,bool IsPrimary, int AccountTypeID, double Balance,
                 byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy)
         {
@@ -95,7 +99,7 @@ namespace BankBussiness
 
         private bool _AddNewAccount()
         {
-            AccountID = clsAccountData.AddNewAccount( ClientID,  AccountNumber,IsPrimary,  AccountTypeID,  Balance,
+            AccountID = clsAccountData.AddNewAccount( ClientID, _GenerateAccountNumber(8), IsPrimary,  AccountTypeID,  Balance,
                                  AccountStatus,  DateOpened,  BranchID,  Notes,  CreatedBy);
 
             return (AccountID != -1);

@@ -1,4 +1,5 @@
-﻿using Bank.People.Controls;
+﻿using Bank.Global_Classes;
+using Bank.People.Controls;
 using Bank.Util;
 using BankBussiness;
 using System;
@@ -139,16 +140,38 @@ namespace Bank.Accounts
                 return;
             }
 
-            _AccountInfo.ClientID = _AccountInfo.ClientID;
-            _AccountInfo.AccountNumber = clsUtility.GenerateAccountNumber(8);
-            _AccountInfo.IsPrimary = false;
+            _AccountInfo.ClientID = ctrlClientCardWithFilter1.ClientID;
             _AccountInfo.AccountTypeID = clsAccountType.FindAccountTypeByName(cbAccountType.Text).AccountTypeID;
             _AccountInfo.Balance = Convert.ToDouble(txtBalance.Text);
             _AccountInfo.AccountStatus = (byte)((clsAccount.enAccountStatus)cbAccountStatus.SelectedItem);
             _AccountInfo.DateOpened = DateTime.Now;
             _AccountInfo.BranchID = clsBranch.FindBranchByBranchName(cbBranches.Text).BranchID;
             _AccountInfo.Notes = txtNotes.Text;
-            _AccountInfo.CreatedBy = _AccountInfo.CreatedBy;
+            _AccountInfo.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
+
+            if (_AccountInfo.Save())
+            {
+                MessageBox.Show($"Account Saved Successfuly",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                lblTitle.Text = "Edit Account";
+                this.Text = lblTitle.Text;
+                _Mode = enMode.enUpdate;
+
+                lblAccountID.Text = _AccountInfo.AccountID.ToString();
+                lblAccountNumber.Text = _AccountInfo.AccountNumber.ToString();  
+
+                ctrlClientCardWithFilter1.FilterEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show($"An Error Occurred.",
+                    "Faild",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
         }
 
         private void frmAddEditAccount_Load(object sender, EventArgs e)
@@ -171,6 +194,17 @@ namespace Bank.Accounts
             {
                 errorProvider1.SetError(txtBalance, null);
             }
+            double Balance = Convert.ToDouble(txtBalance.Text.Trim());
+            if (clsAccountType.FindAccountTypeByName(cbAccountType.Text).MinimumBalance < Balance)
+            {
+                errorProvider1.SetError(txtBalance, "Insufficient Balance,\n Balance Is Less Than Minimum Amount To Open This Account");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtBalance, null);
+            }
+
         }
 
         private void txtBalance_KeyPress(object sender, KeyPressEventArgs e)
