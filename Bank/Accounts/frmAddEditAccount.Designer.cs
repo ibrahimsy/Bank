@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpClientInfo = new System.Windows.Forms.TabPage();
@@ -51,10 +52,12 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.ctrlClientCardWithFilter1 = new Bank.Client.Controls.ctrlClientCardWithFilter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tpClientInfo.SuspendLayout();
             this.tpAccountInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -264,6 +267,8 @@
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.Size = new System.Drawing.Size(167, 29);
             this.txtBalance.TabIndex = 29;
+            this.txtBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBalance_KeyPress);
+            this.txtBalance.Validating += new System.ComponentModel.CancelEventHandler(this.txtBalance_Validating);
             // 
             // pictureBox1
             // 
@@ -312,6 +317,10 @@
             this.ctrlClientCardWithFilter1.Size = new System.Drawing.Size(945, 419);
             this.ctrlClientCardWithFilter1.TabIndex = 30;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmAddEditAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,11 +334,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditAccount";
             this.Activated += new System.EventHandler(this.frmAddEditAccount_Activated);
+            this.Load += new System.EventHandler(this.frmAddEditAccount_Load);
             this.tabControl1.ResumeLayout(false);
             this.tpClientInfo.ResumeLayout(false);
             this.tpAccountInfo.ResumeLayout(false);
             this.tpAccountInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,5 +370,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

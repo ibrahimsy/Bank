@@ -177,7 +177,7 @@ namespace BankBussiness
             string Notes = "";
             int CreatedBy = -1;
 
-            if (clsAccountData.GetPrimaryAccountNumberByClientID(ClientID, ref AccountID, ref AccountNumber, ref IsPrimary, ref AccountTypeID, ref Balance,
+            if (clsAccountData.GetPrimaryAccountByClientID(ClientID, ref AccountID, ref AccountNumber, ref IsPrimary, ref AccountTypeID, ref Balance,
                                  ref AccountStatus, ref DateOpened,ref DateClosed, ref BranchID,ref LastTransactionDate, ref Notes, ref CreatedBy))
             {
                 return new clsAccount(AccountID, ClientID, AccountNumber, IsPrimary, AccountTypeID, Balance,
@@ -188,7 +188,33 @@ namespace BankBussiness
                 return null;
             }
         }
-       
+
+        public static clsAccount FindAccountByClientID(int ClientID)
+        {
+            int AccountID = -1;
+            string AccountNumber = "";
+            int AccountTypeID = -1;
+            bool IsPrimary = false;
+            double Balance = 0d;
+            byte AccountStatus = 1;
+            DateTime DateOpened = DateTime.Now;
+            DateTime DateClosed = DateTime.MaxValue;
+            int BranchID = -1;
+            DateTime LastTransactionDate = DateTime.MaxValue;
+            string Notes = "";
+            int CreatedBy = -1;
+
+            if (clsAccountData.GetAccountByClientID(ClientID, ref AccountID, ref AccountNumber, ref IsPrimary, ref AccountTypeID, ref Balance,
+                                 ref AccountStatus, ref DateOpened, ref DateClosed, ref BranchID, ref LastTransactionDate, ref Notes, ref CreatedBy))
+            {
+                return new clsAccount(AccountID, ClientID, AccountNumber, IsPrimary, AccountTypeID, Balance,
+                                  AccountStatus, DateOpened, DateClosed, BranchID, LastTransactionDate, Notes, CreatedBy);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static bool IsExistByAccountID(int AccountID)
         {
             return clsAccountData.IsAccountExistByAccountID(AccountID);

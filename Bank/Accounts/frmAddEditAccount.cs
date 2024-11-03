@@ -1,4 +1,5 @@
 ﻿using Bank.People.Controls;
+using Bank.Util;
 using BankBussiness;
 using System;
 using System.Collections.Generic;
@@ -89,6 +90,22 @@ namespace Bank.Accounts
 
         }
 
+        void _LoadData()
+        {
+            _AccountInfo = clsAccount.FindAccountByID(_AccountID);
+            if (_AccountInfo == null)
+            {
+                MessageBox.Show("Account is not found","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            lblAccountID.Text = _AccountInfo.AccountID.ToString();
+            lblAccountNumber.Text = _AccountInfo.AccountNumber.ToString();
+            cbAccountType.SelectedIndex = cbAccountType.FindString(_AccountInfo.AccountTypeInfo.AccountTypeName);
+            cbAccountStatus.SelectedIndex = cbAccountStatus.FindString(((clsAccount.enAccountStatus)_AccountInfo.AccountStatus).ToString());
+            cbBranches.SelectedIndex = cbBranches.FindString(_AccountInfo.BranchInfo.BranchName);
+            txtBalance.Text = _AccountInfo.Balance.ToString();
+            txtNotes.Text = _AccountInfo.Notes.ToString();
+        }
         private void btnNext_Click(object sender, EventArgs e)
         {
             if(ctrlClientCardWithFilter1.ClientID == -1)
@@ -98,8 +115,7 @@ namespace Bank.Accounts
             }
 
             tabControl1.SelectedTab = tpAccountInfo;
-
-
+            tpAccountInfo.Enabled = true;
         }
 
         private void frmAddEditAccount_Activated(object sender, EventArgs e)
@@ -114,7 +130,52 @@ namespace Bank.Accounts
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!this.ValidateChildren())
+            {
+                MessageBox.Show($"Some Feild Are Invalid,Put Mouse On Red Icon",
+                    "Faild",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
 
+            _AccountInfo.ClientID = _AccountInfo.ClientID;
+            _AccountInfo.AccountNumber = clsUtility.GenerateAccountNumber(8);
+            _AccountInfo.IsPrimary = false;
+            _AccountInfo.AccountTypeID = clsAccountType.FindAccountTypeByName(cbAccountType.Text).AccountTypeID;
+            _AccountInfo.Balance = Convert.ToDouble(txtBalance.Text);
+            _AccountInfo.AccountStatus = (byte)((clsAccount.enAccountStatus)cbAccountStatus.SelectedItem);
+            _AccountInfo.DateOpened = DateTime.Now;
+            _AccountInfo.BranchID = clsBranch.FindBranchByBranchName(cbBranches.Text).BranchID;
+            _AccountInfo.Notes = txtNotes.Text;
+            _AccountInfo.CreatedBy = _AccountInfo.CreatedBy;
+        }
+
+        private void frmAddEditAccount_Load(object sender, EventArgs e)
+        {
+            _ResetDefaultValue();
+            if (_Mode == enMode.enUpdate)
+            {
+                _LoadData();
+            }
+        }
+
+        private void txtBalance_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBalance.Text.Trim()))
+            {
+                errorProvider1.SetError(txtBalance, "This Field Is Required");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(txtBalance, null);
+            }
+        }
+
+        private void txtBalance_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

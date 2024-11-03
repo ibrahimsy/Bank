@@ -176,7 +176,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetPrimaryAccountNumberByClientID(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref double Balance,
+        public static bool GetPrimaryAccountByClientID(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref double Balance,
                                ref byte AccountStatus, ref DateTime DateOpened, ref DateTime DateClosed, ref int BranchID, ref DateTime LastTransactionDate, ref string Notes, ref int CreatedBy)
         {
             bool IsFound = false;
@@ -248,7 +248,80 @@ namespace BankDataAccess
                 connection.Close();
             }
             return IsFound;
-        } 
+        }
+
+        public static bool GetAccountByClientID(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref double Balance,
+                               ref byte AccountStatus, ref DateTime DateOpened, ref DateTime DateClosed, ref int BranchID, ref DateTime LastTransactionDate, ref string Notes, ref int CreatedBy)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT *
+                            FROM  Accounts INNER JOIN
+                                  Clients ON Accounts.ClientID = Clients.ClientID
+                            WHERE Clients.ClientID = @ClientID";
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ClientID", ClientID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+
+                    AccountID = (int)reader["AccountID"];
+                    AccountNumber = (string)reader["AccountNumber"];
+                    IsPrimary = (bool)reader["IsPrimary"];
+                    AccountTypeID = (int)reader["AccountTypeID"];
+                    Balance = Convert.ToDouble(reader["Balance"]);
+                    AccountStatus = (byte)reader["AccountStatus"];
+                    DateOpened = (DateTime)reader["DateOpened"];
+                    if (reader["DateClosed"] == DBNull.Value)
+                    {
+                        DateClosed = DateTime.MaxValue;
+                    }
+                    else
+                    {
+                        DateClosed = (DateTime)reader["DateClosed"];
+                    }
+                    BranchID = (int)reader["BranchID"];
+
+                    if (reader["LastTransactionDate"] == DBNull.Value)
+                    {
+                        LastTransactionDate = DateTime.MaxValue;
+                    }
+                    else
+                    {
+                        LastTransactionDate = (DateTime)reader["LastTransactionDate"];
+                    }
+                    if (reader["Notes"] == DBNull.Value)
+                    {
+                        Notes = "";
+                    }
+                    else
+                    {
+                        Notes = (string)reader["Notes"];
+                    }
+                    CreatedBy = (int)reader["CreatedBy"];
+                }
+                reader.Close();
+
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
 
         public static int AddNewAccount(int ClientID, string AccountNumber,bool IsPrimary,  int AccountTypeID,  double Balance,
                                 byte AccountStatus,  DateTime DateOpened,  int BranchID, string Notes,  int CreatedBy)

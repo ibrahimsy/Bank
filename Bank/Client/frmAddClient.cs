@@ -98,7 +98,7 @@ namespace Bank.Client
 
         }
 
-        void _LoadUserInfo()
+        void _LoadClientInfo()
         {
             _ClientInfo = clsClient.FindClientByID(_ClientID);
             if (_ClientInfo == null)
@@ -253,7 +253,7 @@ namespace Bank.Client
             _ResetDefaultValue();
             if (_Mode == enMode.enUpdate)
             {
-                _LoadUserInfo();
+                _LoadClientInfo();
             }
         }
 
