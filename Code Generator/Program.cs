@@ -2,6 +2,8 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,7 +82,7 @@ namespace Code_Generator
 
                 code.AppendLine("\n");
                 // Generate Update Method
-                code.AppendLine($"    public static bool Update{tableName}ByID(int id, {GenerateMethodParameters(columns)})");
+                code.AppendLine($"    public static bool Update{tableName}ByID({GenerateMethodParameters(columns)})");
                 code.AppendLine("    {");
                 code.AppendLine($"        // Code to update {tableName} by ID");
                 code.AppendLine("    }");
@@ -94,7 +96,7 @@ namespace Code_Generator
 
                 code.AppendLine("\n");
                 // Generate GetById Method
-                code.AppendLine($"    public static int Get{tableName}ById(int id)");
+                code.AppendLine($"    public static int Get{tableName}ById({GenerateMethodParameters(columns,"Get")})");
                 code.AppendLine("    {");
                 code.AppendLine($@" 
                         bool IsFound = false;
@@ -116,25 +118,13 @@ namespace Code_Generator
                 if (reader.Read())
                 {{
                     IsFound = true;
+                    ");
+                    foreach(ColumnInfo colInfo in columns){{
+                        code.AppendLine($@"{colInfo.Name} = ({colInfo.DataType})reader[""{colInfo.Name}""]");
+                    }
+                }
 
-                   
-                   
-                            
-                        
-                    
-                    ClientID  = (int)reader[""ClientID""];
-                    AccountNumber = (string)reader[""AccountNumber""];
-                    IsPrimary = (bool)reader[""IsPrimary""];
-                    AccountTypeID = (int)reader[""AccountTypeID""];
-                    Balance = Convert.ToDouble(reader[""Balance""]);
-                    AccountStatus = (byte)reader[""AccountStatus""];
-                    DateOpened = (DateTime)reader[""DateOpened""];
-                    DateClosed = (DateTime)reader[""DateClosed""];
-                    BranchID = (int)reader[""BranchID""];
-                    LastTransactionDate = (DateTime)reader[""LastTransactionDate""];
-                    Notes = (string)reader[""Notes""];
-                    CreatedBy = (int)reader[""CreatedBy""];
-
+                code.AppendLine($@"
                 }}
                 reader.Close();
             }}
@@ -156,13 +146,16 @@ namespace Code_Generator
                 return code.ToString();
             }
 
-            private string GenerateMethodParameters(List<ColumnInfo> columns)
+            private string GenerateMethodParameters(List<ColumnInfo> columns,string ProccessName = "")
             {
                 StringBuilder parameters = new StringBuilder();
 
                 foreach (var column in columns)
                 {
-                    parameters.Append($"{column.DataType} {column.Name}, ");
+                    if(ProccessName == "Get")
+                        parameters.Append($"ref {column.DataType} {column.Name}, ");
+                    else
+                        parameters.Append($"{column.DataType} {column.Name}, ");
                 }
 
                 // Remove trailing comma and space
@@ -174,7 +167,24 @@ namespace Code_Generator
                 return parameters.ToString();
             }
 
+            public static void CreateClassFile(string className, string directoryPath)
+            {
+                // Create the directory if it doesn't exist
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
 
+                // Define the path for the new class file
+                string filePath = Path.Combine(directoryPath, $"{className}.cs");
+
+                // Generate the class content
+                string classContent = "";
+
+                // Write the content to the .cs file
+                File.WriteAllText(filePath, classContent);
+                Console.WriteLine($"Class file '{className}.cs' has been created at {directoryPath}");
+            }
 
         }
         static void Main(string[] args)
@@ -187,6 +197,14 @@ namespace Code_Generator
             string code = generator.GenerateDataAccessCode(tableName, columns);
 
             Console.WriteLine(code);
+
+            /*
+            Console.Write("Enter the class name: ");
+            string className = Console.ReadLine();
+
+            string directoryPath = @"C:\Your\Directory\Path"; // Set your desired directory path
+            ClassFileGenerator.CreateClassFile(className, directoryPath);
+             */
 
             Console.ReadLine();
         }
