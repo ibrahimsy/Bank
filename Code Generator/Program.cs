@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankDataAccess;
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Code_Generator
 {
     internal class Program
@@ -18,22 +18,23 @@ namespace Code_Generator
             public string DataType { get; set; }
         }
 
-        public class CodeGenerator
+        public static class CodeGenerator
         {
-            public List<ColumnInfo> GetTableColumns(string connectionString, string tableName)
+            public static List<ColumnInfo> GetTableColumns(string connectionString, string tableName)
             {
                 var columns = new List<ColumnInfo>();
                 string query = @"SELECT COLUMN_NAME, DATA_TYPE 
                          FROM INFORMATION_SCHEMA.COLUMNS 
                          WHERE TABLE_NAME = @TableName";
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                using (SqlCommand command = new SqlCommand(query, connection))
+                SqlConnection connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(query, connection);
+                
+                command.Parameters.AddWithValue("@TableName", tableName);
+                try
                 {
-                    command.Parameters.AddWithValue("@TableName", tableName);
                     connection.Open();
-
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    SqlDataReader reader = command.ExecuteReader();
                     {
                         while (reader.Read())
                         {
@@ -44,11 +45,15 @@ namespace Code_Generator
                             });
                         }
                     }
+                } catch (Exception ex) 
+                {
+                    
                 }
+
                 return columns;
             }
 
-            private string MapSqlTypeToCSharpType(string sqlType)
+            private static string MapSqlTypeToCSharpType(string sqlType)
             {
                 switch (sqlType)
                 {
@@ -66,11 +71,169 @@ namespace Code_Generator
                 return "";
             }
 
-            public string GenerateDataAccessCode(string tableName, List<ColumnInfo> columns)
+            //Default CRUD Operations
+            private static string _GetDataByID(string TableName, List<ColumnInfo> columns)
+            {
+                StringBuilder GetDataByIDcode = new StringBuilder();
+
+                GetDataByIDcode.AppendLine($"    public static int Get{TableName}ById({GenerateMethodParameters(columns, "Get")})");
+                GetDataByIDcode.AppendLine("    {");
+                GetDataByIDcode.AppendLine($@" 
+                bool IsFound = false;
+
+                string query = ""SELECT * FROM {TableName} WHERE {columns[0].Name} = @{columns[0].Name}"";
+
+                SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue(""@{columns[0].Name}"", {columns[0].Name});
+
+                try
+                {{
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                 {{
+                        IsFound = true;
+                        ");
+                foreach (ColumnInfo colInfo in columns)
+                {
+                    {
+                        GetDataByIDcode.AppendLine($@"{colInfo.Name} = ({colInfo.DataType})reader[""{colInfo.Name}""];");
+                    }
+                }
+                GetDataByIDcode.AppendLine($@"
+                }}
+                reader.Close();
+                }}
+                catch (Exception ex)
+                {{
+                    IsFound = false;
+                }}
+                finally
+                {{
+                    connection.Close();
+                }}
+            
+                                ");
+                GetDataByIDcode.AppendLine($" return IsFound;"); // Placeholder return statement
+                GetDataByIDcode.AppendLine("    }");
+
+                return GetDataByIDcode.ToString();
+            }
+
+            private static string _DeleteByID(string TableName, List<ColumnInfo> columns)
+            {
+
+                StringBuilder DeleteCode = new StringBuilder();
+                DeleteCode.AppendLine($"    public static bool Delete{TableName}ById({columns[0].DataType} {columns[0].Name})");
+                DeleteCode.AppendLine("    {");
+                DeleteCode.AppendLine($@"
+
+                    int AffectedRows = 0;
+
+                    string query = @""DELETE FROM Accounts
+                                     WHERE AccountID = @AccountID"";
+                    SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+                    SqlCommand command = new SqlCommand(query, connection);
+
+                    command.Parameters.AddWithValue(""@AccountID"", AccountID);
+
+                    try
+                    {{
+                        connection.Open();
+
+                        AffectedRows = command.ExecuteNonQuery();
+                    }}
+                    catch (Exception ex)
+                    {{
+                        return false;
+                    }}
+                    finally {{ connection.Close(); }}
+
+                        ");
+                DeleteCode.AppendLine($"  return AffectedRows > 0;"); // Placeholder return statement
+                DeleteCode.AppendLine("    }");
+
+                return DeleteCode.ToString();
+            }
+
+            private static string _UpdateByID(string TableName, List<ColumnInfo> columns)
+            {
+                StringBuilder UpdateCode = new StringBuilder();
+                UpdateCode.AppendLine($"    public static int Get{TableName}ById({GenerateMethodParameters(columns)})");
+                UpdateCode.AppendLine("    {");
+                UpdateCode.AppendLine($@" 
+
+                    int AffectedRows = 0;
+             
+            string query = @""UPDATE {TableName} SET ");
+
+                 foreach (ColumnInfo colInfo in columns)
+                {
+                    UpdateCode.AppendLine($"{colInfo.Name} = @{colInfo.Name},");
+                }
+
+                UpdateCode.AppendLine($@" WHERE {columns[0]} = @{columns[0]}"";
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+                ");
+
+                foreach (ColumnInfo colInfo in columns)
+                {
+                    UpdateCode.AppendLine($@"command.Parameters.AddWithValue(""@{colInfo.Name}"", {colInfo.Name});");
+                }
+
+                UpdateCode.AppendLine($@" 
+                        try
+                        {{
+                            connection.Open();
+
+                            AffectedRows = command.ExecuteNonQuery();
+                        }}
+                        catch (Exception ex)
+                        {{
+                            return false;
+                        }}
+                        finally
+                        {{
+                            connection.Close();
+                        }}
+                    ");
+          
+                UpdateCode.AppendLine($"  return AffectedRows > 0;"); // Placeholder return statement
+                UpdateCode.AppendLine("    }");
+
+                return UpdateCode.ToString();
+            }
+            private static string _AddData(string TableName, List<ColumnInfo> columns)
+            {
+                StringBuilder AddCode = new StringBuilder();
+
+            }
+
+            public static string GenerateDataAccessCode(string tableName, List<ColumnInfo> columns)
             {
                 StringBuilder code = new StringBuilder();
 
                 // Generate Class Definition
+                code.AppendLine($@"using System;
+                using System.Collections.Generic;
+                using System.Data.SqlClient;
+                using System.Data;
+                using System.Linq;
+                using System.Text;
+                using System.Threading.Tasks;
+
+                namespace BankDataAccess
+                {{
+                ");
+                code.AppendLine("\n");
                 code.AppendLine($"public class {tableName}Data");
                 code.AppendLine("{");
 
@@ -89,64 +252,18 @@ namespace Code_Generator
 
                 code.AppendLine("\n");
                 // Generate Delete Method
-                code.AppendLine($"    public static bool Delete{tableName}ByID(int id)");
-                code.AppendLine("    {");
-                code.AppendLine($"        // Code to delete from {tableName} by ID");
-                code.AppendLine("    }");
+                _DeleteByID(tableName, columns);
 
                 code.AppendLine("\n");
                 // Generate GetById Method
-                code.AppendLine($"    public static int Get{tableName}ById({GenerateMethodParameters(columns,"Get")})");
-                code.AppendLine("    {");
-                code.AppendLine($@" 
-                        bool IsFound = false;
+                _GetDataByID(tableName, columns);
 
-            string query = ""SELECT * FROM Accounts WHERE AccountID = @AccountID"";
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue(""@AccountID"", AccountID);
-
-            try
-            {{
-                connection.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {{
-                    IsFound = true;
-                    ");
-                    foreach(ColumnInfo colInfo in columns){{
-                        code.AppendLine($@"{colInfo.Name} = ({colInfo.DataType})reader[""{colInfo.Name}""]");
-                    }
-                }
-
-                code.AppendLine($@"
-                }}
-                reader.Close();
-            }}
-            catch (Exception ex)
-            {{
-                IsFound = false;
-            }}
-            finally
-            {{
-                connection.Close();
-            }}
-            
-                                ");
-                code.AppendLine($"       return IsFound;"); // Placeholder return statement
-                code.AppendLine("    }");
-
-                code.AppendLine("}");
+                code.AppendLine("}}");
 
                 return code.ToString();
             }
 
-            private string GenerateMethodParameters(List<ColumnInfo> columns,string ProccessName = "")
+            private static string GenerateMethodParameters(List<ColumnInfo> columns,string ProccessName = "")
             {
                 StringBuilder parameters = new StringBuilder();
 
@@ -167,7 +284,7 @@ namespace Code_Generator
                 return parameters.ToString();
             }
 
-            public static void CreateClassFile(string className, string directoryPath)
+            public static void CreateClassFile(string className, string directoryPath,string ClassContent)
             {
                 // Create the directory if it doesn't exist
                 if (!Directory.Exists(directoryPath))
@@ -179,32 +296,31 @@ namespace Code_Generator
                 string filePath = Path.Combine(directoryPath, $"{className}.cs");
 
                 // Generate the class content
-                string classContent = "";
+                string classContent = ClassContent;
 
                 // Write the content to the .cs file
                 File.WriteAllText(filePath, classContent);
                 Console.WriteLine($"Class file '{className}.cs' has been created at {directoryPath}");
             }
-
+            
         }
         static void Main(string[] args)
         {
-            string connectionString = "Server =.;Database= BankDB;User Id =sa;Password=sa123456";
+            string connectionString = clsDataAccessSettings.ConnectionString;
             string tableName = "Transactions";
 
-            var generator = new CodeGenerator();
-            var columns = generator.GetTableColumns(connectionString, tableName);
-            string code = generator.GenerateDataAccessCode(tableName, columns);
+            
+            var columns = CodeGenerator.GetTableColumns(connectionString, tableName);
+            string code = CodeGenerator.GenerateDataAccessCode(tableName, columns);
 
-            Console.WriteLine(code);
+            //Console.WriteLine(code);
 
-            /*
-            Console.Write("Enter the class name: ");
-            string className = Console.ReadLine();
+            string className = tableName + "Data";
 
-            string directoryPath = @"C:\Your\Directory\Path"; // Set your desired directory path
-            ClassFileGenerator.CreateClassFile(className, directoryPath);
-             */
+            string directoryPath = @"D:\Development\C#\My-Github\Bank\BankDataAccess"; // Set your desired directory path
+           
+            CodeGenerator.CreateClassFile(className, directoryPath, code);
+            
 
             Console.ReadLine();
         }
