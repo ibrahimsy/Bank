@@ -556,6 +556,37 @@ namespace BankDataAccess
             return AffectedRows > 0;
         }
 
+        public static DataTable GetAllAccountsByClientID(int ClientID)
+        {
+            DataTable dt = new DataTable();
+
+            string query = @"SELECT * FROM Accounts_View WHERE ClientID = @ClientID ORDER BY AccountID DESC";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ClientID", ClientID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+
         public static DataTable GetAllAccounts()
         {
             DataTable dt = new DataTable();

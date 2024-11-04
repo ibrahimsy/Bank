@@ -37,10 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvAccounts = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnAddAccount = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showAccountDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -52,16 +48,20 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.activateAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
             this.closeAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.issueVISACardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.issueCreditCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnAddAccount = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblRecordsCount
@@ -128,6 +128,8 @@
             this.dgvAccounts.AllowUserToAddRows = false;
             this.dgvAccounts.AllowUserToDeleteRows = false;
             this.dgvAccounts.AllowUserToOrderColumns = true;
+            this.dgvAccounts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAccounts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAccounts.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -153,53 +155,6 @@
             this.dgvAccounts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAccounts.Size = new System.Drawing.Size(1152, 302);
             this.dgvAccounts.TabIndex = 23;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Titillium Web", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Firebrick;
-            this.label1.Location = new System.Drawing.Point(10, 142);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1157, 47);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Manage Bank Accounts";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = global::Bank.Properties.Resources.Close_32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1072, 552);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(92, 36);
-            this.btnClose.TabIndex = 25;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnAddAccount
-            // 
-            this.btnAddAccount.BackgroundImage = global::Bank.Properties.Resources.open_account;
-            this.btnAddAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddAccount.Location = new System.Drawing.Point(1095, 177);
-            this.btnAddAccount.Name = "btnAddAccount";
-            this.btnAddAccount.Size = new System.Drawing.Size(69, 61);
-            this.btnAddAccount.TabIndex = 24;
-            this.btnAddAccount.UseVisualStyleBackColor = true;
-            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Bank.Properties.Resources.Account;
-            this.pictureBox1.Location = new System.Drawing.Point(505, -5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(167, 157);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
             // 
             // contextMenuStrip1
             // 
@@ -280,6 +235,17 @@
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(186, 6);
             // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(189, 22);
+            this.toolStripMenuItem8.Text = "Deactivate Account";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(186, 6);
+            // 
             // closeAccountToolStripMenuItem
             // 
             this.closeAccountToolStripMenuItem.Name = "closeAccountToolStripMenuItem";
@@ -308,16 +274,52 @@
             this.issueCreditCardToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.issueCreditCardToolStripMenuItem.Text = "Issue Credit Card";
             // 
-            // toolStripMenuItem8
+            // label1
             // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(189, 22);
-            this.toolStripMenuItem8.Text = "Deactivate Account";
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Titillium Web", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Firebrick;
+            this.label1.Location = new System.Drawing.Point(10, 142);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1157, 47);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Manage Bank Accounts";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // toolStripMenuItem9
+            // btnClose
             // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(186, 6);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::Bank.Properties.Resources.Close_32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(1072, 552);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(92, 36);
+            this.btnClose.TabIndex = 25;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnAddAccount
+            // 
+            this.btnAddAccount.BackgroundImage = global::Bank.Properties.Resources.open_account;
+            this.btnAddAccount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddAccount.Location = new System.Drawing.Point(1095, 177);
+            this.btnAddAccount.Name = "btnAddAccount";
+            this.btnAddAccount.Size = new System.Drawing.Size(69, 61);
+            this.btnAddAccount.TabIndex = 24;
+            this.btnAddAccount.UseVisualStyleBackColor = true;
+            this.btnAddAccount.Click += new System.EventHandler(this.btnAddAccount_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Bank.Properties.Resources.Account;
+            this.pictureBox1.Location = new System.Drawing.Point(505, -5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(167, 157);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
             // 
             // frmManageAccounts
             // 
@@ -340,8 +342,8 @@
             this.Text = "Manage Accounts";
             this.Load += new System.EventHandler(this.frmManageAccounts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

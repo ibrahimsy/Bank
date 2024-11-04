@@ -59,7 +59,7 @@ namespace Bank.Util
   
         public static bool CopyImageToProjectImagesFolder(ref string SourceFile)
         {
-            string ImagesFolder = @"C:My-Github\Bank\Images\";
+            string ImagesFolder = @"D:\Development\C#\My-Github\Bank\Images\";
            
                 if (!_CreateDirectoryIfDoesntExist(ImagesFolder))
                 {

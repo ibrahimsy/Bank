@@ -33,6 +33,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpClientInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
+            this.ctrlClientCardWithFilter1 = new Bank.Client.Controls.ctrlClientCardWithFilter();
             this.tpAccountInfo = new System.Windows.Forms.TabPage();
             this.cbAccountStatus = new System.Windows.Forms.ComboBox();
             this.txtNotes = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ctrlClientCardWithFilter1 = new Bank.Client.Controls.ctrlClientCardWithFilter();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tpClientInfo.SuspendLayout();
@@ -108,6 +108,15 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // ctrlClientCardWithFilter1
+            // 
+            this.ctrlClientCardWithFilter1.ClientID = -1;
+            this.ctrlClientCardWithFilter1.FilterEnabled = true;
+            this.ctrlClientCardWithFilter1.Location = new System.Drawing.Point(21, 6);
+            this.ctrlClientCardWithFilter1.Name = "ctrlClientCardWithFilter1";
+            this.ctrlClientCardWithFilter1.Size = new System.Drawing.Size(945, 419);
+            this.ctrlClientCardWithFilter1.TabIndex = 30;
+            // 
             // tpAccountInfo
             // 
             this.tpAccountInfo.Controls.Add(this.cbAccountStatus);
@@ -135,6 +144,7 @@
             // 
             // cbAccountStatus
             // 
+            this.cbAccountStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAccountStatus.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAccountStatus.FormattingEnabled = true;
             this.cbAccountStatus.Location = new System.Drawing.Point(210, 204);
@@ -153,6 +163,7 @@
             // 
             // cbBranches
             // 
+            this.cbBranches.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBranches.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBranches.FormattingEnabled = true;
             this.cbBranches.Location = new System.Drawing.Point(524, 159);
@@ -162,6 +173,7 @@
             // 
             // cbAccountType
             // 
+            this.cbAccountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAccountType.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAccountType.FormattingEnabled = true;
             this.cbAccountType.Location = new System.Drawing.Point(210, 157);
@@ -307,15 +319,6 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // ctrlClientCardWithFilter1
-            // 
-            this.ctrlClientCardWithFilter1.ClientID = -1;
-            this.ctrlClientCardWithFilter1.FilterEnabled = true;
-            this.ctrlClientCardWithFilter1.Location = new System.Drawing.Point(21, 6);
-            this.ctrlClientCardWithFilter1.Name = "ctrlClientCardWithFilter1";
-            this.ctrlClientCardWithFilter1.Size = new System.Drawing.Size(945, 419);
-            this.ctrlClientCardWithFilter1.TabIndex = 30;
             // 
             // errorProvider1
             // 

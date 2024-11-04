@@ -80,7 +80,7 @@ namespace BankBussiness
         {
              this.AccountID = AccountID;
              this.ClientID = ClientID;
-             this.ClientInfo = clsClient.FindClientByID(this.AccountID);
+             this.ClientInfo = clsClient.FindClientByID(ClientID);
              this.AccountNumber = AccountNumber;
              this.AccountTypeID = AccountTypeID;
              this.AccountTypeInfo = clsAccountType.FindAccountTypeByID(this.AccountTypeID);
@@ -233,7 +233,12 @@ namespace BankBussiness
         {
             return clsAccountData.DeleteAccountByID(AccountID);
         }
-       
+
+        public static DataTable GetAccountsListByClientID(int ClientID)
+        {
+            return clsAccountData.GetAllAccountsByClientID(ClientID);
+        }
+
         public static DataTable GetAccountsList()
         {
             return clsAccountData.GetAllAccounts();

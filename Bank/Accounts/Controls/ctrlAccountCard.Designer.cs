@@ -86,7 +86,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(78, 126);
+            this.label5.Location = new System.Drawing.Point(81, 126);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(117, 32);
             this.label5.TabIndex = 4;
@@ -96,7 +96,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(353, 175);
+            this.label6.Location = new System.Drawing.Point(352, 175);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(145, 32);
             this.label6.TabIndex = 5;
@@ -116,7 +116,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(338, 127);
+            this.label8.Location = new System.Drawing.Point(334, 127);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(163, 32);
             this.label8.TabIndex = 7;
@@ -146,7 +146,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(47, 171);
+            this.label11.Location = new System.Drawing.Point(49, 171);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(149, 32);
             this.label11.TabIndex = 10;
@@ -156,7 +156,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(115, 258);
+            this.label13.Location = new System.Drawing.Point(119, 258);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(79, 32);
             this.label13.TabIndex = 12;
@@ -196,7 +196,7 @@
             // 
             this.lblAccountStatus.AutoSize = true;
             this.lblAccountStatus.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountStatus.Location = new System.Drawing.Point(501, 127);
+            this.lblAccountStatus.Location = new System.Drawing.Point(503, 127);
             this.lblAccountStatus.Name = "lblAccountStatus";
             this.lblAccountStatus.Size = new System.Drawing.Size(47, 32);
             this.lblAccountStatus.TabIndex = 19;
@@ -206,7 +206,7 @@
             // 
             this.lblAccountType.AutoSize = true;
             this.lblAccountType.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountType.Location = new System.Drawing.Point(501, 175);
+            this.lblAccountType.Location = new System.Drawing.Point(503, 175);
             this.lblAccountType.Name = "lblAccountType";
             this.lblAccountType.Size = new System.Drawing.Size(47, 32);
             this.lblAccountType.TabIndex = 20;
@@ -256,7 +256,7 @@
             // 
             this.lblAccountNotes.AutoSize = true;
             this.lblAccountNotes.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccountNotes.Location = new System.Drawing.Point(200, 258);
+            this.lblAccountNotes.Location = new System.Drawing.Point(198, 258);
             this.lblAccountNotes.Name = "lblAccountNotes";
             this.lblAccountNotes.Size = new System.Drawing.Size(47, 32);
             this.lblAccountNotes.TabIndex = 26;

@@ -117,6 +117,7 @@ namespace Bank.Accounts
 
             tabControl1.SelectedTab = tpAccountInfo;
             tpAccountInfo.Enabled = true;
+            btnSave.Enabled = true;    
         }
 
         private void frmAddEditAccount_Activated(object sender, EventArgs e)
@@ -195,7 +196,7 @@ namespace Bank.Accounts
                 errorProvider1.SetError(txtBalance, null);
             }
             double Balance = Convert.ToDouble(txtBalance.Text.Trim());
-            if (clsAccountType.FindAccountTypeByName(cbAccountType.Text).MinimumBalance < Balance)
+            if (clsAccountType.FindAccountTypeByName(cbAccountType.Text).MinimumBalance > Balance)
             {
                 errorProvider1.SetError(txtBalance, "Insufficient Balance,\n Balance Is Less Than Minimum Amount To Open This Account");
                 e.Cancel = true;

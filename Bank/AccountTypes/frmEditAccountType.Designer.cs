@@ -60,7 +60,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(499, 51);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Edit Branches";
+            this.label1.Text = "Edit Account Types";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
