@@ -11,7 +11,7 @@ namespace BankBussiness
 
 
 
-    public class clsCurrencie
+    public class clsCurrency
     {
 
         enum enMode { enAddNew = 1, enUpdate = 2 }
@@ -26,7 +26,7 @@ namespace BankBussiness
         public float Rate { set; get; }
 
 
-        public clsCurrencie()
+        public clsCurrency()
         {
             this.CurrencyID = default;
             this.CountryName = default;
@@ -37,7 +37,7 @@ namespace BankBussiness
         }
 
 
-        private clsCurrencie(int CurrencyID, string CountryName, string CurrencyCode, string CurrencyName, float Rate)
+        private clsCurrency(int CurrencyID, string CountryName, string CurrencyCode, string CurrencyName, float Rate)
         {
             this.CurrencyID = CurrencyID;
             this.CountryName = CountryName;
@@ -63,7 +63,7 @@ namespace BankBussiness
         }
 
 
-        public static clsCurrencie FindCurrencieByID(int CurrencyID)
+        public static clsCurrency FindCurrencieByID(int CurrencyID)
         {
       
             string CountryName = default;
@@ -72,7 +72,7 @@ namespace BankBussiness
             float Rate = default;
             if (clsCurrencyData.GetCurrencyByID( CurrencyID, ref CountryName, ref CurrencyCode, ref CurrencyName, ref Rate))
             {
-                return new clsCurrencie(CurrencyID, CountryName, CurrencyCode, CurrencyName, Rate);
+                return new clsCurrency(CurrencyID, CountryName, CurrencyCode, CurrencyName, Rate);
             }
             else
             {

@@ -23,7 +23,7 @@ namespace BankDataAccess
                                         TransactionType,
                                         Amount,
                                         BalanceAfterTransaction,
-                                        Currency,
+                                        CurrencyID,
                                         Description,
                                         Status,
                                         ReferenceNumber,
@@ -40,7 +40,7 @@ namespace BankDataAccess
                                         @TransactionType,
                                         @Amount,
                                         @BalanceAfterTransaction,
-                                        @Currency,
+                                        @CurrencyID,
                                         @Description,
                                         @Status,
                                         @ReferenceNumber,
@@ -61,7 +61,7 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@TransactionType", TransactionType);
             command.Parameters.AddWithValue("@Amount", Amount);
             command.Parameters.AddWithValue("@BalanceAfterTransaction", BalanceAfterTransaction);
-            command.Parameters.AddWithValue("@Currency", CurrencyID);
+            command.Parameters.AddWithValue("@CurrencyID", CurrencyID);
             command.Parameters.AddWithValue("@Description", Description);
             command.Parameters.AddWithValue("@Status", Status);
             command.Parameters.AddWithValue("@ReferenceNumber", ReferenceNumber);

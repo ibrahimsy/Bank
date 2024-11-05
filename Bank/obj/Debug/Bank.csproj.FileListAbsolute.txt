@@ -108,3 +108,4 @@ D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.Controls.ctrlAccou
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.frmShowAccountInfo.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Client.Controls.ctrlClientCardWithFilter.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.frmAddEditAccount.resources
+D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Currencies.frmCurrencyList.resources

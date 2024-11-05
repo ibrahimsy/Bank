@@ -2,6 +2,7 @@
 using Bank.AccountTypes;
 using Bank.Branches;
 using Bank.Client;
+using Bank.Currencies;
 using Bank.Global_Classes;
 using Bank.People;
 using Bank.Users;
@@ -124,6 +125,12 @@ namespace Bank
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
             frmManageAccounts frm = new frmManageAccounts();    
+            frm.ShowDialog();
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            frmCurrencyList frm = new frmCurrencyList();
             frm.ShowDialog();
         }
     }

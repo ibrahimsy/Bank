@@ -130,6 +130,12 @@
     <Compile Include="Client\frmManageClients.Designer.cs">
       <DependentUpon>frmManageClients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Currencies\frmCurrencyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Currencies\frmCurrencyList.Designer.cs">
+      <DependentUpon>frmCurrencyList.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Client\frmManageClients.resx">
       <DependentUpon>frmManageClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Currencies\frmCurrencyList.resx">
+      <DependentUpon>frmCurrencyList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
@@ -415,6 +424,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\open-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Currency Exchange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Curr_Exchange.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
