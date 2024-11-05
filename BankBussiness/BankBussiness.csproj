@@ -46,6 +46,7 @@
     <Compile Include="clsBranch.cs" />
     <Compile Include="clsClient.cs" />
     <Compile Include="clsCountry.cs" />
+    <Compile Include="clsCurrency.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsTransactions.cs" />
     <Compile Include="clsUser.cs" />

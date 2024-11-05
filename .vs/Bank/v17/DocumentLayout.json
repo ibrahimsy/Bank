@@ -1,88 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Development\\C#\\My-Github\\Bank\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{167B378E-5D61-4779-A4BF-E9815B6C6EE2}|Code Generator\\Code Generator.csproj|d:\\development\\c#\\my-github\\bank\\code generator\\bussinesscodegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{167B378E-5D61-4779-A4BF-E9815B6C6EE2}|Code Generator\\Code Generator.csproj|solutionrelative:code generator\\bussinesscodegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|d:\\development\\c#\\my-github\\bank\\bankbussiness\\clstransactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clstransactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|d:\\development\\c#\\my-github\\bank\\bankdataaccess\\clstransactiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clstransactiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{167B378E-5D61-4779-A4BF-E9815B6C6EE2}|Code Generator\\Code Generator.csproj|d:\\development\\c#\\my-github\\bank\\code generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{167B378E-5D61-4779-A4BF-E9815B6C6EE2}|Code Generator\\Code Generator.csproj|solutionrelative:code generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "clsTransactionData.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsTransactionData.cs",
-              "RelativeDocumentMoniker": "BankDataAccess\\clsTransactionData.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsTransactionData.cs",
-              "RelativeToolTip": "BankDataAccess\\clsTransactionData.cs",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAlwP0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T01:03:21.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Code Generator\\Program.cs",
-              "RelativeDocumentMoniker": "Code Generator\\Program.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Code Generator\\Program.cs",
-              "RelativeToolTip": "Code Generator\\Program.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAADwv9kAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T23:11:59.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "clsTransactions.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsTransactions.cs",
-              "RelativeDocumentMoniker": "BankBussiness\\clsTransactions.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsTransactions.cs",
-              "RelativeToolTip": "BankBussiness\\clsTransactions.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAgwIAAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T01:05:33.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BussinessCodeGenerator.cs",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Code Generator\\BussinessCodeGenerator.cs",
-              "RelativeDocumentMoniker": "Code Generator\\BussinessCodeGenerator.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Code Generator\\BussinessCodeGenerator.cs",
-              "RelativeToolTip": "Code Generator\\BussinessCodeGenerator.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAgwA8AAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T23:05:34.905Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

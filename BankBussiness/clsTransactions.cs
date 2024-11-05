@@ -26,7 +26,7 @@ namespace BankBussiness
         public byte TransactionType { set; get; }
         public decimal Amount { set; get; }
         public decimal BalanceAfterTransaction { set; get; }
-        public string Currency { set; get; }
+        public int CurrencyID { set; get; }
         public string Description { set; get; }
         public byte Status { set; get; }
         public string ReferenceNumber { set; get; }
@@ -46,7 +46,7 @@ namespace BankBussiness
             this.TransactionType = default;
             this.Amount = default;
             this.BalanceAfterTransaction = default;
-            this.Currency = default;
+            this.CurrencyID = default;
             this.Description = default;
             this.Status = default;
             this.ReferenceNumber = default;
@@ -59,7 +59,7 @@ namespace BankBussiness
             _Mode = enMode.enAddNew;
         }
 
-        private clsTransaction(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, string Currency, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
+        private clsTransaction(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
         {
             this.TransactionID = TransactionID;
             this.AccountID = AccountID;
@@ -67,7 +67,7 @@ namespace BankBussiness
             this.TransactionType = TransactionType;
             this.Amount = Amount;
             this.BalanceAfterTransaction = BalanceAfterTransaction;
-            this.Currency = Currency;
+            this.CurrencyID = CurrencyID;
             this.Description = Description;
             this.Status = Status;
             this.ReferenceNumber = ReferenceNumber;
@@ -83,7 +83,7 @@ namespace BankBussiness
 
         private bool _AddNewTransaction()
         {
-            TransactionID = clsTransactionData.AddTransaction(AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, Currency, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
+            TransactionID = clsTransactionData.AddTransaction(AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
 
             return (TransactionID != -1);
         }
@@ -91,7 +91,7 @@ namespace BankBussiness
 
         private bool _UpdateTransaction()
         {
-            return clsTransactionData.UpdateTransactionByID(TransactionID, AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, Currency, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
+            return clsTransactionData.UpdateTransactionByID(TransactionID, AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
         }
 
 
@@ -103,7 +103,7 @@ namespace BankBussiness
             byte TransactionType = default;
             decimal Amount = default;
             decimal BalanceAfterTransaction = default;
-            string Currency = default;
+            int CurrencyID = default;
             string Description = default;
             byte Status = default;
             string ReferenceNumber = default;
@@ -113,9 +113,9 @@ namespace BankBussiness
             DateTime CreatedDate = default;
             int UpdatedBy = default;
             DateTime UpdatedDate = default;
-            if (clsTransactionData.GetTransactionByID(TransactionID, ref AccountID, ref TransactionDate, ref TransactionType, ref Amount, ref BalanceAfterTransaction, ref Currency, ref Description, ref Status, ref ReferenceNumber, ref SourceAccountID, ref DestinationAccountID, ref CreatedBy, ref CreatedDate, ref UpdatedBy, ref UpdatedDate))
+            if (clsTransactionData.GetTransactionByID(TransactionID, ref AccountID, ref TransactionDate, ref TransactionType, ref Amount, ref BalanceAfterTransaction, ref CurrencyID, ref Description, ref Status, ref ReferenceNumber, ref SourceAccountID, ref DestinationAccountID, ref CreatedBy, ref CreatedDate, ref UpdatedBy, ref UpdatedDate))
             {
-                return new clsTransaction(TransactionID, AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, Currency, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
+                return new clsTransaction(TransactionID, AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
             }
             else
             {

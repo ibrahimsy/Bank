@@ -13,7 +13,7 @@ namespace BankDataAccess
 
     public class clsTransactionData
     {
-        public static int AddTransaction(int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, string Currency, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
+        public static int AddTransaction(int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
         {
             int _TransactionID = -1;
             string query = @"INSERT INTO Transactions(
@@ -61,7 +61,7 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@TransactionType", TransactionType);
             command.Parameters.AddWithValue("@Amount", Amount);
             command.Parameters.AddWithValue("@BalanceAfterTransaction", BalanceAfterTransaction);
-            command.Parameters.AddWithValue("@Currency", Currency);
+            command.Parameters.AddWithValue("@Currency", CurrencyID);
             command.Parameters.AddWithValue("@Description", Description);
             command.Parameters.AddWithValue("@Status", Status);
             command.Parameters.AddWithValue("@ReferenceNumber", ReferenceNumber);
@@ -94,7 +94,7 @@ namespace BankDataAccess
 
 
 
-        public static bool UpdateTransactionByID(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, string Currency, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
+        public static bool UpdateTransactionByID(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
         {
 
 
@@ -128,7 +128,7 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@TransactionType", TransactionType);
             command.Parameters.AddWithValue("@Amount", Amount);
             command.Parameters.AddWithValue("@BalanceAfterTransaction", BalanceAfterTransaction);
-            command.Parameters.AddWithValue("@Currency", Currency);
+            command.Parameters.AddWithValue("@Currency", CurrencyID);
             command.Parameters.AddWithValue("@Description", Description);
             command.Parameters.AddWithValue("@Status", Status);
             command.Parameters.AddWithValue("@ReferenceNumber", ReferenceNumber);
@@ -191,7 +191,7 @@ namespace BankDataAccess
 
 
 
-        public static bool GetTransactionByID( int TransactionID, ref int AccountID, ref DateTime TransactionDate, ref byte TransactionType, ref decimal Amount, ref decimal BalanceAfterTransaction, ref string Currency, ref string Description, ref byte Status, ref string ReferenceNumber, ref string SourceAccountID, ref string DestinationAccountID, ref int CreatedBy, ref DateTime CreatedDate, ref int UpdatedBy, ref DateTime UpdatedDate)
+        public static bool GetTransactionByID( int TransactionID, ref int AccountID, ref DateTime TransactionDate, ref byte TransactionType, ref decimal Amount, ref decimal BalanceAfterTransaction, ref int CurrencyID, ref string Description, ref byte Status, ref string ReferenceNumber, ref string SourceAccountID, ref string DestinationAccountID, ref int CreatedBy, ref DateTime CreatedDate, ref int UpdatedBy, ref DateTime UpdatedDate)
         {
 
             bool IsFound = false;
@@ -220,7 +220,7 @@ namespace BankDataAccess
                     TransactionType = (byte)reader["TransactionType"];
                     Amount = (decimal)reader["Amount"];
                     BalanceAfterTransaction = (decimal)reader["BalanceAfterTransaction"];
-                    Currency = (string)reader["Currency"];
+                    CurrencyID = (int)reader["Currency"];
                     Description = (string)reader["Description"];
                     Status = (byte)reader["Status"];
                     ReferenceNumber = (string)reader["ReferenceNumber"];

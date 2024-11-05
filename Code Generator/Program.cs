@@ -67,6 +67,7 @@ namespace Code_Generator
                     case "Default": return "string";
                     case "tinyint": return "byte";
                     case "char": return "string";
+                    case "float": return "float";
 
                 }
                 return "";
@@ -457,7 +458,7 @@ namespace Code_Generator
         static void Main(string[] args)
         {
             string connectionString = clsDataAccessSettings.ConnectionString;
-            string tableName = "Transactions";
+            string tableName = "Currencies";
 
 
             var columns = CodeGenerator.GetTableColumns(connectionString, tableName);
