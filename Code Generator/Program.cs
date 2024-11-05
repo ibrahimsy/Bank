@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Code_Generator
 {
-    internal class Program
+    public class Program
     {
         public class ColumnInfo
         {
@@ -29,7 +29,7 @@ namespace Code_Generator
 
                 SqlConnection connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(query, connection);
-                
+
                 command.Parameters.AddWithValue("@TableName", tableName);
                 try
                 {
@@ -45,9 +45,10 @@ namespace Code_Generator
                             });
                         }
                     }
-                } catch (Exception ex) 
+                }
+                catch (Exception ex)
                 {
-                    
+
                 }
 
                 return columns;
@@ -57,16 +58,16 @@ namespace Code_Generator
             {
                 switch (sqlType)
                 {
-                    case "int":return "int";
+                    case "int": return "int";
                     case "nvarchar": return "string";
                     case "varchar": return "string";
                     case "datetime": return "DateTime";
                     case "bit": return "bool";
                     case "decimal": return "decimal";
-                    case "Default":return "string";
-                    case "tinyint":return "byte";
-                    case "char":return "string";
-                   
+                    case "Default": return "string";
+                    case "tinyint": return "byte";
+                    case "char": return "string";
+
                 }
                 return "";
             }
@@ -76,7 +77,7 @@ namespace Code_Generator
             {
                 StringBuilder GetDataByIDcode = new StringBuilder();
 
-                GetDataByIDcode.AppendLine($"    public static int Get{TableName}ById({GenerateMethodParameters(columns, "Get")})");
+                GetDataByIDcode.AppendLine($"    public static bool Get{TableName}ByID({GenerateMethodParameters(columns, "Get")})");
                 GetDataByIDcode.AppendLine("    {");
                 GetDataByIDcode.AppendLine($@" 
                 bool IsFound = false;
@@ -129,19 +130,19 @@ namespace Code_Generator
             {
 
                 StringBuilder DeleteCode = new StringBuilder();
-                DeleteCode.AppendLine($"    public static bool Delete{TableName}ById({columns[0].DataType} {columns[0].Name})");
+                DeleteCode.AppendLine($"    public static bool Delete{TableName}ByID({columns[0].DataType} {columns[0].Name})");
                 DeleteCode.AppendLine("    {");
                 DeleteCode.AppendLine($@"
 
                     int AffectedRows = 0;
 
-                    string query = @""DELETE FROM Accounts
-                                     WHERE AccountID = @AccountID"";
+                    string query = @""DELETE FROM {TableName}
+                                     WHERE {columns[0].Name} = @{columns[0].Name}"";
                     SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
                     SqlCommand command = new SqlCommand(query, connection);
 
-                    command.Parameters.AddWithValue(""@AccountID"", AccountID);
+                    command.Parameters.AddWithValue(""@{columns[0].Name}"", {columns[0].Name});
 
                     try
                     {{
@@ -165,7 +166,7 @@ namespace Code_Generator
             private static string _UpdateByID(string TableName, List<ColumnInfo> columns)
             {
                 StringBuilder UpdateCode = new StringBuilder();
-                UpdateCode.AppendLine($"    public static int Get{TableName}ById({GenerateMethodParameters(columns)})");
+                UpdateCode.AppendLine($"    public static bool Update{TableName}ByID({GenerateMethodParameters(columns)})");
                 UpdateCode.AppendLine("    {");
                 UpdateCode.AppendLine($@" 
 
@@ -173,12 +174,12 @@ namespace Code_Generator
              
             string query = @""UPDATE {TableName} SET ");
 
-                 foreach (ColumnInfo colInfo in columns)
+                foreach (ColumnInfo colInfo in columns)
                 {
                     UpdateCode.AppendLine($"{colInfo.Name} = @{colInfo.Name},");
                 }
 
-                UpdateCode.AppendLine($@" WHERE {columns[0]} = @{columns[0]}"";
+                UpdateCode.AppendLine($@" WHERE {columns[0].Name} = @{columns[0].Name}"";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -205,17 +206,145 @@ namespace Code_Generator
                             connection.Close();
                         }}
                     ");
-          
+
                 UpdateCode.AppendLine($"  return AffectedRows > 0;"); // Placeholder return statement
                 UpdateCode.AppendLine("    }");
 
                 return UpdateCode.ToString();
             }
+
             private static string _AddData(string TableName, List<ColumnInfo> columns)
             {
                 StringBuilder AddCode = new StringBuilder();
 
+                AddCode.AppendLine($"    public static int Add{TableName}({GenerateMethodParameters(columns)})");
+                AddCode.AppendLine("    {");
+                AddCode.AppendLine($"int _{columns[0].Name} = -1;");
+                AddCode.AppendLine($@"string query = @""INSERT INTO {TableName}(");
+                foreach (ColumnInfo colInfo in columns)
+                {
+                    AddCode.AppendLine($"{colInfo.Name},");
+                }
+
+                AddCode.AppendLine(") VALUES (");
+
+                foreach (ColumnInfo colInfo in columns)
+                {
+                    AddCode.AppendLine($"@{colInfo.Name},");
+                }
+                AddCode.AppendLine($@");
+                SELECT SCOPE_IDENTITY();"";");
+
+                AddCode.AppendLine(@"
+                SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+                SqlCommand command = new SqlCommand(query, connection);");
+                foreach (ColumnInfo colInfo in columns)
+                {
+                    AddCode.AppendLine($@"command.Parameters.AddWithValue(""@{colInfo.Name}"", {colInfo.Name});");
+                }
+                AddCode.AppendLine($@"
+                        try
+                    {{
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null && int.TryParse(result.ToString(), out int Id))
+                        {{
+                            _{columns[0].Name} = Id;
+                        }}
+                    }}
+                    catch (Exception ex)
+                    {{
+
+                    }}
+                    finally
+                    {{
+                        connection.Close();
+                    }}
+                    return _{columns[0].Name};
+                    }}");
+                return AddCode.ToString();
             }
+
+            private static string _GetAllData(string TableName, List<ColumnInfo> columns)
+            {
+                StringBuilder AllDataCode = new StringBuilder();
+
+                AllDataCode.AppendLine($@"
+                    public static DataTable GetAll{TableName}()
+        {{
+            DataTable dt = new DataTable();
+
+            string query = @""SELECT * FROM {TableName} ORDER BY {columns[0].Name} DESC"";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {{
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {{
+                    dt.Load(reader);
+                }}
+                reader.Close();
+            }}
+            catch (Exception ex)
+            {{
+
+            }}
+            finally
+            {{
+                connection.Close();
+            }}
+            return dt;
+            }}
+                        ");
+                return AllDataCode.ToString();
+            }
+
+            private static string _IsDataExist(string TableName, List<ColumnInfo> columns)
+            {
+                StringBuilder IsExistCode = new StringBuilder();
+
+                IsExistCode.AppendLine($@"
+           
+            public static bool Is{TableName}ExistBy{columns[0].Name}(int {columns[0].Name})
+                {{
+            bool IsFound = false;
+
+            string query = @""SELECT found = 1 FROM {TableName} WHERE {columns[0].Name} = @{columns[0].Name}"";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue(""@{columns[0].Name}"", {columns[0].Name});
+
+            try
+            {{
+                connection.Open();
+                object result = command.ExecuteNonQuery();
+                if (result != null)
+                {{
+                    IsFound = true;
+                }}
+            }}
+            catch (Exception ex)
+            {{
+                return false;
+            }}
+            finally
+            {{
+                connection.Close();
+            }}
+            return IsFound;
+             }}
+            ");
+
+                return IsExistCode.ToString();
+            }
+
 
             public static string GenerateDataAccessCode(string tableName, List<ColumnInfo> columns)
             {
@@ -238,38 +367,39 @@ namespace Code_Generator
                 code.AppendLine("{");
 
                 // Generate Insert Method
-                code.AppendLine($"    public static bool Add{tableName}ByID({GenerateMethodParameters(columns)})");
-                code.AppendLine("    {");
-                code.AppendLine($"        // Code to insert into {tableName}");
-                code.AppendLine("    }");
-
+                code.AppendLine(_AddData(tableName, columns));
                 code.AppendLine("\n");
                 // Generate Update Method
-                code.AppendLine($"    public static bool Update{tableName}ByID({GenerateMethodParameters(columns)})");
-                code.AppendLine("    {");
-                code.AppendLine($"        // Code to update {tableName} by ID");
-                code.AppendLine("    }");
+                code.AppendLine(_UpdateByID(tableName, columns));
 
                 code.AppendLine("\n");
                 // Generate Delete Method
-                _DeleteByID(tableName, columns);
+                code.AppendLine(_DeleteByID(tableName, columns));
 
                 code.AppendLine("\n");
                 // Generate GetById Method
-                _GetDataByID(tableName, columns);
+                code.AppendLine(_GetDataByID(tableName, columns));
+
+                code.AppendLine("\n");
+                //Generate Is Data Exist
+                code.AppendLine(_IsDataExist(tableName, columns));
+
+                code.AppendLine("\n");
+                // Generate GetAllDate Method
+                code.AppendLine(_GetAllData(tableName, columns));
 
                 code.AppendLine("}}");
 
                 return code.ToString();
             }
 
-            private static string GenerateMethodParameters(List<ColumnInfo> columns,string ProccessName = "")
+            public static string GenerateMethodParameters(List<ColumnInfo> columns, string ProccessName = "")
             {
                 StringBuilder parameters = new StringBuilder();
 
                 foreach (var column in columns)
                 {
-                    if(ProccessName == "Get")
+                    if (ProccessName == "Get")
                         parameters.Append($"ref {column.DataType} {column.Name}, ");
                     else
                         parameters.Append($"{column.DataType} {column.Name}, ");
@@ -284,7 +414,27 @@ namespace Code_Generator
                 return parameters.ToString();
             }
 
-            public static void CreateClassFile(string className, string directoryPath,string ClassContent)
+            public static string GenerateMethodUnReferencedParameters(List<ColumnInfo> columns, string ProccessName = "")
+            {
+                StringBuilder parameters = new StringBuilder();
+
+                foreach (var column in columns)
+                {
+                    if (ProccessName == "Get")
+                        parameters.Append($"ref {column.Name}, ");
+                    else
+                        parameters.Append($"{column.Name}, ");
+                }
+
+                // Remove trailing comma and space
+                if (parameters.Length > 0)
+                {
+                    parameters.Length -= 2;
+                }
+
+                return parameters.ToString();
+            }
+            public static void CreateClassFile(string className, string directoryPath, string ClassContent)
             {
                 // Create the directory if it doesn't exist
                 if (!Directory.Exists(directoryPath))
@@ -302,25 +452,27 @@ namespace Code_Generator
                 File.WriteAllText(filePath, classContent);
                 Console.WriteLine($"Class file '{className}.cs' has been created at {directoryPath}");
             }
-            
+
         }
         static void Main(string[] args)
         {
             string connectionString = clsDataAccessSettings.ConnectionString;
             string tableName = "Transactions";
 
-            
-            var columns = CodeGenerator.GetTableColumns(connectionString, tableName);
-            string code = CodeGenerator.GenerateDataAccessCode(tableName, columns);
 
+            var columns = CodeGenerator.GetTableColumns(connectionString, tableName);
+            string DataAccessCode = CodeGenerator.GenerateDataAccessCode(tableName, columns);
+            string BussinessCode = BussinessCodeGenerator.GenerateBussinessCode(tableName, columns);
             //Console.WriteLine(code);
 
-            string className = tableName + "Data";
+            string DataclassName = "cls" + tableName + "Data";
+            string BussinessclassName = "cls" + tableName;
 
-            string directoryPath = @"D:\Development\C#\My-Github\Bank\BankDataAccess"; // Set your desired directory path
-           
-            CodeGenerator.CreateClassFile(className, directoryPath, code);
-            
+            string DataAccessdirectoryPath = @"D:\Development\C#\My-Github\Bank\BankDataAccess"; // Set your desired directory path
+            string BussinessDirectoryPath = @"D:\Development\C#\My-Github\Bank\BankBussiness";
+
+            CodeGenerator.CreateClassFile(DataclassName, DataAccessdirectoryPath, DataAccessCode);
+            CodeGenerator.CreateClassFile(BussinessclassName, BussinessDirectoryPath, BussinessCode);
 
             Console.ReadLine();
         }

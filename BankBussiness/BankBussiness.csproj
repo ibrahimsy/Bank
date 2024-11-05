@@ -47,6 +47,7 @@
     <Compile Include="clsClient.cs" />
     <Compile Include="clsCountry.cs" />
     <Compile Include="clsPerson.cs" />
+    <Compile Include="clsTransactions.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
