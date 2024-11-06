@@ -1,4 +1,5 @@
 ﻿using Bank.Global_Classes;
+using Bank.Transactions;
 using BankBussiness;
 using System;
 using System.Collections.Generic;
@@ -210,7 +211,9 @@ namespace Bank.Client
 
         private void transferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            frmTransfer frm = new frmTransfer();
+            frm.ShowDialog();
+
             _RefreshClientsList();
         }
 

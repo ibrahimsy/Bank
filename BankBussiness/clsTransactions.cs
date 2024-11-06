@@ -18,7 +18,7 @@ namespace BankBussiness
         enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-
+        public enum enTransactionType { Withdraw = 1,Deposit = 2,Transfer = 3 };
 
         public int TransactionID { set; get; }
         public int AccountID { set; get; }
