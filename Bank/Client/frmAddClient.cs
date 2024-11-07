@@ -153,7 +153,7 @@ namespace Bank.Client
             _PrimaryAccountInfo.AccountNumber = clsUtility.GenerateAccountNumber(8);
             _PrimaryAccountInfo.IsPrimary = true;
             _PrimaryAccountInfo.AccountTypeID = clsAccountType.FindAccountTypeByName(cbAccountType.Text).AccountTypeID;
-            _PrimaryAccountInfo.Balance = Convert.ToDouble(txtBalance.Text);
+            _PrimaryAccountInfo.Balance = Convert.ToDecimal(txtBalance.Text);
             _PrimaryAccountInfo.AccountStatus = (byte)((clsAccount.enAccountStatus)cbAccountStatus.SelectedItem);
             _PrimaryAccountInfo.DateOpened = DateTime.Now;
             _PrimaryAccountInfo.BranchID = _ClientInfo.BranchID;

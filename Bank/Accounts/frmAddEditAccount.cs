@@ -143,7 +143,7 @@ namespace Bank.Accounts
 
             _AccountInfo.ClientID = ctrlClientCardWithFilter1.ClientID;
             _AccountInfo.AccountTypeID = clsAccountType.FindAccountTypeByName(cbAccountType.Text).AccountTypeID;
-            _AccountInfo.Balance = Convert.ToDouble(txtBalance.Text);
+            _AccountInfo.Balance = Convert.ToDecimal(txtBalance.Text);
             _AccountInfo.AccountStatus = (byte)((clsAccount.enAccountStatus)cbAccountStatus.SelectedItem);
             _AccountInfo.DateOpened = DateTime.Now;
             _AccountInfo.BranchID = clsBranch.FindBranchByBranchName(cbBranches.Text).BranchID;

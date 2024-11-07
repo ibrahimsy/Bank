@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankDataAccess
 {
-    //int AccountID,int ClientID,string AccountNumber,int AccountID,double Balance,
+    //int AccountID,int ClientID,string AccountNumber,int AccountID,decimal Balance,
     //byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy
 
     /*
@@ -16,7 +16,7 @@ namespace BankDataAccess
         int         ClientID
         string      AccountNumber
         int         AccountTypeID
-        double      Balance
+        decimal      Balance
         byte        AccountStatus
         DateTime    DateOpened
         DateTime    DateClosed
@@ -27,7 +27,7 @@ namespace BankDataAccess
      */
     public class clsAccountData
     {
-        public static bool GetAccountByID(int AccountID,ref int ClientID,ref string AccountNumber,ref bool IsPrimary,ref int AccountTypeID,ref double Balance,
+        public static bool GetAccountByID(int AccountID,ref int ClientID,ref string AccountNumber,ref bool IsPrimary,ref int AccountTypeID,ref decimal Balance,
                                ref byte AccountStatus,ref DateTime DateOpened,ref DateTime DateClosed,ref int BranchID,ref DateTime LastTransactionDate,ref string Notes,ref int CreatedBy)
         {
             bool IsFound = false;
@@ -55,7 +55,7 @@ namespace BankDataAccess
                     AccountNumber = (string)reader["AccountNumber"];
                     IsPrimary = (bool)reader["IsPrimary"];
                     AccountTypeID = (int)reader["AccountTypeID"];
-                    Balance = Convert.ToDouble(reader["Balance"]);
+                    Balance = Convert.ToDecimal(reader["Balance"]);
                     AccountStatus = (byte)reader["AccountStatus"];
                     DateOpened = (DateTime)reader["DateOpened"];
                     
@@ -104,7 +104,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetAccountByAccountNumber(string AccountNumber ,ref int AccountID, ref int ClientID,ref bool IsPrimary, ref int AccountTypeID, ref double Balance,
+        public static bool GetAccountByAccountNumber(string AccountNumber ,ref int AccountID, ref int ClientID,ref bool IsPrimary, ref int AccountTypeID, ref decimal Balance,
                                ref byte AccountStatus, ref DateTime DateOpened, ref DateTime DateClosed, ref int BranchID, ref DateTime LastTransactionDate, ref string Notes, ref int CreatedBy)
         {
             bool IsFound = false;
@@ -132,7 +132,7 @@ namespace BankDataAccess
                     IsPrimary = (bool)reader["IsPrimary"];
                     AccountTypeID = (int)reader["AccountTypeID"];
                   
-                    Balance = Convert.ToDouble(reader["Balance"]);
+                    Balance = Convert.ToDecimal(reader["Balance"]);
                     AccountStatus = (byte)reader["AccountStatus"];
                     DateOpened = (DateTime)reader["DateOpened"];
                     if (reader["DateClosed"] == DBNull.Value)
@@ -144,7 +144,7 @@ namespace BankDataAccess
                         DateClosed = (DateTime)reader["DateClosed"];
                     }
                     BranchID = (int)reader["BranchID"];
-                    LastTransactionDate = (DateTime)reader["LastTransactionDate"];
+                    
                     if (reader["LastTransactionDate"] == DBNull.Value)
                     {
                         LastTransactionDate = DateTime.MaxValue;
@@ -176,7 +176,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetPrimaryAccountByClientID(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref double Balance,
+        public static bool GetPrimaryAccountByClientID(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref decimal Balance,
                                ref byte AccountStatus, ref DateTime DateOpened, ref DateTime DateClosed, ref int BranchID, ref DateTime LastTransactionDate, ref string Notes, ref int CreatedBy)
         {
             bool IsFound = false;
@@ -205,7 +205,7 @@ namespace BankDataAccess
                     IsPrimary = (bool)reader["IsPrimary"];
                     AccountTypeID = (int)reader["AccountTypeID"];
 
-                    Balance = Convert.ToDouble(reader["Balance"]);
+                    Balance = Convert.ToDecimal(reader["Balance"]);
                     AccountStatus = (byte)reader["AccountStatus"];
                     DateOpened = (DateTime)reader["DateOpened"];
                     if (reader["DateClosed"] == DBNull.Value)
@@ -250,7 +250,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetAccountByClientID(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref double Balance,
+        public static bool GetAccountByClientID(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref decimal Balance,
                                ref byte AccountStatus, ref DateTime DateOpened, ref DateTime DateClosed, ref int BranchID, ref DateTime LastTransactionDate, ref string Notes, ref int CreatedBy)
         {
             bool IsFound = false;
@@ -278,7 +278,7 @@ namespace BankDataAccess
                     AccountNumber = (string)reader["AccountNumber"];
                     IsPrimary = (bool)reader["IsPrimary"];
                     AccountTypeID = (int)reader["AccountTypeID"];
-                    Balance = Convert.ToDouble(reader["Balance"]);
+                    Balance = Convert.ToDecimal(reader["Balance"]);
                     AccountStatus = (byte)reader["AccountStatus"];
                     DateOpened = (DateTime)reader["DateOpened"];
                     if (reader["DateClosed"] == DBNull.Value)
@@ -323,7 +323,7 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static int AddNewAccount(int ClientID, string AccountNumber,bool IsPrimary,  int AccountTypeID,  double Balance,
+        public static int AddNewAccount(int ClientID, string AccountNumber,bool IsPrimary,  int AccountTypeID,  decimal Balance,
                                 byte AccountStatus,  DateTime DateOpened,  int BranchID, string Notes,  int CreatedBy)
         {
             int AccountID = -1;
@@ -451,7 +451,7 @@ namespace BankDataAccess
             return IsFound;
         }
         
-        public static bool UpdateAccountByID(int AccountID, int ClientID, string AccountNumber,bool IsPrimary, int AccountTypeID, double Balance,
+        public static bool UpdateAccountByID(int AccountID, int ClientID, string AccountNumber,bool IsPrimary, int AccountTypeID, decimal Balance,
                                 byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy)
         {
             int AffectedRows = 0;

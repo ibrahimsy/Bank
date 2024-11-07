@@ -13,7 +13,7 @@ namespace BankBussiness
         string      AccountNumber
         bool        IsPrimary
         int         AccountID
-        double      Balance
+        decimal      Balance
         byte        AccountStatus
         DateTime    DateOpened
         DateTime    DateClosed
@@ -27,7 +27,7 @@ namespace BankBussiness
         public enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-        public enum enAccountStatus { Active = 1,InActive = 2,Closed = 3,Pending = 4,Frozen = 5,Blocked = 6}
+        public enum enAccountStatus { Active = 1, InActive = 2, Closed = 3, Pending = 4, Frozen = 5, Blocked = 6 }
 
         public int AccountID { get; set; }
         public int ClientID { get; set; }
@@ -35,12 +35,12 @@ namespace BankBussiness
         public clsClient ClientInfo;
         public string AccountNumber { get; set; }
 
-        public bool IsPrimary {  get; set; }
+        public bool IsPrimary { get; set; }
         public int AccountTypeID { get; set; }
 
         public clsAccountType AccountTypeInfo;
-  
-        public double Balance { get; set; }
+
+        public decimal Balance { get; set; }
         public byte AccountStatus { get; set; }
         public DateTime DateOpened { get; set; }
         public DateTime DateClosed { get; set; }
@@ -59,7 +59,7 @@ namespace BankBussiness
             this.AccountNumber = "";
             this.AccountTypeID = -1;
             this.IsPrimary = false;
-            this.Balance = 0d;
+            this.Balance = 0;
             this.AccountStatus = 1;
             this.DateOpened = DateTime.Now;
             this.DateClosed = DateTime.MaxValue;
@@ -67,7 +67,7 @@ namespace BankBussiness
             this.LastTransactionDate = DateTime.MaxValue;
             this.Notes = "";
             this.CreatedBy = -1;
-           
+
         }
 
         string _GenerateAccountNumber(int DigitsCount)
@@ -75,40 +75,40 @@ namespace BankBussiness
             Random random = new Random();
             return (random.Next(10000000, 99999999)).ToString();
         }
-        private clsAccount(int AccountID, int ClientID, string AccountNumber,bool IsPrimary, int AccountTypeID, double Balance,
-                byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy)
+        private clsAccount(int AccountID, int ClientID, string AccountNumber, bool IsPrimary, int AccountTypeID, decimal Balance,
+                byte AccountStatus, DateTime DateOpened, DateTime DateClosed, int BranchID, DateTime LastTransactionDate, string Notes, int CreatedBy)
         {
-             this.AccountID = AccountID;
-             this.ClientID = ClientID;
-             this.ClientInfo = clsClient.FindClientByID(ClientID);
-             this.AccountNumber = AccountNumber;
-             this.AccountTypeID = AccountTypeID;
-             this.AccountTypeInfo = clsAccountType.FindAccountTypeByID(this.AccountTypeID);
-             this.IsPrimary = IsPrimary;
-             this.Balance = Balance;
-             this.AccountStatus = AccountStatus;
-             this.DateOpened = DateOpened;
-             this.DateClosed = DateClosed;
-             this.BranchID = BranchID;
-             this.BranchInfo = clsBranch.FindBranchByID(this.BranchID);
-             this.LastTransactionDate = LastTransactionDate;
-             this.Notes = Notes;
-             this.CreatedBy = CreatedBy;
-             this.UserInfo = clsUser.FindUserByID(this.CreatedBy);
+            this.AccountID = AccountID;
+            this.ClientID = ClientID;
+            this.ClientInfo = clsClient.FindClientByID(ClientID);
+            this.AccountNumber = AccountNumber;
+            this.AccountTypeID = AccountTypeID;
+            this.AccountTypeInfo = clsAccountType.FindAccountTypeByID(this.AccountTypeID);
+            this.IsPrimary = IsPrimary;
+            this.Balance = Balance;
+            this.AccountStatus = AccountStatus;
+            this.DateOpened = DateOpened;
+            this.DateClosed = DateClosed;
+            this.BranchID = BranchID;
+            this.BranchInfo = clsBranch.FindBranchByID(this.BranchID);
+            this.LastTransactionDate = LastTransactionDate;
+            this.Notes = Notes;
+            this.CreatedBy = CreatedBy;
+            this.UserInfo = clsUser.FindUserByID(this.CreatedBy);
         }
 
         private bool _AddNewAccount()
         {
-            AccountID = clsAccountData.AddNewAccount( ClientID, _GenerateAccountNumber(8), IsPrimary,  AccountTypeID,  Balance,
-                                 AccountStatus,  DateOpened,  BranchID,  Notes,  CreatedBy);
+            AccountID = clsAccountData.AddNewAccount(ClientID, _GenerateAccountNumber(8), IsPrimary, AccountTypeID, Balance,
+                                 AccountStatus, DateOpened, BranchID, Notes, CreatedBy);
 
             return (AccountID != -1);
         }
 
         private bool _UpdateAccount()
         {
-            return clsAccountData.UpdateAccountByID(AccountID, ClientID,  AccountNumber,IsPrimary,  AccountTypeID,  Balance,
-                                 AccountStatus,  DateOpened,  DateClosed,  BranchID,  LastTransactionDate,  Notes,  CreatedBy);
+            return clsAccountData.UpdateAccountByID(AccountID, ClientID, AccountNumber, IsPrimary, AccountTypeID, Balance,
+                                 AccountStatus, DateOpened, DateClosed, BranchID, LastTransactionDate, Notes, CreatedBy);
         }
 
         public static clsAccount FindAccountByID(int AccountID)
@@ -117,7 +117,7 @@ namespace BankBussiness
             string AccountNumber = "";
             int AccountTypeID = -1;
             bool IsPrimary = false;
-            double Balance = 0d;
+            decimal Balance = 0;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
             DateTime DateClosed = DateTime.MaxValue;
@@ -127,11 +127,11 @@ namespace BankBussiness
             int CreatedBy = -1;
 
 
-            if (clsAccountData.GetAccountByID(AccountID,ref ClientID,ref AccountNumber,ref IsPrimary,ref AccountTypeID,ref Balance,
-                                 ref AccountStatus,ref DateOpened,ref DateClosed,ref BranchID,ref LastTransactionDate,ref Notes,ref CreatedBy))
+            if (clsAccountData.GetAccountByID(AccountID, ref ClientID, ref AccountNumber, ref IsPrimary, ref AccountTypeID, ref Balance,
+                                 ref AccountStatus, ref DateOpened, ref DateClosed, ref BranchID, ref LastTransactionDate, ref Notes, ref CreatedBy))
             {
-                return new clsAccount(AccountID ,ClientID,  AccountNumber,IsPrimary,  AccountTypeID,Balance,
-                                  AccountStatus,  DateOpened, DateClosed, BranchID,  LastTransactionDate,  Notes,  CreatedBy);
+                return new clsAccount(AccountID, ClientID, AccountNumber, IsPrimary, AccountTypeID, Balance,
+                                  AccountStatus, DateOpened, DateClosed, BranchID, LastTransactionDate, Notes, CreatedBy);
             }
             else
             {
@@ -145,7 +145,7 @@ namespace BankBussiness
             int ClientID = -1;
             int AccountTypeID = -1;
             bool IsPrimary = false;
-            double Balance = 0d;
+            decimal Balance = 0;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
             DateTime DateClosed = DateTime.MaxValue;
@@ -154,10 +154,10 @@ namespace BankBussiness
             string Notes = "";
             int CreatedBy = -1;
 
-            if (clsAccountData.GetAccountByAccountNumber(AccountNumber, ref AccountID, ref ClientID,ref IsPrimary, ref AccountTypeID,  ref Balance,
+            if (clsAccountData.GetAccountByAccountNumber(AccountNumber, ref AccountID, ref ClientID, ref IsPrimary, ref AccountTypeID, ref Balance,
                                  ref AccountStatus, ref DateOpened, ref DateClosed, ref BranchID, ref LastTransactionDate, ref Notes, ref CreatedBy))
             {
-                return new clsAccount(AccountID, ClientID, AccountNumber,IsPrimary, AccountTypeID,  Balance,
+                return new clsAccount(AccountID, ClientID, AccountNumber, IsPrimary, AccountTypeID, Balance,
                                   AccountStatus, DateOpened, DateClosed, BranchID, LastTransactionDate, Notes, CreatedBy);
             }
             else
@@ -172,7 +172,7 @@ namespace BankBussiness
             string AccountNumber = "";
             int AccountTypeID = -1;
             bool IsPrimary = false;
-            double Balance = 0d;
+            decimal Balance = 0;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
             DateTime DateClosed = DateTime.MaxValue;
@@ -182,7 +182,7 @@ namespace BankBussiness
             int CreatedBy = -1;
 
             if (clsAccountData.GetPrimaryAccountByClientID(ClientID, ref AccountID, ref AccountNumber, ref IsPrimary, ref AccountTypeID, ref Balance,
-                                 ref AccountStatus, ref DateOpened,ref DateClosed, ref BranchID,ref LastTransactionDate, ref Notes, ref CreatedBy))
+                                 ref AccountStatus, ref DateOpened, ref DateClosed, ref BranchID, ref LastTransactionDate, ref Notes, ref CreatedBy))
             {
                 return new clsAccount(AccountID, ClientID, AccountNumber, IsPrimary, AccountTypeID, Balance,
                                   AccountStatus, DateOpened, DateClosed, BranchID, LastTransactionDate, Notes, CreatedBy);
@@ -199,7 +199,7 @@ namespace BankBussiness
             string AccountNumber = "";
             int AccountTypeID = -1;
             bool IsPrimary = false;
-            double Balance = 0d;
+            decimal Balance = 0;
             byte AccountStatus = 1;
             DateTime DateOpened = DateTime.Now;
             DateTime DateClosed = DateTime.MaxValue;
@@ -243,7 +243,37 @@ namespace BankBussiness
         {
             return clsAccountData.GetAllAccounts();
         }
-        
+
+        public bool Deposit(Decimal Amount)
+        {
+            if (Amount < 0)
+                return false;
+
+            Balance += Amount;
+            return Save();
+        }
+
+        public bool Withdraw(Decimal Amount)
+        {
+            if (Balance < Amount)
+                return false;
+            Balance -= Amount;
+            return Save();
+        }
+
+        public bool Transfer(string AccountNumber,Decimal TransferAmount)
+        {
+            if (Balance < TransferAmount)
+                return false;
+
+            if (!Withdraw(TransferAmount))
+                return false;
+
+            return clsAccount.FindAccountByAccountNumber(AccountNumber).Deposit(TransferAmount);
+        }
+
+    
+
         public bool Save()
         {
             switch (_Mode)

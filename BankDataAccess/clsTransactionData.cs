@@ -13,7 +13,7 @@ namespace BankDataAccess
 
     public class clsTransactionData
     {
-        public static int AddTransaction(int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
+        public static int AddTransaction(int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, int SourceAccountID, int DestinationAccountID, int CreatedBy, DateTime CreatedDate)
         {
             int _TransactionID = -1;
             string query = @"INSERT INTO Transactions(
@@ -26,15 +26,11 @@ namespace BankDataAccess
                                         CurrencyID,
                                         Description,
                                         Status,
-                                        ReferenceNumber,
                                         SourceAccountID,
                                         DestinationAccountID,
                                         CreatedBy,
                                         CreatedDate,
-                                        UpdatedBy,
-                                        UpdatedDate,
                                         ) VALUES (
-                                        
                                         @AccountID,
                                         @TransactionDate,
                                         @TransactionType,
@@ -43,13 +39,11 @@ namespace BankDataAccess
                                         @CurrencyID,
                                         @Description,
                                         @Status,
-                                        @ReferenceNumber,
                                         @SourceAccountID,
                                         @DestinationAccountID,
                                         @CreatedBy,
                                         @CreatedDate,
-                                        @UpdatedBy,
-                                        @UpdatedDate,
+                                       
                                         );
                                                         SELECT SCOPE_IDENTITY();";
 
@@ -64,13 +58,23 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@CurrencyID", CurrencyID);
             command.Parameters.AddWithValue("@Description", Description);
             command.Parameters.AddWithValue("@Status", Status);
-            command.Parameters.AddWithValue("@ReferenceNumber", ReferenceNumber);
-            command.Parameters.AddWithValue("@SourceAccountID", SourceAccountID);
-            command.Parameters.AddWithValue("@DestinationAccountID", DestinationAccountID);
+          
+            
+            if (SourceAccountID == -1)
+                command.Parameters.AddWithValue("@SourceAccountID", DBNull.Value);
+            else
+                command.Parameters.AddWithValue("@SourceAccountID", SourceAccountID);
+            
+
+            if (DestinationAccountID == -1)
+                command.Parameters.AddWithValue("@DestinationAccountID", DBNull.Value);
+            else
+                command.Parameters.AddWithValue("@DestinationAccountID", DestinationAccountID);
+            
+
             command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
             command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
-            command.Parameters.AddWithValue("@UpdatedBy", UpdatedBy);
-            command.Parameters.AddWithValue("@UpdatedDate", UpdatedDate);
+
 
             try
             {
@@ -94,7 +98,7 @@ namespace BankDataAccess
 
 
 
-        public static bool UpdateTransactionByID(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
+        public static bool UpdateTransactionByID(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, int SourceAccountID, int DestinationAccountID, int CreatedBy, DateTime CreatedDate)
         {
 
 
@@ -110,13 +114,12 @@ namespace BankDataAccess
                             Currency = @Currency,
                             Description = @Description,
                             Status = @Status,
-                            ReferenceNumber = @ReferenceNumber,
+                          
                             SourceAccountID = @SourceAccountID,
                             DestinationAccountID = @DestinationAccountID,
                             CreatedBy = @CreatedBy,
                             CreatedDate = @CreatedDate,
-                            UpdatedBy = @UpdatedBy,
-                            UpdatedDate = @UpdatedDate,
+                           
                             WHERE TransactionID = @TransactionID";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -131,13 +134,12 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@Currency", CurrencyID);
             command.Parameters.AddWithValue("@Description", Description);
             command.Parameters.AddWithValue("@Status", Status);
-            command.Parameters.AddWithValue("@ReferenceNumber", ReferenceNumber);
+            
             command.Parameters.AddWithValue("@SourceAccountID", SourceAccountID);
             command.Parameters.AddWithValue("@DestinationAccountID", DestinationAccountID);
             command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
             command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
-            command.Parameters.AddWithValue("@UpdatedBy", UpdatedBy);
-            command.Parameters.AddWithValue("@UpdatedDate", UpdatedDate);
+           
 
             try
             {
@@ -191,7 +193,7 @@ namespace BankDataAccess
 
 
 
-        public static bool GetTransactionByID( int TransactionID, ref int AccountID, ref DateTime TransactionDate, ref byte TransactionType, ref decimal Amount, ref decimal BalanceAfterTransaction, ref int CurrencyID, ref string Description, ref byte Status, ref string ReferenceNumber, ref string SourceAccountID, ref string DestinationAccountID, ref int CreatedBy, ref DateTime CreatedDate, ref int UpdatedBy, ref DateTime UpdatedDate)
+        public static bool GetTransactionByID( int TransactionID, ref int AccountID, ref DateTime TransactionDate, ref byte TransactionType, ref decimal Amount, ref decimal BalanceAfterTransaction, ref int CurrencyID, ref string Description, ref byte Status, ref string ReferenceNumber, ref int SourceAccountID, ref int DestinationAccountID, ref int CreatedBy, ref DateTime CreatedDate)
         {
 
             bool IsFound = false;
@@ -224,12 +226,11 @@ namespace BankDataAccess
                     Description = (string)reader["Description"];
                     Status = (byte)reader["Status"];
                     ReferenceNumber = (string)reader["ReferenceNumber"];
-                    SourceAccountID = (string)reader["SourceAccountID"];
-                    DestinationAccountID = (string)reader["DestinationAccountID"];
+                    SourceAccountID = (int)reader["SourceAccountID"];
+                    DestinationAccountID = (int)reader["DestinationAccountID"];
                     CreatedBy = (int)reader["CreatedBy"];
                     CreatedDate = (DateTime)reader["CreatedDate"];
-                    UpdatedBy = (int)reader["UpdatedBy"];
-                    UpdatedDate = (DateTime)reader["UpdatedDate"];
+                 
 
                 }
                 reader.Close();

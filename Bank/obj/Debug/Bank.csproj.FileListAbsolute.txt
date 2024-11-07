@@ -109,6 +109,6 @@ D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.frmShowAccountInfo
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Client.Controls.ctrlClientCardWithFilter.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Accounts.frmAddEditAccount.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Currencies.frmCurrencyList.resources
-D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Transactions.ctrlTransactionProccess.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Transactions.frmTransfer.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Transactions.frmTransaction.resources
+D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Transactions.Controls.ctrlPerformTransaction.resources

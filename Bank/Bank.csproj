@@ -200,11 +200,11 @@
     <Compile Include="Transactions\clsTransactionsList.Designer.cs">
       <DependentUpon>clsTransactionsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\ctrlTransactionProccess.cs">
+    <Compile Include="Transactions\Controls\ctrlPerformTransaction.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Transactions\ctrlTransactionProccess.Designer.cs">
-      <DependentUpon>ctrlTransactionProccess.cs</DependentUpon>
+    <Compile Include="Transactions\Controls\ctrlPerformTransaction.Designer.cs">
+      <DependentUpon>ctrlPerformTransaction.cs</DependentUpon>
     </Compile>
     <Compile Include="Transactions\frmTransfer.cs">
       <SubType>Form</SubType>
@@ -331,8 +331,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Transactions\ctrlTransactionProccess.resx">
-      <DependentUpon>ctrlTransactionProccess.cs</DependentUpon>
+    <EmbeddedResource Include="Transactions\Controls\ctrlPerformTransaction.resx">
+      <DependentUpon>ctrlPerformTransaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transactions\frmTransaction.resx">
       <DependentUpon>frmTransaction.cs</DependentUpon>
@@ -478,6 +478,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\deposit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

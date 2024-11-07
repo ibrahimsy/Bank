@@ -19,7 +19,7 @@ namespace BankBussiness
         enMode _Mode = enMode.enAddNew;
 
         public enum enTransactionType { Withdraw = 1,Deposit = 2,Transfer = 3 };
-
+        public enum enTransactionStatus { Completed = 1,Cancelled = 2,Faild = 3 };
         public int TransactionID { set; get; }
         public int AccountID { set; get; }
         public DateTime TransactionDate { set; get; }
@@ -30,36 +30,34 @@ namespace BankBussiness
         public string Description { set; get; }
         public byte Status { set; get; }
         public string ReferenceNumber { set; get; }
-        public string SourceAccountID { set; get; }
-        public string DestinationAccountID { set; get; }
+        public int SourceAccountID { set; get; }
+        public int DestinationAccountID { set; get; }
         public int CreatedBy { set; get; }
         public DateTime CreatedDate { set; get; }
-        public int UpdatedBy { set; get; }
-        public DateTime UpdatedDate { set; get; }
+      
 
 
         public clsTransaction()
         {
-            this.TransactionID = default;
-            this.AccountID = default;
-            this.TransactionDate = default;
-            this.TransactionType = default;
-            this.Amount = default;
-            this.BalanceAfterTransaction = default;
-            this.CurrencyID = default;
-            this.Description = default;
-            this.Status = default;
-            this.ReferenceNumber = default;
-            this.SourceAccountID = default;
-            this.DestinationAccountID = default;
-            this.CreatedBy = default;
-            this.CreatedDate = default;
-            this.UpdatedBy = default;
-            this.UpdatedDate = default;
+            this.TransactionID = -1;
+            this.AccountID = -1;
+            this.TransactionDate = DateTime.Now;
+            this.TransactionType = (byte)enTransactionType.Deposit;
+            this.Amount = 0;
+            this.BalanceAfterTransaction = 0;
+            this.CurrencyID = -1;
+            this.Description = "";
+            this.Status = (byte)enTransactionStatus.Completed;
+            this.ReferenceNumber = "";
+            this.SourceAccountID = -1;
+            this.DestinationAccountID = -1;
+            this.CreatedBy = -1;
+            this.CreatedDate = DateTime.Now;
+            
             _Mode = enMode.enAddNew;
         }
 
-        private clsTransaction(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, string ReferenceNumber, string SourceAccountID, string DestinationAccountID, int CreatedBy, DateTime CreatedDate, int UpdatedBy, DateTime UpdatedDate)
+        private clsTransaction(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, string ReferenceNumber, int SourceAccountID, int DestinationAccountID, int CreatedBy, DateTime CreatedDate)
         {
             this.TransactionID = TransactionID;
             this.AccountID = AccountID;
@@ -75,15 +73,14 @@ namespace BankBussiness
             this.DestinationAccountID = DestinationAccountID;
             this.CreatedBy = CreatedBy;
             this.CreatedDate = CreatedDate;
-            this.UpdatedBy = UpdatedBy;
-            this.UpdatedDate = UpdatedDate;
+           
             _Mode = enMode.enUpdate;
         }
 
 
         private bool _AddNewTransaction()
         {
-            TransactionID = clsTransactionData.AddTransaction(AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
+            TransactionID = clsTransactionData.AddTransaction(AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate);
 
             return (TransactionID != -1);
         }
@@ -91,31 +88,30 @@ namespace BankBussiness
 
         private bool _UpdateTransaction()
         {
-            return clsTransactionData.UpdateTransactionByID(TransactionID, AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
+            return clsTransactionData.UpdateTransactionByID(TransactionID, AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate);
         }
 
 
         public static clsTransaction FindTransactionByID(int TransactionID)
         {
 
-            int AccountID = default;
-            DateTime TransactionDate = default;
-            byte TransactionType = default;
-            decimal Amount = default;
-            decimal BalanceAfterTransaction = default;
-            int CurrencyID = default;
-            string Description = default;
-            byte Status = default;
-            string ReferenceNumber = default;
-            string SourceAccountID = default;
-            string DestinationAccountID = default;
-            int CreatedBy = default;
-            DateTime CreatedDate = default;
-            int UpdatedBy = default;
-            DateTime UpdatedDate = default;
-            if (clsTransactionData.GetTransactionByID(TransactionID, ref AccountID, ref TransactionDate, ref TransactionType, ref Amount, ref BalanceAfterTransaction, ref CurrencyID, ref Description, ref Status, ref ReferenceNumber, ref SourceAccountID, ref DestinationAccountID, ref CreatedBy, ref CreatedDate, ref UpdatedBy, ref UpdatedDate))
+            int AccountID = -1;
+            DateTime TransactionDate = DateTime.Now;
+            byte TransactionType = 1;
+            decimal Amount = 0;
+            decimal BalanceAfterTransaction = 0;
+            int CurrencyID = -1;
+            string Description = "";
+            byte Status = 1;
+            string ReferenceNumber = "";
+            int SourceAccountID = -1;
+            int DestinationAccountID = -1;
+            int CreatedBy = -1;
+            DateTime CreatedDate = DateTime.Now;
+           
+            if (clsTransactionData.GetTransactionByID(TransactionID, ref AccountID, ref TransactionDate, ref TransactionType, ref Amount, ref BalanceAfterTransaction, ref CurrencyID, ref Description, ref Status, ref ReferenceNumber, ref SourceAccountID, ref DestinationAccountID, ref CreatedBy, ref CreatedDate))
             {
-                return new clsTransaction(TransactionID, AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate, UpdatedBy, UpdatedDate);
+                return new clsTransaction(TransactionID, AccountID, TransactionDate, TransactionType, Amount, BalanceAfterTransaction, CurrencyID, Description, Status, ReferenceNumber, SourceAccountID, DestinationAccountID, CreatedBy, CreatedDate);
             }
             else
             {
@@ -141,6 +137,7 @@ namespace BankBussiness
             return clsTransactionData.GetAllTransactions();
         }
 
+       
 
 
         public bool Save()
