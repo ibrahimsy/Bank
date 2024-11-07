@@ -123,6 +123,16 @@ namespace Bank.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddBeneficiary {
+            get {
+                object obj = ResourceManager.GetObject("AddBeneficiary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddPerson_32 {
             get {
                 object obj = ResourceManager.GetObject("AddPerson 32", resourceCulture);
@@ -173,9 +183,79 @@ namespace Bank.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap beneficiary {
+        internal static System.Drawing.Bitmap Beneficiary {
             get {
-                object obj = ResourceManager.GetObject("beneficiary", resourceCulture);
+                object obj = ResourceManager.GetObject("Beneficiary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beneficiary_small {
+            get {
+                object obj = ResourceManager.GetObject("Beneficiary_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beneficiary1 {
+            get {
+                object obj = ResourceManager.GetObject("Beneficiary1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beneficiary2 {
+            get {
+                object obj = ResourceManager.GetObject("Beneficiary2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beneficiary3 {
+            get {
+                object obj = ResourceManager.GetObject("Beneficiary3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beneficiary4 {
+            get {
+                object obj = ResourceManager.GetObject("Beneficiary4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beneficiary5 {
+            get {
+                object obj = ResourceManager.GetObject("Beneficiary5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beneficiary64 {
+            get {
+                object obj = ResourceManager.GetObject("Beneficiary64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
