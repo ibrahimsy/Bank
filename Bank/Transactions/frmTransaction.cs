@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BankBussiness.clsTransaction;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Bank.Transactions
@@ -18,6 +19,7 @@ namespace Bank.Transactions
     {
         private clsTransaction.enTransactionType _enTransactionType = clsTransaction.enTransactionType.Deposit;
         int _ClientID = -1;
+        clsAccount _AccountInfo;
         public frmTransaction(int clientID, clsTransaction.enTransactionType type)
         {
             InitializeComponent();
@@ -32,16 +34,34 @@ namespace Bank.Transactions
         }
         bool _HandleTransactionProcess()
         {
+            _AccountInfo = clsAccount.FindAccountByAccountNumber(ctrlPerformTransaction1.AccountNumber);
+            if (_AccountInfo == null)
+            {
+                MessageBox.Show("An Error With This Account,Choose Another Account.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return false;
+            }
+           
+            if (_enTransactionType == enTransactionType.Withdraw && (Convert.ToDecimal(ctrlPerformTransaction1.Amount) > _AccountInfo.Balance))
+            {
+                MessageBox.Show("Insufficient Balance In Your Account.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return false;
+            }
 
             if (_enTransactionType == clsTransaction.enTransactionType.Deposit)
             {
-                if (!ctrlPerformTransaction1.AccountInfo.Deposit(ctrlPerformTransaction1.Amount))
+                if (!_AccountInfo.Deposit(ctrlPerformTransaction1.Amount))
                 {
                     MessageBox.Show("Transaction(Deposit) Faild,An Error Occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
-            else if (!ctrlPerformTransaction1.AccountInfo.Withdraw(ctrlPerformTransaction1.Amount))
+            else if (!_AccountInfo.Withdraw(ctrlPerformTransaction1.Amount))
             {
                 MessageBox.Show("Transaction(Withdraw) Faild,An Error Occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -62,11 +82,11 @@ namespace Bank.Transactions
 
             clsTransaction TransactionInfo = new clsTransaction();
 
-            TransactionInfo.AccountID = ctrlPerformTransaction1.AccountInfo.AccountID;
+            TransactionInfo.AccountID = _AccountInfo.AccountID;
             TransactionInfo.TransactionDate = DateTime.Now;
             TransactionInfo.TransactionType = (byte)_enTransactionType;
             TransactionInfo.Amount = ctrlPerformTransaction1.Amount;
-            TransactionInfo.BalanceAfterTransaction = ctrlPerformTransaction1.AccountInfo.Balance;
+            TransactionInfo.BalanceAfterTransaction = _AccountInfo.Balance;
             TransactionInfo.CurrencyID = 1;
             TransactionInfo.Description = ctrlPerformTransaction1.Description;
             TransactionInfo.Status = (byte)clsTransaction.enTransactionStatus.Completed;

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="clsAccount.cs" />
     <Compile Include="clsAccountType.cs" />
+    <Compile Include="clsBeneficiary.cs" />
     <Compile Include="clsBranch.cs" />
     <Compile Include="clsClient.cs" />
     <Compile Include="clsCountry.cs" />

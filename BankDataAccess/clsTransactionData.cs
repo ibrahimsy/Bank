@@ -16,8 +16,7 @@ namespace BankDataAccess
         public static int AddTransaction(int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, int SourceAccountID, int DestinationAccountID, int CreatedBy, DateTime CreatedDate)
         {
             int _TransactionID = -1;
-            string query = @"INSERT INTO Transactions(
-                                       
+            string query = @"INSERT INTO Transactions(         
                                         AccountID,
                                         TransactionDate,
                                         TransactionType,
@@ -29,7 +28,7 @@ namespace BankDataAccess
                                         SourceAccountID,
                                         DestinationAccountID,
                                         CreatedBy,
-                                        CreatedDate,
+                                        CreatedDate
                                         ) VALUES (
                                         @AccountID,
                                         @TransactionDate,
@@ -42,10 +41,9 @@ namespace BankDataAccess
                                         @SourceAccountID,
                                         @DestinationAccountID,
                                         @CreatedBy,
-                                        @CreatedDate,
-                                       
+                                        @CreatedDate
                                         );
-                                                        SELECT SCOPE_IDENTITY();";
+                                        SELECT SCOPE_IDENTITY();";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);

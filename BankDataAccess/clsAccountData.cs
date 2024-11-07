@@ -8,23 +8,7 @@ using System.Threading.Tasks;
 
 namespace BankDataAccess
 {
-    //int AccountID,int ClientID,string AccountNumber,int AccountID,decimal Balance,
-    //byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy
-
-    /*
-        int         AccountID
-        int         ClientID
-        string      AccountNumber
-        int         AccountTypeID
-        decimal      Balance
-        byte        AccountStatus
-        DateTime    DateOpened
-        DateTime    DateClosed
-        int         BranchID
-        DateTime    LastTransactionDate
-        string      Notes
-        int         CreatedBy
-     */
+    
     public class clsAccountData
     {
         public static bool GetAccountByID(int AccountID,ref int ClientID,ref string AccountNumber,ref bool IsPrimary,ref int AccountTypeID,ref decimal Balance,
@@ -343,25 +327,16 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@ClientID", ClientID);
             command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
             command.Parameters.AddWithValue("@IsPrimary", IsPrimary);
-            command.Parameters.AddWithValue("@AccountTypeID", AccountTypeID);
-           
+            command.Parameters.AddWithValue("@AccountTypeID", AccountTypeID);           
             command.Parameters.AddWithValue("@Balance", Balance);
             command.Parameters.AddWithValue("@AccountStatus", AccountStatus);
-
-            command.Parameters.AddWithValue("@DateOpened", DateOpened);
-            
+            command.Parameters.AddWithValue("@DateOpened", DateOpened);            
             command.Parameters.AddWithValue("@BranchID", BranchID);
            
-
             if (Notes == null)
-            {
                 command.Parameters.AddWithValue("@Notes", DBNull.Value);
-            }
             else
-            {
-                command.Parameters.AddWithValue("@Notes", Notes);
-            }
-            
+                command.Parameters.AddWithValue("@Notes", Notes);         
             
             command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
             command.Parameters.AddWithValue("@AccountID", AccountID);
@@ -492,7 +467,7 @@ namespace BankDataAccess
                 command.Parameters.AddWithValue("@DateClosed", DateClosed);
             }
             command.Parameters.AddWithValue("@BranchID", BranchID);
-            if (LastTransactionDate == null)
+            if (LastTransactionDate == DateTime.MaxValue)
             {
                 command.Parameters.AddWithValue("@LastTransactionDate", DBNull.Value);
             }

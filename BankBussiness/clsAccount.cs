@@ -68,6 +68,7 @@ namespace BankBussiness
             this.Notes = "";
             this.CreatedBy = -1;
 
+            _Mode = enMode.enAddNew;
         }
 
         string _GenerateAccountNumber(int DigitsCount)
@@ -95,6 +96,8 @@ namespace BankBussiness
             this.Notes = Notes;
             this.CreatedBy = CreatedBy;
             this.UserInfo = clsUser.FindUserByID(this.CreatedBy);
+
+            _Mode = enMode.enUpdate;
         }
 
         private bool _AddNewAccount()
@@ -250,6 +253,7 @@ namespace BankBussiness
                 return false;
 
             Balance += Amount;
+            LastTransactionDate = DateTime.Now;
             return Save();
         }
 
@@ -258,6 +262,7 @@ namespace BankBussiness
             if (Balance < Amount)
                 return false;
             Balance -= Amount;
+            LastTransactionDate = DateTime.Now;
             return Save();
         }
 
@@ -268,8 +273,18 @@ namespace BankBussiness
 
             if (!Withdraw(TransferAmount))
                 return false;
+            
+            LastTransactionDate = DateTime.Now;
 
-            return clsAccount.FindAccountByAccountNumber(AccountNumber).Deposit(TransferAmount);
+            clsAccount DestinationAccount = clsAccount.FindAccountByAccountNumber(AccountNumber);
+
+            if (Deposit(TransferAmount))
+            {
+                DestinationAccount.LastTransactionDate = DateTime.Now;
+                return true;
+            }
+            else
+                return false;
         }
 
     

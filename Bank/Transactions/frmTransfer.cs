@@ -21,5 +21,10 @@ namespace Bank.Transactions
         {
 
         }
+
+        private void pbAddNewBeneficiary_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

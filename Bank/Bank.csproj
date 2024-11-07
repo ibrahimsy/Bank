@@ -485,5 +485,8 @@
   <ItemGroup>
     <None Include="Resources\confirm-16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Beneficiaries\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

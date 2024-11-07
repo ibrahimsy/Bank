@@ -112,28 +112,6 @@ namespace Bank.Transactions.Controls
             {
                 errorProvider1.SetError(txtAmount, null);
             }
-
-            _AccountInfo = clsAccount.FindAccountByAccountNumber(cbMyAccounts.Text.Trim());
-            if (_AccountInfo == null)
-            {
-                errorProvider1.SetError(txtAmount,"An Error With This Account,Choose Another Account.");
-                e.Cancel= true;
-            }
-            else
-            {
-                errorProvider1.SetError(txtAmount,null);
-            }
-
-            if(_enTransactionType == enTransactionType.Withdraw && (Convert.ToDecimal(txtAmount.Text.Trim()) > _AccountInfo.Balance))
-            {
-                errorProvider1.SetError(txtAmount, "Insufficient Amount In Account.");
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider1.SetError(txtAmount, null);
-            }
-
         }
     }
 }

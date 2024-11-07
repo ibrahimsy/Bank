@@ -89,6 +89,7 @@
             this.pbAddNewBeneficiary.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbAddNewBeneficiary.TabIndex = 10;
             this.pbAddNewBeneficiary.TabStop = false;
+            this.pbAddNewBeneficiary.Click += new System.EventHandler(this.pbAddNewBeneficiary_Click);
             // 
             // pbOwnAccounts
             // 
