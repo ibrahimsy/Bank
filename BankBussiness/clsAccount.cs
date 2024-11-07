@@ -232,6 +232,7 @@ namespace BankBussiness
             return clsAccountData.IsAccountExistByAccountNumber(AccountNumber);
         }
 
+        
         public static bool DeleteAccount(int AccountID)
         {
             return clsAccountData.DeleteAccountByID(AccountID);

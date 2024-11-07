@@ -425,7 +425,9 @@ namespace BankDataAccess
             }
             return IsFound;
         }
+
         
+
         public static bool UpdateAccountByID(int AccountID, int ClientID, string AccountNumber,bool IsPrimary, int AccountTypeID, decimal Balance,
                                 byte AccountStatus,DateTime DateOpened,DateTime DateClosed,int BranchID,DateTime LastTransactionDate,string Notes,int CreatedBy)
         {

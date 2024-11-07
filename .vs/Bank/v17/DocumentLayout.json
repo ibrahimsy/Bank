@@ -3,19 +3,43 @@
   "WorkspaceRootPath": "D:\\Development\\C#\\My-Github\\Bank\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\beneficiaries\\frmaddeditbeneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\beneficiaries\\frmaddeditbeneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|d:\\development\\c#\\my-github\\bank\\bankdataaccess\\clsclientdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clsclientdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|d:\\development\\c#\\my-github\\bank\\bankbussiness\\clsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\beneficiaries\\frmaddeditbeneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\beneficiaries\\frmaddeditbeneficiary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\transactions\\frmtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\transactions\\frmtransaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|d:\\development\\c#\\my-github\\bank\\bankbussiness\\clsaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\people\\frmaddeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\people\\frmaddeditperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\transactions\\frmtransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\transactions\\frmtransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\transactions\\frmtransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|d:\\development\\c#\\my-github\\bank\\bankdataaccess\\clsaccountdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E51C434-2E33-4895-A368-1BE5963CDB57}|BankDataAccess\\BankDataAccess.csproj|solutionrelative:bankdataaccess\\clsaccountdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\client\\frmmanageclients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\client\\frmmanageclients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\client\\frmmanageclients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\client\\frmmanageclients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\transactions\\frmtransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\transactions\\frmtransfer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -26,35 +50,115 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "frmAddEditPerson.cs [Design]",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\People\\frmAddEditPerson.cs",
-              "RelativeDocumentMoniker": "Bank\\People\\frmAddEditPerson.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\People\\frmAddEditPerson.cs [Design]",
-              "RelativeToolTip": "Bank\\People\\frmAddEditPerson.cs [Design]",
+              "Title": "clsClient.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsClient.cs",
+              "RelativeDocumentMoniker": "BankBussiness\\clsClient.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsClient.cs",
+              "RelativeToolTip": "BankBussiness\\clsClient.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAIA0wOgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T14:59:00.898Z",
+              "WhenOpened": "2024-11-07T18:30:37.882Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmManageClients.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\frmManageClients.cs",
+              "RelativeDocumentMoniker": "Bank\\Client\\frmManageClients.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\frmManageClients.cs",
+              "RelativeToolTip": "Bank\\Client\\frmManageClients.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAhwNsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T20:18:29.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmManageClients.cs [Design]",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\frmManageClients.cs",
+              "RelativeDocumentMoniker": "Bank\\Client\\frmManageClients.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\frmManageClients.cs [Design]",
+              "RelativeToolTip": "Bank\\Client\\frmManageClients.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T20:18:24.1Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "clsAccountData.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsAccountData.cs",
+              "RelativeDocumentMoniker": "BankDataAccess\\clsAccountData.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsAccountData.cs",
+              "RelativeToolTip": "BankDataAccess\\clsAccountData.cs",
+              "ViewState": "AgIAAOsAAAAAAAAAAAAswKwBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T19:30:48.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmTransfer.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Transactions\\frmTransfer.cs",
+              "RelativeDocumentMoniker": "Bank\\Transactions\\frmTransfer.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Transactions\\frmTransfer.cs",
+              "RelativeToolTip": "Bank\\Transactions\\frmTransfer.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAIwB0AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T19:13:59.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "clsAccount.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsAccount.cs",
+              "RelativeDocumentMoniker": "BankBussiness\\clsAccount.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsAccount.cs",
+              "RelativeToolTip": "BankBussiness\\clsAccount.cs",
+              "ViewState": "AgIAANwAAAAAAAAAAAAqwOoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T18:23:15.023Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmTransaction.cs [Design]",
-              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Transactions\\frmTransaction.cs",
-              "RelativeDocumentMoniker": "Bank\\Transactions\\frmTransaction.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Transactions\\frmTransaction.cs [Design]",
-              "RelativeToolTip": "Bank\\Transactions\\frmTransaction.cs [Design]",
+              "Title": "clsClientData.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsClientData.cs",
+              "RelativeDocumentMoniker": "BankDataAccess\\clsClientData.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankDataAccess\\clsClientData.cs",
+              "RelativeToolTip": "BankDataAccess\\clsClientData.cs",
+              "ViewState": "AgIAALUBAAAAAAAAAAAAwGQCAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T14:58:23.473Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-07T18:20:00.365Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "frmAddEditBeneficiary.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Beneficiaries\\frmAddEditBeneficiary.cs",
+              "RelativeDocumentMoniker": "Bank\\Beneficiaries\\frmAddEditBeneficiary.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Beneficiaries\\frmAddEditBeneficiary.cs",
+              "RelativeToolTip": "Bank\\Beneficiaries\\frmAddEditBeneficiary.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAMwE0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T16:38:23.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "frmAddEditBeneficiary.cs [Design]",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Beneficiaries\\frmAddEditBeneficiary.cs",
               "RelativeDocumentMoniker": "Bank\\Beneficiaries\\frmAddEditBeneficiary.cs",
@@ -66,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "frmTransfer.cs [Design]",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Transactions\\frmTransfer.cs",
               "RelativeDocumentMoniker": "Bank\\Transactions\\frmTransfer.cs",

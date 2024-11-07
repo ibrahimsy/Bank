@@ -131,6 +131,28 @@ namespace BankBussiness
             }
         }
 
+        public static clsClient FindClientByPhoneNumber(string PhoneNumber)
+        {
+            int ClientID = -1;
+            int PersonID = -1;
+            bool AccountStatus = true;
+            int CreatedBy = -1;
+            DateTime CreatedDate = DateTime.Now;
+            DateTime UpdatedDate = DateTime.MaxValue;
+            int BranchID = -1;
+            string Notes = "";
+            if (clsClientData.GetClientByPhoneNumber(PhoneNumber, ref ClientID,ref PersonID, ref AccountStatus,
+                                                     ref CreatedBy, ref CreatedDate, ref UpdatedDate, ref BranchID, ref Notes))
+            {
+                return new clsClient(ClientID, PersonID, AccountStatus,
+                                                      CreatedBy, CreatedDate, UpdatedDate, BranchID, Notes);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        
         public static clsClient FindClientByNationalNo(string NationalNo)
         {
             int ClientID = -1;
@@ -175,6 +197,27 @@ namespace BankBussiness
             }
         }
 
+        public static clsClient FindClientByAccountNumber(string AccountNumber)
+        {
+            int ClientID = -1;
+            int PersonID = -1;
+            bool AccountStatus = true;
+            int CreatedBy = -1;
+            DateTime CreatedDate = DateTime.Now;
+            DateTime UpdatedDate = DateTime.MaxValue;
+            int BranchID = -1;
+            string Notes = "";
+            if (clsClientData.GetClientByAccountNumber(AccountNumber, ref ClientID, ref PersonID, ref AccountStatus,
+                                                     ref CreatedBy, ref CreatedDate, ref UpdatedDate, ref BranchID, ref Notes))
+            {
+                return new clsClient(ClientID, PersonID, AccountStatus,
+                                                      CreatedBy, CreatedDate, UpdatedDate, BranchID, Notes);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static bool IsExistByClientID(int ClientID)
         {
             return clsClientData.IsClientExistByClientID(ClientID);
@@ -183,6 +226,11 @@ namespace BankBussiness
         public static bool IsExistByPersonID(int PersonID)
         {
             return clsClientData.IsClientExistByPersonID(PersonID);
+        }
+
+        public bool IsClientOwnAccount(string AccountNumber)
+        {
+            return clsClientData.DoesHasAccount(this.ClientID,AccountNumber);
         }
 
         public static bool DeleteClient(int ClientID)

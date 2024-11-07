@@ -199,6 +199,66 @@ namespace BankDataAccess
             }
             return IsFound;
         }
+        public static bool GetClientByPhoneNumber(string PhoneNumber, ref int ClientID, ref int PersonID, ref bool AccountStatus,
+                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime UpdatedDate, ref int BranchID, ref string Notes)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT * FROM  Clients INNER JOIN People 
+                             ON Clients.PersonID = People.PersonID 
+                            WHERE    (People.Phone = @Phone)";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Phone", PhoneNumber);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    ClientID = (int)reader["ClientID"];
+                    PersonID = (int)reader["PersonID"];
+                    AccountStatus = (bool)reader["AccountStatus"];
+                    CreatedBy = (int)reader["CreatedBy"];
+                    CreatedDate = (DateTime)reader["CreatedDate"];
+                    if (reader["UpdatedDate"] == DBNull.Value)
+                    {
+                        UpdatedDate = DateTime.MaxValue;
+                    }
+                    else
+                    {
+                        UpdatedDate = (DateTime)reader["UpdatedDate"];
+                    }
+                    BranchID = (int)reader["BranchID"];
+                    if (reader["Notes"] == DBNull.Value)
+                    {
+                        Notes = "";
+                    }
+                    else
+                    {
+                        Notes = (string)reader["Notes"];
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
 
         public static bool GetClientByPrimaryAccountNumber(string PrimaryAccountNumber, ref int ClientID, ref int PersonID, ref bool AccountStatus,
                  ref int CreatedBy, ref DateTime CreatedDate, ref DateTime UpdatedDate, ref int BranchID, ref string Notes)
@@ -215,6 +275,66 @@ namespace BankDataAccess
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@PrimaryAccountNumber", PrimaryAccountNumber);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    ClientID = (int)reader["ClientID"];
+                    PersonID = (int)reader["PersonID"];
+                    AccountStatus = (bool)reader["AccountStatus"];
+                    CreatedBy = (int)reader["CreatedBy"];
+                    CreatedDate = (DateTime)reader["CreatedDate"];
+                    if (reader["UpdatedDate"] == DBNull.Value)
+                    {
+                        UpdatedDate = DateTime.MaxValue;
+                    }
+                    else
+                    {
+                        UpdatedDate = (DateTime)reader["UpdatedDate"];
+                    }
+                    BranchID = (int)reader["BranchID"];
+                    if (reader["Notes"] == DBNull.Value)
+                    {
+                        Notes = "";
+                    }
+                    else
+                    {
+                        Notes = (string)reader["Notes"];
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+        public static bool GetClientByAccountNumber(string AccountNumber, ref int ClientID, ref int PersonID, ref bool AccountStatus,
+                 ref int CreatedBy, ref DateTime CreatedDate, ref DateTime UpdatedDate, ref int BranchID, ref string Notes)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT Clients.ClientID, Clients.PersonID, Clients.AccountStatus, Clients.CreatedBy, Clients.CreatedDate, Clients.UpdatedDate, Clients.BranchID, Clients.Notes
+                            FROM  Accounts INNER JOIN
+                                   Clients ON Accounts.ClientID = Clients.ClientID
+                            WHERE  (Accounts.AccountNumber = @AccountNumber) AND  Clients.AccountStatus <> 6";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
 
             try
             {
@@ -469,6 +589,45 @@ namespace BankDataAccess
             return IsFound;
         }
 
+        public static bool DoesHasAccount(int ClientID, string AccountNumber)
+        {
+            bool IsFound = false;
+
+            string query = @"Select Found = 1 From
+                            (SELECT Clients.ClientID, Accounts.AccountNumber
+	                            FROM Clients INNER JOIN
+                                     Accounts ON Clients.ClientID = Accounts.ClientID
+						              where Clients.ClientID = @ClientID)R1
+                            where AccountNumber = @AccountNumber";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+            command.Parameters.AddWithValue("@ClientID", ClientID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
+       
         public static DataTable GetAllClients()
         
         {

@@ -215,7 +215,7 @@ namespace Bank.Client
 
         private void transferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmTransfer frm = new frmTransfer();
+            frmTransfer frm = new frmTransfer((int)dgvClients.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
 
             _RefreshClientsList();
