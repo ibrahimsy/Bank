@@ -18,6 +18,7 @@ namespace Bank.Beneficiaries
 
         int _SenderClientID = -1;
         clsClient _SenderClientInfo;
+        clsClient _RecipientClientInfo;
         public frmAddEditBeneficiary(int SenderClientID)
         {
             InitializeComponent();
@@ -62,7 +63,7 @@ namespace Bank.Beneficiaries
             
         }
 
-        private clsClient _PerformSearch(string Input,string SearchType)
+        private clsClient _PerformSearch(string Input,string SearchType,ref bool IsMine)
         {    
             switch (SearchType) 
             {
@@ -75,16 +76,20 @@ namespace Bank.Beneficiaries
                                        "Sorry",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Warning);
+                        IsMine = true;
                         }
                     break;
                 case "Phone":
-                    if(_SenderClientInfo.PersonInfo.Phone != Input)
+                    if (_SenderClientInfo.PersonInfo.Phone != Input)
                         return clsClient.FindClientByPhoneNumber(Input);
                     else
+                    {
                         MessageBox.Show("You cannot save your own Phone as a beneficiary.Please Try a different Phone Number",
                                        "Sorry",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Warning);
+                        IsMine = true;
+                    }
                     break;
                 case "Card":
                     // To add later By card Number
@@ -96,6 +101,7 @@ namespace Bank.Beneficiaries
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
         {
             int TargetLength = 0;
+            bool IsMineFlag = false;
             string SearchType = "";
             switch (cbFilterBy.Text.Trim())
             {
@@ -117,25 +123,28 @@ namespace Bank.Beneficiaries
 
             if (txtFilterValue.Text.Length == TargetLength)
             {
-                clsClient  _clientInfo = _PerformSearch(txtFilterValue.Text.Trim(),SearchType);
-                if (_clientInfo == null)
+                 _RecipientClientInfo = _PerformSearch(txtFilterValue.Text.Trim(),SearchType,ref IsMineFlag);
+                if (_RecipientClientInfo == null)
                 {
+                    if (IsMineFlag)
+                        return;
                     MessageBox.Show($"We are unable to process your request,no valid account was found against this {SearchType} Number",
                                        "Sorry",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Error);
+                    gbBeneficiary.Visible = false;
                     return;
                 }
 
                 btnSave.Enabled = true;
                 gbBeneficiary.Visible = true;
-                lblBeneficiaryName.Text = _clientInfo.PersonInfo.FullName;
+                lblBeneficiaryName.Text = _RecipientClientInfo.PersonInfo.FullName;
                 lblBenefAccountNumber.Text = SearchType == "Account"
                                            ? txtFilterValue.Text.Trim()
-                                           : clsAccount.FindPrimaryAccountByClientID(_clientInfo.ClientID).AccountNumber;
+                                           : clsAccount.FindPrimaryAccountByClientID(_RecipientClientInfo.ClientID).AccountNumber;
             }
 
-            gbBeneficiary.Visible = false;
+            //gbBeneficiary.Visible = false;
 
         }
 
@@ -151,13 +160,36 @@ namespace Bank.Beneficiaries
                 errorProvider1.SetError(txtFilterValue, null);
             }
         }
-
+        private int _GetAccountIDBySearchType(clsClient RecepientClientInfo)
+        {
+            switch (cbFilterBy.Text.Trim())
+            {
+                case "Account Number":
+                    return clsAccount.FindAccountByAccountNumber(txtFilterValue.Text.Trim()).AccountID;
+                case "Mobile Number":
+                    return clsAccount.Fin
+                    break;
+                case "Card Number":
+                    break;
+            }
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
             {
                 return;
             }
+
+            clsBeneficiary Beneficiary = new clsBeneficiary();
+
+
+            Beneficiary.ClientID = _RecipientClientInfo.ClientID;
+            Beneficiary.AccountID = 1; // To Be Continues
+            Beneficiary.Name = _RecipientClientInfo.PersonInfo.FullName;
+            Beneficiary.MobileNumber = _RecipientClientInfo.PersonInfo.Phone;
+            Beneficiary.Nickname = txtFilterValue.Text.Trim();  
+            Beneficiary.CreatedDate = DateTime.Now;
+            Beneficiary.Status = 
 
         }
 
