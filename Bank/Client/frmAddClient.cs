@@ -186,7 +186,7 @@ namespace Bank.Client
             if (!_ClientInfo.Save())
             {
                 MessageBox.Show($"An Error Occoured During Create The Client.",
-                 "Success",
+                 "Error",
                  MessageBoxButtons.OK,
                  MessageBoxIcon.Error);
                 return false;
@@ -210,7 +210,7 @@ namespace Bank.Client
                 else
                 {
                     MessageBox.Show($"An Error Occurred.Client Haven't Updated",
-                    "Success",
+                    "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 }

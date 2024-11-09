@@ -593,5 +593,63 @@ namespace BankDataAccess
             }
             return dt;
         }
+
+        public static int GetAccountsCount()
+        {
+            int count = -1;
+            string query = @"SELECT Count(AccountID) FROM Accounts";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int ClientsNumber))
+                {
+                    count = ClientsNumber;
+                }
+            }
+            catch (Exception ex)
+            {
+                count = -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return count;
+        }
+    
+        public static decimal GetTotalBalances()
+        {
+            Decimal TotalBalances = 0;
+
+            string query = @"SELECT SUM(Balance) As TotalBalances FROM Accounts";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+                if (Result != null && Decimal.TryParse(Result.ToString(), out Decimal ClientsNumber))
+                {
+                    TotalBalances = ClientsNumber;
+                }
+            }
+            catch (Exception ex)
+            {
+                TotalBalances = -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return TotalBalances;
+        }
+        
     }
 }

@@ -141,6 +141,11 @@ namespace BankBussiness
         {
             return clsUserData.GetAllUsers();
         }
+
+        public static int GetUsersCount()
+        {
+            return clsUserData.GetUsersCount();
+        }
         public bool Save()
         {
             switch (_Mode)

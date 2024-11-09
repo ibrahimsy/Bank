@@ -382,7 +382,7 @@ namespace BankDataAccess
         }
 
         public static int AddNewClient(int PersonID,  bool AccountStatus,
-                  int CreatedBy,  DateTime CreatedDate,  int BranchID,  string Notes )
+                  int CreatedBy,  DateTime CreatedDate,DateTime UpdatedDate,  int BranchID,  string Notes )
         {
             int ClientID = -1;
 
@@ -404,7 +404,15 @@ namespace BankDataAccess
             command.Parameters.AddWithValue("@AccountStatus", AccountStatus);
             command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
             command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
-            
+            if (UpdatedDate == DateTime.MaxValue)
+            {
+                command.Parameters.AddWithValue("@UpdatedDate", DBNull.Value);
+            }
+            else
+            {
+               command.Parameters.AddWithValue("@UpdatedDate", UpdatedDate);
+            }
+
             command.Parameters.AddWithValue("@BranchID", BranchID);
             if (Notes == "")
             {
@@ -672,5 +680,32 @@ namespace BankDataAccess
             return dtClients;
         }
 
+        public static int GetClientsCount()
+        {
+            int count = -1;
+            string query = @"SELECT Count(*) FROM Clients";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(),out int ClientsNumber))
+                {
+                    count = ClientsNumber;
+                }
+            }
+            catch (Exception ex)
+            {
+                count = -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return count;
+        }
     }
 }

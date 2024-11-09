@@ -229,5 +229,7 @@ namespace Bank.People
             frmPersonInfo frm = new frmPersonInfo((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
+
+
     }
 }

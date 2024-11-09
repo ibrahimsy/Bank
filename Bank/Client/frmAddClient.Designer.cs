@@ -32,6 +32,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpClientInfo = new System.Windows.Forms.TabPage();
+            this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.txtClientNotes = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ctrlPersonInfoWithFilter1 = new Bank.People.Controls.ctrlPersonInfoWithFilter();
@@ -58,7 +59,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tpClientInfo.SuspendLayout();
             this.tpPrimaryAccount.SuspendLayout();
@@ -102,6 +102,17 @@
             this.tpClientInfo.TabIndex = 0;
             this.tpClientInfo.Text = "Client Info";
             this.tpClientInfo.UseVisualStyleBackColor = true;
+            // 
+            // chkIsActive
+            // 
+            this.chkIsActive.AutoSize = true;
+            this.chkIsActive.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIsActive.Location = new System.Drawing.Point(104, 490);
+            this.chkIsActive.Name = "chkIsActive";
+            this.chkIsActive.Size = new System.Drawing.Size(110, 36);
+            this.chkIsActive.TabIndex = 31;
+            this.chkIsActive.Text = "Is Active";
+            this.chkIsActive.UseVisualStyleBackColor = true;
             // 
             // txtClientNotes
             // 
@@ -167,13 +178,14 @@
             this.tpPrimaryAccount.Location = new System.Drawing.Point(4, 22);
             this.tpPrimaryAccount.Name = "tpPrimaryAccount";
             this.tpPrimaryAccount.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPrimaryAccount.Size = new System.Drawing.Size(959, 516);
+            this.tpPrimaryAccount.Size = new System.Drawing.Size(959, 541);
             this.tpPrimaryAccount.TabIndex = 1;
             this.tpPrimaryAccount.Text = "Primary Account Info";
             this.tpPrimaryAccount.UseVisualStyleBackColor = true;
             // 
             // cbAccountStatus
             // 
+            this.cbAccountStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAccountStatus.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAccountStatus.FormattingEnabled = true;
             this.cbAccountStatus.Location = new System.Drawing.Point(223, 270);
@@ -192,6 +204,7 @@
             // 
             // cbBranches
             // 
+            this.cbBranches.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBranches.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBranches.FormattingEnabled = true;
             this.cbBranches.Location = new System.Drawing.Point(537, 225);
@@ -201,6 +214,7 @@
             // 
             // cbAccountType
             // 
+            this.cbAccountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAccountType.Font = new System.Drawing.Font("Titillium Web", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAccountType.FormattingEnabled = true;
             this.cbAccountType.Location = new System.Drawing.Point(223, 223);
@@ -380,17 +394,6 @@
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // chkIsActive
-            // 
-            this.chkIsActive.AutoSize = true;
-            this.chkIsActive.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIsActive.Location = new System.Drawing.Point(104, 490);
-            this.chkIsActive.Name = "chkIsActive";
-            this.chkIsActive.Size = new System.Drawing.Size(110, 36);
-            this.chkIsActive.TabIndex = 31;
-            this.chkIsActive.Text = "Is Active";
-            this.chkIsActive.UseVisualStyleBackColor = true;
             // 
             // frmAddClient
             // 

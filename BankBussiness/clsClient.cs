@@ -74,7 +74,7 @@ namespace BankBussiness
         private bool _AddNewClient()
         {
             ClientID = clsClientData.AddNewClient( PersonID,  AccountStatus,
-                          CreatedBy,  CreatedDate,  BranchID,  Notes);
+                          CreatedBy,  CreatedDate,DateTime.MaxValue,  BranchID,  Notes);
 
             return (ClientID != -1);
         }
@@ -241,6 +241,12 @@ namespace BankBussiness
         {
             return clsClientData.GetAllClients();
         }
+
+        public static int GetClientsCount() 
+        {
+            return clsClientData.GetClientsCount();
+        }
+
         public bool Save()
         {
             switch (_Mode)

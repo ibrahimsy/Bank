@@ -374,7 +374,35 @@ namespace BankDataAccess
             }
             return dt;
         }
-    
-      
+
+        public static int GetUsersCount()
+        {
+            int count = -1;
+            string query = @"SELECT Count(UserID) FROM Users";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                object Result = command.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int ClientsNumber))
+                {
+                    count = ClientsNumber;
+                }
+            }
+            catch (Exception ex)
+            {
+                count = -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return count;
+        }
+
+
     }
 }

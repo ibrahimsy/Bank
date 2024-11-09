@@ -22,16 +22,44 @@ namespace Bank
     public partial class frmMainForm : PermissionForm
     {
         Form _LoginForm;
+        frmManagePeople _PeopleForm ;
+        frmManageUsers _UserForm;
+        frmManageAccounts _ManageAccountsForm;
         public frmMainForm(Form LoginForm)
         {
             InitializeComponent();
             _LoginForm = LoginForm;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        void _CheckForOpenedForm()
+        {  
+            if(this.MdiChildren.Length == 1)
+            {
+                panel1.Visible = true;
+                _RefereshMainFormWindows();
+            }
+    
+        } 
+
+        void _OpenChildForm(Form ChildForm)
+        {
+            panel1.Visible = false;
+
+            ChildForm.MdiParent = this;
+            ChildForm.WindowState = FormWindowState.Maximized;
+            ChildForm.FormClosed+= (s,args) => _CheckForOpenedForm();
+            ChildForm.Show();
+            
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmManagePeople frm = new frmManagePeople();
-            frm.ShowDialog();
+            if (_PeopleForm == null || _PeopleForm.IsDisposed)
+            {
+                _PeopleForm = new frmManagePeople();
+                _OpenChildForm(_PeopleForm);
+            }
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,8 +67,12 @@ namespace Bank
             if (!DoesUserHavePermission(clsUser.enPermission.UserManagment))
                 return;
 
-            frmManageUsers frm = new frmManageUsers();
-            frm.ShowDialog(); 
+            if (_UserForm == null || _UserForm.IsDisposed)
+            {
+                _UserForm = new frmManageUsers();
+                _OpenChildForm(_UserForm);
+                
+            }
         }
 
         private void frmMainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -124,14 +156,29 @@ namespace Bank
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
-            frmManageAccounts frm = new frmManageAccounts();    
-            frm.ShowDialog();
+            if (_ManageAccountsForm == null || _ManageAccountsForm.IsDisposed)
+            {
+                 _ManageAccountsForm = new frmManageAccounts();
+                _OpenChildForm(_ManageAccountsForm);
+            }
         }
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
             frmCurrencyList frm = new frmCurrencyList();
             frm.ShowDialog();
+        }
+
+        private void _RefereshMainFormWindows()
+        {
+            lblClientsCount.Text = clsClient.GetClientsCount().ToString();
+            lblTotalUsers.Text = clsUser.GetUsersCount().ToString();
+            lblTotalAccounts.Text = clsAccount.GetAccountsCount().ToString();
+            lblTotalBalances.Text = clsAccount.GetTotalBalances().ToString() + " $";
+        }
+        private void frmMainForm_Load(object sender, EventArgs e)
+        {
+            _RefereshMainFormWindows();
         }
     }
 }

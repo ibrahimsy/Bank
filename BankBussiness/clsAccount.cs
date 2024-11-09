@@ -289,6 +289,15 @@ namespace BankBussiness
         }
 
     
+        public static int GetAccountsCount()
+        {
+            return clsAccountData.GetAccountsCount();
+        }
+
+        public static Decimal GetTotalBalances() 
+        {
+            return clsAccountData.GetTotalBalances();
+        }
 
         public bool Save()
         {

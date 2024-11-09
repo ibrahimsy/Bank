@@ -186,7 +186,7 @@
             this.pbPersonImage.Location = new System.Drawing.Point(718, 95);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(206, 217);
-            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPersonImage.TabIndex = 25;
             this.pbPersonImage.TabStop = false;
             // 
