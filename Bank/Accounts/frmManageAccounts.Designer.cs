@@ -46,12 +46,7 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.activateAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
-            this.closeAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.issueVISACardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.issueCreditCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +54,18 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.depositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+            this.withdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.transferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccounts)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -167,111 +174,81 @@
             this.toolStripMenuItem3,
             this.deleteAccountToolStripMenuItem,
             this.toolStripMenuItem4,
-            this.activateAccountToolStripMenuItem,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem8,
+            this.toolStripMenuItem10,
             this.toolStripMenuItem9,
-            this.closeAccountToolStripMenuItem,
-            this.toolStripMenuItem6,
             this.issueVISACardToolStripMenuItem,
             this.toolStripMenuItem7,
-            this.issueCreditCardToolStripMenuItem});
+            this.issueCreditCardToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.transactionsToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(190, 250);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(196, 244);
             // 
             // showAccountDetailsToolStripMenuItem
             // 
             this.showAccountDetailsToolStripMenuItem.Name = "showAccountDetailsToolStripMenuItem";
-            this.showAccountDetailsToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.showAccountDetailsToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.showAccountDetailsToolStripMenuItem.Text = "Show Account Details";
             this.showAccountDetailsToolStripMenuItem.Click += new System.EventHandler(this.showAccountDetailsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(192, 6);
             // 
             // addNewAccountToolStripMenuItem
             // 
             this.addNewAccountToolStripMenuItem.Name = "addNewAccountToolStripMenuItem";
-            this.addNewAccountToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.addNewAccountToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.addNewAccountToolStripMenuItem.Text = "Add New Account";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(186, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(192, 6);
             // 
             // updateAccountToolStripMenuItem
             // 
             this.updateAccountToolStripMenuItem.Name = "updateAccountToolStripMenuItem";
-            this.updateAccountToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.updateAccountToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.updateAccountToolStripMenuItem.Text = "Edit Account";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(186, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(192, 6);
             // 
             // deleteAccountToolStripMenuItem
             // 
             this.deleteAccountToolStripMenuItem.Name = "deleteAccountToolStripMenuItem";
-            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.deleteAccountToolStripMenuItem.Text = "Delete Account";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(186, 6);
-            // 
-            // activateAccountToolStripMenuItem
-            // 
-            this.activateAccountToolStripMenuItem.Name = "activateAccountToolStripMenuItem";
-            this.activateAccountToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.activateAccountToolStripMenuItem.Text = "Activate Account";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(186, 6);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(189, 22);
-            this.toolStripMenuItem8.Text = "Deactivate Account";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(192, 6);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(186, 6);
-            // 
-            // closeAccountToolStripMenuItem
-            // 
-            this.closeAccountToolStripMenuItem.Name = "closeAccountToolStripMenuItem";
-            this.closeAccountToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.closeAccountToolStripMenuItem.Text = "Close Account";
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(186, 6);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(192, 6);
             // 
             // issueVISACardToolStripMenuItem
             // 
             this.issueVISACardToolStripMenuItem.Name = "issueVISACardToolStripMenuItem";
-            this.issueVISACardToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.issueVISACardToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.issueVISACardToolStripMenuItem.Text = "Issue VISA Card";
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(186, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(192, 6);
             // 
             // issueCreditCardToolStripMenuItem
             // 
             this.issueCreditCardToolStripMenuItem.Name = "issueCreditCardToolStripMenuItem";
-            this.issueCreditCardToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.issueCreditCardToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.issueCreditCardToolStripMenuItem.Text = "Issue Credit Card";
             // 
             // label1
@@ -321,6 +298,89 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.activateToolStripMenuItem,
+            this.deactivateToolStripMenuItem,
+            this.blockToolStripMenuItem,
+            this.closeToolStripMenuItem});
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(195, 22);
+            this.toolStripMenuItem10.Text = "Modify Account Status";
+            // 
+            // activateToolStripMenuItem
+            // 
+            this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
+            this.activateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.activateToolStripMenuItem.Text = "Activate";
+            // 
+            // deactivateToolStripMenuItem
+            // 
+            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deactivateToolStripMenuItem.Text = "Deactivate";
+            // 
+            // blockToolStripMenuItem
+            // 
+            this.blockToolStripMenuItem.Name = "blockToolStripMenuItem";
+            this.blockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.blockToolStripMenuItem.Text = "Block";
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(192, 6);
+            // 
+            // transactionsToolStripMenuItem
+            // 
+            this.transactionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.depositToolStripMenuItem,
+            this.toolStripMenuItem6,
+            this.withdrawToolStripMenuItem,
+            this.toolStripMenuItem8,
+            this.transferToolStripMenuItem});
+            this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
+            this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.transactionsToolStripMenuItem.Text = "Transactions";
+            // 
+            // depositToolStripMenuItem
+            // 
+            this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
+            this.depositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.depositToolStripMenuItem.Text = "Deposit";
+            this.depositToolStripMenuItem.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
+            // 
+            // withdrawToolStripMenuItem
+            // 
+            this.withdrawToolStripMenuItem.Name = "withdrawToolStripMenuItem";
+            this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.withdrawToolStripMenuItem.Text = "Withdraw";
+            this.withdrawToolStripMenuItem.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(177, 6);
+            // 
+            // transferToolStripMenuItem
+            // 
+            this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
+            this.transferToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.transferToolStripMenuItem.Text = "Transfer";
+            this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
+            // 
             // frmManageAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,14 +429,21 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem deleteAccountToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem activateAccountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem closeAccountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem issueVISACardToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem issueCreditCardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem activateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deactivateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem transactionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem depositToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem withdrawToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem transferToolStripMenuItem;
     }
 }

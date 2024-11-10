@@ -1,4 +1,5 @@
-﻿using BankBussiness;
+﻿using Bank.Transactions;
+using BankBussiness;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -165,6 +166,31 @@ namespace Bank.Accounts
         private void btnAddAccount_Click(object sender, EventArgs e)
         {
             frmAddEditAccount frm = new frmAddEditAccount();
+            frm.ShowDialog();
+
+            _RefreshAccountsList();
+        }
+        private void _StartTransaction(clsTransaction.enTransactionType Type)
+        {
+            int ClientID = (int)dgvAccounts.CurrentRow.Cells[1].Value;
+            frmTransaction frm = new frmTransaction(ClientID, Type);
+            frm.ShowDialog();
+        }
+        private void depositToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _StartTransaction(clsTransaction.enTransactionType.Deposit);
+            _RefreshAccountsList();
+        }
+
+        private void withdrawToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _StartTransaction(clsTransaction.enTransactionType.Withdraw);
+            _RefreshAccountsList();
+        }
+
+        private void transferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTransfer frm = new frmTransfer((int)dgvAccounts.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
 
             _RefreshAccountsList();

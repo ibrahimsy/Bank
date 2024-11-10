@@ -22,7 +22,9 @@ namespace BankBussiness
 
         public int BeneficiaryID { set; get; }
         public int ClientID { set; get; }
+        public clsClient ClientInfo;
         public int AccountID { set; get; }
+        public clsAccount AccountInfo;
         public string Name { set; get; }
         public string MobileNumber { set; get; }
         public string Nickname { set; get; }
@@ -50,7 +52,9 @@ namespace BankBussiness
         {
             this.BeneficiaryID = BeneficiaryID;
             this.ClientID = ClientID;
+            this.ClientInfo = clsClient.FindClientByID(ClientID);
             this.AccountID = AccountID;
+            this.AccountInfo = clsAccount.FindAccountByID(AccountID);
             this.Name = Name;
             this.MobileNumber = MobileNumber;
             this.Nickname = Nickname;

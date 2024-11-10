@@ -197,34 +197,10 @@ namespace Bank.Client
             _RefreshClientsList();
         }
 
-        private void _StartTransaction(clsTransaction.enTransactionType Type)
-        {
-            int ClientID = (int)dgvClients.CurrentRow.Cells[0].Value;
-            frmTransaction frm = new frmTransaction(ClientID,Type);
-            frm.ShowDialog();
-        }
-        private void withDrawToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _StartTransaction(clsTransaction.enTransactionType.Withdraw);
-        }
-
-        private void depositToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _StartTransaction(clsTransaction.enTransactionType.Deposit);
-        }
-
-        private void transferToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmTransfer frm = new frmTransfer((int)dgvClients.CurrentRow.Cells[0].Value);
-            frm.ShowDialog();
-
-            _RefreshClientsList();
-        }
-
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             if(!CheckPermission(clsUser.enPermission.Transaction))
-                TransactiontoolStripMenuItem.Enabled = false;
+                //TransactiontoolStripMenuItem.Enabled = false;
 
             if (!CheckPermission(clsUser.enPermission.AddClient))
                 addClientToolStripMenuItem.Enabled = false;

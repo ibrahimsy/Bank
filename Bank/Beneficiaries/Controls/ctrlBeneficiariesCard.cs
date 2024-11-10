@@ -13,16 +13,7 @@ namespace Bank.Beneficiaries.Controls
 {
     public partial class ctrlBeneficiariesCard : UserControl
     {
-        public event Action<int>  OnBeneficiaryCardSelected;
-
-        protected virtual void BeneficiaryCardSelected(int BeneficiaryID)
-        {
-            Action<int> handler = OnBeneficiaryCardSelected;
-            if (handler != null) 
-            {
-                handler(BeneficiaryID);
-            }
-        }
+       
 
         int _BeneficiaryID = -1;
         public int BeneficiaryID
@@ -46,21 +37,17 @@ namespace Bank.Beneficiaries.Controls
 
         private void ctrlBeneficiariesCard_Click(object sender, EventArgs e)
         {
-            //if (OnBeneficiaryCardSelected != null)
-            //{
-            //    OnBeneficiaryCardSelected(BeneficiaryID);
-            //}
            
         }
 
         private void ctrlBeneficiariesCard_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.AliceBlue;
+            this.BackColor = Color.CadetBlue;
         }
 
         private void ctrlBeneficiariesCard_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.PowderBlue;
+            this.BackColor = Color.DarkSlateGray;
         }
     }
 }

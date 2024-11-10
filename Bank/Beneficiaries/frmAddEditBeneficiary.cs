@@ -16,13 +16,15 @@ namespace Bank.Beneficiaries
         enum enMode { enAddNew = 1,enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-        int _SenderClientID = -1;
+        int _SenderClientID = -1; //************
+        int _SourceAccountID = -1;
+
         clsClient _SenderClientInfo;
         clsClient _RecipientClientInfo;
-        public frmAddEditBeneficiary(int SenderClientID)
+        public frmAddEditBeneficiary(int SourceAccountID)
         {
             InitializeComponent();
-            _SenderClientID = SenderClientID;
+            _SourceAccountID = SourceAccountID;
         }
 
         void _ResetDefaultValue()
@@ -32,7 +34,7 @@ namespace Bank.Beneficiaries
             btnSave.Enabled = false;
             gbBeneficiary.Visible = false;
 
-            _SenderClientInfo = clsClient.FindClientByID(_SenderClientID);
+            _SenderClientInfo = clsClient.FindClientByAccountID(_SenderClientID);
             if (_SenderClientInfo == null)
             {
                 MessageBox.Show($"An Error Occurred,Sender Client Issue",

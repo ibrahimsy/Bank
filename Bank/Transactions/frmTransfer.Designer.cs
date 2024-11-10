@@ -30,12 +30,12 @@
         {
             this.lblTransactionTitle = new System.Windows.Forms.Label();
             this.gpTransferTo = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pbAddNewBeneficiary = new System.Windows.Forms.PictureBox();
             this.pbOwnAccounts = new System.Windows.Forms.PictureBox();
             this.pbMyBeneficiary = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pb = new System.Windows.Forms.PictureBox();
             this.gpTransferTo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAddNewBeneficiary)).BeginInit();
@@ -69,41 +69,11 @@
             this.gpTransferTo.TabStop = false;
             this.gpTransferTo.Text = "Transfer To";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(356, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 32);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Add New Beneficiary";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(194, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 32);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Own Account";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 32);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "My Beneficiary";
-            // 
             // pbAddNewBeneficiary
             // 
             this.pbAddNewBeneficiary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbAddNewBeneficiary.Image = global::Bank.Properties.Resources.add_beneficiary;
-            this.pbAddNewBeneficiary.Location = new System.Drawing.Point(422, 68);
+            this.pbAddNewBeneficiary.Location = new System.Drawing.Point(448, 68);
             this.pbAddNewBeneficiary.Name = "pbAddNewBeneficiary";
             this.pbAddNewBeneficiary.Size = new System.Drawing.Size(68, 62);
             this.pbAddNewBeneficiary.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -115,7 +85,7 @@
             // 
             this.pbOwnAccounts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbOwnAccounts.Image = global::Bank.Properties.Resources.own_account;
-            this.pbOwnAccounts.Location = new System.Drawing.Point(225, 68);
+            this.pbOwnAccounts.Location = new System.Drawing.Point(251, 68);
             this.pbOwnAccounts.Name = "pbOwnAccounts";
             this.pbOwnAccounts.Size = new System.Drawing.Size(68, 62);
             this.pbOwnAccounts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,6 +103,36 @@
             this.pbMyBeneficiary.TabIndex = 8;
             this.pbMyBeneficiary.TabStop = false;
             this.pbMyBeneficiary.Click += new System.EventHandler(this.pbMyBeneficiary_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(379, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(200, 32);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Add New Beneficiary";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(219, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 32);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Own Account";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Titillium Web", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 32);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "My Beneficiary";
             // 
             // pb
             // 

@@ -56,10 +56,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PowderBlue;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.Controls.Add(this.lblBenefAccountNumber);
             this.Controls.Add(this.lblBeneficiaryName);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "ctrlBeneficiariesCard";
             this.Size = new System.Drawing.Size(288, 87);
             this.Click += new System.EventHandler(this.ctrlBeneficiariesCard_Click);
