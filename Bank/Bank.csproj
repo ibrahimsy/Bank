@@ -92,11 +92,23 @@
     <Compile Include="AccountTypes\frmEditAccountType.Designer.cs">
       <DependentUpon>frmEditAccountType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Beneficiaries\Controls\ctrlBeneficiariesCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Beneficiaries\Controls\ctrlBeneficiariesCard.Designer.cs">
+      <DependentUpon>ctrlBeneficiariesCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Beneficiaries\frmAddEditBeneficiary.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Beneficiaries\frmAddEditBeneficiary.Designer.cs">
       <DependentUpon>frmAddEditBeneficiary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Beneficiaries\frmBeneficiariesList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Beneficiaries\frmBeneficiariesList.Designer.cs">
+      <DependentUpon>frmBeneficiariesList.cs</DependentUpon>
     </Compile>
     <Compile Include="Branches\frmBrancesManagment.cs">
       <SubType>Form</SubType>
@@ -288,8 +300,14 @@
     <EmbeddedResource Include="AccountTypes\frmEditAccountType.resx">
       <DependentUpon>frmEditAccountType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Beneficiaries\Controls\ctrlBeneficiariesCard.resx">
+      <DependentUpon>ctrlBeneficiariesCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Beneficiaries\frmAddEditBeneficiary.resx">
       <DependentUpon>frmAddEditBeneficiary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Beneficiaries\frmBeneficiariesList.resx">
+      <DependentUpon>frmBeneficiariesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Branches\frmBrancesManagment.resx">
       <DependentUpon>frmBrancesManagment.cs</DependentUpon>
@@ -519,6 +537,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AddBeneficiary.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transfer To Arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

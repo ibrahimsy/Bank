@@ -19,7 +19,7 @@ namespace Bank
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAddEditBeneficiary(1));
+            Application.Run(new frmBeneficiariesList(1));
             //Application.Run(new frmTest());
         }
     }

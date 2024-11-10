@@ -13,22 +13,18 @@ namespace BankDataAccess
 
     public class clsBeneficiaryData
     {
-        public static int AddBeneficiary( int ClientID, string AccountNumber, string Name, string MobileNumber, string Nickname, DateTime CreatedDate, byte Status)
+        public static int AddBeneficiary( int ClientID, int AccountID, string Nickname, DateTime CreatedDate, byte Status)
         {
             int _BeneficiaryID = -1;
             string query = @"INSERT INTO Beneficiaries(           
                                 ClientID,
-                                AccountNumber,
-                                Name,
-                                MobileNumber,
+                                AccountID,
                                 Nickname,
                                 CreatedDate,
                                 Status
                                 ) VALUES (
                                 @ClientID,
-                                @AccountNumber,
-                                @Name,
-                                @MobileNumber,
+                                @AccountID,
                                 @Nickname,
                                 @CreatedDate,
                                 @Status
@@ -38,9 +34,7 @@ namespace BankDataAccess
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@ClientID", ClientID);
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
-            command.Parameters.AddWithValue("@Name", Name);
-            command.Parameters.AddWithValue("@MobileNumber", MobileNumber);
+            command.Parameters.AddWithValue("@AccountID", AccountID);
             command.Parameters.AddWithValue("@Nickname", Nickname);
             command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
             command.Parameters.AddWithValue("@Status", Status);
@@ -67,7 +61,7 @@ namespace BankDataAccess
 
 
 
-        public static bool UpdateBeneficiaryByID(int BeneficiaryID, int ClientID, string AccountNumber, string Name, string MobileNumber, string Nickname, DateTime CreatedDate, byte Status)
+        public static bool UpdateBeneficiaryByID(int BeneficiaryID, int ClientID, int AccountID,string Nickname, DateTime CreatedDate, byte Status)
         {
 
 
@@ -76,9 +70,7 @@ namespace BankDataAccess
             string query = @"UPDATE Beneficiaries SET 
                                 BeneficiaryID = @BeneficiaryID,
                                 ClientID = @ClientID,
-                                AccountNumber = @AccountNumber,
-                                Name = @Name,
-                                MobileNumber = @MobileNumber,
+                                AccountID = @AccountID,    
                                 Nickname = @Nickname,
                                 CreatedDate = @CreatedDate,
                                 Status = @Status
@@ -89,9 +81,7 @@ namespace BankDataAccess
 
             command.Parameters.AddWithValue("@BeneficiaryID", BeneficiaryID);
             command.Parameters.AddWithValue("@ClientID", ClientID);
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
-            command.Parameters.AddWithValue("@Name", Name);
-            command.Parameters.AddWithValue("@MobileNumber", MobileNumber);
+            command.Parameters.AddWithValue("@AccountID", AccountID);
             command.Parameters.AddWithValue("@Nickname", Nickname);
             command.Parameters.AddWithValue("@CreatedDate", CreatedDate);
             command.Parameters.AddWithValue("@Status", Status);
@@ -148,7 +138,7 @@ namespace BankDataAccess
 
 
 
-        public static bool GetBeneficiariesByID(int BeneficiaryID, ref int ClientID, ref string AccountNumber, ref string Name, ref string MobileNumber, ref string Nickname, ref DateTime CreatedDate, ref byte Status)
+        public static bool GetBeneficiariesByID(int BeneficiaryID, ref int ClientID, ref int AccountID, ref string Name, ref string MobileNumber, ref string Nickname, ref DateTime CreatedDate, ref byte Status)
         {
 
             bool IsFound = false;
@@ -172,9 +162,7 @@ namespace BankDataAccess
                     IsFound = true;
 
                     ClientID = (int)reader["ClientID"];
-                    AccountNumber = (string)reader["AccountNumber"];
-                    Name = (string)reader["Name"];
-                    MobileNumber = (string)reader["MobileNumber"];
+                    AccountID = (int)reader["AccountID"];
                     Nickname = (string)reader["Nickname"];
                     CreatedDate = (DateTime)reader["CreatedDate"];
                     Status = (byte)reader["Status"];
@@ -264,23 +252,23 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool IsExistBySenderClientIDAndRecepientAccountNumber(int ClientID,string AccountNumber)
+        public static bool IsExistBySenderClientIDAndRecepientAccountID(int ClientID,int AccountID)
         {
             bool IsFound = false;
 
             string query = @"SELECT found = 1 FROM Beneficiaries 
-                             WHERE ClientID = @ClientID And AccountNumber =@AccountNumber";
+                             WHERE ClientID = @ClientID And AccountID =@AccountID";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@ClientID", ClientID);
-            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+            command.Parameters.AddWithValue("@AccountID", AccountID);
             try
             {
                 connection.Open();
-                object result = command.ExecuteNonQuery();
+                object result = command.ExecuteScalar();
                 if (result != null)
                 {
                     IsFound = true;
@@ -327,6 +315,47 @@ namespace BankDataAccess
             return dt;
         }
 
+        public static DataTable GetAllBeneficiariesByClientID(int ClientID)
+        {
+            DataTable dt = new DataTable();
 
+            string query = @"SELECT        
+                            Beneficiaries.BeneficiaryID,
+                            Accounts.AccountID,
+                            (People.FirstName+' '+People.SecondName+' '+People.ThirdName+' '+People.LastName) As FullName,
+                            People.Phone,
+                            Accounts.AccountNumber
+                            FROM          Beneficiaries INNER JOIN
+                                          Accounts ON Beneficiaries.AccountID = Accounts.AccountID INNER JOIN
+                                          Clients ON Accounts.ClientID = Clients.ClientID INNER JOIN
+                                          People ON Clients.PersonID = People.PersonID
+
+			                              Where Beneficiaries.ClientID = @ClientID";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ClientID", ClientID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
     }
 }

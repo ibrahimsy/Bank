@@ -187,7 +187,8 @@ namespace Bank.Beneficiaries
             if (!this.ValidateChildren())
                 return;
 
-            if (_SenderClientInfo.DoesClientHaveBeneficiary(cbAccounts.Text.Trim()))
+            int BeneficiaryAccountID = clsAccount.FindAccountByAccountNumber(cbAccounts.Text.Trim()).AccountID;
+            if (_SenderClientInfo.DoesClientHaveBeneficiary(BeneficiaryAccountID))
             {
                 MessageBox.Show("This Beneficiary Is Allready Exist\n" +
                     "In Your Beneficiary List", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -198,9 +199,7 @@ namespace Bank.Beneficiaries
             clsBeneficiary Beneficiary = new clsBeneficiary();
 
             Beneficiary.ClientID = _SenderClientID;
-            Beneficiary.AccountNumber = cbAccounts.Text.Trim();
-            Beneficiary.Name = _RecipientClientInfo.PersonInfo.FullName;
-            Beneficiary.MobileNumber = _RecipientClientInfo.PersonInfo.Phone;
+            Beneficiary.AccountID = BeneficiaryAccountID;        
             Beneficiary.Nickname = txtNickname.Text.Trim();  
             Beneficiary.CreatedDate = DateTime.Now;
             Beneficiary.Status = (byte)clsBeneficiary.enBeneficiaryStatus.Active;

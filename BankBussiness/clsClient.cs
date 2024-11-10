@@ -234,9 +234,14 @@ namespace BankBussiness
             return clsClientData.DoesHasAccount(this.ClientID,AccountNumber);
         }
 
-        public bool DoesClientHaveBeneficiary(string BeneficiaryAccountNumber)
+        public bool DoesClientHaveBeneficiary(int BeneficiaryAccountNumber)
         {
-            return clsBeneficiary.IsExistByClientIDAndAccountNumber(this.ClientID, BeneficiaryAccountNumber);
+            return clsBeneficiary.IsExistByClientIDAndAccountID(this.ClientID, BeneficiaryAccountNumber);
+        }
+
+        public DataTable GetClientBeneficiaries()
+        {
+            return clsBeneficiaryData.GetAllBeneficiariesByClientID(this.ClientID);
         }
 
         public static bool DeleteClient(int ClientID)
