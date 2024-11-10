@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.ConstrainedExecution;
@@ -231,6 +232,11 @@ namespace BankBussiness
         public bool IsClientOwnAccount(string AccountNumber)
         {
             return clsClientData.DoesHasAccount(this.ClientID,AccountNumber);
+        }
+
+        public bool DoesClientHaveBeneficiary(string BeneficiaryAccountNumber)
+        {
+            return clsBeneficiary.IsExistByClientIDAndAccountNumber(this.ClientID, BeneficiaryAccountNumber);
         }
 
         public static bool DeleteClient(int ClientID)

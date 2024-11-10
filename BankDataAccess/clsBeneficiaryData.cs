@@ -13,12 +13,12 @@ namespace BankDataAccess
 
     public class clsBeneficiaryData
     {
-        public static int AddBeneficiary( int ClientID, int AccountID, string Name, string MobileNumber, string Nickname, DateTime CreatedDate, byte Status)
+        public static int AddBeneficiary( int ClientID, string AccountNumber, string Name, string MobileNumber, string Nickname, DateTime CreatedDate, byte Status)
         {
             int _BeneficiaryID = -1;
             string query = @"INSERT INTO Beneficiaries(           
                                 ClientID,
-                                AccountID,
+                                AccountNumber,
                                 Name,
                                 MobileNumber,
                                 Nickname,
@@ -26,7 +26,7 @@ namespace BankDataAccess
                                 Status
                                 ) VALUES (
                                 @ClientID,
-                                @AccountID,
+                                @AccountNumber,
                                 @Name,
                                 @MobileNumber,
                                 @Nickname,
@@ -38,7 +38,7 @@ namespace BankDataAccess
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@ClientID", ClientID);
-            command.Parameters.AddWithValue("@AccountID", AccountID);
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
             command.Parameters.AddWithValue("@Name", Name);
             command.Parameters.AddWithValue("@MobileNumber", MobileNumber);
             command.Parameters.AddWithValue("@Nickname", Nickname);
@@ -67,7 +67,7 @@ namespace BankDataAccess
 
 
 
-        public static bool UpdateBeneficiaryByID(int BeneficiaryID, int ClientID, int AccountID, string Name, string MobileNumber, string Nickname, DateTime CreatedDate, byte Status)
+        public static bool UpdateBeneficiaryByID(int BeneficiaryID, int ClientID, string AccountNumber, string Name, string MobileNumber, string Nickname, DateTime CreatedDate, byte Status)
         {
 
 
@@ -76,7 +76,7 @@ namespace BankDataAccess
             string query = @"UPDATE Beneficiaries SET 
                                 BeneficiaryID = @BeneficiaryID,
                                 ClientID = @ClientID,
-                                AccountID = @AccountID,
+                                AccountNumber = @AccountNumber,
                                 Name = @Name,
                                 MobileNumber = @MobileNumber,
                                 Nickname = @Nickname,
@@ -89,7 +89,7 @@ namespace BankDataAccess
 
             command.Parameters.AddWithValue("@BeneficiaryID", BeneficiaryID);
             command.Parameters.AddWithValue("@ClientID", ClientID);
-            command.Parameters.AddWithValue("@AccountID", AccountID);
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
             command.Parameters.AddWithValue("@Name", Name);
             command.Parameters.AddWithValue("@MobileNumber", MobileNumber);
             command.Parameters.AddWithValue("@Nickname", Nickname);
@@ -148,7 +148,7 @@ namespace BankDataAccess
 
 
 
-        public static bool GetBeneficiariesByID(int BeneficiaryID, ref int ClientID, ref int AccountID, ref string Name, ref string MobileNumber, ref string Nickname, ref DateTime CreatedDate, ref byte Status)
+        public static bool GetBeneficiariesByID(int BeneficiaryID, ref int ClientID, ref string AccountNumber, ref string Name, ref string MobileNumber, ref string Nickname, ref DateTime CreatedDate, ref byte Status)
         {
 
             bool IsFound = false;
@@ -172,7 +172,7 @@ namespace BankDataAccess
                     IsFound = true;
 
                     ClientID = (int)reader["ClientID"];
-                    AccountID = (int)reader["AccountID"];
+                    AccountNumber = (string)reader["AccountNumber"];
                     Name = (string)reader["Name"];
                     MobileNumber = (string)reader["MobileNumber"];
                     Nickname = (string)reader["Nickname"];
@@ -232,8 +232,70 @@ namespace BankDataAccess
         }
 
 
+        public static bool IsExistByClientID(int ClientID)
+        {
+            bool IsFound = false;
 
+            string query = @"SELECT found = 1 FROM Beneficiaries WHERE ClientID = @ClientID";
 
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ClientID", ClientID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteNonQuery();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
+
+        public static bool IsExistBySenderClientIDAndRecepientAccountNumber(int ClientID,string AccountNumber)
+        {
+            bool IsFound = false;
+
+            string query = @"SELECT found = 1 FROM Beneficiaries 
+                             WHERE ClientID = @ClientID And AccountNumber =@AccountNumber";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ClientID", ClientID);
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteNonQuery();
+                if (result != null)
+                {
+                    IsFound = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return IsFound;
+        }
 
         public static DataTable GetAllBeneficiaries()
         {

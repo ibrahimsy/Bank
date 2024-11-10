@@ -1,7 +1,9 @@
-﻿using Bank.Login;
+﻿using Bank.Beneficiaries;
+using Bank.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,7 +19,7 @@ namespace Bank
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmAddEditBeneficiary(1));
             //Application.Run(new frmTest());
         }
     }

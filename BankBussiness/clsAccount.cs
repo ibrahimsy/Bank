@@ -248,6 +248,11 @@ namespace BankBussiness
             return clsAccountData.GetAllAccounts();
         }
 
+        public static DataTable GetAccountsListByPhone(string Phone)
+        {
+            return clsAccountData.GetAllAccountsByPhone(Phone);
+        }
+
         public bool Deposit(Decimal Amount)
         {
             if (Amount < 0)

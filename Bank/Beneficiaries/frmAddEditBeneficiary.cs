@@ -28,6 +28,7 @@ namespace Bank.Beneficiaries
         void _ResetDefaultValue()
         {
             cbFilterBy.SelectedIndex = 0;
+            txtFilterValue.Focus();
             btnSave.Enabled = false;
             gbBeneficiary.Visible = false;
 
@@ -60,9 +61,32 @@ namespace Bank.Beneficiaries
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            txtFilterValue.Clear();
+            txtFilterValue.Focus();
+            gbBeneficiary.Visible=false;
         }
 
+        void FillAccountsBeneficiaryInComboBox(string input,string SearchType)
+        {
+            cbAccounts.Items.Clear();
+            switch (SearchType)
+            {
+                case "Account":
+                    cbAccounts.Items.Add(input);
+                    break;
+                case "Phone":
+                    DataTable dtBeneficiaryAccouts = clsAccount.GetAccountsListByPhone(input);
+                    foreach (DataRow row in dtBeneficiaryAccouts.Rows)
+                    {
+                        cbAccounts.Items.Add(row["AccountNumber"]);
+                    }
+                    break;
+                case "Card":
+                    cbAccounts.Items.Add(input);
+                    break;
+            }
+            cbAccounts.SelectedIndex = 0;
+        }
         private clsClient _PerformSearch(string Input,string SearchType,ref bool IsMine)
         {    
             switch (SearchType) 
@@ -123,74 +147,73 @@ namespace Bank.Beneficiaries
 
             if (txtFilterValue.Text.Length == TargetLength)
             {
-                 _RecipientClientInfo = _PerformSearch(txtFilterValue.Text.Trim(),SearchType,ref IsMineFlag);
+                _RecipientClientInfo = _PerformSearch(txtFilterValue.Text.Trim(),SearchType,ref IsMineFlag);
                 if (_RecipientClientInfo == null)
                 {
                     if (IsMineFlag)
                         return;
+
                     MessageBox.Show($"We are unable to process your request,no valid account was found against this {SearchType} Number",
                                        "Sorry",
                                        MessageBoxButtons.OK,
                                        MessageBoxIcon.Error);
                     gbBeneficiary.Visible = false;
+                    btnSave.Enabled = false;    
                     return;
                 }
 
                 btnSave.Enabled = true;
                 gbBeneficiary.Visible = true;
                 lblBeneficiaryName.Text = _RecipientClientInfo.PersonInfo.FullName;
-                lblBenefAccountNumber.Text = SearchType == "Account"
-                                           ? txtFilterValue.Text.Trim()
-                                           : clsAccount.FindPrimaryAccountByClientID(_RecipientClientInfo.ClientID).AccountNumber;
+                FillAccountsBeneficiaryInComboBox(txtFilterValue.Text.Trim(), SearchType);
             }
-
-            //gbBeneficiary.Visible = false;
-
         }
 
         private void txtNickname_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
+            if (string.IsNullOrEmpty(txtNickname.Text.Trim()))
             {
-                errorProvider1.SetError(txtFilterValue, "Required Field");
+                errorProvider1.SetError(txtNickname, "Required Field");
                 e.Cancel = true;
             }
             else
             {
-                errorProvider1.SetError(txtFilterValue, null);
+                errorProvider1.SetError(txtNickname, null);
             }
         }
-        private int _GetAccountIDBySearchType(clsClient RecepientClientInfo)
-        {
-            switch (cbFilterBy.Text.Trim())
-            {
-                case "Account Number":
-                    return clsAccount.FindAccountByAccountNumber(txtFilterValue.Text.Trim()).AccountID;
-                case "Mobile Number":
-                    return clsAccount.Fin
-                    break;
-                case "Card Number":
-                    break;
-            }
-        }
+       
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
+                return;
+
+            if (_SenderClientInfo.DoesClientHaveBeneficiary(cbAccounts.Text.Trim()))
             {
+                MessageBox.Show("This Beneficiary Is Allready Exist\n" +
+                    "In Your Beneficiary List", "Sorry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+
             clsBeneficiary Beneficiary = new clsBeneficiary();
 
-
-            Beneficiary.ClientID = _RecipientClientInfo.ClientID;
-            Beneficiary.AccountID = 1; // To Be Continues
+            Beneficiary.ClientID = _SenderClientID;
+            Beneficiary.AccountNumber = cbAccounts.Text.Trim();
             Beneficiary.Name = _RecipientClientInfo.PersonInfo.FullName;
             Beneficiary.MobileNumber = _RecipientClientInfo.PersonInfo.Phone;
-            Beneficiary.Nickname = txtFilterValue.Text.Trim();  
+            Beneficiary.Nickname = txtNickname.Text.Trim();  
             Beneficiary.CreatedDate = DateTime.Now;
-            Beneficiary.Status = 
+            Beneficiary.Status = (byte)clsBeneficiary.enBeneficiaryStatus.Active;
 
+            if (Beneficiary.Save())
+            {
+                MessageBox.Show("Beneficiary Was Added Successfuly", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("An Error Occured,Try Later","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -307,78 +307,6 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static bool GetAccountByPhone(int ClientID, ref int AccountID, ref string AccountNumber, ref bool IsPrimary, ref int AccountTypeID, ref decimal Balance,
-                               ref byte AccountStatus, ref DateTime DateOpened, ref DateTime DateClosed, ref int BranchID, ref DateTime LastTransactionDate, ref string Notes, ref int CreatedBy)
-        {
-            bool IsFound = false;
-
-            string query = @"SELECT *
-                            FROM  Accounts INNER JOIN
-                                  Clients ON Accounts.ClientID = Clients.ClientID
-                            WHERE Clients.ClientID = @ClientID";
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@ClientID", ClientID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.Read())
-                {
-                    IsFound = true;
-
-                    AccountID = (int)reader["AccountID"];
-                    AccountNumber = (string)reader["AccountNumber"];
-                    IsPrimary = (bool)reader["IsPrimary"];
-                    AccountTypeID = (int)reader["AccountTypeID"];
-                    Balance = Convert.ToDecimal(reader["Balance"]);
-                    AccountStatus = (byte)reader["AccountStatus"];
-                    DateOpened = (DateTime)reader["DateOpened"];
-                    if (reader["DateClosed"] == DBNull.Value)
-                    {
-                        DateClosed = DateTime.MaxValue;
-                    }
-                    else
-                    {
-                        DateClosed = (DateTime)reader["DateClosed"];
-                    }
-                    BranchID = (int)reader["BranchID"];
-
-                    if (reader["LastTransactionDate"] == DBNull.Value)
-                    {
-                        LastTransactionDate = DateTime.MaxValue;
-                    }
-                    else
-                    {
-                        LastTransactionDate = (DateTime)reader["LastTransactionDate"];
-                    }
-                    if (reader["Notes"] == DBNull.Value)
-                    {
-                        Notes = "";
-                    }
-                    else
-                    {
-                        Notes = (string)reader["Notes"];
-                    }
-                    CreatedBy = (int)reader["CreatedBy"];
-                }
-                reader.Close();
-
-            }
-            catch (Exception ex)
-            {
-                IsFound = false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return IsFound;
-        }
 
         public static int AddNewAccount(int ClientID, string AccountNumber,bool IsPrimary,  int AccountTypeID,  decimal Balance,
                                 byte AccountStatus,  DateTime DateOpened,  int BranchID, string Notes,  int CreatedBy)
@@ -637,6 +565,41 @@ namespace BankDataAccess
             return dt;
         }
 
+        public static DataTable GetAllAccountsByPhone(string Phone)
+        {
+            DataTable dt = new DataTable();
+
+            string query = @"SELECT Accounts.AccountID, Accounts.AccountNumber, People.Phone
+                            FROM    Accounts INNER JOIN
+                                    Clients ON Accounts.ClientID = Clients.ClientID INNER JOIN
+                                    People ON Clients.PersonID = People.PersonID
+		                            WHERE People.Phone = @Phone";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Phone", Phone);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+       
         public static DataTable GetAllAccounts()
         {
             DataTable dt = new DataTable();

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BankDataAccess;
+using System.Net.Http.Headers;
 namespace BankBussiness
 {
 
@@ -17,11 +18,11 @@ namespace BankBussiness
         enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-        enum enBeneficiaryStatus { Active = 1,InActive = 2,PendingApproval = 3,Blocked = 4}
+        public enum enBeneficiaryStatus { Active = 1,InActive = 2,PendingApproval = 3,Blocked = 4}
 
         public int BeneficiaryID { set; get; }
         public int ClientID { set; get; }
-        public int AccountID { set; get; }
+        public string AccountNumber { set; get; }
         public string Name { set; get; }
         public string MobileNumber { set; get; }
         public string Nickname { set; get; }
@@ -33,7 +34,7 @@ namespace BankBussiness
         {
             this.BeneficiaryID = default;
             this.ClientID = default;
-            this.AccountID = default;
+            this.AccountNumber = default;
             this.Name = default;
             this.MobileNumber = default;
             this.Nickname = default;
@@ -45,11 +46,11 @@ namespace BankBussiness
 
 
 
-        private clsBeneficiary(int BeneficiaryID, int ClientID, int AccountID, string Name, string MobileNumber, string Nickname, DateTime CreatedDate, byte Status)
+        private clsBeneficiary(int BeneficiaryID, int ClientID, string AccountNumber, string Name, string MobileNumber, string Nickname, DateTime CreatedDate, byte Status)
         {
             this.BeneficiaryID = BeneficiaryID;
             this.ClientID = ClientID;
-            this.AccountID = AccountID;
+            this.AccountNumber = AccountNumber;
             this.Name = Name;
             this.MobileNumber = MobileNumber;
             this.Nickname = Nickname;
@@ -63,7 +64,7 @@ namespace BankBussiness
         private bool _AddBeneficiary()
         {
             
-            BeneficiaryID = clsBeneficiaryData.AddBeneficiary(ClientID, AccountID, Name, MobileNumber, Nickname, CreatedDate, Status);
+            BeneficiaryID = clsBeneficiaryData.AddBeneficiary(ClientID, AccountNumber, Name, MobileNumber, Nickname, CreatedDate, Status);
 
             return (BeneficiaryID != -1);
         }
@@ -71,22 +72,22 @@ namespace BankBussiness
 
         private bool _UpdateBeneficiarie()
         {
-            return clsBeneficiaryData.UpdateBeneficiaryByID(BeneficiaryID, ClientID, AccountID, Name, MobileNumber, Nickname, CreatedDate, Status);
+            return clsBeneficiaryData.UpdateBeneficiaryByID(BeneficiaryID, ClientID, AccountNumber, Name, MobileNumber, Nickname, CreatedDate, Status);
         }
 
 
         public static clsBeneficiary FindBeneficiarieByID(int BeneficiaryID)
         {
             int ClientID = default;
-            int AccountID = default;
+            string AccountNumber = default;
             string Name = default;
             string MobileNumber = default;
             string Nickname = default;
             DateTime CreatedDate = default;
             byte Status = default;
-            if (clsBeneficiaryData.GetBeneficiariesByID( BeneficiaryID, ref ClientID, ref AccountID, ref Name, ref MobileNumber, ref Nickname, ref CreatedDate, ref Status))
+            if (clsBeneficiaryData.GetBeneficiariesByID( BeneficiaryID, ref ClientID, ref AccountNumber, ref Name, ref MobileNumber, ref Nickname, ref CreatedDate, ref Status))
             {
-                return new clsBeneficiary(BeneficiaryID, ClientID, AccountID, Name, MobileNumber, Nickname, CreatedDate, Status);
+                return new clsBeneficiary(BeneficiaryID, ClientID, AccountNumber, Name, MobileNumber, Nickname, CreatedDate, Status);
             }
             else
             {
@@ -100,6 +101,15 @@ namespace BankBussiness
             return clsBeneficiaryData.IsBeneficiariesExistByBeneficiaryID(BeneficiaryID);
         }
 
+        public static bool IsExistByClientID(int ClientID)
+        {
+            return IsExistByClientID(ClientID);
+        }
+
+        public static bool IsExistByClientIDAndAccountNumber(int ClientID,string AccountNumber)
+        {
+            return clsBeneficiaryData.IsExistBySenderClientIDAndRecepientAccountNumber(ClientID, AccountNumber);
+        }
 
         public static bool DeleteBeneficiarie(int BeneficiaryID)
         {

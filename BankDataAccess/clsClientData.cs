@@ -204,7 +204,7 @@ namespace BankDataAccess
         {
             bool IsFound = false;
 
-            string query = @"SELECT * FROM  Clients INNER JOIN People 
+            string query = @"SELECT Clients.* FROM  Clients INNER JOIN People 
                              ON Clients.PersonID = People.PersonID 
                             WHERE    (People.Phone = @Phone)";
 
