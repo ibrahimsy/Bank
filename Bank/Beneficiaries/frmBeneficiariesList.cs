@@ -114,7 +114,29 @@ namespace Bank.Beneficiaries
                 return;
             }
 
-            _SourceAccountInfo.Transfer(lblBeneAccountNumber.Text, Convert.ToDecimal(txtTransferAmount.Text.Trim()));
+            bool TransferResult =  _SourceAccountInfo.Transfer(clsAccount.FindAccountByAccountNumber( lblBeneAccountNumber.Text).AccountID,
+                                        Convert.ToDecimal(txtTransferAmount.Text.Trim()));
+
+            if (TransferResult) 
+                MessageBox.Show("Transfer Done Successfully","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Transfer Faild", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+      
+            //frmAddEditBeneficiary frm = new frmAddEditBeneficiary(_SourceAccountID);
+            //frm.ShowDialog();
+
+            this.Close();
+            
         }
     }
 }

@@ -51,7 +51,7 @@ namespace Bank.Transactions.Controls
         {
             get
             {
-                return cbMyAccounts.Text.Trim();
+                return txtAccountNumber.Text.Trim();
             }
         }
         public clsAccount AccountInfo
@@ -81,19 +81,9 @@ namespace Bank.Transactions.Controls
             InitializeComponent();
         }
 
-        void _FillAccountsNumberInComboBox(int ClientID)
+        public void LoadInfo(string AccountNumber)
         {
-            DataTable dtAccounts = clsAccount.GetAccountsListByClientID(ClientID);
-            foreach (DataRow row in dtAccounts.Rows)
-            {
-                cbMyAccounts.Items.Add(row["AccountNumber"]);
-            }
-            cbMyAccounts.SelectedIndex = 0;
-        }
-
-        public void LoadInfo(int ClientID)
-        {
-            _FillAccountsNumberInComboBox(ClientID);
+            txtAccountNumber.Text = AccountNumber;
             txtAmount.Focus();
         }
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)

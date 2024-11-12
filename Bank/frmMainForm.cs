@@ -36,7 +36,7 @@ namespace Bank
         {  
             if(this.MdiChildren.Length == 1)
             {
-                panel1.Visible = true;
+              
                 _RefereshMainFormWindows();
             }
     
@@ -44,7 +44,7 @@ namespace Bank
 
         void _OpenChildForm(Form ChildForm)
         {
-            panel1.Visible = false;
+          
 
             ChildForm.MdiParent = this;
             ChildForm.WindowState = FormWindowState.Maximized;

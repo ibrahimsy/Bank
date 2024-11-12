@@ -18,19 +18,19 @@ namespace Bank.Transactions
     public partial class frmTransaction : Form
     {
         private clsTransaction.enTransactionType _enTransactionType = clsTransaction.enTransactionType.Deposit;
-        int _ClientID = -1;
+        string _AccountNumber = "";
         clsAccount _AccountInfo;
-        public frmTransaction(int clientID, clsTransaction.enTransactionType type)
+        public frmTransaction(string AccountNumber, clsTransaction.enTransactionType type)
         {
             InitializeComponent();
-            _ClientID = clientID;
+            _AccountNumber = AccountNumber;
             _enTransactionType = type;
         }
 
         private void frmTransaction_Load(object sender, EventArgs e)
         {
             ctrlPerformTransaction1.TransactionType = _enTransactionType;
-            ctrlPerformTransaction1.LoadInfo(_ClientID);
+            ctrlPerformTransaction1.LoadInfo(_AccountNumber);
         }
         bool _HandleTransactionProcess()
         {
@@ -71,31 +71,11 @@ namespace Bank.Transactions
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!ctrlPerformTransaction1.ValidateChildren())
-            {
                 return;
-            }
 
-            if (!_HandleTransactionProcess())
+            if (_HandleTransactionProcess())
             {
-                return;
-            }
-
-            clsTransaction TransactionInfo = new clsTransaction();
-
-            TransactionInfo.AccountID = _AccountInfo.AccountID;
-            TransactionInfo.TransactionDate = DateTime.Now;
-            TransactionInfo.TransactionType = (byte)_enTransactionType;
-            TransactionInfo.Amount = ctrlPerformTransaction1.Amount;
-            TransactionInfo.BalanceAfterTransaction = _AccountInfo.Balance;
-            TransactionInfo.CurrencyID = 1;
-            TransactionInfo.Description = ctrlPerformTransaction1.Description;
-            TransactionInfo.Status = (byte)clsTransaction.enTransactionStatus.Completed;
-            TransactionInfo.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
-            TransactionInfo.CreatedDate = DateTime.Now;
-
-            if (TransactionInfo.Save())
-            {
-                MessageBox.Show($"Transaction Successfull,Balance Is {TransactionInfo.BalanceAfterTransaction}",
+                MessageBox.Show($"Transaction Successfull,Balance Is {_AccountInfo.Balance}",
                                 "Success",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);

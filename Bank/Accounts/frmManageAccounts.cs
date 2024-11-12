@@ -172,8 +172,8 @@ namespace Bank.Accounts
         }
         private void _StartTransaction(clsTransaction.enTransactionType Type)
         {
-            int ClientID = (int)dgvAccounts.CurrentRow.Cells[1].Value;
-            frmTransaction frm = new frmTransaction(ClientID, Type);
+            string AccountNumber = (string)dgvAccounts.CurrentRow.Cells[2].Value;
+            frmTransaction frm = new frmTransaction(AccountNumber, Type);
             frm.ShowDialog();
         }
         private void depositToolStripMenuItem_Click(object sender, EventArgs e)

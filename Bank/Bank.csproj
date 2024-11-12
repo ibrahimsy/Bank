@@ -541,5 +541,8 @@
   <ItemGroup>
     <None Include="Resources\Transfer To Arrow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Beneficiary %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

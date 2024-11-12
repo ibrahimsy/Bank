@@ -34,7 +34,7 @@ namespace Bank.Beneficiaries
             btnSave.Enabled = false;
             gbBeneficiary.Visible = false;
 
-            _SenderClientInfo = clsClient.FindClientByAccountID(_SenderClientID);
+            _SenderClientInfo = clsClient.FindClientByAccountID(_SourceAccountID);
             if (_SenderClientInfo == null)
             {
                 MessageBox.Show($"An Error Occurred,Sender Client Issue",
@@ -200,7 +200,7 @@ namespace Bank.Beneficiaries
 
             clsBeneficiary Beneficiary = new clsBeneficiary();
 
-            Beneficiary.ClientID = _SenderClientID;
+            Beneficiary.ClientID = _SenderClientInfo.ClientID ;
             Beneficiary.AccountID = BeneficiaryAccountID;        
             Beneficiary.Nickname = txtNickname.Text.Trim();  
             Beneficiary.CreatedDate = DateTime.Now;

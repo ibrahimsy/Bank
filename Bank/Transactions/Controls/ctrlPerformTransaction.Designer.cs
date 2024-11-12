@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.gbTransactionTitle = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbMyAccounts = new System.Windows.Forms.ComboBox();
             this.lblTransactionTitle = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.pbTransactionImage = new System.Windows.Forms.PictureBox();
@@ -40,6 +39,7 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.lblTransType = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtAccountNumber = new System.Windows.Forms.TextBox();
             this.gbTransactionTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTransactionImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -47,8 +47,8 @@
             // 
             // gbTransactionTitle
             // 
+            this.gbTransactionTitle.Controls.Add(this.txtAccountNumber);
             this.gbTransactionTitle.Controls.Add(this.label1);
-            this.gbTransactionTitle.Controls.Add(this.cbMyAccounts);
             this.gbTransactionTitle.Controls.Add(this.lblTransactionTitle);
             this.gbTransactionTitle.Controls.Add(this.txtDescription);
             this.gbTransactionTitle.Controls.Add(this.pbTransactionImage);
@@ -69,19 +69,9 @@
             this.label1.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 266);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 24);
+            this.label1.Size = new System.Drawing.Size(123, 24);
             this.label1.TabIndex = 8;
-            this.label1.Text = "My Own Accounts";
-            // 
-            // cbMyAccounts
-            // 
-            this.cbMyAccounts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMyAccounts.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMyAccounts.FormattingEnabled = true;
-            this.cbMyAccounts.Location = new System.Drawing.Point(23, 293);
-            this.cbMyAccounts.Name = "cbMyAccounts";
-            this.cbMyAccounts.Size = new System.Drawing.Size(176, 32);
-            this.cbMyAccounts.TabIndex = 2;
+            this.label1.Text = "Account Number";
             // 
             // lblTransactionTitle
             // 
@@ -153,6 +143,15 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // txtAccountNumber
+            // 
+            this.txtAccountNumber.Enabled = false;
+            this.txtAccountNumber.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccountNumber.Location = new System.Drawing.Point(23, 293);
+            this.txtAccountNumber.Name = "txtAccountNumber";
+            this.txtAccountNumber.Size = new System.Drawing.Size(168, 32);
+            this.txtAccountNumber.TabIndex = 10;
+            // 
             // ctrlPerformTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,7 +171,6 @@
 
         private System.Windows.Forms.GroupBox gbTransactionTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbMyAccounts;
         private System.Windows.Forms.Label lblTransactionTitle;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.PictureBox pbTransactionImage;
@@ -181,5 +179,6 @@
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label lblTransType;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox txtAccountNumber;
     }
 }
