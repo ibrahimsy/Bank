@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static BankBussiness.clsTransaction;
 namespace BankBussiness
 {
     /*
@@ -253,38 +254,66 @@ namespace BankBussiness
             return clsAccountData.GetAllAccountsByPhone(Phone);
         }
 
-        public bool Deposit(Decimal Amount)
+        void _GenerateTransactionRecord(clsTransaction.enTransactionType type,Decimal Amount,int SourceAccountID = -1,int DestinationAccountID = -1)
+        {
+            clsTransaction TransactionRecord = new clsTransaction();
+           
+            TransactionRecord.AccountID = this.AccountID;
+            TransactionRecord.TransactionDate = DateTime.Now;
+            TransactionRecord.TransactionType = (byte)type;
+            TransactionRecord.Amount = Amount;
+            TransactionRecord.BalanceAfterTransaction = this.Balance;
+            TransactionRecord.CurrencyID = 1;
+            TransactionRecord.Description = "";
+            TransactionRecord.Status = (byte)enTransactionStatus.Completed;
+
+            if (type == clsTransaction.enTransactionType.Transfer)
+            {
+                TransactionRecord.SourceAccountID = SourceAccountID;
+                TransactionRecord.DestinationAccountID = DestinationAccountID;
+            }
+
+            TransactionRecord.CreatedBy = this.UserInfo.UserID;
+            TransactionRecord.CreatedDate = DateTime.Now;
+
+        }
+
+        public bool Deposit(Decimal Amount, bool IsTransfer = false)
         {
             if (Amount < 0)
                 return false;
 
             Balance += Amount;
             LastTransactionDate = DateTime.Now;
-            return Save();
+            if (Save())
+                _GenerateTransactionRecord(IsTransfer ?clsTransaction.enTransactionType.Transfer : clsTransaction.enTransactionType.Deposit, Amount);
+            return false;
         }
 
-        public bool Withdraw(Decimal Amount)
+        public bool Withdraw(Decimal Amount,bool IsTransfer = false)
         {
             if (Balance < Amount)
                 return false;
             Balance -= Amount;
             LastTransactionDate = DateTime.Now;
-            return Save();
+            if (Save())
+                _GenerateTransactionRecord(IsTransfer ? clsTransaction.enTransactionType.Transfer : clsTransaction.enTransactionType.Withdraw, Amount);
+            return false;
         }
 
-        public bool Transfer(string AccountNumber,Decimal TransferAmount)
+        public bool Transfer(int AccountID,Decimal TransferAmount)
         {
             if (Balance < TransferAmount)
                 return false;
 
-            if (!Withdraw(TransferAmount))
+            if (!Withdraw(TransferAmount,true))
                 return false;
             
             LastTransactionDate = DateTime.Now;
 
-            clsAccount DestinationAccount = clsAccount.FindAccountByAccountNumber(AccountNumber);
+            clsAccount DestinationAccount = clsAccount.FindAccountByID(AccountID);
 
-            if (Deposit(TransferAmount))
+            if (DestinationAccount.Deposit(TransferAmount,true))
             {
                 DestinationAccount.LastTransactionDate = DateTime.Now;
                 return true;
