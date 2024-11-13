@@ -63,6 +63,22 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotalUsers = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestDebitCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creditCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.debitCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
+            this.requestLostCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lostCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.destroyedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripSeparator();
+            this.requestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
+            this.requestBlockUnBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripSeparator();
+            this.requestAccountStatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.gbWindows.SuspendLayout();
@@ -78,6 +94,7 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.toolStripMenuItem9,
             this.peopleToolStripMenuItem,
             this.usersToolStripMenuItem,
             this.toolStripMenuItem6,
@@ -234,6 +251,8 @@
             // 
             // gbWindows
             // 
+            this.gbWindows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbWindows.AutoSize = true;
             this.gbWindows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.gbWindows.Controls.Add(this.panel3);
@@ -248,6 +267,8 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.DarkMagenta;
             this.panel3.Controls.Add(this.lblTotalAccounts);
             this.panel3.Controls.Add(this.label5);
@@ -310,6 +331,8 @@
             // 
             // plClients
             // 
+            this.plClients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.plClients.BackColor = System.Drawing.Color.DarkGreen;
             this.plClients.Controls.Add(this.lblClientsCount);
             this.plClients.Controls.Add(this.label1);
@@ -341,6 +364,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panel2.Controls.Add(this.lblTotalUsers);
             this.panel2.Controls.Add(this.label3);
@@ -369,6 +394,116 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Users";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.requestDebitCardToolStripMenuItem,
+            this.toolStripMenuItem10,
+            this.requestLostCardToolStripMenuItem,
+            this.toolStripMenuItem12,
+            this.requestToolStripMenuItem,
+            this.toolStripMenuItem11,
+            this.requestBlockUnBlockToolStripMenuItem,
+            this.toolStripMenuItem13,
+            this.requestAccountStatmentToolStripMenuItem});
+            this.toolStripMenuItem9.Image = global::Bank.Properties.Resources.Applications;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(123, 44);
+            this.toolStripMenuItem9.Text = "Applications";
+            // 
+            // requestDebitCardToolStripMenuItem
+            // 
+            this.requestDebitCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.creditCardToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.debitCardToolStripMenuItem});
+            this.requestDebitCardToolStripMenuItem.Name = "requestDebitCardToolStripMenuItem";
+            this.requestDebitCardToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
+            this.requestDebitCardToolStripMenuItem.Text = "Request A New Card";
+            // 
+            // creditCardToolStripMenuItem
+            // 
+            this.creditCardToolStripMenuItem.Name = "creditCardToolStripMenuItem";
+            this.creditCardToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.creditCardToolStripMenuItem.Text = "Credit Card";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
+            // 
+            // debitCardToolStripMenuItem
+            // 
+            this.debitCardToolStripMenuItem.Name = "debitCardToolStripMenuItem";
+            this.debitCardToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
+            this.debitCardToolStripMenuItem.Text = "Debit Card";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(287, 6);
+            // 
+            // requestLostCardToolStripMenuItem
+            // 
+            this.requestLostCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lostCardToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.destroyedToolStripMenuItem});
+            this.requestLostCardToolStripMenuItem.Name = "requestLostCardToolStripMenuItem";
+            this.requestLostCardToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
+            this.requestLostCardToolStripMenuItem.Text = "Request  Replacment Card For";
+            // 
+            // lostCardToolStripMenuItem
+            // 
+            this.lostCardToolStripMenuItem.Name = "lostCardToolStripMenuItem";
+            this.lostCardToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.lostCardToolStripMenuItem.Text = "Lost Card";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
+            // 
+            // destroyedToolStripMenuItem
+            // 
+            this.destroyedToolStripMenuItem.Name = "destroyedToolStripMenuItem";
+            this.destroyedToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.destroyedToolStripMenuItem.Text = "Damaged Card";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(287, 6);
+            // 
+            // requestToolStripMenuItem
+            // 
+            this.requestToolStripMenuItem.Name = "requestToolStripMenuItem";
+            this.requestToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
+            this.requestToolStripMenuItem.Text = "Request PIN Card Reset";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(287, 6);
+            // 
+            // requestBlockUnBlockToolStripMenuItem
+            // 
+            this.requestBlockUnBlockToolStripMenuItem.Name = "requestBlockUnBlockToolStripMenuItem";
+            this.requestBlockUnBlockToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
+            this.requestBlockUnBlockToolStripMenuItem.Text = "Request Block / UnBlock";
+            this.requestBlockUnBlockToolStripMenuItem.Click += new System.EventHandler(this.requestBlockUnBlockToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(287, 6);
+            // 
+            // requestAccountStatmentToolStripMenuItem
+            // 
+            this.requestAccountStatmentToolStripMenuItem.Name = "requestAccountStatmentToolStripMenuItem";
+            this.requestAccountStatmentToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
+            this.requestAccountStatmentToolStripMenuItem.Text = "Request Account Statement";
             // 
             // frmMainForm
             // 
@@ -433,6 +568,22 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTotalUsers;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem requestDebitCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem10;
+        private System.Windows.Forms.ToolStripMenuItem requestLostCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lostCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem destroyedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem requestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem creditCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem debitCardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem11;
+        private System.Windows.Forms.ToolStripMenuItem requestBlockUnBlockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem13;
+        private System.Windows.Forms.ToolStripMenuItem requestAccountStatmentToolStripMenuItem;
     }
 }
 

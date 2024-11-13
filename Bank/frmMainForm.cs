@@ -168,5 +168,10 @@ namespace Bank
            frmTransactionsList frm = new frmTransactionsList();
             frm.ShowDialog();
         }
+
+        private void requestBlockUnBlockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

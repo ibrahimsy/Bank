@@ -247,25 +247,25 @@
             // activateToolStripMenuItem
             // 
             this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
-            this.activateToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.activateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.activateToolStripMenuItem.Text = "Activate";
             // 
             // deactivateToolStripMenuItem
             // 
             this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
-            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deactivateToolStripMenuItem.Text = "Deactivate";
             // 
             // blockToolStripMenuItem
             // 
             this.blockToolStripMenuItem.Name = "blockToolStripMenuItem";
-            this.blockToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.blockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.blockToolStripMenuItem.Text = "Block";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // toolStripMenuItem9
@@ -277,7 +277,7 @@
             // 
             this.issueVISACardToolStripMenuItem.Name = "issueVISACardToolStripMenuItem";
             this.issueVISACardToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.issueVISACardToolStripMenuItem.Text = "Issue VISA Card";
+            this.issueVISACardToolStripMenuItem.Text = "Issue Debit Card";
             // 
             // toolStripMenuItem7
             // 
@@ -310,31 +310,31 @@
             // depositToolStripMenuItem
             // 
             this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
-            this.depositToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.depositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.depositToolStripMenuItem.Text = "Deposit";
             this.depositToolStripMenuItem.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(122, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(177, 6);
             // 
             // withdrawToolStripMenuItem
             // 
             this.withdrawToolStripMenuItem.Name = "withdrawToolStripMenuItem";
-            this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.withdrawToolStripMenuItem.Text = "Withdraw";
             this.withdrawToolStripMenuItem.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(122, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(177, 6);
             // 
             // transferToolStripMenuItem
             // 
             this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-            this.transferToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.transferToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.transferToolStripMenuItem.Text = "Transfer";
             this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
             // 
