@@ -173,5 +173,10 @@ namespace Bank
         {
 
         }
+
+        private void RefereshMainInfo_Click(object sender, EventArgs e)
+        {
+            _RefereshMainFormWindows();
+        }
     }
 }

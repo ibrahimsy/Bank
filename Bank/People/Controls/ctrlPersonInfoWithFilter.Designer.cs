@@ -39,7 +39,7 @@
             // 
             // gpFilter
             // 
-            this.gpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(159)))), ((int)(((byte)(61)))));
+            this.gpFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.gpFilter.Controls.Add(this.btnAddNewPerson);
             this.gpFilter.Controls.Add(this.btnFindPerson);
             this.gpFilter.Controls.Add(this.txtFilterValue);

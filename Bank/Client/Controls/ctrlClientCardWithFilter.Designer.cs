@@ -28,25 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlClientCard1 = new Bank.Client.Controls.ctrlClientCard();
             this.gbClientFilter = new System.Windows.Forms.GroupBox();
             this.btnAddNewClient = new System.Windows.Forms.Button();
             this.btnFindClient = new System.Windows.Forms.Button();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
+            this.ctrlClientCard1 = new Bank.Client.Controls.ctrlClientCard();
             this.gbClientFilter.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ctrlClientCard1
-            // 
-            this.ctrlClientCard1.Location = new System.Drawing.Point(3, 64);
-            this.ctrlClientCard1.Name = "ctrlClientCard1";
-            this.ctrlClientCard1.Size = new System.Drawing.Size(942, 349);
-            this.ctrlClientCard1.TabIndex = 0;
-            // 
             // gbClientFilter
             // 
-            this.gbClientFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(159)))), ((int)(((byte)(61)))));
+            this.gbClientFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.gbClientFilter.Controls.Add(this.btnAddNewClient);
             this.gbClientFilter.Controls.Add(this.btnFindClient);
             this.gbClientFilter.Controls.Add(this.txtFilterValue);
@@ -100,6 +93,13 @@
             this.cbFilterBy.Size = new System.Drawing.Size(232, 32);
             this.cbFilterBy.TabIndex = 4;
             this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
+            // 
+            // ctrlClientCard1
+            // 
+            this.ctrlClientCard1.Location = new System.Drawing.Point(3, 64);
+            this.ctrlClientCard1.Name = "ctrlClientCard1";
+            this.ctrlClientCard1.Size = new System.Drawing.Size(942, 349);
+            this.ctrlClientCard1.TabIndex = 0;
             // 
             // ctrlClientCardWithFilter
             // 

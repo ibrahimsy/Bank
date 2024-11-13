@@ -189,6 +189,7 @@ namespace Bank.Users
                                                    MessageBoxIcon.Error);
                 }
             }
+            _RefreshUsersList();
         }
     }
 }

@@ -36,33 +36,6 @@
             this.addClientToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.accountTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showCurrentUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.gbWindows = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lblTotalAccounts = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTotalBalances = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.plClients = new System.Windows.Forms.Panel();
-            this.lblClientsCount = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblTotalUsers = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.requestDebitCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,9 +52,38 @@
             this.requestBlockUnBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripSeparator();
             this.requestAccountStatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showCurrentUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.gbWindows = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTotalAccounts = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTotalBalances = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.plClients = new System.Windows.Forms.Panel();
+            this.lblClientsCount = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTotalUsers = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.gbWindows.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.plClients.SuspendLayout();
@@ -91,7 +93,8 @@
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(131)))), ((int)(((byte)(149)))));
+            this.menuStrip1.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.toolStripMenuItem9,
@@ -117,88 +120,206 @@
             this.addClientToolStripMenuItem1,
             this.toolStripMenuItem5,
             this.accountTypesToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 44);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(55, 44);
             this.fileToolStripMenuItem.Text = "&File";
             this.fileToolStripMenuItem.DropDownOpening += new System.EventHandler(this.fileToolStripMenuItem_DropDownOpening);
             // 
             // addPersontToolStripMenuItem
             // 
             this.addPersontToolStripMenuItem.Name = "addPersontToolStripMenuItem";
-            this.addPersontToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.addPersontToolStripMenuItem.Size = new System.Drawing.Size(203, 34);
             this.addPersontToolStripMenuItem.Text = "Add Person";
             this.addPersontToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(176, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(200, 6);
             // 
             // addClientToolStripMenuItem1
             // 
             this.addClientToolStripMenuItem1.Name = "addClientToolStripMenuItem1";
-            this.addClientToolStripMenuItem1.Size = new System.Drawing.Size(179, 26);
+            this.addClientToolStripMenuItem1.Size = new System.Drawing.Size(203, 34);
             this.addClientToolStripMenuItem1.Text = "Add Client";
             this.addClientToolStripMenuItem1.Click += new System.EventHandler(this.addClientToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(176, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(200, 6);
             // 
             // accountTypesToolStripMenuItem
             // 
             this.accountTypesToolStripMenuItem.Name = "accountTypesToolStripMenuItem";
-            this.accountTypesToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.accountTypesToolStripMenuItem.Size = new System.Drawing.Size(203, 34);
             this.accountTypesToolStripMenuItem.Text = "Account Types";
             this.accountTypesToolStripMenuItem.Click += new System.EventHandler(this.accountTypesToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.requestDebitCardToolStripMenuItem,
+            this.toolStripMenuItem10,
+            this.requestLostCardToolStripMenuItem,
+            this.toolStripMenuItem12,
+            this.requestToolStripMenuItem,
+            this.toolStripMenuItem11,
+            this.requestBlockUnBlockToolStripMenuItem,
+            this.toolStripMenuItem13,
+            this.requestAccountStatmentToolStripMenuItem});
+            this.toolStripMenuItem9.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(126, 44);
+            this.toolStripMenuItem9.Text = "Applications";
+            // 
+            // requestDebitCardToolStripMenuItem
+            // 
+            this.requestDebitCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.creditCardToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.debitCardToolStripMenuItem});
+            this.requestDebitCardToolStripMenuItem.Name = "requestDebitCardToolStripMenuItem";
+            this.requestDebitCardToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.requestDebitCardToolStripMenuItem.Text = "Request A New Card";
+            // 
+            // creditCardToolStripMenuItem
+            // 
+            this.creditCardToolStripMenuItem.Name = "creditCardToolStripMenuItem";
+            this.creditCardToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.creditCardToolStripMenuItem.Text = "Credit Card";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // debitCardToolStripMenuItem
+            // 
+            this.debitCardToolStripMenuItem.Name = "debitCardToolStripMenuItem";
+            this.debitCardToolStripMenuItem.Size = new System.Drawing.Size(180, 34);
+            this.debitCardToolStripMenuItem.Text = "Debit Card";
+            // 
+            // toolStripMenuItem10
+            // 
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(331, 6);
+            // 
+            // requestLostCardToolStripMenuItem
+            // 
+            this.requestLostCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lostCardToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.destroyedToolStripMenuItem});
+            this.requestLostCardToolStripMenuItem.Name = "requestLostCardToolStripMenuItem";
+            this.requestLostCardToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.requestLostCardToolStripMenuItem.Text = "Request  Replacment Card For";
+            // 
+            // lostCardToolStripMenuItem
+            // 
+            this.lostCardToolStripMenuItem.Name = "lostCardToolStripMenuItem";
+            this.lostCardToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
+            this.lostCardToolStripMenuItem.Text = "Lost Card";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(202, 6);
+            // 
+            // destroyedToolStripMenuItem
+            // 
+            this.destroyedToolStripMenuItem.Name = "destroyedToolStripMenuItem";
+            this.destroyedToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
+            this.destroyedToolStripMenuItem.Text = "Damaged Card";
+            // 
+            // toolStripMenuItem12
+            // 
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(331, 6);
+            // 
+            // requestToolStripMenuItem
+            // 
+            this.requestToolStripMenuItem.Name = "requestToolStripMenuItem";
+            this.requestToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.requestToolStripMenuItem.Text = "Request PIN Card Reset";
+            // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(331, 6);
+            // 
+            // requestBlockUnBlockToolStripMenuItem
+            // 
+            this.requestBlockUnBlockToolStripMenuItem.Name = "requestBlockUnBlockToolStripMenuItem";
+            this.requestBlockUnBlockToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.requestBlockUnBlockToolStripMenuItem.Text = "Request Block / UnBlock";
+            this.requestBlockUnBlockToolStripMenuItem.Click += new System.EventHandler(this.requestBlockUnBlockToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem13
+            // 
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Size = new System.Drawing.Size(331, 6);
+            // 
+            // requestAccountStatmentToolStripMenuItem
+            // 
+            this.requestAccountStatmentToolStripMenuItem.Name = "requestAccountStatmentToolStripMenuItem";
+            this.requestAccountStatmentToolStripMenuItem.Size = new System.Drawing.Size(334, 34);
+            this.requestAccountStatmentToolStripMenuItem.Text = "Request Account Statement";
+            // 
             // peopleToolStripMenuItem
             // 
+            this.peopleToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
-            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(68, 44);
+            this.peopleToolStripMenuItem.Size = new System.Drawing.Size(81, 44);
             this.peopleToolStripMenuItem.Text = "&People";
             this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 
+            this.usersToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            this.usersToolStripMenuItem.Size = new System.Drawing.Size(61, 44);
+            this.usersToolStripMenuItem.Size = new System.Drawing.Size(72, 44);
             this.usersToolStripMenuItem.Text = "&Users";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
+            this.toolStripMenuItem6.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(85, 44);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(100, 44);
             this.toolStripMenuItem6.Text = "&Accounts";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
             // clientsToolStripMenuItem
             // 
+            this.clientsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(69, 44);
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(82, 44);
             this.clientsToolStripMenuItem.Text = "&Clients";
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
+            this.toolStripMenuItem4.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(85, 44);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(103, 44);
             this.toolStripMenuItem4.Text = "&Branches";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click_1);
             // 
             // toolStripMenuItem7
             // 
+            this.toolStripMenuItem7.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(108, 44);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(131, 44);
             this.toolStripMenuItem7.Text = "&Transactions";
             this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // toolStripMenuItem8
             // 
+            this.toolStripMenuItem8.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(85, 44);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(98, 44);
             this.toolStripMenuItem8.Text = "C&urrency";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
@@ -210,38 +331,39 @@
             this.changePasswordToolStripMenuItem,
             this.toolStripMenuItem2,
             this.signOutToolStripMenuItem});
+            this.accountSettingsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
-            this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(138, 44);
+            this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(164, 44);
             this.accountSettingsToolStripMenuItem.Text = "Account &Settings";
             // 
             // showCurrentUserToolStripMenuItem
             // 
             this.showCurrentUserToolStripMenuItem.Name = "showCurrentUserToolStripMenuItem";
-            this.showCurrentUserToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.showCurrentUserToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
             this.showCurrentUserToolStripMenuItem.Text = "Show Current User";
             this.showCurrentUserToolStripMenuItem.Click += new System.EventHandler(this.showCurrentUserToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(209, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(238, 6);
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(209, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(238, 6);
             // 
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(241, 34);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
@@ -255,6 +377,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbWindows.AutoSize = true;
             this.gbWindows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gbWindows.Controls.Add(this.pictureBox1);
             this.gbWindows.Controls.Add(this.panel3);
             this.gbWindows.Controls.Add(this.panel4);
             this.gbWindows.Controls.Add(this.plClients);
@@ -265,6 +388,18 @@
             this.gbWindows.TabIndex = 7;
             this.gbWindows.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::Bank.Properties.Resources.refresh;
+            this.pictureBox1.Location = new System.Drawing.Point(582, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(46, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.RefereshMainInfo_Click);
+            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -273,7 +408,7 @@
             this.panel3.Controls.Add(this.lblTotalAccounts);
             this.panel3.Controls.Add(this.label5);
             this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(440, 28);
+            this.panel3.Location = new System.Drawing.Point(442, 76);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(189, 104);
             this.panel3.TabIndex = 5;
@@ -304,7 +439,7 @@
             this.panel4.Controls.Add(this.lblTotalBalances);
             this.panel4.Controls.Add(this.label7);
             this.panel4.ForeColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(16, 152);
+            this.panel4.Location = new System.Drawing.Point(18, 200);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(189, 104);
             this.panel4.TabIndex = 6;
@@ -337,7 +472,7 @@
             this.plClients.Controls.Add(this.lblClientsCount);
             this.plClients.Controls.Add(this.label1);
             this.plClients.ForeColor = System.Drawing.Color.White;
-            this.plClients.Location = new System.Drawing.Point(16, 28);
+            this.plClients.Location = new System.Drawing.Point(18, 76);
             this.plClients.Name = "plClients";
             this.plClients.Size = new System.Drawing.Size(189, 104);
             this.plClients.TabIndex = 4;
@@ -370,7 +505,7 @@
             this.panel2.Controls.Add(this.lblTotalUsers);
             this.panel2.Controls.Add(this.label3);
             this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(228, 28);
+            this.panel2.Location = new System.Drawing.Point(230, 76);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(189, 104);
             this.panel2.TabIndex = 5;
@@ -395,116 +530,6 @@
             this.label3.Text = "Users";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.requestDebitCardToolStripMenuItem,
-            this.toolStripMenuItem10,
-            this.requestLostCardToolStripMenuItem,
-            this.toolStripMenuItem12,
-            this.requestToolStripMenuItem,
-            this.toolStripMenuItem11,
-            this.requestBlockUnBlockToolStripMenuItem,
-            this.toolStripMenuItem13,
-            this.requestAccountStatmentToolStripMenuItem});
-            this.toolStripMenuItem9.Image = global::Bank.Properties.Resources.Applications;
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(123, 44);
-            this.toolStripMenuItem9.Text = "Applications";
-            // 
-            // requestDebitCardToolStripMenuItem
-            // 
-            this.requestDebitCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.creditCardToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.debitCardToolStripMenuItem});
-            this.requestDebitCardToolStripMenuItem.Name = "requestDebitCardToolStripMenuItem";
-            this.requestDebitCardToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
-            this.requestDebitCardToolStripMenuItem.Text = "Request A New Card";
-            // 
-            // creditCardToolStripMenuItem
-            // 
-            this.creditCardToolStripMenuItem.Name = "creditCardToolStripMenuItem";
-            this.creditCardToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.creditCardToolStripMenuItem.Text = "Credit Card";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(156, 6);
-            // 
-            // debitCardToolStripMenuItem
-            // 
-            this.debitCardToolStripMenuItem.Name = "debitCardToolStripMenuItem";
-            this.debitCardToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
-            this.debitCardToolStripMenuItem.Text = "Debit Card";
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(287, 6);
-            // 
-            // requestLostCardToolStripMenuItem
-            // 
-            this.requestLostCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lostCardToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.destroyedToolStripMenuItem});
-            this.requestLostCardToolStripMenuItem.Name = "requestLostCardToolStripMenuItem";
-            this.requestLostCardToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
-            this.requestLostCardToolStripMenuItem.Text = "Request  Replacment Card For";
-            // 
-            // lostCardToolStripMenuItem
-            // 
-            this.lostCardToolStripMenuItem.Name = "lostCardToolStripMenuItem";
-            this.lostCardToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.lostCardToolStripMenuItem.Text = "Lost Card";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
-            // 
-            // destroyedToolStripMenuItem
-            // 
-            this.destroyedToolStripMenuItem.Name = "destroyedToolStripMenuItem";
-            this.destroyedToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
-            this.destroyedToolStripMenuItem.Text = "Damaged Card";
-            // 
-            // toolStripMenuItem12
-            // 
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(287, 6);
-            // 
-            // requestToolStripMenuItem
-            // 
-            this.requestToolStripMenuItem.Name = "requestToolStripMenuItem";
-            this.requestToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
-            this.requestToolStripMenuItem.Text = "Request PIN Card Reset";
-            // 
-            // toolStripMenuItem11
-            // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(287, 6);
-            // 
-            // requestBlockUnBlockToolStripMenuItem
-            // 
-            this.requestBlockUnBlockToolStripMenuItem.Name = "requestBlockUnBlockToolStripMenuItem";
-            this.requestBlockUnBlockToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
-            this.requestBlockUnBlockToolStripMenuItem.Text = "Request Block / UnBlock";
-            this.requestBlockUnBlockToolStripMenuItem.Click += new System.EventHandler(this.requestBlockUnBlockToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem13
-            // 
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(287, 6);
-            // 
-            // requestAccountStatmentToolStripMenuItem
-            // 
-            this.requestAccountStatmentToolStripMenuItem.Name = "requestAccountStatmentToolStripMenuItem";
-            this.requestAccountStatmentToolStripMenuItem.Size = new System.Drawing.Size(290, 26);
-            this.requestAccountStatmentToolStripMenuItem.Text = "Request Account Statement";
-            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,6 +548,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.gbWindows.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.plClients.ResumeLayout(false);
@@ -584,6 +610,7 @@
         private System.Windows.Forms.ToolStripMenuItem requestBlockUnBlockToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem requestAccountStatmentToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

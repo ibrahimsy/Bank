@@ -101,7 +101,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(183)))), ((int)(((byte)(195)))));
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblIsActive);
@@ -116,9 +116,10 @@
             // 
             // ctrlPersonInfo1
             // 
-            this.ctrlPersonInfo1.BackColor = System.Drawing.Color.Beige;
+            this.ctrlPersonInfo1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
             this.ctrlPersonInfo1.Location = new System.Drawing.Point(3, 3);
             this.ctrlPersonInfo1.Name = "ctrlPersonInfo1";
+            this.ctrlPersonInfo1.PersonID = -1;
             this.ctrlPersonInfo1.Size = new System.Drawing.Size(928, 274);
             this.ctrlPersonInfo1.TabIndex = 7;
             // 

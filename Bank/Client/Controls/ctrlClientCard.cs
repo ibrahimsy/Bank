@@ -92,6 +92,9 @@ namespace Bank.Client.Controls
             lblIsActive.Text = _ClientInfo.AccountStatus ? "Yes" : "No";
         }
 
+        private void ctrlPersonCard1_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
