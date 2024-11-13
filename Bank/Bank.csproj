@@ -227,11 +227,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Transactions\clsTransactionsList.cs">
+    <Compile Include="Transactions\frmTransactionsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transactions\clsTransactionsList.Designer.cs">
-      <DependentUpon>clsTransactionsList.cs</DependentUpon>
+    <Compile Include="Transactions\frmTransactionsList.Designer.cs">
+      <DependentUpon>frmTransactionsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Transactions\Controls\ctrlPerformTransaction.cs">
       <SubType>UserControl</SubType>
@@ -368,6 +368,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\frmTransactionsList.resx">
+      <DependentUpon>frmTransactionsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transactions\Controls\ctrlPerformTransaction.resx">
       <DependentUpon>ctrlPerformTransaction.cs</DependentUpon>
@@ -543,6 +546,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add Beneficiary %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transactions.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

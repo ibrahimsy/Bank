@@ -94,8 +94,6 @@ namespace BankDataAccess
             return _TransactionID;
         }
 
-
-
         public static bool UpdateTransactionByID(int TransactionID, int AccountID, DateTime TransactionDate, byte TransactionType, decimal Amount, decimal BalanceAfterTransaction, int CurrencyID, string Description, byte Status, int SourceAccountID, int DestinationAccountID, int CreatedBy, DateTime CreatedDate)
         {
 
@@ -157,8 +155,6 @@ namespace BankDataAccess
             return AffectedRows > 0;
         }
 
-
-
         public static bool DeleteTransactionByID(int TransactionID)
         {
 
@@ -188,8 +184,6 @@ namespace BankDataAccess
 
             return AffectedRows > 0;
         }
-
-
 
         public static bool GetTransactionByID( int TransactionID, ref int AccountID, ref DateTime TransactionDate, ref byte TransactionType, ref decimal Amount, ref decimal BalanceAfterTransaction, ref int CurrencyID, ref string Description, ref byte Status, ref string ReferenceNumber, ref int SourceAccountID, ref int DestinationAccountID, ref int CreatedBy, ref DateTime CreatedDate)
         {
@@ -246,10 +240,6 @@ namespace BankDataAccess
             return IsFound;
         }
 
-
-
-
-
         public static bool IsTransactionExistByTransactionID(int TransactionID)
         {
             bool IsFound = false;
@@ -282,15 +272,12 @@ namespace BankDataAccess
             return IsFound;
         }
 
-
-
-
-
         public static DataTable GetAllTransactions()
         {
             DataTable dt = new DataTable();
 
-            string query = @"SELECT * FROM Transactions ORDER BY TransactionID DESC";
+            string query = @"SELECT * FROM Transactions_View
+                             ORDER BY TransactionID DESC";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);

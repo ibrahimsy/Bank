@@ -5,6 +5,7 @@ using Bank.Client;
 using Bank.Currencies;
 using Bank.Global_Classes;
 using Bank.People;
+using Bank.Transactions;
 using Bank.Users;
 using BankBussiness;
 using System;
@@ -32,34 +33,19 @@ namespace Bank
             this.WindowState = FormWindowState.Maximized;
         }
 
-        void _CheckForOpenedForm()
-        {  
-            if(this.MdiChildren.Length == 1)
-            {
-              
-                _RefereshMainFormWindows();
-            }
-    
-        } 
 
         void _OpenChildForm(Form ChildForm)
-        {
-          
-
-            ChildForm.MdiParent = this;
+        {   
             ChildForm.WindowState = FormWindowState.Maximized;
-            ChildForm.FormClosed+= (s,args) => _CheckForOpenedForm();
-            ChildForm.Show();
-            
+            ChildForm.Show();   
         }
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_PeopleForm == null || _PeopleForm.IsDisposed)
-            {
+          
                 _PeopleForm = new frmManagePeople();
                 _OpenChildForm(_PeopleForm);
-            }
+            
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,12 +53,9 @@ namespace Bank
             if (!DoesUserHavePermission(clsUser.enPermission.UserManagment))
                 return;
 
-            if (_UserForm == null || _UserForm.IsDisposed)
-            {
                 _UserForm = new frmManageUsers();
                 _OpenChildForm(_UserForm);
-                
-            }
+
         }
 
         private void frmMainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -156,11 +139,9 @@ namespace Bank
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
-            if (_ManageAccountsForm == null || _ManageAccountsForm.IsDisposed)
-            {
+
                  _ManageAccountsForm = new frmManageAccounts();
                 _OpenChildForm(_ManageAccountsForm);
-            }
         }
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
@@ -176,9 +157,16 @@ namespace Bank
             lblTotalAccounts.Text = clsAccount.GetAccountsCount().ToString();
             lblTotalBalances.Text = clsAccount.GetTotalBalances().ToString() + " $";
         }
+        
         private void frmMainForm_Load(object sender, EventArgs e)
         {
             _RefereshMainFormWindows();
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+           frmTransactionsList frm = new frmTransactionsList();
+            frm.ShowDialog();
         }
     }
 }
