@@ -36,23 +36,20 @@ namespace Bank.Transactions
                 dgvTransactions.Columns[0].HeaderText = "Transaction ID";
                 dgvTransactions.Columns[0].Width = 100;
 
-                dgvTransactions.Columns[1].HeaderText = "Account ID";
+                dgvTransactions.Columns[1].HeaderText = "Account Number";
                 dgvTransactions.Columns[1].Width = 110;
 
-                dgvTransactions.Columns[2].HeaderText = "Account Number";
+                dgvTransactions.Columns[2].HeaderText = "Transaction Date";
                 dgvTransactions.Columns[2].Width = 300;
 
-                dgvTransactions.Columns[3].HeaderText = "Transaction Date";
+                dgvTransactions.Columns[3].HeaderText = "Transaction Type";
                 dgvTransactions.Columns[3].Width = 150;
 
-                dgvTransactions.Columns[4].HeaderText = "Type";
+                dgvTransactions.Columns[4].HeaderText = "Amount";
                 dgvTransactions.Columns[4].Width = 180;
 
-                dgvTransactions.Columns[5].HeaderText = "Amount";
+                dgvTransactions.Columns[5].HeaderText = "Balance After Transaction";
                 dgvTransactions.Columns[5].Width = 100;
-
-                dgvTransactions.Columns[6].HeaderText = "Balance After Transaction";
-                dgvTransactions.Columns[6].Width = 100;
 
                 dgvTransactions.Columns[6].HeaderText = "Currency Code";
                 dgvTransactions.Columns[6].Width = 100;
@@ -63,11 +60,14 @@ namespace Bank.Transactions
                 dgvTransactions.Columns[8].HeaderText = "Status";
                 dgvTransactions.Columns[8].Width = 100;
 
-                dgvTransactions.Columns[9].HeaderText = "Source Account";
+                dgvTransactions.Columns[9].HeaderText = "Reference Number";
                 dgvTransactions.Columns[9].Width = 100;
 
-                dgvTransactions.Columns[10].HeaderText = "Recipient Account";
+                dgvTransactions.Columns[10].HeaderText = "Source Account";
                 dgvTransactions.Columns[10].Width = 100;
+
+                dgvTransactions.Columns[11].HeaderText = "Recipient Account";
+                dgvTransactions.Columns[11].Width = 100;
 
 
             }

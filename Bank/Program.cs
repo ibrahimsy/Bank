@@ -1,5 +1,9 @@
-﻿using Bank.Beneficiaries;
+﻿using Bank.Accounts;
+using Bank.Beneficiaries;
+using Bank.Client;
 using Bank.Login;
+using Bank.People;
+using Bank.Transactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +23,7 @@ namespace Bank
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmManageClients());
             //Application.Run(new frmTest());
         }
     }
