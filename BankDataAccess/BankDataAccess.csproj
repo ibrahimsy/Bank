@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="clsAccountData.cs" />
     <Compile Include="clsAccountTypeData.cs" />
+    <Compile Include="clsApplicationData.cs" />
+    <Compile Include="clsApplicationTypeData.cs" />
     <Compile Include="clsBeneficiaryData.cs" />
     <Compile Include="clsBranchData.cs" />
     <Compile Include="clsClientData.cs" />

@@ -1,5 +1,6 @@
 ﻿using Bank.Accounts;
 using Bank.AccountTypes;
+using Bank.Application_Types;
 using Bank.Branches;
 using Bank.Client;
 using Bank.Currencies;
@@ -140,8 +141,6 @@ namespace Bank
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
 
-                 _ManageAccountsForm = new frmManageAccounts();
-                _OpenChildForm(_ManageAccountsForm);
         }
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
@@ -177,6 +176,24 @@ namespace Bank
         private void RefereshMainInfo_Click(object sender, EventArgs e)
         {
             _RefereshMainFormWindows();
+        }
+
+        private void accountTypesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmManageAccounts frm = new frmManageAccounts();
+            frm.ShowDialog();
+        }
+
+        private void manageTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAccountTypesManagment frm = new frmAccountTypesManagment();
+            frm.ShowDialog();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListApplicationTypes frm = new frmListApplicationTypes();
+            frm.ShowDialog();
         }
     }
 }
