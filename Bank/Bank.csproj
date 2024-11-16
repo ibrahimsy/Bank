@@ -62,6 +62,12 @@
     <Compile Include="Accounts\Controls\ctrlAccountCard.Designer.cs">
       <DependentUpon>ctrlAccountCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Accounts\Controls\ctrlAccountCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Accounts\Controls\ctrlAccountCardWithFilter.Designer.cs">
+      <DependentUpon>ctrlAccountCardWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accounts\frmAddEditAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +315,9 @@
     </Compile>
     <EmbeddedResource Include="Accounts\Controls\ctrlAccountCard.resx">
       <DependentUpon>ctrlAccountCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\Controls\ctrlAccountCardWithFilter.resx">
+      <DependentUpon>ctrlAccountCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Accounts\frmAddEditAccount.resx">
       <DependentUpon>frmAddEditAccount.cs</DependentUpon>

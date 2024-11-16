@@ -56,7 +56,7 @@ namespace Bank.Client.Controls
 
         private void ctrlClientCardWithFilter_Load(object sender, EventArgs e)
         {
-            cbFilterBy.SelectedIndex = 3;
+            cbFilterBy.SelectedIndex = 0;
             TextValueFocus();
         }
 
@@ -71,7 +71,6 @@ namespace Bank.Client.Controls
                     ctrlClientCard1.LoadClientInfoByNationalNo(txtFilterValue.Text.Trim());
                     break;
                 case "Primary Account Number":
-                case "Account Number":
                     ctrlClientCard1.LoadClientInfoByAccountNumber(txtFilterValue.Text.Trim());
                     break;
                
@@ -82,6 +81,8 @@ namespace Bank.Client.Controls
         {
             txtFilterValue.Focus();
         }
+
+        
 
         private void btnFindClient_Click(object sender, EventArgs e)
         {

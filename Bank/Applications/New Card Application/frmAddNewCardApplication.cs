@@ -1,4 +1,5 @@
-﻿using Bank.Global_Classes;
+﻿using Bank.Accounts.Controls;
+using Bank.Global_Classes;
 using BankBussiness;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,20 @@ namespace Bank.Applications.New_Card_Application
         enMode _Mode = enMode.enAddNew;
 
         int _AccountID = -1;
+        int _NewCardApplicationID = -1;
         clsAccount _AccountInfo;
+        clsNewCardApplication _NewCardApplicationInfo;
         public frmAddNewCardApplication()
         {
             InitializeComponent();
+            _Mode = enMode.enAddNew;
+        }
+
+        public frmAddNewCardApplication(int NewCardApplicationID)
+        {
+            InitializeComponent();
+            _NewCardApplicationID = NewCardApplicationID;
+            _Mode = enMode.enUpdate;
         }
 
         void _FillCardTypesComboBox()
@@ -37,29 +48,65 @@ namespace Bank.Applications.New_Card_Application
         void _ResetDefaultData()
         {
             _FillCardTypesComboBox();
-            lblApplicationDate.Text = clsFormat.GetDateFormat(DateTime.Now);
-            lblApplicationStatus.Text = "New";
-            lblCreatedBy.Text = clsGlobalSettings.CurrentUser.UserName;
-            lblApplicationFee.Text = clsApplicationType.FindApplicationTypeByID((int)clsApplication.enApplicationTypes.IssueNewCard).Fees.ToString();
+            if (_Mode == enMode.enAddNew)
+            {
+                _NewCardApplicationInfo = new clsNewCardApplication();
 
-            tpApplicationInfo.Enabled = false;
-            btnSave.Enabled = false;
-            ctrlClientCardWithFilter1.TextValueFocus();
+                lblApplicationDate.Text = clsFormat.GetDateFormat(DateTime.Now);
+                lblCreatedBy.Text = clsGlobalSettings.CurrentUser.UserName;
+                lblApplicationFee.Text = clsApplicationType.FindApplicationTypeByID((int)clsApplication.enApplicationTypes.IssueNewCard).Fees.ToString();
+                lblTitle.Text = "Add New Card Request";
+                this.Text = lblTitle.Text;
+                tpApplicationInfo.Enabled = false;
+                btnSave.Enabled = false;
+            }
+            else
+            {
+                lblTitle.Text = "Update New Card Request";
+                this.Text = lblTitle.Text;
+                tpApplicationInfo.Enabled = true;
+                btnSave.Enabled = true;
+            }
+            
         }
-        private void label1_Click(object sender, EventArgs e)
+        
+        void LoadInfo()
         {
+            _NewCardApplicationInfo = clsNewCardApplication.FindNewCardApplicationByID(_NewCardApplicationID);
+            if (_NewCardApplicationInfo == null) 
+            {
+                MessageBox.Show($"No Application Found With ID [{_NewCardApplicationID}]",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+            ctrlAccountCardWithFilter1.FilterEnabled = false;
+            ctrlAccountCardWithFilter1.LoadInfoByAccountNumber(_NewCardApplicationInfo.AccountInfo.AccountNumber);
+
+            lblApplicationID.Text = _NewCardApplicationInfo.ApplicationID.ToString();
+            lblApplicationDate.Text = clsFormat.GetDateFormat(_NewCardApplicationInfo.ApplicationDate);
+            lblApplicationFee.Text = _NewCardApplicationInfo.PaidFees.ToString();
+            lblCreatedBy.Text = _NewCardApplicationInfo.UserInfo.UserName;
+            cbCardTypes.SelectedIndex = cbCardTypes.FindString(_NewCardApplicationInfo.CardTypeInfo.CardName);
 
         }
         
         private void frmAddNewCardApplication_Load(object sender, EventArgs e)
         {
-            ctrlClientCardWithFilter1.FilterByAccountNumber = false;
-            _ResetDefaultData();
+           // ctrlClientCardWithFilter1.FilterByAccountNumber = false;
+            if (_Mode == enMode.enAddNew)
+            {
+                _ResetDefaultData();
+            }
+            else
+                LoadInfo();
+
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (ctrlClientCardWithFilter1.ClientID == -1)
+            if (ctrlAccountCardWithFilter1.AccountID == -1)
             {
                 MessageBox.Show("Select An Account First", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -70,9 +117,39 @@ namespace Bank.Applications.New_Card_Application
             btnSave.Enabled = true;
         }
 
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
+            //Check If There Is An Active Application For Same Card Type
+            
+            _NewCardApplicationInfo.ApplicantAccountID = ctrlAccountCardWithFilter1.AccountID;
+            _NewCardApplicationInfo.ApplicationDate = DateTime.Now;
+            _NewCardApplicationInfo.Status = clsApplication.enApplicationStatus.New;
+            _NewCardApplicationInfo.ApplicationTypeID = (int)clsApplication.enApplicationTypes.IssueNewCard;
+            _NewCardApplicationInfo.CardTypeID = clsCardType.FindCardTypeByName(cbCardTypes.Text).CardTypeID;
+            _NewCardApplicationInfo.PaidFees = Convert.ToDecimal(lblApplicationFee.Text);
+            _NewCardApplicationInfo.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
 
+            if (_NewCardApplicationInfo.Save())
+            {
+                lblApplicationID.Text = _NewCardApplicationInfo.NewCardApplicationID.ToString();
+                _Mode = enMode.enUpdate;
+
+                lblTitle.Text = "Update New Card Request";
+                this.Text = lblTitle.Text;
+                MessageBox.Show("New Card Application Created Successfuly","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Error: Data Is Not Saved Successfuly", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -13,30 +13,30 @@ namespace BankDataAccess
 
     public class clsApplicationData
     {
-        public static int AddNewApplication(int ApplicantClientID, int ApplicationTypeID, DateTime ApplicationDate, byte Status,Decimal PaidFees, int CreatedBy)
+        public static int AddNewApplication(int ApplicantAccountID, int ApplicationTypeID, DateTime ApplicationDate, byte Status,Decimal PaidFees, int CreatedBy)
         {
             int _ApplicationID = -1;
             string query = @"INSERT INTO Applications(
-                            ApplicantClientID,
+                            ApplicantAccountID,
                             ApplicationTypeID,
                             ApplicationDate,
                             Status,
                             PaidFees,
-                            CreatedBy,
+                            CreatedBy
                             ) VALUES (
-                            @ApplicantClientID,
+                            @ApplicantAccountID,
                             @ApplicationTypeID,
                             @ApplicationDate,
                             @Status,
                             @PaidFees,
-                            @CreatedBy,
+                            @CreatedBy
                             );
                             SELECT SCOPE_IDENTITY();";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);
            
-            command.Parameters.AddWithValue("@ApplicantClientID", ApplicantClientID);
+            command.Parameters.AddWithValue("@ApplicantAccountID", ApplicantAccountID);
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
             command.Parameters.AddWithValue("@Status", Status);
@@ -65,7 +65,7 @@ namespace BankDataAccess
 
 
 
-        public static bool UpdateApplicationByID(int ApplicationID, int ApplicantClientID, int ApplicationTypeID, DateTime ApplicationDate, byte Status, Decimal PaidFees, int CreatedBy)
+        public static bool UpdateApplicationByID(int ApplicationID, int ApplicantAccountID, int ApplicationTypeID, DateTime ApplicationDate, byte Status, Decimal PaidFees, int CreatedBy)
         {
 
 
@@ -73,7 +73,7 @@ namespace BankDataAccess
 
             string query = @"UPDATE Applications SET 
                              ApplicationID = @ApplicationID,
-                             ApplicantClientID = @ApplicantClientID,
+                             ApplicantAccountID = @ApplicantAccountID,
                              ApplicationTypeID = @ApplicationTypeID,
                              ApplicationDate = @ApplicationDate,
                              Status = @Status,
@@ -85,7 +85,7 @@ namespace BankDataAccess
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-            command.Parameters.AddWithValue("@ApplicantClientID", ApplicantClientID);
+            command.Parameters.AddWithValue("@ApplicantAccountID", ApplicantAccountID);
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
             command.Parameters.AddWithValue("@Status", Status);
@@ -144,7 +144,7 @@ namespace BankDataAccess
 
 
 
-        public static bool GetApplicationByID(int ApplicationID, ref int ApplicantClientID, ref int ApplicationTypeID, ref DateTime ApplicationDate, ref byte Status, ref Decimal PaidFees, ref int CreatedBy)
+        public static bool GetApplicationByID(int ApplicationID, ref int ApplicantAccountID, ref int ApplicationTypeID, ref DateTime ApplicationDate, ref byte Status, ref Decimal PaidFees, ref int CreatedBy)
         {
 
             bool IsFound = false;
@@ -168,7 +168,7 @@ namespace BankDataAccess
                     IsFound = true;
 
                     
-                    ApplicantClientID = (int)reader["ApplicantClientID"];
+                    ApplicantAccountID = (int)reader["ApplicantAccountID"];
                     ApplicationTypeID = (int)reader["ApplicationTypeID"];
                     ApplicationDate = (DateTime)reader["ApplicationDate"];
                     Status = (byte)reader["Status"];

@@ -26,14 +26,14 @@ namespace BankBussiness
         }
 
         public int ApplicationID { set; get; }
-        public int ApplicantClientID { set; get; }
+        public int ApplicantAccountID { set; get; }
 
-        public clsClient ClientInfo;
+        public clsAccount AccountInfo;
         public string ApplicantFullName
         {
             get
             {
-                return clsClient.FindClientByID(ApplicantClientID).PersonInfo.FullName;
+                return clsAccount.FindAccountByID(ApplicantAccountID).ClientInfo.PersonInfo.FullName;
             }
         }
         public int ApplicationTypeID { set; get; }
@@ -68,7 +68,7 @@ namespace BankBussiness
     public clsApplication()
     {
         this.ApplicationID = -1;
-        this.ApplicantClientID = -1;
+        this.ApplicantAccountID = -1;
         this.ApplicationTypeID = -1;
         this.ApplicationDate = DateTime.Now;
         this.Status = enApplicationStatus.New;
@@ -78,12 +78,12 @@ namespace BankBussiness
         Mode = enMode.enAddNew;
     }
 
-    private clsApplication(int ApplicationID,int ApplicantClientID, int ApplicationTypeID, DateTime ApplicationDate,
+    private clsApplication(int ApplicationID,int ApplicantAccountID, int ApplicationTypeID, DateTime ApplicationDate,
                             enApplicationStatus Status, Decimal PaidFees, int CreatedBy)
     {
         this.ApplicationID = ApplicationID;
-        this.ApplicantClientID = ApplicantClientID;
-        this.ClientInfo = clsClient.FindClientByID(ApplicantClientID);
+        this.ApplicantAccountID = ApplicantAccountID;
+        this.AccountInfo = clsAccount.FindAccountByID(ApplicantAccountID);
         this.ApplicationTypeID = ApplicationTypeID;
         this.ApplicationTypeInfo = clsApplicationType.FindApplicationTypeByID(ApplicationTypeID);
         this.ApplicationDate = ApplicationDate;
@@ -99,7 +99,7 @@ namespace BankBussiness
 
     private bool _AddApplication()
     {
-        ApplicationID = clsApplicationData.AddNewApplication(ApplicantClientID, ApplicationTypeID, ApplicationDate,(byte)Status, PaidFees, CreatedBy);
+        ApplicationID = clsApplicationData.AddNewApplication(ApplicantAccountID, ApplicationTypeID, ApplicationDate,(byte)Status, PaidFees, CreatedBy);
 
         return (ApplicationID != -1);
     }
@@ -107,21 +107,21 @@ namespace BankBussiness
 
     private bool _UpdateApplication()
     {
-        return clsApplicationData.UpdateApplicationByID(ApplicationID, ApplicantClientID, ApplicationTypeID, ApplicationDate, (byte)Status, PaidFees, CreatedBy);
+        return clsApplicationData.UpdateApplicationByID(ApplicationID, ApplicantAccountID, ApplicationTypeID, ApplicationDate, (byte)Status, PaidFees, CreatedBy);
     }
 
 
     public static clsApplication FindApplicationByID(int ApplicationID)
     {
-        int ApplicantClientID = -1;
+        int ApplicantAccountID = -1;
         int ApplicationTypeID = -1;
         DateTime ApplicationDate = DateTime.Now;
         byte Status = (byte)enApplicationStatus.New;
         Decimal PaidFees = 0;
         int CreatedBy = -1;
-        if (clsApplicationData.GetApplicationByID(ApplicationID, ref ApplicantClientID, ref ApplicationTypeID, ref ApplicationDate, ref Status, ref PaidFees, ref CreatedBy))
+        if (clsApplicationData.GetApplicationByID(ApplicationID, ref ApplicantAccountID, ref ApplicationTypeID, ref ApplicationDate, ref Status, ref PaidFees, ref CreatedBy))
         {
-            return new clsApplication(ApplicationID, ApplicantClientID, ApplicationTypeID, ApplicationDate,(enApplicationStatus) Status, PaidFees, CreatedBy);
+            return new clsApplication(ApplicationID, ApplicantAccountID, ApplicationTypeID, ApplicationDate,(enApplicationStatus) Status, PaidFees, CreatedBy);
         }
         else
         {

@@ -44,7 +44,7 @@ namespace BankBussiness
         {
             this.NewCardApplicationID = NewCardApplicationID;
             this.ApplicationID = ApplicationID;
-            this.ApplicantClientID = ApplicantClientID;
+            this.ApplicantAccountID = ApplicantClientID;
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationDate = DateTime.Now;
             this.Status = enApplicationStatus.New;
@@ -76,7 +76,7 @@ namespace BankBussiness
             {
                 //return new clsNewCardApplication(NewCardApplicationID, ApplicationID, CardTypeID);
                 clsApplication BaseApplication = clsApplication.FindApplicationByID( ApplicationID );
-                return new clsNewCardApplication(NewCardApplicationID,ApplicationID, BaseApplication.ApplicantClientID,
+                return new clsNewCardApplication(NewCardApplicationID,ApplicationID, BaseApplication.ApplicantAccountID,
                         BaseApplication.ApplicationTypeID, BaseApplication.ApplicationDate, BaseApplication.Status,
                         BaseApplication.PaidFees, BaseApplication.CreatedBy,CardTypeID);
             }

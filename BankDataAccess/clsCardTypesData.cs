@@ -166,7 +166,47 @@ namespace BankDataAccess
             return IsFound;
         }
 
+        public static bool GetCardTypesByCardName(ref int CardTypeID, string CardName, ref string Description)
+        {
 
+            bool IsFound = false;
+
+            string query = "SELECT * FROM CardTypes WHERE CardName = @CardName";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@CardName", CardName);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+
+                    CardTypeID = (int)reader["CardTypeID"];
+                    Description = (string)reader["Description"];
+
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+            return IsFound;
+        }
 
 
 

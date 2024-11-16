@@ -18,10 +18,10 @@ namespace BankDataAccess
             int _NewCardApplicationID = -1;
             string query = @"INSERT INTO NewCardApplications(
                             ApplicationID,
-                            CardTypeID,
+                            CardTypeID
                             ) VALUES (
                             @ApplicationID,
-                            @CardTypeID,
+                            @CardTypeID
                             );
                             SELECT SCOPE_IDENTITY();";
 

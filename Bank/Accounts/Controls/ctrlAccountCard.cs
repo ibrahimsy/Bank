@@ -79,7 +79,7 @@ namespace Bank.Accounts.Controls
                                 MessageBoxIcon.Error);
                 return;
             }
-
+            _AccountID = _AccountInfo.AccountID;
             lblAccountID.Text = _AccountID.ToString();
             lblAccountHolder.Text = _AccountInfo.ClientInfo.PersonInfo.FullName;
             lblAccountNumber.Text = _AccountInfo.AccountNumber;

@@ -75,6 +75,21 @@ namespace BankBussiness
             }
         }
 
+        public static clsCardType FindCardTypeByName(string CardName)
+        {
+
+            int CardTypeID = -1;
+            string Description = "";
+            if (clsCardTypesData.GetCardTypesByCardName(ref CardTypeID, CardName, ref Description))
+            {
+                return new clsCardType(CardTypeID, CardName, Description);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
 
         public static bool IsExistByCardTypeID(int CardTypeID)
         {
