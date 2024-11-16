@@ -5,6 +5,38 @@
     {
       "AbsoluteMoniker": "D:0:0:{167B378E-5D61-4779-A4BF-E9815B6C6EE2}|Code Generator\\Code Generator.csproj|d:\\development\\c#\\my-github\\bank\\code generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{167B378E-5D61-4779-A4BF-E9815B6C6EE2}|Code Generator\\Code Generator.csproj|solutionrelative:code generator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\accounts\\frmaddeditaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\accounts\\frmaddeditaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\accounts\\frmaddeditaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\accounts\\frmaddeditaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|d:\\development\\c#\\my-github\\bank\\bankbussiness\\clsapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\client\\controls\\ctrlclientcardwithfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\client\\controls\\ctrlclientcardwithfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\applications\\new card application\\frmaddnewcardapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\applications\\new card application\\frmaddnewcardapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\applications\\new card application\\frmaddnewcardapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\applications\\new card application\\frmaddnewcardapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\frmmainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,12 +54,113 @@
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Code Generator\\Program.cs",
               "RelativeDocumentMoniker": "Code Generator\\Program.cs",
-              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Code Generator\\Program.cs",
-              "RelativeToolTip": "Code Generator\\Program.cs",
-              "ViewState": "AgIAAKEBAAAAAAAAAAA6wMwBAAAuAAAAAAAAAA==",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Code Generator\\Program.cs*",
+              "RelativeToolTip": "Code Generator\\Program.cs*",
+              "ViewState": "AgIAAIwBAAAAAAAAAAAAAMwBAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T20:43:39.594Z",
+              "WhenOpened": "2024-11-16T11:52:18.513Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "clsApplications.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsApplications.cs",
+              "RelativeDocumentMoniker": "BankBussiness\\clsApplications.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsApplications.cs",
+              "RelativeToolTip": "BankBussiness\\clsApplications.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAACwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T11:04:38.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ctrlClientCardWithFilter.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\Controls\\ctrlClientCardWithFilter.cs",
+              "RelativeDocumentMoniker": "Bank\\Client\\Controls\\ctrlClientCardWithFilter.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Client\\Controls\\ctrlClientCardWithFilter.cs",
+              "RelativeToolTip": "Bank\\Client\\Controls\\ctrlClientCardWithFilter.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAqwDoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T10:41:30.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmAddNewCardApplication.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Applications\\New Card Application\\frmAddNewCardApplication.cs",
+              "RelativeDocumentMoniker": "Bank\\Applications\\New Card Application\\frmAddNewCardApplication.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Applications\\New Card Application\\frmAddNewCardApplication.cs*",
+              "RelativeToolTip": "Bank\\Applications\\New Card Application\\frmAddNewCardApplication.cs*",
+              "ViewState": "AgIAADAAAAAAAAAAAAAhwEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T10:40:23.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmAddEditAccount.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Accounts\\frmAddEditAccount.cs",
+              "RelativeDocumentMoniker": "Bank\\Accounts\\frmAddEditAccount.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Accounts\\frmAddEditAccount.cs",
+              "RelativeToolTip": "Bank\\Accounts\\frmAddEditAccount.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAMwIYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T10:26:28.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmAddEditAccount.cs [Design]",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Accounts\\frmAddEditAccount.cs",
+              "RelativeDocumentMoniker": "Bank\\Accounts\\frmAddEditAccount.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Accounts\\frmAddEditAccount.cs [Design]",
+              "RelativeToolTip": "Bank\\Accounts\\frmAddEditAccount.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T10:17:28.657Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmMainForm.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\frmMainForm.cs",
+              "RelativeDocumentMoniker": "Bank\\frmMainForm.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\frmMainForm.cs",
+              "RelativeToolTip": "Bank\\frmMainForm.cs",
+              "ViewState": "AgIAAMAAAAAAAAAAAAApwNEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:51:49.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmMainForm.cs [Design]",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\frmMainForm.cs",
+              "RelativeDocumentMoniker": "Bank\\frmMainForm.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\frmMainForm.cs [Design]",
+              "RelativeToolTip": "Bank\\frmMainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:51:33.46Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmAddNewCardApplication.cs [Design]",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Applications\\New Card Application\\frmAddNewCardApplication.cs",
+              "RelativeDocumentMoniker": "Bank\\Applications\\New Card Application\\frmAddNewCardApplication.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Applications\\New Card Application\\frmAddNewCardApplication.cs [Design]*",
+              "RelativeToolTip": "Bank\\Applications\\New Card Application\\frmAddNewCardApplication.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T21:49:03.33Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

@@ -80,16 +80,16 @@
     <Compile Include="Accounts\frmShowAccountInfo.Designer.cs">
       <DependentUpon>frmShowAccountInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="AccountTypes\frmAccountTypesManagment.cs">
+    <Compile Include="Accounts\AccountTypes\frmAccountTypesManagment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountTypes\frmAccountTypesManagment.Designer.cs">
+    <Compile Include="Accounts\AccountTypes\frmAccountTypesManagment.Designer.cs">
       <DependentUpon>frmAccountTypesManagment.cs</DependentUpon>
     </Compile>
-    <Compile Include="AccountTypes\frmEditAccountType.cs">
+    <Compile Include="Accounts\AccountTypes\frmEditAccountType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountTypes\frmEditAccountType.Designer.cs">
+    <Compile Include="Accounts\AccountTypes\frmEditAccountType.Designer.cs">
       <DependentUpon>frmEditAccountType.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Application Types\frmEditApplicationType.cs">
@@ -139,6 +139,12 @@
     </Compile>
     <Compile Include="Branches\frmEditBranch.Designer.cs">
       <DependentUpon>frmEditBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\CardTypes\frmListCardTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cards\CardTypes\frmListCardTypes.Designer.cs">
+      <DependentUpon>frmListCardTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\Controls\ctrlClientCard.cs">
       <SubType>UserControl</SubType>
@@ -313,10 +319,10 @@
     <EmbeddedResource Include="Accounts\frmShowAccountInfo.resx">
       <DependentUpon>frmShowAccountInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AccountTypes\frmAccountTypesManagment.resx">
+    <EmbeddedResource Include="Accounts\AccountTypes\frmAccountTypesManagment.resx">
       <DependentUpon>frmAccountTypesManagment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AccountTypes\frmEditAccountType.resx">
+    <EmbeddedResource Include="Accounts\AccountTypes\frmEditAccountType.resx">
       <DependentUpon>frmEditAccountType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Application Types\frmEditApplicationType.resx">
@@ -342,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Branches\frmEditBranch.resx">
       <DependentUpon>frmEditBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cards\CardTypes\frmListCardTypes.resx">
+      <DependentUpon>frmListCardTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Controls\ctrlClientCard.resx">
       <DependentUpon>ctrlClientCard.cs</DependentUpon>
@@ -578,9 +587,7 @@
   <ItemGroup>
     <None Include="Resources\Transactions.gif" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Cards\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Applications.png" />
   </ItemGroup>

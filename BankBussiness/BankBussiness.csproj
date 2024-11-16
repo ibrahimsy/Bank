@@ -43,13 +43,16 @@
   <ItemGroup>
     <Compile Include="clsAccount.cs" />
     <Compile Include="clsAccountType.cs" />
-    <Compile Include="clsApplications.cs" />
+    <Compile Include="clsApplication.cs" />
     <Compile Include="clsApplicationTypes.cs" />
     <Compile Include="clsBeneficiary.cs" />
     <Compile Include="clsBranch.cs" />
+    <Compile Include="clsCards.cs" />
+    <Compile Include="clsCardTypes.cs" />
     <Compile Include="clsClient.cs" />
     <Compile Include="clsCountry.cs" />
     <Compile Include="clsCurrency.cs" />
+    <Compile Include="clsNewCardApplications.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsTransactions.cs" />
     <Compile Include="clsUser.cs" />

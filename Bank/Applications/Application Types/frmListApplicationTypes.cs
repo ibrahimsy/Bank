@@ -58,7 +58,7 @@ namespace Bank.Application_Types
 
         private void editApplicationTypeToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            frmEditApplicationType frm = new frmEditApplicationType((clsApplicationType.enApplicationTypes)dgvApplicationTypes.CurrentRow.Cells[0].Value);
+            frmEditApplicationType frm = new frmEditApplicationType((clsApplication.enApplicationTypes)dgvApplicationTypes.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
 
             _RefreshApplicationTypesList();

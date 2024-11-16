@@ -458,7 +458,7 @@ namespace Code_Generator
         static void Main(string[] args)
         {
             string connectionString = clsDataAccessSettings.ConnectionString;
-            string tableName = "Applications";
+            string tableName = "NewCardApplications";
 
 
             var columns = CodeGenerator.GetTableColumns(connectionString, tableName);

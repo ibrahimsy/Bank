@@ -39,6 +39,16 @@ namespace Bank.Client.Controls
                 return _FilterEnable;
             }
         }
+        
+        public bool FilterByAccountNumber
+        {
+            set
+            {
+                cbFilterBy.Enabled = value;
+                //cbFilterBy.Text = "Account Number";
+            }
+        }
+        
         public ctrlClientCardWithFilter()
         {
             InitializeComponent();
@@ -46,7 +56,7 @@ namespace Bank.Client.Controls
 
         private void ctrlClientCardWithFilter_Load(object sender, EventArgs e)
         {
-            cbFilterBy.SelectedIndex = 0;
+            cbFilterBy.SelectedIndex = 3;
             TextValueFocus();
         }
 
@@ -61,8 +71,11 @@ namespace Bank.Client.Controls
                     ctrlClientCard1.LoadClientInfoByNationalNo(txtFilterValue.Text.Trim());
                     break;
                 case "Primary Account Number":
+                case "Account Number":
                     ctrlClientCard1.LoadClientInfoByAccountNumber(txtFilterValue.Text.Trim());
                     break;
+               
+
             }
         }
         public void TextValueFocus()

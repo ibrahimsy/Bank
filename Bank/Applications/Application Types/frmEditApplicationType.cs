@@ -15,9 +15,9 @@ namespace Bank.Application_Types
 {
     public partial class frmEditApplicationType : Form
     {
-        clsApplicationType.enApplicationTypes _ApplicationTypeID = clsApplicationType.enApplicationTypes.IssueNewCard;
+        clsApplication.enApplicationTypes _ApplicationTypeID = clsApplication.enApplicationTypes.IssueNewCard;
         clsApplicationType _ApplicationTypeInfo;
-        public frmEditApplicationType(clsApplicationType.enApplicationTypes ApplicationTypeID)
+        public frmEditApplicationType(clsApplication.enApplicationTypes ApplicationTypeID)
         {
             InitializeComponent();
             _ApplicationTypeID = ApplicationTypeID;
@@ -25,7 +25,7 @@ namespace Bank.Application_Types
 
         void _LoadApplicationTypeInfo()
         {
-            _ApplicationTypeInfo = clsApplicationType.FindApplicationTypeByID(_ApplicationTypeID);
+            _ApplicationTypeInfo = clsApplicationType.FindApplicationTypeByID((int)_ApplicationTypeID);
             if (_ApplicationTypeInfo == null)
             {
                 MessageBox.Show($"Application Type With ID [{_ApplicationTypeID}] Is Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

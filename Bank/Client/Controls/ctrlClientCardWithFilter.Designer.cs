@@ -87,7 +87,8 @@
             this.cbFilterBy.Items.AddRange(new object[] {
             "Client ID",
             "National No",
-            "Primary Account Number"});
+            "Primary Account Number",
+            "Account Number"});
             this.cbFilterBy.Location = new System.Drawing.Point(12, 18);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(232, 32);

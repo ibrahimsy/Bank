@@ -1,7 +1,9 @@
 ﻿using Bank.Accounts;
 using Bank.AccountTypes;
 using Bank.Application_Types;
+using Bank.Applications.New_Card_Application;
 using Bank.Branches;
+using Bank.Cards.CardTypes;
 using Bank.Client;
 using Bank.Currencies;
 using Bank.Global_Classes;
@@ -193,6 +195,18 @@ namespace Bank
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListApplicationTypes frm = new frmListApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageCardTpesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListCardTypes frm = new frmListCardTypes();
+            frm.ShowDialog();
+        }
+
+        private void requestDebitCardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddNewCardApplication frm = new frmAddNewCardApplication();
             frm.ShowDialog();
         }
     }
