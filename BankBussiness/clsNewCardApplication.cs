@@ -1,0 +1,132 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BankDataAccess;
+
+
+namespace BankBussiness
+{
+
+
+
+    public class clsNewCardApplication:clsApplication
+    {
+
+        enum enMode { enAddNew = 1, enUpdate = 2 }
+        enMode _Mode = enMode.enAddNew;
+
+
+        public int NewCardApplicationID { set; get; }
+        public string PersonFullName
+        {
+            get
+            {
+                return base.ApplicantFullName;
+            }
+        }
+        public int CardTypeID { set; get; }
+
+        public clsCardType CardTypeInfo;
+        public clsNewCardApplication()
+        {
+            this.NewCardApplicationID = default;
+            this.CardTypeID = default;
+            _Mode = enMode.enAddNew;
+        }
+
+        private clsNewCardApplication(int NewCardApplicationID,int ApplicationID,int ApplicantClientID,
+                        int ApplicationTypeID,DateTime ApplicationDate, enApplicationStatus Status,
+                        Decimal PaidFees,int CreatedByUserID, int CardTypeID)
+        {
+            this.NewCardApplicationID = NewCardApplicationID;
+            this.ApplicationID = ApplicationID;
+            this.ApplicantClientID = ApplicantClientID;
+            this.ApplicationTypeID = ApplicationTypeID;
+            this.ApplicationDate = DateTime.Now;
+            this.Status = enApplicationStatus.New;
+            this.PaidFees = PaidFees;
+            this.CreatedBy = CreatedByUserID;
+            this.CardTypeID = CardTypeID;
+            CardTypeInfo = clsCardType.FindCardTypeByID(CardTypeID);
+            _Mode = enMode.enUpdate;
+        }
+
+        private bool _AddNewCardApplication()
+        {
+            int NewCardApplicationID = clsNewCardApplicationData.AddNewCardApplicationByID( ApplicationID, CardTypeID);
+
+            return (NewCardApplicationID != -1);
+        }
+
+
+        private bool _UpdateNewCardApplication()
+        {
+            return clsNewCardApplicationData.UpdateNewCardApplicationsByID(NewCardApplicationID, ApplicationID, CardTypeID);
+        }
+
+        public static clsNewCardApplication FindNewCardApplicationByID(int NewCardApplicationID)
+        {
+            int ApplicationID = -1;
+            int CardTypeID = -1;
+            if (clsNewCardApplicationData.GetNewCardApplicationsByID( NewCardApplicationID, ref ApplicationID, ref CardTypeID))
+            {
+                //return new clsNewCardApplication(NewCardApplicationID, ApplicationID, CardTypeID);
+                clsApplication BaseApplication = clsApplication.FindApplicationByID( ApplicationID );
+                return new clsNewCardApplication(NewCardApplicationID,ApplicationID, BaseApplication.ApplicantClientID,
+                        BaseApplication.ApplicationTypeID, BaseApplication.ApplicationDate, BaseApplication.Status,
+                        BaseApplication.PaidFees, BaseApplication.CreatedBy,CardTypeID);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static bool IsExistByNewCardApplicationID(int NewCardApplicationID)
+        {
+            return clsNewCardApplicationData.IsNewCardApplicationsExistByID(NewCardApplicationID);
+        }
+        public static bool DeleteNewCardApplication(int NewCardApplicationID)
+        {
+            return clsNewCardApplicationData.DeleteNewCardApplicationsByID(NewCardApplicationID);
+        }
+
+        public static DataTable GetNewCardApplicationsList()
+        {
+            return clsNewCardApplicationData.GetAllNewCardApplications();
+        }
+
+        public bool Save()
+        {
+           base.Mode = (clsApplication.enMode)_Mode;
+            if (!base.Save())
+                return false;
+            
+            
+             switch (_Mode)
+            {
+                case enMode.enAddNew:
+                    if (_AddNewCardApplication())
+                    {
+                        _Mode = enMode.enUpdate;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                case enMode.enUpdate:
+                    if (_UpdateNewCardApplication())
+                        return true;
+                    else
+                        return false;
+            }
+            return false;
+        }
+
+
+    }
+}

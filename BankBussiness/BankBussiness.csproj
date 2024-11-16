@@ -52,7 +52,7 @@
     <Compile Include="clsClient.cs" />
     <Compile Include="clsCountry.cs" />
     <Compile Include="clsCurrency.cs" />
-    <Compile Include="clsNewCardApplications.cs" />
+    <Compile Include="clsNewCardApplication.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsTransactions.cs" />
     <Compile Include="clsUser.cs" />
