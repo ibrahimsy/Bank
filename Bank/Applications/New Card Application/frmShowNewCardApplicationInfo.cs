@@ -12,9 +12,21 @@ namespace Bank.Applications.New_Card_Application
 {
     public partial class frmShowNewCardApplicationInfo : Form
     {
-        public frmShowNewCardApplicationInfo()
+        int _NewCardApplicationID = -1;
+        public frmShowNewCardApplicationInfo(int NewCardApplicationID)
         {
             InitializeComponent();
+            _NewCardApplicationID = NewCardApplicationID;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmShowNewCardApplicationInfo_Load(object sender, EventArgs e)
+        {
+            ctrlNewCardApplicationInfo1.LoadInfo(_NewCardApplicationID);
         }
     }
 }

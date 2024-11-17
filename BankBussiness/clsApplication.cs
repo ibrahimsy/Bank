@@ -36,6 +36,15 @@ namespace BankBussiness
                 return clsAccount.FindAccountByID(ApplicantAccountID).ClientInfo.PersonInfo.FullName;
             }
         }
+
+        public string ApplicantAccountNumber
+        {
+            get
+            {
+                return clsAccount.FindAccountByID(ApplicantAccountID).AccountNumber;
+            }
+        }
+
         public int ApplicationTypeID { set; get; }
 
         public clsApplicationType ApplicationTypeInfo;

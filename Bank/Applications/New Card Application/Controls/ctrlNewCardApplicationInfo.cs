@@ -16,31 +16,30 @@ namespace Bank.Applications.New_Card_Application.Controls
     {
         int _NewCardApplicationID = -1;
 
-        public ctrlNewCardApplicationInfo(int NewCardApplicationID)
+        public ctrlNewCardApplicationInfo()
         {
             InitializeComponent();
-            _NewCardApplicationID = NewCardApplicationID;
         }
 
-        public void LoadInfo()
+        public void LoadInfo(int NewCardApplicationID)
         {
-            clsNewCardApplication _NewCardApplicationInfo = clsNewCardApplication.FindNewCardApplicationByID(_NewCardApplicationID);
+            clsNewCardApplication _NewCardApplicationInfo = clsNewCardApplication.FindNewCardApplicationByID(NewCardApplicationID);
             if (_NewCardApplicationInfo == null)
             {
                 MessageBox.Show($"Error: No Card Application Found With ID[{_NewCardApplicationInfo}]",
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //lblNewCardApplicationID.Text = _NewCardApplicationID.ToString();
-            //lblCardType.Text = clsCardType.FindCardTypeByID(_NewCardApplicationInfo.CardTypeID).CardName;
-            //lblBasicApplicationID.Text = _NewCardApplicationInfo.ApplicationID.ToString();
-            //lblApplicationType.Text = clsApplicationType.FindApplicationTypeByID(_NewCardApplicationInfo.ApplicationTypeID).TypeTitle;
-            //lblApplicationDate.Text = clsFormat.GetDateFormat(_NewCardApplicationInfo.ApplicationDate);
-            //lblApplicantFullName.Text = _NewCardApplicationInfo.AccountInfo.ClientInfo.PersonInfo.FullName;
-            //lblApplicationStatus.Text = _NewCardApplicationInfo.StatusText;
-            //lblAccountNumber.Text = _NewCardApplicationInfo.AccountInfo.AccountNumber;
-            //lblPaidFees.Text = _NewCardApplicationInfo.PaidFees.ToString();
-            //lblCreatedBy.Text = _NewCardApplicationInfo.UserInfo.UserName;
+            lblNewCardApplicationID.Text = _NewCardApplicationID.ToString();
+            lblCardType.Text = clsCardType.FindCardTypeByID(_NewCardApplicationInfo.CardTypeID).CardName;
+            lblApplicationID.Text = _NewCardApplicationInfo.ApplicationID.ToString();
+            lblApplicationType.Text = clsApplicationType.FindApplicationTypeByID(_NewCardApplicationInfo.ApplicationTypeID).TypeTitle;
+            lblApplicationDate.Text = clsFormat.GetDateFormat(_NewCardApplicationInfo.ApplicationDate);
+            lblApplicantFullName.Text = _NewCardApplicationInfo.PersonFullName;
+            lblStatus.Text = _NewCardApplicationInfo.StatusText;
+            lblAccountNumber.Text = _NewCardApplicationInfo.AccountNumber;
+            lblPaidFees.Text = _NewCardApplicationInfo.PaidFees.ToString();
+            lblCreatedBy.Text = _NewCardApplicationInfo.UserInfo.UserName;
         }
     }
 }

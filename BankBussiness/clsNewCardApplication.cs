@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BankDataAccess;
+using System.Globalization;
 
 
 namespace BankBussiness
@@ -26,6 +27,21 @@ namespace BankBussiness
             get
             {
                 return base.ApplicantFullName;
+            }
+        }
+
+        public clsUser UserInfo
+        {
+            get
+            {
+                return base.UserInfo;
+            }
+        }
+        public String AccountNumber
+        {
+            get
+            {
+                return base.ApplicantAccountNumber;
             }
         }
         public int CardTypeID { set; get; }

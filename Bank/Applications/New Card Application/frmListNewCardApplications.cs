@@ -56,5 +56,11 @@ namespace Bank.Applications.New_Card_Application
             }
 
         }
+
+        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowNewCardApplicationInfo frm = new frmShowNewCardApplicationInfo((int)dgvNewCardApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }
