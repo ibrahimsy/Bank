@@ -209,5 +209,11 @@ namespace Bank
             frmAddNewCardApplication frm = new frmAddNewCardApplication();
             frm.ShowDialog();
         }
+
+        private void manageNewCardApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListNewCardApplications frm = new frmListNewCardApplications();
+            frm.ShowDialog();
+        }
     }
 }

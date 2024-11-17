@@ -143,9 +143,29 @@ namespace Bank.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddApplication {
+            get {
+                object obj = ResourceManager.GetObject("AddApplication", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddBeneficiary {
             get {
                 object obj = ResourceManager.GetObject("AddBeneficiary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddNewApplication {
+            get {
+                object obj = ResourceManager.GetObject("AddNewApplication", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

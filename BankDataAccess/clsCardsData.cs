@@ -202,9 +202,6 @@ namespace BankDataAccess
         }
 
 
-
-
-
         public static bool IsCardExistByCardID(int CardID)
         {
             bool IsFound = false;
@@ -237,10 +234,6 @@ namespace BankDataAccess
             return IsFound;
         }
 
-
-
-
-
         public static DataTable GetAllCards()
         {
             DataTable dt = new DataTable();
@@ -271,6 +264,44 @@ namespace BankDataAccess
             return dt;
         }
 
+        public static int GetActiveCardForAccountAndCardType(int AccountID, int CardTypeID)
+        {
 
+            int ActiveCardID = -1;
+
+            string query = @"SELECT   ActiveCardID = Cards.CardID
+                            FROM      Accounts INNER JOIN
+                                      Cards ON Accounts.AccountID = Cards.AccountID INNER JOIN
+                                      CardTypes ON Cards.CardTypeID = CardTypes.CardTypeID
+		                              where Cards.AccountID = @AccountID And
+                                      Cards.CardTypeID = @CardTypeID And Status = 1";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountID", AccountID);
+            command.Parameters.AddWithValue("@CardTypeID", CardTypeID);
+            
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int CardID))
+                {
+                    ActiveCardID = CardID;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ActiveCardID;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return ActiveCardID;
+        }
     }
 }

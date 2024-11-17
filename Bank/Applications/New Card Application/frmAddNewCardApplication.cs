@@ -18,7 +18,7 @@ namespace Bank.Applications.New_Card_Application
         enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-        int _AccountID = -1;
+        int _SelectedAccountID = -1;
         int _NewCardApplicationID = -1;
         clsAccount _AccountInfo;
         clsNewCardApplication _NewCardApplicationInfo;
@@ -42,7 +42,6 @@ namespace Bank.Applications.New_Card_Application
             {
                 cbCardTypes.Items.Add(row["CardName"]);
             }
-            cbCardTypes.SelectedIndex = 0;
         }
 
         void _ResetDefaultData()
@@ -57,6 +56,7 @@ namespace Bank.Applications.New_Card_Application
                 lblApplicationFee.Text = clsApplicationType.FindApplicationTypeByID((int)clsApplication.enApplicationTypes.IssueNewCard).Fees.ToString();
                 lblTitle.Text = "Add New Card Request";
                 this.Text = lblTitle.Text;
+                cbCardTypes.SelectedIndex = 0;
                 tpApplicationInfo.Enabled = false;
                 btnSave.Enabled = false;
             }
@@ -65,13 +65,15 @@ namespace Bank.Applications.New_Card_Application
                 lblTitle.Text = "Update New Card Request";
                 this.Text = lblTitle.Text;
                 tpApplicationInfo.Enabled = true;
+               // tabControl1.SelectedTab = tabControl1.TabPages["tpApplicationInfo"];
                 btnSave.Enabled = true;
             }
             
         }
         
-        void LoadInfo()
+        void _LoadData()
         {
+            ctrlAccountCardWithFilter1.FilterEnabled = false;
             _NewCardApplicationInfo = clsNewCardApplication.FindNewCardApplicationByID(_NewCardApplicationID);
             if (_NewCardApplicationInfo == null) 
             {
@@ -81,7 +83,7 @@ namespace Bank.Applications.New_Card_Application
                     MessageBoxIcon.Error);
                 return;
             }
-            ctrlAccountCardWithFilter1.FilterEnabled = false;
+            
             ctrlAccountCardWithFilter1.LoadInfoByAccountNumber(_NewCardApplicationInfo.AccountInfo.AccountNumber);
 
             lblApplicationID.Text = _NewCardApplicationInfo.ApplicationID.ToString();
@@ -94,19 +96,16 @@ namespace Bank.Applications.New_Card_Application
         
         private void frmAddNewCardApplication_Load(object sender, EventArgs e)
         {
-           // ctrlClientCardWithFilter1.FilterByAccountNumber = false;
-            if (_Mode == enMode.enAddNew)
+            _ResetDefaultData();
+            if (_Mode == enMode.enUpdate)
             {
-                _ResetDefaultData();
+                _LoadData();
             }
-            else
-                LoadInfo();
-
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (ctrlAccountCardWithFilter1.AccountID == -1)
+            if (_SelectedAccountID == -1)
             {
                 MessageBox.Show("Select An Account First", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -135,9 +134,19 @@ namespace Bank.Applications.New_Card_Application
                                 MessageBoxIcon.Error);
                 return;
             }
+            //check if there is a card with AccountID and cardType
+            int CardID = clsCard.IsCardExistForAccountID(_SelectedAccountID, CardTypeID);
+            if (CardID != -1)
+            {
+                MessageBox.Show($"There is Card Linked With AccountID = [{_SelectedAccountID}]",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
 
-            
-            _NewCardApplicationInfo.ApplicantAccountID = ctrlAccountCardWithFilter1.AccountID;
+
+            _NewCardApplicationInfo.ApplicantAccountID = _SelectedAccountID;
             _NewCardApplicationInfo.ApplicationDate = DateTime.Now;
             _NewCardApplicationInfo.Status = clsApplication.enApplicationStatus.New;
             _NewCardApplicationInfo.ApplicationTypeID = (int)clsApplication.enApplicationTypes.IssueNewCard;
@@ -164,6 +173,16 @@ namespace Bank.Applications.New_Card_Application
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ctrlAccountCardWithFilter1_OnAccountSelected(int obj)
+        {
+            _SelectedAccountID = obj;
+        }
+
+        private void frmAddNewCardApplication_Activated(object sender, EventArgs e)
+        {
+            ctrlAccountCardWithFilter1.FilterFocus();
         }
     }
 }

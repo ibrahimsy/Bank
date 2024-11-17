@@ -110,11 +110,29 @@
     <Compile Include="Applications\Application Types\frmListApplicationTypes.Designer.cs">
       <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\New Card Application\Controls\ctrlNewCardApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\New Card Application\Controls\ctrlNewCardApplicationInfo.Designer.cs">
+      <DependentUpon>ctrlNewCardApplicationInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\New Card Application\frmAddNewCardApplication.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Applications\New Card Application\frmAddNewCardApplication.Designer.cs">
       <DependentUpon>frmAddNewCardApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\New Card Application\frmListNewCardApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\New Card Application\frmListNewCardApplications.Designer.cs">
+      <DependentUpon>frmListNewCardApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\New Card Application\frmShowNewCardApplicationInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\New Card Application\frmShowNewCardApplicationInfo.Designer.cs">
+      <DependentUpon>frmShowNewCardApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Beneficiaries\Controls\ctrlBeneficiariesCard.cs">
       <SubType>UserControl</SubType>
@@ -340,8 +358,17 @@
     <EmbeddedResource Include="Applications\Application Types\frmListApplicationTypes.resx">
       <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\New Card Application\Controls\ctrlNewCardApplicationInfo.resx">
+      <DependentUpon>ctrlNewCardApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\New Card Application\frmAddNewCardApplication.resx">
       <DependentUpon>frmAddNewCardApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\New Card Application\frmListNewCardApplications.resx">
+      <DependentUpon>frmListNewCardApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\New Card Application\frmShowNewCardApplicationInfo.resx">
+      <DependentUpon>frmShowNewCardApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Beneficiaries\Controls\ctrlBeneficiariesCard.resx">
       <DependentUpon>ctrlBeneficiariesCard.cs</DependentUpon>
@@ -596,7 +623,9 @@
   <ItemGroup>
     <None Include="Resources\Transactions.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\AddApplication.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Applications.png" />
   </ItemGroup>
@@ -612,5 +641,9 @@
   <ItemGroup>
     <None Include="Resources\Accounts.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddNewApplication.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,8 +33,8 @@ namespace BankBussiness
         public clsCardType CardTypeInfo;
         public clsNewCardApplication()
         {
-            this.NewCardApplicationID = default;
-            this.CardTypeID = default;
+            this.NewCardApplicationID = -1;
+            this.CardTypeID = -1;
             _Mode = enMode.enAddNew;
         }
 
@@ -57,7 +57,7 @@ namespace BankBussiness
 
         private bool _AddNewCardApplication()
         {
-            int NewCardApplicationID = clsNewCardApplicationData.AddNewCardApplicationByID( ApplicationID, CardTypeID);
+            this.NewCardApplicationID = clsNewCardApplicationData.AddNewCardApplicationByID( ApplicationID, CardTypeID);
 
             return (NewCardApplicationID != -1);
         }

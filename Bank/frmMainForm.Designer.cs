@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPersontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +68,6 @@
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-          //  this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.gbWindows = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -84,8 +82,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotalUsers = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripSeparator();
+            this.manageNewCardApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-           // ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.gbWindows.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -127,7 +126,9 @@
             this.toolStripMenuItem15,
             this.manageApplicationTypesToolStripMenuItem,
             this.toolStripMenuItem16,
-            this.manageCardTpesToolStripMenuItem});
+            this.manageCardTpesToolStripMenuItem,
+            this.toolStripMenuItem17,
+            this.manageNewCardApplicationsToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(55, 44);
@@ -137,55 +138,55 @@
             // addPersontToolStripMenuItem
             // 
             this.addPersontToolStripMenuItem.Name = "addPersontToolStripMenuItem";
-            this.addPersontToolStripMenuItem.Size = new System.Drawing.Size(300, 34);
+            this.addPersontToolStripMenuItem.Size = new System.Drawing.Size(341, 34);
             this.addPersontToolStripMenuItem.Text = "Add Person";
             this.addPersontToolStripMenuItem.Click += new System.EventHandler(this.addClientToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(297, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(338, 6);
             // 
             // addClientToolStripMenuItem1
             // 
             this.addClientToolStripMenuItem1.Name = "addClientToolStripMenuItem1";
-            this.addClientToolStripMenuItem1.Size = new System.Drawing.Size(300, 34);
+            this.addClientToolStripMenuItem1.Size = new System.Drawing.Size(341, 34);
             this.addClientToolStripMenuItem1.Text = "Add Client";
             this.addClientToolStripMenuItem1.Click += new System.EventHandler(this.addClientToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(297, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(338, 6);
             // 
             // accountTypesToolStripMenuItem
             // 
             this.accountTypesToolStripMenuItem.Name = "accountTypesToolStripMenuItem";
-            this.accountTypesToolStripMenuItem.Size = new System.Drawing.Size(300, 34);
+            this.accountTypesToolStripMenuItem.Size = new System.Drawing.Size(341, 34);
             this.accountTypesToolStripMenuItem.Text = "Account Types";
             this.accountTypesToolStripMenuItem.Click += new System.EventHandler(this.accountTypesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem15
             // 
             this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(297, 6);
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(338, 6);
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
-            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(300, 34);
+            this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(341, 34);
             this.manageApplicationTypesToolStripMenuItem.Text = "Manage Application Types";
             this.manageApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationTypesToolStripMenuItem_Click);
             // 
             // toolStripMenuItem16
             // 
             this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(297, 6);
+            this.toolStripMenuItem16.Size = new System.Drawing.Size(338, 6);
             // 
             // manageCardTpesToolStripMenuItem
             // 
             this.manageCardTpesToolStripMenuItem.Name = "manageCardTpesToolStripMenuItem";
-            this.manageCardTpesToolStripMenuItem.Size = new System.Drawing.Size(300, 34);
+            this.manageCardTpesToolStripMenuItem.Size = new System.Drawing.Size(341, 34);
             this.manageCardTpesToolStripMenuItem.Text = "Manage Card Types";
             this.manageCardTpesToolStripMenuItem.Click += new System.EventHandler(this.manageCardTpesToolStripMenuItem_Click);
             // 
@@ -402,10 +403,6 @@
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
-            // xtraTabbedMdiManager1
-            // 
-          //  this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
             // gbWindows
             // 
             this.gbWindows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -560,6 +557,18 @@
             this.label3.Text = "Users";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // toolStripMenuItem17
+            // 
+            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
+            this.toolStripMenuItem17.Size = new System.Drawing.Size(338, 6);
+            // 
+            // manageNewCardApplicationsToolStripMenuItem
+            // 
+            this.manageNewCardApplicationsToolStripMenuItem.Name = "manageNewCardApplicationsToolStripMenuItem";
+            this.manageNewCardApplicationsToolStripMenuItem.Size = new System.Drawing.Size(341, 34);
+            this.manageNewCardApplicationsToolStripMenuItem.Text = "Manage New Card Applications";
+            this.manageNewCardApplicationsToolStripMenuItem.Click += new System.EventHandler(this.manageNewCardApplicationsToolStripMenuItem_Click);
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,7 +585,6 @@
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-         //   ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.gbWindows.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -645,6 +653,8 @@
         private System.Windows.Forms.ToolStripMenuItem manageApplicationTypesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem16;
         private System.Windows.Forms.ToolStripMenuItem manageCardTpesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem17;
+        private System.Windows.Forms.ToolStripMenuItem manageNewCardApplicationsToolStripMenuItem;
     }
 }
 

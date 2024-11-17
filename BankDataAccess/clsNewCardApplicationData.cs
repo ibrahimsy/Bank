@@ -193,7 +193,7 @@ namespace BankDataAccess
         {
             DataTable dt = new DataTable();
 
-            string query = @"SELECT * FROM NewCardApplications ORDER BY NewCardApplicationID DESC";
+            string query = @"SELECT * FROM NewCardApplications_View ORDER BY NewCardApplicationID DESC";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);

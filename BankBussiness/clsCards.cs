@@ -18,7 +18,7 @@ namespace BankBussiness
         enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-
+        public enum enCardStatus { Active = 1, InActive = 2, Blocked = 3 }
 
         public int CardID { set; get; }
         public int AccountID { set; get; }
@@ -26,7 +26,23 @@ namespace BankBussiness
         public string PinCode { set; get; }
         public string CVV { set; get; }
         public DateTime ExpirationDate { set; get; }
-        public byte Status { set; get; }
+        public enCardStatus Status { set; get; }
+        public string CardStatus
+        {
+            get
+            {
+                switch (Status)
+                {
+                    case enCardStatus.Active:
+                        return "Active";
+                    case enCardStatus.InActive:
+                        return "InActive";
+                    case enCardStatus.Blocked:
+                        return "Blocked";
+                }
+                return "";
+            }
+        }
         public int CardTypeID { set; get; }
         public DateTime IssueDate { set; get; }
 
@@ -48,7 +64,7 @@ namespace BankBussiness
 
 
 
-        private clsCard(int CardID, int AccountID, string CardNumber, string PinCode, string CVV, DateTime ExpirationDate, byte Status, int CardTypeID, DateTime IssueDate)
+        private clsCard(int CardID, int AccountID, string CardNumber, string PinCode, string CVV, DateTime ExpirationDate, enCardStatus Status, int CardTypeID, DateTime IssueDate)
         {
             this.CardID = CardID;
             this.AccountID = AccountID;
@@ -66,7 +82,7 @@ namespace BankBussiness
 
         private bool _AddCard()
         {
-            CardID = clsCardData.AddCard(AccountID, CardNumber, PinCode, CVV, ExpirationDate, Status, CardTypeID, IssueDate);
+            CardID = clsCardData.AddCard(AccountID, CardNumber, PinCode, CVV, ExpirationDate,(byte) Status, CardTypeID, IssueDate);
 
             return (CardID != -1);
         }
@@ -74,7 +90,7 @@ namespace BankBussiness
 
         private bool _UpdateCard()
         {
-            return clsCardData.UpdateCardByID(CardID, AccountID, CardNumber, PinCode, CVV, ExpirationDate, Status, CardTypeID, IssueDate);
+            return clsCardData.UpdateCardByID(CardID, AccountID, CardNumber, PinCode, CVV, ExpirationDate, (byte)Status, CardTypeID, IssueDate);
         }
 
 
@@ -85,12 +101,12 @@ namespace BankBussiness
             string PinCode = default;
             string CVV = default;
             DateTime ExpirationDate = default;
-            byte Status = default;
+            byte Status = (byte)enCardStatus.Active;
             int CardTypeID = default;
             DateTime IssueDate = default;
-            if (clsCardData.GetCardByID( CardID, ref AccountID, ref CardNumber, ref PinCode, ref CVV, ref ExpirationDate, ref Status, ref CardTypeID, ref IssueDate))
+            if (clsCardData.GetCardByID( CardID, ref AccountID, ref CardNumber, ref PinCode, ref CVV, ref ExpirationDate,ref Status, ref CardTypeID, ref IssueDate))
             {
-                return new clsCard(CardID, AccountID, CardNumber, PinCode, CVV, ExpirationDate, Status, CardTypeID, IssueDate);
+                return new clsCard(CardID, AccountID, CardNumber, PinCode, CVV, ExpirationDate,(enCardStatus) Status, CardTypeID, IssueDate);
             }
             else
             {
@@ -116,6 +132,11 @@ namespace BankBussiness
             return clsCardData.GetAllCards();
         }
 
+
+        public static int IsCardExistForAccountID(int AccountID,int CardTypeID)
+        {
+            return clsCardData.GetActiveCardForAccountAndCardType(AccountID, CardTypeID);
+        }
 
 
         public bool Save()

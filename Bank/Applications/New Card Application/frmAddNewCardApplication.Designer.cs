@@ -81,6 +81,7 @@
             this.ctrlAccountCardWithFilter1.Name = "ctrlAccountCardWithFilter1";
             this.ctrlAccountCardWithFilter1.Size = new System.Drawing.Size(1046, 416);
             this.ctrlAccountCardWithFilter1.TabIndex = 17;
+            this.ctrlAccountCardWithFilter1.OnAccountSelected += new System.Action<int>(this.ctrlAccountCardWithFilter1_OnAccountSelected);
             // 
             // btnNext
             // 
@@ -267,6 +268,7 @@
             this.Name = "frmAddNewCardApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Request New Card ";
+            this.Activated += new System.EventHandler(this.frmAddNewCardApplication_Activated);
             this.Load += new System.EventHandler(this.frmAddNewCardApplication_Load);
             this.tabControl1.ResumeLayout(false);
             this.tpAccountInfo.ResumeLayout(false);

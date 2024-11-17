@@ -13,6 +13,19 @@ namespace Bank.Accounts.Controls
 {
     public partial class ctrlAccountCardWithFilter : UserControl
     {
+
+        public event Action<int> OnAccountSelected;
+
+        public virtual void AccountSelected(int AccountID)
+        {
+            Action<int> handler = OnAccountSelected;
+            if (handler != null)
+            {
+                handler(AccountID);
+            }
+
+        }
+
         int _AccountID = -1;
         public int AccountID
         {
@@ -48,9 +61,13 @@ namespace Bank.Accounts.Controls
         }
         void _FindNow()
         {
-              ctrlAccountCard1.LoadAccountInfo(txtFilterValue.Text.Trim());
+            ctrlAccountCard1.LoadAccountInfo(txtFilterValue.Text.Trim());
+            if (OnAccountSelected != null)
+            {
+                OnAccountSelected(ctrlAccountCard1.AccountID);
+            }
         }
-        public void TextValueFocus()
+        public void FilterFocus()
         {
             txtFilterValue.Focus();
         }
