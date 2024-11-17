@@ -50,8 +50,6 @@ namespace BankDataAccess
             return _NewCardApplicationID;
         }
 
-
-
         public static bool UpdateNewCardApplicationsByID(int NewCardApplicationID, int ApplicationID, int CardTypeID)
         {
 
@@ -88,8 +86,6 @@ namespace BankDataAccess
             return AffectedRows > 0;
         }
 
-
-
         public static bool DeleteNewCardApplicationsByID(int NewCardApplicationID)
         {
 
@@ -118,8 +114,6 @@ namespace BankDataAccess
 
             return AffectedRows > 0;
         }
-
-
 
         public static bool GetNewCardApplicationsByID(int NewCardApplicationID, ref int ApplicationID, ref int CardTypeID)
         {
@@ -163,10 +157,6 @@ namespace BankDataAccess
             return IsFound;
         }
 
-
-
-
-
         public static bool IsNewCardApplicationsExistByID(int NewCardApplicationID)
         {
             bool IsFound = false;
@@ -199,10 +189,6 @@ namespace BankDataAccess
             return IsFound;
         }
 
-
-
-
-
         public static DataTable GetAllNewCardApplications()
         {
             DataTable dt = new DataTable();
@@ -233,6 +219,6 @@ namespace BankDataAccess
             return dt;
         }
 
-
+       
     }
 }

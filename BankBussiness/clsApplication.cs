@@ -147,9 +147,12 @@ namespace BankBussiness
         return clsApplicationData.GetAllApplications();
     }
 
+    public static int GetActiveApplicationIDForCardType(int AccountID,clsApplication.enApplicationTypes ApplicationType,int CardTypeID)
+    {
+            return clsApplicationData.GetActiveApplicationForCardType(AccountID,(int)ApplicationType,CardTypeID);
+    }
 
-
-    public bool Save()
+        public bool Save()
     {
         switch (Mode)
         {

@@ -228,7 +228,45 @@ namespace BankDataAccess
         }
 
 
+        public static int GetActiveApplicationForCardType(int AccountID,int ApplicationTypeID, int CardType)
+        {
+            int ActiveApplicationID = -1;
 
+            string query = @"SELECT   ActiveApplicationID = Applications.ApplicationID
+                            FROM      NewCardApplications INNER JOIN
+                            Applications ON NewCardApplications.ApplicationID = Applications.ApplicationID
+		                    where ApplicantAccountID = @AccountID 
+                            and NewCardApplications.CardTypeID = @CardTypeID
+                            and ApplicationTypeID = @ApplicationTypeID
+                            and Applications.Status = 1";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@AccountID", AccountID);
+            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            command.Parameters.AddWithValue("@CardTypeID", CardType);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(),out int AppID))
+                {
+                    ActiveApplicationID = AppID;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ActiveApplicationID;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return ActiveApplicationID;
+        }
 
 
         public static DataTable GetAllApplications()

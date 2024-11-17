@@ -100,6 +100,14 @@ namespace BankBussiness
             return clsNewCardApplicationData.GetAllNewCardApplications();
         }
 
+        //public static bool DoesHaveActiveApplication(int NewCardApplicationID,string AccountNumber,int CardTypeID)
+        //{
+        //    return clsNewCardApplicationData.DoesHaveActiveCardApplication(NewCardApplicationID, AccountNumber, CardTypeID);
+        //}
+        //public bool DoesHaveActiveApplication(string AccountNumber, int CardTypeID)
+        //{
+        //    return clsNewCardApplicationData.DoesHaveActiveCardApplication(this.NewCardApplicationID, AccountNumber, CardTypeID);
+        //}
         public bool Save()
         {
            base.Mode = (clsApplication.enMode)_Mode;

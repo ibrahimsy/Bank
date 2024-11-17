@@ -120,8 +120,22 @@ namespace Bank.Applications.New_Card_Application
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
+
             //Check If There Is An Active Application For Same Card Type
+
+            int CardTypeID = clsCardType.FindCardTypeByName(cbCardTypes.Text).CardTypeID;
+
+            int ApplicationID = clsNewCardApplication.GetActiveApplicationIDForCardType(ctrlAccountCardWithFilter1.AccountID,clsApplication.enApplicationTypes.IssueNewCard, CardTypeID);
+
+            if (ApplicationID != -1)
+            {
+                MessageBox.Show("Choose another Card Type,the Selected Account allready has an active Application for this card Type",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return;
+            }
+
             
             _NewCardApplicationInfo.ApplicantAccountID = ctrlAccountCardWithFilter1.AccountID;
             _NewCardApplicationInfo.ApplicationDate = DateTime.Now;
