@@ -148,7 +148,7 @@ namespace Bank.Applications.New_Card_Application
 
             _NewCardApplicationInfo.ApplicantAccountID = _SelectedAccountID;
             _NewCardApplicationInfo.ApplicationDate = DateTime.Now;
-            _NewCardApplicationInfo.Status = clsApplication.enApplicationStatus.New;
+            _NewCardApplicationInfo.Status = clsApplication.enApplicationStatus.Pending;
             _NewCardApplicationInfo.ApplicationTypeID = (int)clsApplication.enApplicationTypes.IssueNewCard;
             _NewCardApplicationInfo.CardTypeID = clsCardType.FindCardTypeByName(cbCardTypes.Text).CardTypeID;
             _NewCardApplicationInfo.PaidFees = Convert.ToDecimal(lblApplicationFee.Text);

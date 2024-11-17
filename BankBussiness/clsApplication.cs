@@ -17,7 +17,7 @@ namespace BankBussiness
         public enum enMode { enAddNew = 1, enUpdate = 2 }
         public enMode Mode = enMode.enAddNew;
 
-        public enum enApplicationStatus { New = 1,Canceled = 2,Completed = 3 }
+        public enum enApplicationStatus { Pending = 1,Canceled = 2,Completed = 3 }
         public enum enApplicationTypes
         {
             IssueNewCard = 1, ReplacementLostCard = 2,
@@ -50,15 +50,14 @@ namespace BankBussiness
         public clsApplicationType ApplicationTypeInfo;
         public DateTime ApplicationDate { set; get; }
         public enApplicationStatus Status { set; get; }
-
         public string StatusText 
         {
             get
             {
                 switch (Status)
                 {
-                    case enApplicationStatus.New:
-                        return "New";
+                    case enApplicationStatus.Pending:
+                        return "Pending";
                     case enApplicationStatus.Canceled:
                         return "Canceled";
                     case enApplicationStatus.Completed:
@@ -80,7 +79,7 @@ namespace BankBussiness
         this.ApplicantAccountID = -1;
         this.ApplicationTypeID = -1;
         this.ApplicationDate = DateTime.Now;
-        this.Status = enApplicationStatus.New;
+        this.Status = enApplicationStatus.Pending;
         this.PaidFees = 0;
         this.CreatedBy = -1;
 
@@ -125,7 +124,7 @@ namespace BankBussiness
         int ApplicantAccountID = -1;
         int ApplicationTypeID = -1;
         DateTime ApplicationDate = DateTime.Now;
-        byte Status = (byte)enApplicationStatus.New;
+        byte Status = (byte)enApplicationStatus.Pending;
         Decimal PaidFees = 0;
         int CreatedBy = -1;
         if (clsApplicationData.GetApplicationByID(ApplicationID, ref ApplicantAccountID, ref ApplicationTypeID, ref ApplicationDate, ref Status, ref PaidFees, ref CreatedBy))

@@ -63,7 +63,7 @@ namespace BankBussiness
             this.ApplicantAccountID = ApplicantClientID;
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationDate = DateTime.Now;
-            this.Status = enApplicationStatus.New;
+            this.Status = enApplicationStatus.Pending;
             this.PaidFees = PaidFees;
             this.CreatedBy = CreatedByUserID;
             this.CardTypeID = CardTypeID;

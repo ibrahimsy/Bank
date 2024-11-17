@@ -39,6 +39,7 @@
             this.dgvNewCardApplications = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddNewCardApplication = new System.Windows.Forms.Button();
@@ -138,9 +139,10 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showApplicationDetailsToolStripMenuItem});
+            this.showApplicationDetailsToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 54);
             // 
             // showApplicationDetailsToolStripMenuItem
             // 
@@ -148,6 +150,11 @@
             this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.showApplicationDetailsToolStripMenuItem.Text = "Show Application Details";
             this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(202, 6);
             // 
             // label1
             // 
@@ -242,5 +249,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem showApplicationDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
