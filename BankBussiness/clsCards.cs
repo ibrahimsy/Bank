@@ -133,7 +133,7 @@ namespace BankBussiness
         }
 
 
-        public static int IsCardExistForAccountID(int AccountID,int CardTypeID)
+        public static int GetActiveCardForAccountID(int AccountID,int CardTypeID)
         {
             return clsCardData.GetActiveCardForAccountAndCardType(AccountID, CardTypeID);
         }

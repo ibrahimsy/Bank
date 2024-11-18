@@ -34,36 +34,18 @@ namespace Bank.Applications.New_Card_Application.Controls
             }
             _NewCardApplicationID = NewCardApplicationID;
 
+            int CardID = _NewCardApplicationInfo.GetActiveCard();
+            llbViewCardInfo.Enabled = (CardID != -1);
+
             lblNewCardApplicationID.Text = NewCardApplicationID.ToString();
             lblCardType.Text = clsCardType.FindCardTypeByID(_NewCardApplicationInfo.CardTypeID).CardName;
-            lblApplicationID.Text = _NewCardApplicationInfo.ApplicationID.ToString();
-            lblApplicationType.Text = clsApplicationType.FindApplicationTypeByID(_NewCardApplicationInfo.ApplicationTypeID).TypeTitle;
-            lblApplicationDate.Text = clsFormat.GetDateFormat(_NewCardApplicationInfo.ApplicationDate);
-            lblApplicantFullName.Text = _NewCardApplicationInfo.PersonFullName;
-            lblStatus.Text = _NewCardApplicationInfo.StatusText;
-            lblAccountNumber.Text = _NewCardApplicationInfo.AccountNumber;
-            lblPaidFees.Text = _NewCardApplicationInfo.PaidFees.ToString();
-            lblCreatedBy.Text = clsUser.FindUserByID( _NewCardApplicationInfo.CreatedBy).UserName;
-        }
-
-        private void llbViewClientInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            clsAccount AccountInfo = clsAccount.FindAccountByAccountNumber(lblAccountNumber.Text);
-            frmClientInfo frm = new frmClientInfo(AccountInfo.ClientInfo.ClientID);
-            frm.ShowDialog();
+            ctrlApplicationInfo1.LoadApplicationBasicInfo(_NewCardApplicationInfo.ApplicationID);
+            
         }
 
         private void llbViewCardInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            int CardID = clsCard.IsCardExistForAccountID(clsAccount.FindAccountByAccountNumber(lblAccountNumber.Text).AccountID,
-                                                        clsCardType.FindCardTypeByName(lblCardType.Text).CardTypeID);
-            if(CardID == -1)
-            {
-                MessageBox.Show("No Active Card Exists","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            
-
+            //Show Card Info
         }
     }
 }

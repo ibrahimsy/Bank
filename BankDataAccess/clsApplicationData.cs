@@ -72,13 +72,12 @@ namespace BankDataAccess
             int AffectedRows = 0;
 
             string query = @"UPDATE Applications SET 
-                             ApplicationID = @ApplicationID,
                              ApplicantAccountID = @ApplicantAccountID,
                              ApplicationTypeID = @ApplicationTypeID,
                              ApplicationDate = @ApplicationDate,
                              Status = @Status,
                              PaidFees = @PaidFees,
-                             CreatedBy = @CreatedBy,
+                             CreatedBy = @CreatedBy
                              WHERE ApplicationID = @ApplicationID";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -266,6 +265,39 @@ namespace BankDataAccess
                 connection.Close();
             }
             return ActiveApplicationID;
+        }
+
+        public static bool UpdateStatus(int ApplicationID,int StatusID)
+        {
+            int AffectedRows = 0;
+
+            string query = @"UPDATE Applications
+                             SET  Status = @StatusID
+                             WHERE ApplicationID = @ApplicationID";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@StatusID", StatusID);
+
+            try
+            {
+                connection.Open();
+
+                AffectedRows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return AffectedRows > 0;
         }
 
 

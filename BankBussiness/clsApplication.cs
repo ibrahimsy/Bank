@@ -17,7 +17,7 @@ namespace BankBussiness
         public enum enMode { enAddNew = 1, enUpdate = 2 }
         public enMode Mode = enMode.enAddNew;
 
-        public enum enApplicationStatus { Pending = 1,Canceled = 2,Completed = 3 }
+        public enum enApplicationStatus { Pending = 1, Canceled = 2, Completed = 3 }
         public enum enApplicationTypes
         {
             IssueNewCard = 1, ReplacementLostCard = 2,
@@ -50,7 +50,7 @@ namespace BankBussiness
         public clsApplicationType ApplicationTypeInfo;
         public DateTime ApplicationDate { set; get; }
         public enApplicationStatus Status { set; get; }
-        public string StatusText 
+        public string StatusText
         {
             get
             {
@@ -73,114 +73,124 @@ namespace BankBussiness
         public clsUser UserInfo;
 
 
-    public clsApplication()
-    {
-        this.ApplicationID = -1;
-        this.ApplicantAccountID = -1;
-        this.ApplicationTypeID = -1;
-        this.ApplicationDate = DateTime.Now;
-        this.Status = enApplicationStatus.Pending;
-        this.PaidFees = 0;
-        this.CreatedBy = -1;
+        public clsApplication()
+        {
+            this.ApplicationID = -1;
+            this.ApplicantAccountID = -1;
+            this.ApplicationTypeID = -1;
+            this.ApplicationDate = DateTime.Now;
+            this.Status = enApplicationStatus.Pending;
+            this.PaidFees = 0;
+            this.CreatedBy = -1;
 
-        Mode = enMode.enAddNew;
-    }
+            Mode = enMode.enAddNew;
+        }
 
-    private clsApplication(int ApplicationID,int ApplicantAccountID, int ApplicationTypeID, DateTime ApplicationDate,
-                            enApplicationStatus Status, Decimal PaidFees, int CreatedBy)
-    {
-        this.ApplicationID = ApplicationID;
-        this.ApplicantAccountID = ApplicantAccountID;
-        this.AccountInfo = clsAccount.FindAccountByID(ApplicantAccountID);
-        this.ApplicationTypeID = ApplicationTypeID;
-        this.ApplicationTypeInfo = clsApplicationType.FindApplicationTypeByID(ApplicationTypeID);
-        this.ApplicationDate = ApplicationDate;
-        this.Status = Status;
-        this.PaidFees = PaidFees;
-        this.CreatedBy = CreatedBy;
-        this.UserInfo = clsUser.FindUserByID(CreatedBy);
-        
+        private clsApplication(int ApplicationID, int ApplicantAccountID, int ApplicationTypeID, DateTime ApplicationDate,
+                                enApplicationStatus Status, Decimal PaidFees, int CreatedBy)
+        {
+            this.ApplicationID = ApplicationID;
+            this.ApplicantAccountID = ApplicantAccountID;
+            this.AccountInfo = clsAccount.FindAccountByID(ApplicantAccountID);
+            this.ApplicationTypeID = ApplicationTypeID;
+            this.ApplicationTypeInfo = clsApplicationType.FindApplicationTypeByID(ApplicationTypeID);
+            this.ApplicationDate = ApplicationDate;
+            this.Status = Status;
+            this.PaidFees = PaidFees;
+            this.CreatedBy = CreatedBy;
+            this.UserInfo = clsUser.FindUserByID(CreatedBy);
+
             Mode = enMode.enUpdate;
-    }
-
-
-
-    private bool _AddApplication()
-    {
-        ApplicationID = clsApplicationData.AddNewApplication(ApplicantAccountID, ApplicationTypeID, ApplicationDate,(byte)Status, PaidFees, CreatedBy);
-
-        return (ApplicationID != -1);
-    }
-
-
-    private bool _UpdateApplication()
-    {
-        return clsApplicationData.UpdateApplicationByID(ApplicationID, ApplicantAccountID, ApplicationTypeID, ApplicationDate, (byte)Status, PaidFees, CreatedBy);
-    }
-
-
-    public static clsApplication FindApplicationByID(int ApplicationID)
-    {
-        int ApplicantAccountID = -1;
-        int ApplicationTypeID = -1;
-        DateTime ApplicationDate = DateTime.Now;
-        byte Status = (byte)enApplicationStatus.Pending;
-        Decimal PaidFees = 0;
-        int CreatedBy = -1;
-        if (clsApplicationData.GetApplicationByID(ApplicationID, ref ApplicantAccountID, ref ApplicationTypeID, ref ApplicationDate, ref Status, ref PaidFees, ref CreatedBy))
-        {
-            return new clsApplication(ApplicationID, ApplicantAccountID, ApplicationTypeID, ApplicationDate,(enApplicationStatus) Status, PaidFees, CreatedBy);
         }
-        else
+
+
+
+        private bool _AddApplication()
         {
-            return null;
+            ApplicationID = clsApplicationData.AddNewApplication(ApplicantAccountID, ApplicationTypeID, ApplicationDate, (byte)Status, PaidFees, CreatedBy);
+
+            return (ApplicationID != -1);
         }
-    }
 
 
-    public static bool IsExistByApplicationID(int ApplicationID)
-    {
-        return clsApplicationData.IsApplicationExistByApplicationID(ApplicationID);
-    }
+        private bool _UpdateApplication()
+        {
+            return clsApplicationData.UpdateApplicationByID(ApplicationID, ApplicantAccountID, ApplicationTypeID, ApplicationDate, (byte)Status, PaidFees, CreatedBy);
+        }
 
 
-    public static bool DeleteApplication(int ApplicationID)
-    {
-        return clsApplicationData.DeleteApplicationByID(ApplicationID);
-    }
+        public static clsApplication FindApplicationByID(int ApplicationID)
+        {
+            int ApplicantAccountID = -1;
+            int ApplicationTypeID = -1;
+            DateTime ApplicationDate = DateTime.Now;
+            byte Status = (byte)enApplicationStatus.Pending;
+            Decimal PaidFees = 0;
+            int CreatedBy = -1;
+            if (clsApplicationData.GetApplicationByID(ApplicationID, ref ApplicantAccountID, ref ApplicationTypeID, ref ApplicationDate, ref Status, ref PaidFees, ref CreatedBy))
+            {
+                return new clsApplication(ApplicationID, ApplicantAccountID, ApplicationTypeID, ApplicationDate, (enApplicationStatus)Status, PaidFees, CreatedBy);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
 
-    public static DataTable GetApplicationsList()
-    {
-        return clsApplicationData.GetAllApplications();
-    }
+        public static bool IsExistByApplicationID(int ApplicationID)
+        {
+            return clsApplicationData.IsApplicationExistByApplicationID(ApplicationID);
+        }
 
-    public static int GetActiveApplicationIDForCardType(int AccountID,clsApplication.enApplicationTypes ApplicationType,int CardTypeID)
-    {
-            return clsApplicationData.GetActiveApplicationForCardType(AccountID,(int)ApplicationType,CardTypeID);
-    }
+
+        public bool Delete()
+        {
+            return clsApplicationData.DeleteApplicationByID(this.ApplicationID);
+        }
+
+        public bool Cancel()
+        {
+            return clsApplicationData.UpdateStatus(this.ApplicationID, 2);
+        }
+
+        public bool SetCompleted()
+        {
+            return clsApplicationData.UpdateStatus(this.ApplicationID, 3);
+        }
+
+        public static DataTable GetApplicationsList()
+        {
+            return clsApplicationData.GetAllApplications();
+        }
+
+        public static int GetActiveApplicationIDForCardType(int AccountID, clsApplication.enApplicationTypes ApplicationType, int CardTypeID)
+        {
+            return clsApplicationData.GetActiveApplicationForCardType(AccountID, (int)ApplicationType, CardTypeID);
+        }
 
         public bool Save()
-    {
-        switch (Mode)
         {
-            case enMode.enAddNew:
-                if (_AddApplication())
-                {
-                    Mode = enMode.enUpdate;
-                    return true;
-                }
-                else
-                    return false;
+            switch (Mode)
+            {
+                case enMode.enAddNew:
+                    if (_AddApplication())
+                    {
+                        Mode = enMode.enUpdate;
+                        return true;
+                    }
+                    else
+                        return false;
 
-            case enMode.enUpdate:
-                if (_UpdateApplication())
-                    return true;
-                else
-                    return false;
+                case enMode.enUpdate:
+                    if (_UpdateApplication())
+                        return true;
+                    else
+                        return false;
+            }
+            return false;
         }
-        return false;
+
+        
     }
-
-
-}}
+}

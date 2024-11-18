@@ -58,7 +58,7 @@ namespace BankDataAccess
 
             string query = @"UPDATE NewCardApplications SET 
                              ApplicationID = @ApplicationID,
-                             CardTypeID = @CardTypeID,
+                             CardTypeID = @CardTypeID
                              WHERE NewCardApplicationID = @NewCardApplicationID";
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 

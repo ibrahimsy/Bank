@@ -62,8 +62,8 @@ namespace BankBussiness
             this.ApplicationID = ApplicationID;
             this.ApplicantAccountID = ApplicantClientID;
             this.ApplicationTypeID = ApplicationTypeID;
-            this.ApplicationDate = DateTime.Now;
-            this.Status = enApplicationStatus.Pending;
+            this.ApplicationDate = ApplicationDate;
+            this.Status = Status;
             this.PaidFees = PaidFees;
             this.CreatedBy = CreatedByUserID;
             this.CardTypeID = CardTypeID;
@@ -106,9 +106,17 @@ namespace BankBussiness
         {
             return clsNewCardApplicationData.IsNewCardApplicationsExistByID(NewCardApplicationID);
         }
-        public static bool DeleteNewCardApplication(int NewCardApplicationID)
+        public bool Delete()
         {
-            return clsNewCardApplicationData.DeleteNewCardApplicationsByID(NewCardApplicationID);
+            bool IsNewCardApplicationDeleted = false;
+            bool IsBaseApplicationDeleted = false;
+
+            IsNewCardApplicationDeleted = clsNewCardApplicationData.DeleteNewCardApplicationsByID(this.NewCardApplicationID);
+            if (!IsNewCardApplicationDeleted)
+                return false;
+            IsBaseApplicationDeleted = base.Delete();
+
+            return IsBaseApplicationDeleted;
         }
 
         public static DataTable GetNewCardApplicationsList()
@@ -151,6 +159,9 @@ namespace BankBussiness
             return false;
         }
 
-
+        public int GetActiveCard()
+        {
+            return clsCardData.GetActiveCardForAccountAndCardType(this.ApplicantAccountID,this.CardTypeID);
+        }
     }
 }

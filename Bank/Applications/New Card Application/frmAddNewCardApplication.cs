@@ -84,13 +84,14 @@ namespace Bank.Applications.New_Card_Application
                 return;
             }
             
-            ctrlAccountCardWithFilter1.LoadInfoByAccountNumber(_NewCardApplicationInfo.AccountInfo.AccountNumber);
+            ctrlAccountCardWithFilter1.LoadInfoByAccountNumber(_NewCardApplicationInfo.AccountNumber);
 
             lblApplicationID.Text = _NewCardApplicationInfo.ApplicationID.ToString();
             lblApplicationDate.Text = clsFormat.GetDateFormat(_NewCardApplicationInfo.ApplicationDate);
             lblApplicationFee.Text = _NewCardApplicationInfo.PaidFees.ToString();
-            lblCreatedBy.Text = _NewCardApplicationInfo.UserInfo.UserName;
-            cbCardTypes.SelectedIndex = cbCardTypes.FindString(_NewCardApplicationInfo.CardTypeInfo.CardName);
+
+            lblCreatedBy.Text = clsUser.FindUserByID(_NewCardApplicationInfo.CreatedBy).UserName;
+            cbCardTypes.SelectedIndex = cbCardTypes.FindString(clsCardType.FindCardTypeByID(_NewCardApplicationInfo.CardTypeID).CardName);
 
         }
         
@@ -135,7 +136,7 @@ namespace Bank.Applications.New_Card_Application
                 return;
             }
             //check if there is a card with AccountID and cardType
-            int CardID = clsCard.IsCardExistForAccountID(_SelectedAccountID, CardTypeID);
+            int CardID = _NewCardApplicationInfo.GetActiveCard();
             if (CardID != -1)
             {
                 MessageBox.Show($"There is Card Linked With AccountID = [{_SelectedAccountID}]",
