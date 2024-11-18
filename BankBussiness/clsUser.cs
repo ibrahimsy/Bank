@@ -16,7 +16,7 @@ namespace BankBussiness
 
         public enum enPermission { All = -1,AddPerson = 1,EditPerson = 2,DeletePerson = 4,ShowPersonInfo = 8,
                                    UserManagment = 16,AddClient = 32,EditClient = 64,DeleteClient = 128,
-                                   ShowClientInfo = 256,ChangePinCode = 512,Transaction = 1024 }
+                                   ShowClientInfo = 256,ChangePinCode = 512,Transaction = 1024,ApplicationCardApprove = 2048}
         enPermission _Permission;
         public int UserID { get; set; }
         public int PersonID { get; set; }

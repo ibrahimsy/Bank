@@ -17,7 +17,7 @@ namespace BankBussiness
         public enum enMode { enAddNew = 1, enUpdate = 2 }
         public enMode Mode = enMode.enAddNew;
 
-        public enum enApplicationStatus { Pending = 1, Canceled = 2, Completed = 3 }
+        public enum enApplicationStatus { Pending = 1, Canceled = 2,Approved = 3, Completed = 4 }
         public enum enApplicationTypes
         {
             IssueNewCard = 1, ReplacementLostCard = 2,
@@ -60,6 +60,8 @@ namespace BankBussiness
                         return "Pending";
                     case enApplicationStatus.Canceled:
                         return "Canceled";
+                    case enApplicationStatus.Approved:
+                        return "Approved";
                     case enApplicationStatus.Completed:
                         return "Completed";
                 }

@@ -70,7 +70,6 @@ namespace Bank.Applications.New_Card_Application
             if (_dtNewCardApplications.Rows.Count > 0)
             {
                 dgvNewCardApplications.Columns[0].HeaderText = "N.C.App ID";
-                //dgvNewCardApplications.Columns[0].Width = 10;
 
                 dgvNewCardApplications.Columns[1].HeaderText = "Base App ID";
 
@@ -228,9 +227,20 @@ namespace Bank.Applications.New_Card_Application
                 return;
             }
 
+            bool IsCardIssued = (NewCardApplicationInfo.GetActiveCard() != -1);
+
             editNewCardApplicationToolStripMenuItem.Enabled = (NewCardApplicationInfo.Status == clsApplication.enApplicationStatus.Pending);
 
-            
+            deleteApplicationToolStripMenuItem.Enabled = (NewCardApplicationInfo.Status == clsApplication.enApplicationStatus.Pending);
+
+            cancelApplicationToolStripMenuItem.Enabled = !IsCardIssued && (NewCardApplicationInfo.Status != clsApplication.enApplicationStatus.Canceled);
+
+            ApproveActivationtoolStripMenuItem.Enabled = (NewCardApplicationInfo.Status == clsApplication.enApplicationStatus.Pending) && CheckPermission(clsUser.enPermission.ApplicationCardApprove);
+
+            issueCardToolStripMenuItem.Enabled = (NewCardApplicationInfo.Status == clsApplication.enApplicationStatus.Approved) && !IsCardIssued;
+
+            showCardInfoToolStripMenuItem.Enabled = IsCardIssued;
+
         }
     }
 }

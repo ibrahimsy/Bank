@@ -46,7 +46,7 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ApproveActivationtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.cancelApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
@@ -171,7 +171,7 @@
             this.toolStripMenuItem3,
             this.deleteApplicationToolStripMenuItem,
             this.toolStripMenuItem4,
-            this.toolStripMenuItem8,
+            this.ApproveActivationtoolStripMenuItem,
             this.toolStripSeparator1,
             this.cancelApplicationToolStripMenuItem,
             this.toolStripMenuItem5,
@@ -181,7 +181,7 @@
             this.toolStripMenuItem7,
             this.showCardHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 272);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 250);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // showApplicationDetailsToolStripMenuItem
@@ -231,12 +231,12 @@
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(202, 6);
             // 
-            // toolStripMenuItem8
+            // ApproveActivationtoolStripMenuItem
             // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(205, 22);
-            this.toolStripMenuItem8.Text = "Approve Application";
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            this.ApproveActivationtoolStripMenuItem.Name = "ApproveActivationtoolStripMenuItem";
+            this.ApproveActivationtoolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.ApproveActivationtoolStripMenuItem.Text = "Approve Application";
+            this.ApproveActivationtoolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripSeparator1
             // 
@@ -353,6 +353,7 @@
             this.Name = "frmListNewCardApplications";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Card Applications";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmListNewCardApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewCardApplications)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -390,7 +391,7 @@
         private System.Windows.Forms.ToolStripMenuItem showCardInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem showCardHistoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem ApproveActivationtoolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

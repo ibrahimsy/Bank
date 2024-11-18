@@ -1,4 +1,5 @@
 ﻿using Bank.Accounts;
+using Bank.Applications.New_Card_Application;
 using Bank.Beneficiaries;
 using Bank.Client;
 using Bank.Login;
