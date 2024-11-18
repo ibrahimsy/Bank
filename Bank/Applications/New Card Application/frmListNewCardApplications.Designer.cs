@@ -181,7 +181,7 @@
             this.toolStripMenuItem7,
             this.showCardHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 250);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 272);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // showApplicationDetailsToolStripMenuItem
@@ -259,7 +259,8 @@
             // 
             this.issueCardToolStripMenuItem.Name = "issueCardToolStripMenuItem";
             this.issueCardToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.issueCardToolStripMenuItem.Text = "Issue Card";
+            this.issueCardToolStripMenuItem.Text = "Issue Card For First Time";
+            this.issueCardToolStripMenuItem.Click += new System.EventHandler(this.issueCardToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 

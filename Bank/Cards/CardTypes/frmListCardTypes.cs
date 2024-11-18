@@ -37,11 +37,15 @@ namespace Bank.Cards.CardTypes
 
                 dgvCardTypes.Columns[2].HeaderText = "Description";
                 dgvCardTypes.Columns[2].Width = 200;
+
+                dgvCardTypes.Columns[3].HeaderText = "Default Validity Length";
+                dgvCardTypes.Columns[3].Width = 200;
+
+                dgvCardTypes.Columns[4].HeaderText = "Issue Fees";
+                dgvCardTypes.Columns[4].Width = 200;
             }
 
         }
-
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {

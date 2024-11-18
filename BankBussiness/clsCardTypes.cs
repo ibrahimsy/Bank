@@ -18,37 +18,36 @@ namespace BankBussiness
         enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
-
-
         public int CardTypeID { set; get; }
         public string CardName { set; get; }
         public string Description { set; get; }
+        public byte DefaultValidationLength { set; get; }
+        public float IssueFees { set; get; }
 
 
         public clsCardType()
         {
-            this.CardTypeID = default;
-            this.CardName = default;
-            this.Description = default;
+            this.CardTypeID = -1;
+            this.CardName = "";
+            this.Description = "";
+            this.DefaultValidationLength = 0;
+            this.IssueFees = 0;
             _Mode = enMode.enAddNew;
         }
 
-
-
-
-        private clsCardType(int CardTypeID, string CardName, string Description)
+        private clsCardType(int CardTypeID, string CardName, string Description, byte DefaultValidationLength, float IssueFees)
         {
             this.CardTypeID = CardTypeID;
             this.CardName = CardName;
             this.Description = Description;
+            this.DefaultValidationLength = DefaultValidationLength;
+            this.IssueFees = IssueFees;
             _Mode = enMode.enUpdate;
         }
 
-
-
         private bool _AddCardType()
         {
-            CardTypeID = clsCardTypesData.AddCardTypes(CardName, Description);
+            CardTypeID = clsCardTypeData.AddCardType( CardName, Description, DefaultValidationLength, IssueFees);
 
             return (CardTypeID != -1);
         }
@@ -56,18 +55,18 @@ namespace BankBussiness
 
         private bool _UpdateCardType()
         {
-            return clsCardTypesData.UpdateCardTypesByID(CardTypeID, CardName, Description);
+            return clsCardTypeData.UpdateCardTypeByID(CardTypeID, CardName, Description, DefaultValidationLength, IssueFees);
         }
-
 
         public static clsCardType FindCardTypeByID(int CardTypeID)
         {
-            
-            string CardName = default;
-            string Description = default;
-            if (clsCardTypesData.GetCardTypesByID( CardTypeID, ref CardName, ref Description))
+            string CardName = "";
+            string Description = "";
+            byte DefaultValidationLength = 0;
+            float IssueFees = 0;
+            if (clsCardTypeData.GetCardTypeByID(CardTypeID, ref CardName, ref Description, ref DefaultValidationLength, ref IssueFees))
             {
-                return new clsCardType(CardTypeID, CardName, Description);
+                return new clsCardType(CardTypeID, CardName, Description, DefaultValidationLength, IssueFees);
             }
             else
             {
@@ -75,41 +74,37 @@ namespace BankBussiness
             }
         }
 
-        public static clsCardType FindCardTypeByName(string CardName)
+        public static clsCardType FindCardTypeByName(string  CardTypeName)
         {
-
             int CardTypeID = -1;
             string Description = "";
-            if (clsCardTypesData.GetCardTypesByCardName(ref CardTypeID, CardName, ref Description))
+            byte DefaultValidationLength = 0;
+            float IssueFees = 0;
+            if (clsCardTypeData.GetCardTypeByTypeName(ref CardTypeID, CardTypeName, ref Description, ref DefaultValidationLength, ref IssueFees))
             {
-                return new clsCardType(CardTypeID, CardName, Description);
+                return new clsCardType(CardTypeID, CardTypeName, Description, DefaultValidationLength, IssueFees);
             }
             else
             {
                 return null;
             }
         }
-
-
+       
         public static bool IsExistByCardTypeID(int CardTypeID)
         {
-            return clsCardTypesData.IsCardTypesExistByCardTypeID(CardTypeID);
+            return clsCardTypeData.IsCardTypeExistByCardTypeID(CardTypeID);
         }
-
 
         public static bool DeleteCardType(int CardTypeID)
         {
-            return clsCardTypesData.DeleteCardTypesByID(CardTypeID);
+            return clsCardTypeData.DeleteCardTypeByID(CardTypeID);
         }
-
 
         public static DataTable GetCardTypesList()
         {
-            return clsCardTypesData.GetAllCardTypes();
+            return clsCardTypeData.GetAllCardTypes();
         }
-
-
-
+       
         public bool Save()
         {
             switch (_Mode)

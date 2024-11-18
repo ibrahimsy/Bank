@@ -49,15 +49,15 @@ namespace BankBussiness
 
         public clsCard()
         {
-            this.CardID = default;
-            this.AccountID = default;
-            this.CardNumber = default;
-            this.PinCode = default;
-            this.CVV = default;
-            this.ExpirationDate = default;
-            this.Status = default;
-            this.CardTypeID = default;
-            this.IssueDate = default;
+            this.CardID = -1;
+            this.AccountID = -1;
+            this.CardNumber = "";
+            this.PinCode = "";
+            this.CVV = "";
+            this.ExpirationDate = DateTime.MaxValue;
+            this.Status = enCardStatus.Active;
+            this.CardTypeID = -1;
+            this.IssueDate = DateTime.Now;
             _Mode = enMode.enAddNew;
         }
 

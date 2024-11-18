@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BankBussiness.clsCard;
 
 namespace Bank.Applications.New_Card_Application
 {
@@ -229,7 +230,7 @@ namespace Bank.Applications.New_Card_Application
 
             bool IsCardIssued = (NewCardApplicationInfo.GetActiveCard() != -1);
 
-            editNewCardApplicationToolStripMenuItem.Enabled = (NewCardApplicationInfo.Status == clsApplication.enApplicationStatus.Pending);
+            editNewCardApplicationToolStripMenuItem.Enabled = !IsCardIssued && (NewCardApplicationInfo.Status == clsApplication.enApplicationStatus.Pending);
 
             deleteApplicationToolStripMenuItem.Enabled = (NewCardApplicationInfo.Status == clsApplication.enApplicationStatus.Pending);
 
@@ -241,6 +242,33 @@ namespace Bank.Applications.New_Card_Application
 
             showCardInfoToolStripMenuItem.Enabled = IsCardIssued;
 
+        }
+
+        private void issueCardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int NewCardApplicationID = (int)dgvNewCardApplications.CurrentRow.Cells[0].Value;
+
+            clsNewCardApplication NewCardApplicationInfo = clsNewCardApplication.FindNewCardApplicationByID(NewCardApplicationID);
+            if (NewCardApplicationInfo == null)
+            {
+                return;
+            }
+
+            clsCard Card = new clsCard();
+            Card.AccountID = NewCardApplicationInfo.ApplicantAccountID;
+            Card.ExpirationDate = DateTime.Now.AddYears(clsCardType.FindCardTypeByID(NewCardApplicationInfo.CardTypeID).DefaultValidationLength);
+            Card.Status = enCardStatus.Active;
+            Card.CardTypeID = NewCardApplicationInfo.CardTypeID;
+            Card.IssueDate = DateTime.Now;
+
+            if (Card.Save())
+            {
+                MessageBox.Show("Card Issued Successfuly","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error : An Error Occured ,Card Issue Faild", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

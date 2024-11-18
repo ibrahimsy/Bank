@@ -35,6 +35,9 @@ namespace BankDataAccess
                             @CardTypeID,
                             @IssueDate,
                             );
+                            UPDATE Applications
+                             SET  Status = 4
+                             WHERE ApplicationID = @ApplicationID
                             SELECT SCOPE_IDENTITY();";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
