@@ -130,6 +130,19 @@ namespace Bank.Accounts
             this.Close();
         }
 
+        private bool _RequestCardUponCreateAccount()
+        {
+            clsNewCardApplication _NewCardApplicationInfo = new clsNewCardApplication();
+            _NewCardApplicationInfo.ApplicantAccountID = _AccountInfo.AccountID;
+            _NewCardApplicationInfo.ApplicationDate = DateTime.Now;
+            _NewCardApplicationInfo.Status = clsApplication.enApplicationStatus.Pending;
+            _NewCardApplicationInfo.ApplicationTypeID = (int)clsApplication.enApplicationTypes.IssueNewCard;
+            _NewCardApplicationInfo.CardTypeID = (int)clsCardType.enCardType.DebitCard;
+            _NewCardApplicationInfo.PaidFees = clsApplicationType.FindApplicationTypeByID(_NewCardApplicationInfo.ApplicationTypeID).Fees;
+            _NewCardApplicationInfo.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
+
+            return (_NewCardApplicationInfo.Save());
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
@@ -162,8 +175,15 @@ namespace Bank.Accounts
 
                 lblAccountID.Text = _AccountInfo.AccountID.ToString();
                 lblAccountNumber.Text = _AccountInfo.AccountNumber.ToString();  
-
                 ctrlClientCardWithFilter1.FilterEnabled = false;
+
+                if(chkRequestForCard.Checked)
+                {
+                    if (_RequestCardUponCreateAccount())
+                        MessageBox.Show("Requested For Card Was Created","Card Request",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Requested For Card Was Failde,Contact Your Admin", "Card Request Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

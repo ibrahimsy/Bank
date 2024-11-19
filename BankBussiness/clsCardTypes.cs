@@ -18,6 +18,8 @@ namespace BankBussiness
         enum enMode { enAddNew = 1, enUpdate = 2 }
         enMode _Mode = enMode.enAddNew;
 
+        public enum enCardType { DebitCard = 1, CreditCard = 2, PlatinumCard = 3, PrePaidCard = 4, TravelCard = 5 }
+
         public int CardTypeID { set; get; }
         public string CardName { set; get; }
         public string Description { set; get; }

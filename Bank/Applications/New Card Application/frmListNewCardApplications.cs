@@ -260,6 +260,9 @@ namespace Bank.Applications.New_Card_Application
             Card.Status = enCardStatus.Active;
             Card.CardTypeID = NewCardApplicationInfo.CardTypeID;
             Card.IssueDate = DateTime.Now;
+            Card.ApplicationID = NewCardApplicationInfo.ApplicationID;
+            Card.IssueReason = enIssueReason.FirstTime;
+            Card.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
 
             if (Card.Save())
             {

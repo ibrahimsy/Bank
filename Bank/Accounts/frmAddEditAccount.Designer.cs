@@ -53,6 +53,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chkRequestForCard = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tpClientInfo.SuspendLayout();
             this.tpAccountInfo.SuspendLayout();
@@ -119,6 +120,7 @@
             // 
             // tpAccountInfo
             // 
+            this.tpAccountInfo.Controls.Add(this.chkRequestForCard);
             this.tpAccountInfo.Controls.Add(this.cbAccountStatus);
             this.tpAccountInfo.Controls.Add(this.txtNotes);
             this.tpAccountInfo.Controls.Add(this.cbBranches);
@@ -324,6 +326,17 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // chkRequestForCard
+            // 
+            this.chkRequestForCard.AutoSize = true;
+            this.chkRequestForCard.Font = new System.Drawing.Font("Titillium Web", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRequestForCard.Location = new System.Drawing.Point(199, 402);
+            this.chkRequestForCard.Name = "chkRequestForCard";
+            this.chkRequestForCard.Size = new System.Drawing.Size(314, 28);
+            this.chkRequestForCard.TabIndex = 44;
+            this.chkRequestForCard.Text = "Request For Card (Debit Card By Default)";
+            this.chkRequestForCard.UseVisualStyleBackColor = true;
+            // 
             // frmAddEditAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,5 +387,6 @@
         private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.CheckBox chkRequestForCard;
     }
 }
