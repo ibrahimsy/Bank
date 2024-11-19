@@ -151,7 +151,7 @@ namespace BankDataAccess
                     CardName = (string)reader["CardName"];
                     Description = (string)reader["Description"];
                     DefaultValidationLength = (byte)reader["DefaultValidationLength"];
-                    IssueFees = (float)reader["IssueFees"];
+                    IssueFees = Convert.ToSingle(reader["IssueFees"]);
 
                 }
                 reader.Close();
@@ -194,7 +194,7 @@ namespace BankDataAccess
                     CardTypeID = (int)reader["CardTypeID"];
                     Description = (string)reader["Description"];
                     DefaultValidationLength = (byte)reader["DefaultValidationLength"];
-                    IssueFees = (float)reader["IssueFees"];
+                    IssueFees = Convert.ToSingle(reader["IssueFees"]);
 
                 }
                 reader.Close();

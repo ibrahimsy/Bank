@@ -176,6 +176,12 @@
     <Compile Include="Cards\CardTypes\frmListCardTypes.Designer.cs">
       <DependentUpon>frmListCardTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cards\frmCardsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cards\frmCardsList.Designer.cs">
+      <DependentUpon>frmCardsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\Controls\ctrlClientCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cards\CardTypes\frmListCardTypes.resx">
       <DependentUpon>frmListCardTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cards\frmCardsList.resx">
+      <DependentUpon>frmCardsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Controls\ctrlClientCard.resx">
       <DependentUpon>ctrlClientCard.cs</DependentUpon>

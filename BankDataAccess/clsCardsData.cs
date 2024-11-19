@@ -17,11 +17,7 @@ namespace BankDataAccess
         {
             int _CardID = -1;
             string query = @"INSERT INTO Cards(
-
                             AccountID,
-                            CardNumber,
-                            PinCode,
-                            CVV,
                             ExpirationDate,
                             Status,
                             CardTypeID,
@@ -31,9 +27,6 @@ namespace BankDataAccess
                             CreatedBy
                             ) VALUES (
                             @AccountID,
-                            @CardNumber,
-                            @PinCode,
-                            @CVV,
                             @ExpirationDate,
                             @Status,
                             @CardTypeID,
@@ -99,9 +92,6 @@ namespace BankDataAccess
 
             string query = @"UPDATE Cards SET 
                             AccountID = @AccountID,
-                            CardNumber = @CardNumber,
-                            PinCode = @PinCode,
-                            CVV = @CVV,
                             ExpirationDate = @ExpirationDate,
                             Status = @Status,
                             CardTypeID = @CardTypeID,
@@ -276,33 +266,19 @@ namespace BankDataAccess
             return IsFound;
         }
 
-        public static int GetActiveCardForAccountAndCardType(int ApplicationID,int CardTypeID)
+        public static int GetActiveCardForAccountAndCardType(int AccountID, int CardTypeID)
         {
             int _CardID = -1;
-            string query = @"";
+            string query = @"SELECT CardID
+                           FROM Cards
+                           WHERE AccountID = @AccountID AND
+                           CardTypeID = @CardTypeID AND Status = 1";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@AccountID", AccountID);
-            command.Parameters.AddWithValue("@CardNumber", CardNumber);
-            command.Parameters.AddWithValue("@PinCode", PinCode);
-            command.Parameters.AddWithValue("@CVV", CVV);
-            command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
-            command.Parameters.AddWithValue("@Status", Status);
             command.Parameters.AddWithValue("@CardTypeID", CardTypeID);
-            command.Parameters.AddWithValue("@IssueDate", IssueDate);
-            if (ApplicationID == -1)
-            {
-                command.Parameters.AddWithValue("@ApplicationID", DBNull.Value);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
-            }
-
-            command.Parameters.AddWithValue("@IssueReason", IssueReason);
-            command.Parameters.AddWithValue("@CreatedBy", CreatedBy);
-
+           
             try
             {
                 connection.Open();
@@ -328,7 +304,7 @@ namespace BankDataAccess
         {
             DataTable dt = new DataTable();
 
-            string query = @"SELECT * FROM Cards ORDER BY CardID DESC";
+            string query = @"SELECT * FROM Cards_view ORDER BY CardID DESC";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand command = new SqlCommand(query, connection);

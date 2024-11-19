@@ -3,6 +3,7 @@ using Bank.AccountTypes;
 using Bank.Application_Types;
 using Bank.Applications.New_Card_Application;
 using Bank.Branches;
+using Bank.Cards;
 using Bank.Cards.CardTypes;
 using Bank.Client;
 using Bank.Currencies;
@@ -213,6 +214,12 @@ namespace Bank
         private void manageNewCardApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListNewCardApplications frm = new frmListNewCardApplications();
+            frm.ShowDialog();
+        }
+
+        private void toolStripMenuItem21_Click(object sender, EventArgs e)
+        {
+            frmCardsList frm = new frmCardsList();  
             frm.ShowDialog();
         }
     }
