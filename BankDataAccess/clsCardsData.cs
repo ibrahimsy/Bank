@@ -82,8 +82,6 @@ namespace BankDataAccess
             return _CardID;
         }
 
-
-
         public static bool UpdateCardByID(int CardID, int AccountID, string CardNumber, string PinCode, string CVV, DateTime ExpirationDate, byte Status, int CardTypeID, DateTime IssueDate, int ApplicationID, byte IssueReason, int CreatedBy)
         {
 
@@ -141,8 +139,6 @@ namespace BankDataAccess
             return AffectedRows > 0;
         }
 
-
-
         public static bool DeleteCardByID(int CardID)
         {
 
@@ -172,7 +168,6 @@ namespace BankDataAccess
 
             return AffectedRows > 0;
         }
-
 
         public static bool GetCardByID(int CardID, ref int AccountID, ref string CardNumber, ref string PinCode, ref string CVV, ref DateTime ExpirationDate, ref byte Status, ref int CardTypeID, ref DateTime IssueDate, ref int ApplicationID, ref byte IssueReason, ref int CreatedBy)
         {
@@ -234,6 +229,65 @@ namespace BankDataAccess
             return IsFound;
         }
 
+        public static bool GetCardByCardNumber(ref int CardID,ref int AccountID,string CardNumber, ref string PinCode, ref string CVV, ref DateTime ExpirationDate, ref byte Status, ref int CardTypeID, ref DateTime IssueDate, ref int ApplicationID, ref byte IssueReason, ref int CreatedBy)
+        {
+
+            bool IsFound = false;
+
+            string query = "SELECT * FROM Cards WHERE CardNumber = @CardNumber";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@CardNumber", CardNumber);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+
+                    AccountID = (int)reader["AccountID"];
+                    CardID = (int)reader["CardID"];
+                    PinCode = (string)reader["PinCode"];
+                    CVV = (string)reader["CVV"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+                    Status = (byte)reader["Status"];
+                    CardTypeID = (int)reader["CardTypeID"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+
+                    if (reader["ApplicationID"] == DBNull.Value)
+                    {
+                        ApplicationID = -1;
+                    }
+                    else
+                    {
+                        ApplicationID = (int)reader["ApplicationID"];
+                    }
+
+                    IssueReason = (byte)reader["IssueReason"];
+                    CreatedBy = (int)reader["CreatedBy"];
+
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                IsFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+            return IsFound;
+        }
         public static bool IsCardExistByCardID(int CardID)
         {
             bool IsFound = false;
@@ -299,7 +353,6 @@ namespace BankDataAccess
             return _CardID;
         }
 
-
         public static DataTable GetAllCards()
         {
             DataTable dt = new DataTable();
@@ -329,7 +382,6 @@ namespace BankDataAccess
             }
             return dt;
         }
-
 
     }
 }

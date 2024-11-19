@@ -128,5 +128,20 @@ namespace Bank.Cards
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
         }
+
+        void _ShowCardInfo()
+        {
+            frmShowCardInfo frm = new frmShowCardInfo((int)dgvCards.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+        private void showCardDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ShowCardInfo();
+        }
+
+        private void dgvCards_DoubleClick(object sender, EventArgs e)
+        {
+            _ShowCardInfo();
+        }
     }
 }

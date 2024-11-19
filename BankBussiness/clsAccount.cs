@@ -35,7 +35,14 @@ namespace BankBussiness
 
         public clsClient ClientInfo;
         public string AccountNumber { get; set; }
-
+         
+        public string FullName
+        {
+            get
+            {
+                return ClientInfo.PersonInfo.FullName;
+            }
+        }
         public bool IsPrimary { get; set; }
         public int AccountTypeID { get; set; }
 

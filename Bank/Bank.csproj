@@ -176,11 +176,29 @@
     <Compile Include="Cards\CardTypes\frmListCardTypes.Designer.cs">
       <DependentUpon>frmListCardTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cards\Controls\ctrlCardInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cards\Controls\ctrlCardInfo.Designer.cs">
+      <DependentUpon>ctrlCardInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\Controls\ctrlCardInfoWihFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cards\Controls\ctrlCardInfoWihFilter.Designer.cs">
+      <DependentUpon>ctrlCardInfoWihFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cards\frmCardsList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cards\frmCardsList.Designer.cs">
       <DependentUpon>frmCardsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\frmShowCardInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cards\frmShowCardInfo.Designer.cs">
+      <DependentUpon>frmShowCardInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Client\Controls\ctrlClientCard.cs">
       <SubType>UserControl</SubType>
@@ -403,8 +421,17 @@
     <EmbeddedResource Include="Cards\CardTypes\frmListCardTypes.resx">
       <DependentUpon>frmListCardTypes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cards\Controls\ctrlCardInfo.resx">
+      <DependentUpon>ctrlCardInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cards\Controls\ctrlCardInfoWihFilter.resx">
+      <DependentUpon>ctrlCardInfoWihFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cards\frmCardsList.resx">
       <DependentUpon>frmCardsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cards\frmShowCardInfo.resx">
+      <DependentUpon>frmShowCardInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client\Controls\ctrlClientCard.resx">
       <DependentUpon>ctrlClientCard.cs</DependentUpon>
@@ -662,6 +689,8 @@
   <ItemGroup>
     <None Include="Resources\AddNewApplication.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\card-search.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

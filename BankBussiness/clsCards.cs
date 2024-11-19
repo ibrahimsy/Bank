@@ -38,6 +38,26 @@ namespace BankBussiness
         public string CVV { set; get; }
         public DateTime ExpirationDate { set; get; }
         public enCardStatus Status { set; get; }
+
+        public string StatusText
+        {
+            get
+            {
+                switch (Status)
+                {
+                    case enCardStatus.Active:
+                        return "Active";
+                    case enCardStatus.InActive:
+                        return "InActive";
+                    case enCardStatus.Frozen:
+                        return "Frozen";
+                    case enCardStatus.Blocked:
+                        return "Blocked";
+                    default:
+                        return "Active";
+                }
+            }
+        }
         public int CardTypeID { set; get; }
         public clsCardType CardTypeInfo;
         public DateTime IssueDate { set; get; }
@@ -144,6 +164,28 @@ namespace BankBussiness
             }
         }
 
+        public static clsCard FindCardByCardNumber(string CardNumber)
+        {
+            int CardID = -1;
+            int AccountID = -1;
+            string PinCode = "";
+            string CVV = "";
+            DateTime ExpirationDate = DateTime.MaxValue;
+            byte Status = 1;
+            int CardTypeID = -1;
+            DateTime IssueDate = DateTime.MaxValue;
+            int ApplicationID = -1;
+            byte IssueReason = 1;
+            int CreatedBy = -1;
+            if (clsCardData.GetCardByCardNumber(ref CardID, ref AccountID, CardNumber, ref PinCode, ref CVV, ref ExpirationDate, ref Status, ref CardTypeID, ref IssueDate, ref ApplicationID, ref IssueReason, ref CreatedBy))
+            {
+                return new clsCard(CardID, AccountID, CardNumber, PinCode, CVV, ExpirationDate, (enCardStatus)Status, CardTypeID, IssueDate, ApplicationID, (enIssueReason)IssueReason, CreatedBy);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public static bool IsExistByCardID(int CardID)
         {

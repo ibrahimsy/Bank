@@ -333,6 +333,16 @@ namespace Bank.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap card_search {
+            get {
+                object obj = ResourceManager.GetObject("card-search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cash_withdrawal {
             get {
                 object obj = ResourceManager.GetObject("cash-withdrawal", resourceCulture);
