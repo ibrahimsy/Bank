@@ -174,7 +174,7 @@ namespace BankDataAccess
 
             bool IsFound = false;
 
-            string query = "SELECT * FROM CardTypes WHERE CardTypeID = @CardTypeID";
+            string query = "SELECT * FROM CardTypes WHERE CardName = @CardName";
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 

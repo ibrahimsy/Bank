@@ -98,7 +98,8 @@
             // lblCardID
             // 
             this.lblCardID.AutoSize = true;
-            this.lblCardID.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardID.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblCardID.Location = new System.Drawing.Point(102, 34);
             this.lblCardID.Name = "lblCardID";
             this.lblCardID.Size = new System.Drawing.Size(43, 29);
@@ -108,7 +109,8 @@
             // lblCreatedBy
             // 
             this.lblCreatedBy.AutoSize = true;
-            this.lblCreatedBy.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreatedBy.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreatedBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblCreatedBy.Location = new System.Drawing.Point(610, 288);
             this.lblCreatedBy.Name = "lblCreatedBy";
             this.lblCreatedBy.Size = new System.Drawing.Size(43, 29);
@@ -118,7 +120,8 @@
             // lblCardType
             // 
             this.lblCardType.AutoSize = true;
-            this.lblCardType.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardType.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblCardType.Location = new System.Drawing.Point(610, 246);
             this.lblCardType.Name = "lblCardType";
             this.lblCardType.Size = new System.Drawing.Size(43, 29);
@@ -128,7 +131,8 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblStatus.Location = new System.Drawing.Point(610, 204);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(43, 29);
@@ -138,7 +142,8 @@
             // lblLinkedAccountNumber
             // 
             this.lblLinkedAccountNumber.AutoSize = true;
-            this.lblLinkedAccountNumber.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLinkedAccountNumber.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLinkedAccountNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblLinkedAccountNumber.Location = new System.Drawing.Point(610, 162);
             this.lblLinkedAccountNumber.Name = "lblLinkedAccountNumber";
             this.lblLinkedAccountNumber.Size = new System.Drawing.Size(43, 29);
@@ -148,7 +153,8 @@
             // lblExpirationDate
             // 
             this.lblExpirationDate.AutoSize = true;
-            this.lblExpirationDate.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpirationDate.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpirationDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblExpirationDate.Location = new System.Drawing.Point(610, 120);
             this.lblExpirationDate.Name = "lblExpirationDate";
             this.lblExpirationDate.Size = new System.Drawing.Size(43, 29);
@@ -158,7 +164,8 @@
             // lblIssueDate
             // 
             this.lblIssueDate.AutoSize = true;
-            this.lblIssueDate.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueDate.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblIssueDate.Location = new System.Drawing.Point(610, 78);
             this.lblIssueDate.Name = "lblIssueDate";
             this.lblIssueDate.Size = new System.Drawing.Size(43, 29);
@@ -168,7 +175,8 @@
             // lblApplicationID
             // 
             this.lblApplicationID.AutoSize = true;
-            this.lblApplicationID.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationID.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblApplicationID.Location = new System.Drawing.Point(187, 288);
             this.lblApplicationID.Name = "lblApplicationID";
             this.lblApplicationID.Size = new System.Drawing.Size(43, 29);
@@ -178,7 +186,8 @@
             // lblIssueReason
             // 
             this.lblIssueReason.AutoSize = true;
-            this.lblIssueReason.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueReason.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueReason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblIssueReason.Location = new System.Drawing.Point(187, 246);
             this.lblIssueReason.Name = "lblIssueReason";
             this.lblIssueReason.Size = new System.Drawing.Size(43, 29);
@@ -188,7 +197,8 @@
             // lblCVV
             // 
             this.lblCVV.AutoSize = true;
-            this.lblCVV.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCVV.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCVV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblCVV.Location = new System.Drawing.Point(187, 204);
             this.lblCVV.Name = "lblCVV";
             this.lblCVV.Size = new System.Drawing.Size(43, 29);
@@ -198,7 +208,8 @@
             // lblPinCode
             // 
             this.lblPinCode.AutoSize = true;
-            this.lblPinCode.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPinCode.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPinCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblPinCode.Location = new System.Drawing.Point(187, 162);
             this.lblPinCode.Name = "lblPinCode";
             this.lblPinCode.Size = new System.Drawing.Size(43, 29);
@@ -208,7 +219,8 @@
             // lblHolderFullName
             // 
             this.lblHolderFullName.AutoSize = true;
-            this.lblHolderFullName.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHolderFullName.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHolderFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblHolderFullName.Location = new System.Drawing.Point(187, 120);
             this.lblHolderFullName.Name = "lblHolderFullName";
             this.lblHolderFullName.Size = new System.Drawing.Size(43, 29);
@@ -218,7 +230,8 @@
             // lblCardNumber
             // 
             this.lblCardNumber.AutoSize = true;
-            this.lblCardNumber.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardNumber.Font = new System.Drawing.Font("Titillium Web SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(25)))), ((int)(((byte)(82)))));
             this.lblCardNumber.Location = new System.Drawing.Point(187, 78);
             this.lblCardNumber.Name = "lblCardNumber";
             this.lblCardNumber.Size = new System.Drawing.Size(43, 29);

@@ -47,20 +47,24 @@ namespace Bank.Applications.Replace_Lost_Or_Damage_Card
         {
             _ResetDefaultValue();
         }
-
+        
         private void ctrlCardInfoWihFilter1_OnCardSelected(int obj)
         {
             _SelectedCardID = obj;
             lblOldCardID.Text = obj.ToString();
             llbShowCardHistory.Enabled = (_SelectedCardID != -1);
+            btnIssue.Enabled = (_SelectedCardID != -1);
             
             if (_SelectedCardID == -1)
+            {
+                ctrlCardInfoWihFilter1.ResetCardInfo();
                 return;
+            }
             
             if (!ctrlCardInfoWihFilter1.CardInfo.IsActive) 
                 return;
             
-            btnIssue.Enabled = true;
+           
         }
 
         private void btnIssue_Click(object sender, EventArgs e)

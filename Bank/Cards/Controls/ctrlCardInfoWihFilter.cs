@@ -51,6 +51,11 @@ namespace Bank.Cards.Controls
             }
         }
 
+        public void ResetCardInfo()
+        {
+            ctrlCardInfo1.ResetDefaultValue();
+        }
+
         private void txtCardNumber_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtCardNumber.Text))

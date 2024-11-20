@@ -38,9 +38,9 @@ namespace Bank.Cards
         public void LoadCardInfoByCardID(int CardID)
         {
             _CardInfo = clsCard.FindCardByID(CardID);
-            if (_CardInfo == null) 
+            if (_CardInfo == null)
             {
-                MessageBox.Show($"No Client Was Found With ID [{CardID}]","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"No Client Was Found With ID [{CardID}]", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _CardID = CardID;
@@ -64,14 +64,11 @@ namespace Bank.Cards
             _CardInfo = clsCard.FindCardByCardNumber(CardNumber);
             if (_CardInfo == null)
             {
-                MessageBox.Show($"No Card Was Found With ID [{CardID}]", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _CardID = -1;
+                MessageBox.Show($"No Card Was Found With Card Number [{CardNumber}]", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (_CardInfo.Status == clsCard.enCardStatus.InActive || _CardInfo.Status == clsCard.enCardStatus.Blocked)
-            {
-                MessageBox.Show($"Card With ID [{_CardInfo.CardID}] Is InActive/Blocked", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
             _CardID = _CardInfo.CardID;
             lblCardID.Text = _CardID.ToString();
             lblCardNumber.Text = _CardInfo.CardNumber;
@@ -88,5 +85,21 @@ namespace Bank.Cards
             lblCreatedBy.Text = _CardInfo.UserInfo.UserName;
         }
 
+        public void ResetDefaultValue()
+        {
+            lblCardID.Text = "[ ? ]";
+            lblCardNumber.Text = "[ ? ]";
+            lblHolderFullName.Text = "[ ? ]";
+            lblPinCode.Text = "[ ? ]";
+            lblCVV.Text = "[ ? ]";
+            lblIssueReason.Text = "[ ? ]";
+            lblApplicationID.Text = "[ ? ]";
+            lblIssueDate.Text = "[ ? ]";
+            lblExpirationDate.Text = "[ ? ]";
+            lblLinkedAccountNumber.Text = "[ ? ]";
+            lblStatus.Text = "[ ? ]";
+            lblCardType.Text = "[ ? ]";
+            lblCreatedBy.Text = "[ ? ]";
+        }
     }
 }
