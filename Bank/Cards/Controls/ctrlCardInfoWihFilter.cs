@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankBussiness;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,12 @@ namespace Bank.Cards.Controls
                 handler(CardID);
             }
         }
+        
+        public clsCard CardInfo
+        {
+            get { return ctrlCardInfo1.SelectedCardInfo; }
+        }
+
         public ctrlCardInfoWihFilter()
         {
             InitializeComponent();
@@ -69,6 +76,11 @@ namespace Bank.Cards.Controls
             {
                 _FindNow() ;
             }
+        }
+
+        private void txtCardNumber_TextChanged(object sender, EventArgs e)
+        {
+            txtCardNumber.MaxLength = 16;
         }
     }
 }

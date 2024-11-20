@@ -36,8 +36,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblReplaceCardID = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblApplicationFees = new System.Windows.Forms.Label();
+            this.lable2 = new System.Windows.Forms.Label();
             this.lblApplicationDate = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblApplicationID = new System.Windows.Forms.Label();
@@ -69,8 +69,8 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.lblReplaceCardID);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblApplicationFees);
+            this.groupBox1.Controls.Add(this.lable2);
             this.groupBox1.Controls.Add(this.lblApplicationDate);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lblApplicationID);
@@ -143,25 +143,25 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Replace Card ID :";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(200, 132);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 29);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "[ ? ]";
-            // 
             // lblApplicationFees
             // 
             this.lblApplicationFees.AutoSize = true;
             this.lblApplicationFees.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApplicationFees.Location = new System.Drawing.Point(37, 132);
+            this.lblApplicationFees.Location = new System.Drawing.Point(200, 132);
             this.lblApplicationFees.Name = "lblApplicationFees";
-            this.lblApplicationFees.Size = new System.Drawing.Size(157, 29);
-            this.lblApplicationFees.TabIndex = 18;
-            this.lblApplicationFees.Text = "Application Fees :";
+            this.lblApplicationFees.Size = new System.Drawing.Size(43, 29);
+            this.lblApplicationFees.TabIndex = 19;
+            this.lblApplicationFees.Text = "[ ? ]";
+            // 
+            // lable2
+            // 
+            this.lable2.AutoSize = true;
+            this.lable2.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lable2.Location = new System.Drawing.Point(37, 132);
+            this.lable2.Name = "lable2";
+            this.lable2.Size = new System.Drawing.Size(157, 29);
+            this.lable2.TabIndex = 18;
+            this.lable2.Text = "Application Fees :";
             // 
             // lblApplicationDate
             // 
@@ -215,6 +215,7 @@
             this.btnClose.Text = "Close";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnIssue
             // 
@@ -228,6 +229,7 @@
             this.btnIssue.Text = "Issue Card";
             this.btnIssue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIssue.UseVisualStyleBackColor = true;
+            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
             // 
             // llbShowCardHistory
             // 
@@ -257,6 +259,7 @@
             this.ctrlCardInfoWihFilter1.Name = "ctrlCardInfoWihFilter1";
             this.ctrlCardInfoWihFilter1.Size = new System.Drawing.Size(872, 449);
             this.ctrlCardInfoWihFilter1.TabIndex = 0;
+            this.ctrlCardInfoWihFilter1.OnCardSelected += new System.Action<int>(this.ctrlCardInfoWihFilter1_OnCardSelected);
             // 
             // frmReplaceForLostOrDamageCard
             // 
@@ -293,8 +296,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblReplaceCardID;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblApplicationFees;
+        private System.Windows.Forms.Label lable2;
         private System.Windows.Forms.Label lblApplicationDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblApplicationID;

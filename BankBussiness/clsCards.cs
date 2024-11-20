@@ -19,7 +19,6 @@ namespace BankBussiness
         enMode _Mode = enMode.enAddNew;
 
         public enum enIssueReason { FirstTime = 1,Renew = 2,ReplacmentForLost = 3,ReplacmentForDamage = 4}
-
         public enum enCardStatus { Active = 1,InActive = 2,Frozen = 3,Blocked = 4}
         public enum enCardType { Debit = 1,Credit = 2,Platinum = 3,Prepaid = 4,Travel = 5}
         public string IssueReasonText
@@ -57,6 +56,11 @@ namespace BankBussiness
                         return "Active";
                 }
             }
+        }
+
+        public bool IsActive
+        {
+            get { return this.Status == enCardStatus.Active; }
         }
         public int CardTypeID { set; get; }
         public clsCardType CardTypeInfo;
@@ -204,7 +208,7 @@ namespace BankBussiness
             return clsCardData.GetAllCards();
         }
 
-
+        
 
         public bool Save()
         {

@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.ctrlCardInfo1 = new Bank.Cards.ctrlCardInfo();
             this.plSearchCard = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnCardSearch = new System.Windows.Forms.Button();
             this.txtCardNumber = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.plSearchCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +57,18 @@
             this.plSearchCard.Size = new System.Drawing.Size(866, 78);
             this.plSearchCard.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(29, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Card Number";
+            // 
             // btnCardSearch
             // 
             this.btnCardSearch.Image = global::Bank.Properties.Resources.card_search;
@@ -74,24 +86,13 @@
             this.txtCardNumber.Name = "txtCardNumber";
             this.txtCardNumber.Size = new System.Drawing.Size(210, 36);
             this.txtCardNumber.TabIndex = 0;
+            this.txtCardNumber.TextChanged += new System.EventHandler(this.txtCardNumber_TextChanged);
             this.txtCardNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCardNumber_KeyPress);
             this.txtCardNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtCardNumber_Validating);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Card Number";
             // 
             // ctrlCardInfoWihFilter
             // 

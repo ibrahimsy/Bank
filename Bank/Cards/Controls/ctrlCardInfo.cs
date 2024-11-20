@@ -15,6 +15,14 @@ namespace Bank.Cards
     public partial class ctrlCardInfo : UserControl
     {
         int _CardID = -1;
+        clsCard _CardInfo;
+        public clsCard SelectedCardInfo
+        {
+            get
+            {
+                return _CardInfo;
+            }
+        }
         public int CardID
         {
             get
@@ -29,50 +37,55 @@ namespace Bank.Cards
 
         public void LoadCardInfoByCardID(int CardID)
         {
-            clsCard CardInfo = clsCard.FindCardByID(CardID);
-            if (CardInfo == null) 
+            _CardInfo = clsCard.FindCardByID(CardID);
+            if (_CardInfo == null) 
             {
                 MessageBox.Show($"No Client Was Found With ID [{CardID}]","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
             _CardID = CardID;
             lblCardID.Text = CardID.ToString();
-            lblCardNumber.Text = CardInfo.CardNumber;
-            lblHolderFullName.Text = CardInfo.AccountInfo.FullName;
-            lblPinCode.Text = CardInfo.PinCode;
-            lblCVV.Text = CardInfo.CVV;
-            lblIssueReason.Text = CardInfo.IssueReasonText;
-            lblApplicationID.Text = CardInfo.ApplicationID.ToString();
-            lblIssueDate.Text = clsFormat.GetDateFormat( CardInfo.IssueDate);
-            lblExpirationDate.Text = clsFormat.GetDateFormat(CardInfo.ExpirationDate);
-            lblLinkedAccountNumber.Text = CardInfo.AccountInfo.AccountNumber;
-            lblStatus.Text = CardInfo.StatusText;
-            lblCardType.Text = CardInfo.CardTypeInfo.CardName;
-            lblCreatedBy.Text = CardInfo.UserInfo.UserName;
+            lblCardNumber.Text = _CardInfo.CardNumber;
+            lblHolderFullName.Text = _CardInfo.AccountInfo.FullName;
+            lblPinCode.Text = _CardInfo.PinCode;
+            lblCVV.Text = _CardInfo.CVV;
+            lblIssueReason.Text = _CardInfo.IssueReasonText;
+            lblApplicationID.Text = _CardInfo.ApplicationID.ToString();
+            lblIssueDate.Text = clsFormat.GetDateFormat(_CardInfo.IssueDate);
+            lblExpirationDate.Text = clsFormat.GetDateFormat(_CardInfo.ExpirationDate);
+            lblLinkedAccountNumber.Text = _CardInfo.AccountInfo.AccountNumber;
+            lblStatus.Text = _CardInfo.StatusText;
+            lblCardType.Text = _CardInfo.CardTypeInfo.CardName;
+            lblCreatedBy.Text = _CardInfo.UserInfo.UserName;
         }
 
         public void LoadCardInfoByCardNumber(string CardNumber)
         {
-            clsCard CardInfo = clsCard.FindCardByCardNumber(CardNumber);
-            if (CardInfo == null)
+            _CardInfo = clsCard.FindCardByCardNumber(CardNumber);
+            if (_CardInfo == null)
             {
-                MessageBox.Show($"No Client Was Found With ID [{CardID}]", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"No Card Was Found With ID [{CardID}]", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            _CardID = CardID;
-            lblCardID.Text = CardID.ToString();
-            lblCardNumber.Text = CardInfo.CardNumber;
-            lblHolderFullName.Text = CardInfo.AccountInfo.FullName;
-            lblPinCode.Text = CardInfo.PinCode;
-            lblCVV.Text = CardInfo.CVV;
-            lblIssueReason.Text = CardInfo.IssueReasonText;
-            lblApplicationID.Text = CardInfo.ApplicationID.ToString();
-            lblIssueDate.Text = clsFormat.GetDateFormat(CardInfo.IssueDate);
-            lblExpirationDate.Text = clsFormat.GetDateFormat(CardInfo.ExpirationDate);
-            lblLinkedAccountNumber.Text = CardInfo.AccountInfo.AccountNumber;
-            lblStatus.Text = CardInfo.StatusText;
-            lblCardType.Text = CardInfo.CardTypeInfo.CardName;
-            lblCreatedBy.Text = CardInfo.UserInfo.UserName;
+            if (_CardInfo.Status == clsCard.enCardStatus.InActive || _CardInfo.Status == clsCard.enCardStatus.Blocked)
+            {
+                MessageBox.Show($"Card With ID [{_CardInfo.CardID}] Is InActive/Blocked", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            _CardID = _CardInfo.CardID;
+            lblCardID.Text = _CardID.ToString();
+            lblCardNumber.Text = _CardInfo.CardNumber;
+            lblHolderFullName.Text = _CardInfo.AccountInfo.FullName;
+            lblPinCode.Text = new string('*', _CardInfo.PinCode.Length);
+            lblCVV.Text = new string('*', _CardInfo.CVV.Length);
+            lblIssueReason.Text = _CardInfo.IssueReasonText;
+            lblApplicationID.Text = _CardInfo.ApplicationID.ToString();
+            lblIssueDate.Text = clsFormat.GetDateFormat(_CardInfo.IssueDate);
+            lblExpirationDate.Text = clsFormat.GetDateFormat(_CardInfo.ExpirationDate);
+            lblLinkedAccountNumber.Text = _CardInfo.AccountInfo.AccountNumber;
+            lblStatus.Text = _CardInfo.StatusText;
+            lblCardType.Text = _CardInfo.CardTypeInfo.CardName;
+            lblCreatedBy.Text = _CardInfo.UserInfo.UserName;
         }
 
     }
