@@ -53,12 +53,22 @@
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripSeparator();
             this.requestAccountStatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.managePeopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripSeparator();
+            this.addPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageUsersAndPermissionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripSeparator();
+            this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.accountTypesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripSeparator();
             this.manageTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripSeparator();
+            this.addNewClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CardstoolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,16 +91,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotalUsers = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.manageClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripSeparator();
-            this.addNewClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageUsersAndPermissionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripSeparator();
-            this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.managePeopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripSeparator();
-            this.addPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CardstoolStripMenuItem21 = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.gbWindows.SuspendLayout();
@@ -253,6 +253,7 @@
             this.lostCardToolStripMenuItem.Name = "lostCardToolStripMenuItem";
             this.lostCardToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
             this.lostCardToolStripMenuItem.Text = "Lost Card";
+            this.lostCardToolStripMenuItem.Click += new System.EventHandler(this.lostCardToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -264,6 +265,7 @@
             this.destroyedToolStripMenuItem.Name = "destroyedToolStripMenuItem";
             this.destroyedToolStripMenuItem.Size = new System.Drawing.Size(205, 34);
             this.destroyedToolStripMenuItem.Text = "Damaged Card";
+            this.destroyedToolStripMenuItem.Click += new System.EventHandler(this.destroyedToolStripMenuItem_Click);
             // 
             // toolStripMenuItem11
             // 
@@ -300,6 +302,23 @@
             this.peopleToolStripMenuItem.Text = "&People";
             this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
             // 
+            // managePeopleToolStripMenuItem
+            // 
+            this.managePeopleToolStripMenuItem.Name = "managePeopleToolStripMenuItem";
+            this.managePeopleToolStripMenuItem.Size = new System.Drawing.Size(213, 34);
+            this.managePeopleToolStripMenuItem.Text = "Manage People";
+            // 
+            // toolStripMenuItem20
+            // 
+            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+            this.toolStripMenuItem20.Size = new System.Drawing.Size(210, 6);
+            // 
+            // addPersonToolStripMenuItem
+            // 
+            this.addPersonToolStripMenuItem.Name = "addPersonToolStripMenuItem";
+            this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(213, 34);
+            this.addPersonToolStripMenuItem.Text = "Add Person";
+            // 
             // usersToolStripMenuItem
             // 
             this.usersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -311,6 +330,23 @@
             this.usersToolStripMenuItem.Size = new System.Drawing.Size(214, 44);
             this.usersToolStripMenuItem.Text = "&Users And Permissions";
             this.usersToolStripMenuItem.Click += new System.EventHandler(this.usersToolStripMenuItem_Click);
+            // 
+            // manageUsersAndPermissionsToolStripMenuItem
+            // 
+            this.manageUsersAndPermissionsToolStripMenuItem.Name = "manageUsersAndPermissionsToolStripMenuItem";
+            this.manageUsersAndPermissionsToolStripMenuItem.Size = new System.Drawing.Size(346, 34);
+            this.manageUsersAndPermissionsToolStripMenuItem.Text = "Manage Users And Permissions";
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            this.toolStripMenuItem19.Size = new System.Drawing.Size(343, 6);
+            // 
+            // addUserToolStripMenuItem
+            // 
+            this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
+            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(346, 34);
+            this.addUserToolStripMenuItem.Text = "Add User";
             // 
             // toolStripMenuItem6
             // 
@@ -354,6 +390,31 @@
             this.clientsToolStripMenuItem.Size = new System.Drawing.Size(82, 44);
             this.clientsToolStripMenuItem.Text = "&Clients";
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
+            // 
+            // manageClientsToolStripMenuItem
+            // 
+            this.manageClientsToolStripMenuItem.Name = "manageClientsToolStripMenuItem";
+            this.manageClientsToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
+            this.manageClientsToolStripMenuItem.Text = "Manage Clients";
+            // 
+            // toolStripMenuItem18
+            // 
+            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
+            this.toolStripMenuItem18.Size = new System.Drawing.Size(211, 6);
+            // 
+            // addNewClientToolStripMenuItem
+            // 
+            this.addNewClientToolStripMenuItem.Name = "addNewClientToolStripMenuItem";
+            this.addNewClientToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
+            this.addNewClientToolStripMenuItem.Text = "Add New Client";
+            // 
+            // CardstoolStripMenuItem21
+            // 
+            this.CardstoolStripMenuItem21.ForeColor = System.Drawing.Color.White;
+            this.CardstoolStripMenuItem21.Name = "CardstoolStripMenuItem21";
+            this.CardstoolStripMenuItem21.Size = new System.Drawing.Size(71, 44);
+            this.CardstoolStripMenuItem21.Text = "Ca&rds";
+            this.CardstoolStripMenuItem21.Click += new System.EventHandler(this.toolStripMenuItem21_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -563,65 +624,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Users";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // manageClientsToolStripMenuItem
-            // 
-            this.manageClientsToolStripMenuItem.Name = "manageClientsToolStripMenuItem";
-            this.manageClientsToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
-            this.manageClientsToolStripMenuItem.Text = "Manage Clients";
-            // 
-            // toolStripMenuItem18
-            // 
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            this.toolStripMenuItem18.Size = new System.Drawing.Size(211, 6);
-            // 
-            // addNewClientToolStripMenuItem
-            // 
-            this.addNewClientToolStripMenuItem.Name = "addNewClientToolStripMenuItem";
-            this.addNewClientToolStripMenuItem.Size = new System.Drawing.Size(214, 34);
-            this.addNewClientToolStripMenuItem.Text = "Add New Client";
-            // 
-            // manageUsersAndPermissionsToolStripMenuItem
-            // 
-            this.manageUsersAndPermissionsToolStripMenuItem.Name = "manageUsersAndPermissionsToolStripMenuItem";
-            this.manageUsersAndPermissionsToolStripMenuItem.Size = new System.Drawing.Size(346, 34);
-            this.manageUsersAndPermissionsToolStripMenuItem.Text = "Manage Users And Permissions";
-            // 
-            // toolStripMenuItem19
-            // 
-            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
-            this.toolStripMenuItem19.Size = new System.Drawing.Size(343, 6);
-            // 
-            // addUserToolStripMenuItem
-            // 
-            this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(346, 34);
-            this.addUserToolStripMenuItem.Text = "Add User";
-            // 
-            // managePeopleToolStripMenuItem
-            // 
-            this.managePeopleToolStripMenuItem.Name = "managePeopleToolStripMenuItem";
-            this.managePeopleToolStripMenuItem.Size = new System.Drawing.Size(213, 34);
-            this.managePeopleToolStripMenuItem.Text = "Manage People";
-            // 
-            // toolStripMenuItem20
-            // 
-            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
-            this.toolStripMenuItem20.Size = new System.Drawing.Size(210, 6);
-            // 
-            // addPersonToolStripMenuItem
-            // 
-            this.addPersonToolStripMenuItem.Name = "addPersonToolStripMenuItem";
-            this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(213, 34);
-            this.addPersonToolStripMenuItem.Text = "Add Person";
-            // 
-            // CardstoolStripMenuItem21
-            // 
-            this.CardstoolStripMenuItem21.ForeColor = System.Drawing.Color.White;
-            this.CardstoolStripMenuItem21.Name = "CardstoolStripMenuItem21";
-            this.CardstoolStripMenuItem21.Size = new System.Drawing.Size(71, 44);
-            this.CardstoolStripMenuItem21.Text = "Ca&rds";
-            this.CardstoolStripMenuItem21.Click += new System.EventHandler(this.toolStripMenuItem21_Click);
             // 
             // pictureBox1
             // 

@@ -403,6 +403,16 @@ namespace Bank.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap credit_card_issue {
+            get {
+                object obj = ResourceManager.GetObject("credit_card_issue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Curr_Exchange {
             get {
                 object obj = ResourceManager.GetObject("Curr_Exchange", resourceCulture);

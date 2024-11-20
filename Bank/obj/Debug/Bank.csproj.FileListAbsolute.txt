@@ -129,3 +129,5 @@ D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Applications.Controls.ctrlA
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Cards.frmCardsList.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Cards.ctrlCardInfo.resources
 D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Cards.frmShowCardInfo.resources
+D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Cards.Controls.ctrlCardInfoWihFilter.resources
+D:\Development\C#\My-Github\Bank\Bank\obj\Debug\Bank.Applications.Replace_Lost_Or_Damage_Card.frmReplaceForLostOrDamageCard.resources

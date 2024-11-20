@@ -145,7 +145,6 @@ namespace BankDataAccess
                 {
                     IsFound = true;
 
-                    TypeID = (int)reader["TypeID"];
                     TypeTitle = (string)reader["TypeTitle"];
                     Fees = Convert.ToDecimal(reader["Fees"]);
 

@@ -2,6 +2,7 @@
 using Bank.AccountTypes;
 using Bank.Application_Types;
 using Bank.Applications.New_Card_Application;
+using Bank.Applications.Replace_Lost_Or_Damage_Card;
 using Bank.Branches;
 using Bank.Cards;
 using Bank.Cards.CardTypes;
@@ -220,6 +221,18 @@ namespace Bank
         private void toolStripMenuItem21_Click(object sender, EventArgs e)
         {
             frmCardsList frm = new frmCardsList();  
+            frm.ShowDialog();
+        }
+
+        private void lostCardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplaceForLostOrDamageCard frm = new frmReplaceForLostOrDamageCard(clsApplication.enApplicationTypes.ReplacementLostCard);
+            frm.ShowDialog();
+        }
+
+        private void destroyedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplaceForLostOrDamageCard frm = new frmReplaceForLostOrDamageCard(clsApplication.enApplicationTypes.ReplacementDamageCard);
             frm.ShowDialog();
         }
     }

@@ -56,5 +56,19 @@ namespace Bank.Cards.Controls
                 errorProvider1.SetError(txtCardNumber, null);
             }
         }
+
+        public void TextFocus()
+        {
+            txtCardNumber.Focus();
+        }
+        private void txtCardNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+            if(e.KeyChar == (char)13)
+            {
+                _FindNow() ;
+            }
+        }
     }
 }

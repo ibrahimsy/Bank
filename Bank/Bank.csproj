@@ -140,6 +140,12 @@
     <Compile Include="Applications\New Card Application\frmShowNewCardApplicationInfo.Designer.cs">
       <DependentUpon>frmShowNewCardApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Replace Lost Or Damage Card\frmReplaceForLostOrDamageCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Replace Lost Or Damage Card\frmReplaceForLostOrDamageCard.Designer.cs">
+      <DependentUpon>frmReplaceForLostOrDamageCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Beneficiaries\Controls\ctrlBeneficiariesCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -402,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\New Card Application\frmShowNewCardApplicationInfo.resx">
       <DependentUpon>frmShowNewCardApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Replace Lost Or Damage Card\frmReplaceForLostOrDamageCard.resx">
+      <DependentUpon>frmReplaceForLostOrDamageCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Beneficiaries\Controls\ctrlBeneficiariesCard.resx">
       <DependentUpon>ctrlBeneficiariesCard.cs</DependentUpon>
@@ -691,6 +700,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\card-search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit_card_issue.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
