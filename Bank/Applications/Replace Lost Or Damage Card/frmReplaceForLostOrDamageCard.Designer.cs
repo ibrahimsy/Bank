@@ -40,7 +40,7 @@
             this.lable2 = new System.Windows.Forms.Label();
             this.lblApplicationDate = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblApplicationID = new System.Windows.Forms.Label();
+            this.lblRApplicationID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnIssue = new System.Windows.Forms.Button();
@@ -73,7 +73,7 @@
             this.groupBox1.Controls.Add(this.lable2);
             this.groupBox1.Controls.Add(this.lblApplicationDate);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.lblApplicationID);
+            this.groupBox1.Controls.Add(this.lblRApplicationID);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(19, 518);
@@ -183,15 +183,15 @@
             this.label4.TabIndex = 16;
             this.label4.Text = "Application Date :";
             // 
-            // lblApplicationID
+            // lblRApplicationID
             // 
-            this.lblApplicationID.AutoSize = true;
-            this.lblApplicationID.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApplicationID.Location = new System.Drawing.Point(200, 50);
-            this.lblApplicationID.Name = "lblApplicationID";
-            this.lblApplicationID.Size = new System.Drawing.Size(43, 29);
-            this.lblApplicationID.TabIndex = 15;
-            this.lblApplicationID.Text = "[ ? ]";
+            this.lblRApplicationID.AutoSize = true;
+            this.lblRApplicationID.Font = new System.Drawing.Font("Titillium Web", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRApplicationID.Location = new System.Drawing.Point(200, 50);
+            this.lblRApplicationID.Name = "lblRApplicationID";
+            this.lblRApplicationID.Size = new System.Drawing.Size(43, 29);
+            this.lblRApplicationID.TabIndex = 15;
+            this.lblRApplicationID.Text = "[ ? ]";
             // 
             // label2
             // 
@@ -252,6 +252,7 @@
             this.llbShowNewCardInfo.TabIndex = 26;
             this.llbShowNewCardInfo.TabStop = true;
             this.llbShowNewCardInfo.Text = "Show New Card Info";
+            this.llbShowNewCardInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbShowNewCardInfo_LinkClicked);
             // 
             // ctrlCardInfoWihFilter1
             // 
@@ -300,7 +301,7 @@
         private System.Windows.Forms.Label lable2;
         private System.Windows.Forms.Label lblApplicationDate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblApplicationID;
+        private System.Windows.Forms.Label lblRApplicationID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnIssue;

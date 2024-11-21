@@ -383,5 +383,34 @@ namespace BankDataAccess
             return dt;
         }
 
+        public static bool DeactivateCardByID(int CardID)
+        {
+            int AffectedRows = 0;
+
+            string query = @"UPDATE Cards
+                             SET Status = 2
+                             WHERE CardID = @CardID";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            SqlCommand command = new SqlCommand(query,connection);
+
+            command.Parameters.AddWithValue("@CardID", CardID);
+
+            try
+            {
+                connection.Open();
+                AffectedRows = command.ExecuteNonQuery();
+            }
+            catch (Exception ex) 
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return AffectedRows > 0;
+        }
     }
 }

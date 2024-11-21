@@ -23,7 +23,22 @@ namespace Bank.Cards.Controls
                 handler(CardID);
             }
         }
-        
+
+        private bool _FilterEnabled = true;
+
+        public bool FilterEnabled
+        {
+            set
+            {
+                _FilterEnabled = value;
+                plSearchCard.Enabled = _FilterEnabled;
+            }
+            get
+            {
+                return _FilterEnabled;
+            }
+        }
+
         public clsCard CardInfo
         {
             get { return ctrlCardInfo1.SelectedCardInfo; }

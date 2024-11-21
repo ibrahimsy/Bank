@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BankDataAccess;
+using static BankBussiness.clsApplication;
 
 namespace BankBussiness
 {
@@ -137,12 +138,10 @@ namespace BankBussiness
             return (CardID != -1);
         }
 
-
         private bool _UpdateCard()
         {
             return clsCardData.UpdateCardByID(CardID, AccountID, CardNumber, PinCode, CVV, ExpirationDate,(byte) Status, CardTypeID, IssueDate, ApplicationID,(byte) IssueReason, CreatedBy);
         }
-
 
         public static clsCard FindCardByID(int CardID)
         {
@@ -196,19 +195,63 @@ namespace BankBussiness
             return clsCardData.IsCardExistByCardID(CardID);
         }
 
-
         public static bool DeleteCard(int CardID)
         {
             return clsCardData.DeleteCardByID(CardID);
         }
-
 
         public static DataTable GetCardsList()
         {
             return clsCardData.GetAllCards();
         }
 
-        
+        bool DeactivateCard()
+        {
+            return clsCardData.DeactivateCardByID(this.CardID);
+        }
+        public clsCard Replace(enIssueReason IssueReason,int CreatedByUserID)
+        {
+            //First Create An Application
+            clsApplication Application = new clsApplication();
+
+            Application.ApplicantAccountID = this.AccountID;
+            Application.ApplicationTypeID = (IssueReason == enIssueReason.ReplacmentForDamage)?
+                (int)clsApplication.enApplicationTypes.ReplacementDamageCard:
+                (int)clsApplication.enApplicationTypes.ReplacementLostCard;
+            Application.ApplicationDate = DateTime.Now;
+            Application.Status = enApplicationStatus.Completed;
+            Application.PaidFees = clsApplicationType.FindApplicationTypeByID(Application.ApplicationTypeID).Fees;
+            Application.CreatedBy = CreatedByUserID;
+
+
+            if (!Application.Save())
+            {
+                return null;
+            }
+
+            clsCard NewCard = new clsCard();
+
+            NewCard.AccountID = this.AccountID;
+            NewCard.CardNumber = this.CardNumber;
+            NewCard.PinCode = this.PinCode;
+            NewCard.CVV = this.CVV;
+            NewCard.IssueDate = DateTime.Now;
+            NewCard.ExpirationDate = this.ExpirationDate;
+            NewCard.Status = enCardStatus.Active;
+            NewCard.CardTypeID = this.CardTypeID;
+            NewCard.ApplicationID = Application.ApplicationID;
+            NewCard.IssueReason = IssueReason;
+            NewCard.CreatedBy = CreatedByUserID;
+
+            if (!NewCard.Save())
+            {
+                return null;
+            }
+            //DeActivate Old Card
+            DeactivateCard();
+
+            return NewCard;
+        }
 
         public bool Save()
         {

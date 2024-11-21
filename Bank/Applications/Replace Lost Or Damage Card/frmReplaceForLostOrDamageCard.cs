@@ -1,4 +1,5 @@
-﻿using Bank.Global_Classes;
+﻿using Bank.Cards;
+using Bank.Global_Classes;
 using BankBussiness;
 using System;
 using System.Collections.Generic;
@@ -16,17 +17,18 @@ namespace Bank.Applications.Replace_Lost_Or_Damage_Card
 {
     public partial class frmReplaceForLostOrDamageCard : Form
     {
-        clsApplication.enApplicationTypes _IssueReason;
+        clsApplication.enApplicationTypes _ApplicationType;
         int _SelectedCardID = -1;
-        public frmReplaceForLostOrDamageCard(clsApplication.enApplicationTypes IssueaReson)
+        int _NewCardID = -1;
+        public frmReplaceForLostOrDamageCard(clsApplication.enApplicationTypes ApplicationType)
         {
             InitializeComponent();
-            _IssueReason = IssueaReson;
+            _ApplicationType = ApplicationType;
         }
 
         void _ResetDefaultValue()
         {
-            if(_IssueReason == clsApplication.enApplicationTypes.ReplacementLostCard)
+            if(_ApplicationType == clsApplication.enApplicationTypes.ReplacementLostCard)
             {
                 lblTitle.Text = "Replace For Lost";
                 this.Text = lblTitle.Text;
@@ -41,7 +43,7 @@ namespace Bank.Applications.Replace_Lost_Or_Damage_Card
             llbShowNewCardInfo.Enabled = false;
 
             lblApplicationDate.Text = clsFormat.GetDateFormat( DateTime.Now);
-            lblApplicationFees.Text = clsApplicationType.FindApplicationTypeByID((int)_IssueReason).Fees.ToString();
+            lblApplicationFees.Text = clsApplicationType.FindApplicationTypeByID((int)_ApplicationType).Fees.ToString();
             lblCreatedBy.Text = clsGlobalSettings.CurrentUser.UserName;
         }
 
@@ -73,10 +75,10 @@ namespace Bank.Applications.Replace_Lost_Or_Damage_Card
             clsApplication Application = new clsApplication();
 
             Application.ApplicantAccountID = ctrlCardInfoWihFilter1.CardInfo.AccountID;
-            Application.ApplicationTypeID = (int)_IssueReason;
+            Application.ApplicationTypeID = (int)_ApplicationType;
             Application.ApplicationDate = DateTime.Now;
             Application.Status = enApplicationStatus.Completed;
-            Application.PaidFees = clsApplicationType.FindApplicationTypeByID((int)_IssueReason).Fees;
+            Application.PaidFees = clsApplicationType.FindApplicationTypeByID((int)_ApplicationType).Fees;
             Application.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
 
 
@@ -88,40 +90,48 @@ namespace Bank.Applications.Replace_Lost_Or_Damage_Card
                 return false;
         }
 
-
+        clsCard.enIssueReason _GetIssueReason()
+        {
+            if (_ApplicationType == clsApplication.enApplicationTypes.ReplacementDamageCard)
+                return clsCard.enIssueReason.ReplacmentForDamage;
+            else
+                return clsCard.enIssueReason.ReplacmentForLost;
+        }
         private void btnIssue_Click(object sender, EventArgs e)
         {
-            int ReplaceApplicationID = -1;
-            if (!_HandleReplaceCardApplication(ref ReplaceApplicationID))
+            if (MessageBox.Show("Are You Sure You Want To Replacment The New Card ?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No)
             {
-                MessageBox.Show("An Error Occurred","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
-            clsCard ReplacementCard = new clsCard();
+            clsCard NewCard = ctrlCardInfoWihFilter1.CardInfo.Replace(_GetIssueReason(),clsGlobalSettings.CurrentUser.UserID);
+            if (NewCard == null)
+            {
+                MessageBox.Show("Faild To Issue A Replacment For This Card.",
+                                 "Faild",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+                return;
+            }
 
-            ReplacementCard.AccountID = ctrlCardInfoWihFilter1.CardInfo.AccountID;
-            ReplacementCard.CardNumber = ctrlCardInfoWihFilter1.CardInfo.CardNumber;
-            ReplacementCard.PinCode = ctrlCardInfoWihFilter1.CardInfo.PinCode;
-            ReplacementCard.CVV = ctrlCardInfoWihFilter1.CardInfo.CVV;
-            ReplacementCard.IssueDate = DateTime.Now;
-            ReplacementCard.ExpirationDate = DateTime.Now.AddYears(clsCardType.FindCardTypeByID(ctrlCardInfoWihFilter1.CardInfo.CardTypeID).DefaultValidationLength);
-            ReplacementCard.Status = enCardStatus.Active;
-            ReplacementCard.CardTypeID = ctrlCardInfoWihFilter1.CardInfo.CardTypeID;
-            ReplacementCard.ApplicationID = ReplaceApplicationID;
-            ReplacementCard.IssueReason = (clsCard.enIssueReason)_IssueReason;
-            ReplacementCard.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
-
-
-
-
-
+            _NewCardID = NewCard.CardID;
+            lblReplaceCardID.Text = NewCard.CardID.ToString();
+            lblRApplicationID.Text = NewCard.ApplicationID.ToString();
+            btnIssue.Enabled = false;
+            ctrlCardInfoWihFilter1.FilterEnabled = false;
+            llbShowNewCardInfo.Enabled = true;
             llbShowNewCardInfo.Enabled = true;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void llbShowNewCardInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmShowCardInfo frm = new frmShowCardInfo(_NewCardID);
+            frm.ShowDialog();
         }
     }
 }
