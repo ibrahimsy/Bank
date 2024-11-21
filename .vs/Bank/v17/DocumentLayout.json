@@ -3,36 +3,44 @@
   "WorkspaceRootPath": "D:\\Development\\C#\\My-Github\\Bank\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\cards\\controls\\ctrlcardinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\controls\\ctrlcardinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\applications\\replace lost or damage card\\frmreplaceforlostordamagecard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\applications\\replace lost or damage card\\frmreplaceforlostordamagecard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\cards\\frmcardslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\frmcardslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\cards\\controls\\ctrlcardinfowihfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\controls\\ctrlcardinfowihfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\cards\\controls\\ctrlcardinfowihfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\controls\\ctrlcardinfowihfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\applications\\replace lost or damage card\\frmreplaceforlostordamagecard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\applications\\replace lost or damage card\\frmreplaceforlostordamagecard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|D:\\Development\\C#\\My-Github\\Bank\\bankbussiness\\clscards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clscards.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|d:\\development\\c#\\my-github\\bank\\bank\\applications\\replace lost or damage card\\frmreplaceforlostordamagecard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\applications\\replace lost or damage card\\frmreplaceforlostordamagecard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\cards\\controls\\ctrlcardinfowihfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\controls\\ctrlcardinfowihfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|D:\\Development\\C#\\My-Github\\Bank\\bankbussiness\\clsapplicationtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsapplicationtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|D:\\Development\\C#\\My-Github\\Bank\\bankbussiness\\clsapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A21126F-AFC9-4E0C-9E4E-C91CB7E5746F}|BankBussiness\\BankBussiness.csproj|solutionrelative:bankbussiness\\clsapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\applications\\replace lost or damage card\\frmreplaceforlostordamagecard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\applications\\replace lost or damage card\\frmreplaceforlostordamagecard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\cards\\controls\\ctrlcardinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\controls\\ctrlcardinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\cards\\controls\\ctrlcardinfowihfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\controls\\ctrlcardinfowihfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\cards\\controls\\ctrlcardinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\controls\\ctrlcardinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|D:\\Development\\C#\\My-Github\\Bank\\bank\\cards\\frmcardslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CE6F752-7262-4B43-8CF4-45EAA61A2C93}|Bank\\Bank.csproj|solutionrelative:bank\\cards\\frmcardslist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +50,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "clsApplicationTypes.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsApplicationTypes.cs",
+              "RelativeDocumentMoniker": "BankBussiness\\clsApplicationTypes.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsApplicationTypes.cs",
+              "RelativeToolTip": "BankBussiness\\clsApplicationTypes.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T11:56:40.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "clsApplication.cs",
+              "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsApplication.cs",
+              "RelativeDocumentMoniker": "BankBussiness\\clsApplication.cs",
+              "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsApplication.cs",
+              "RelativeToolTip": "BankBussiness\\clsApplication.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T11:48:06.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "frmCardsList.cs",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\frmCardsList.cs",
               "RelativeDocumentMoniker": "Bank\\Cards\\frmCardsList.cs",
@@ -54,75 +86,70 @@
               "RelativeToolTip": "Bank\\Cards\\frmCardsList.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAwwDEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T22:32:36.317Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T22:32:36.317Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ctrlCardInfoWihFilter.cs",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\Controls\\ctrlCardInfoWihFilter.cs",
               "RelativeDocumentMoniker": "Bank\\Cards\\Controls\\ctrlCardInfoWihFilter.cs",
               "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\Controls\\ctrlCardInfoWihFilter.cs",
               "RelativeToolTip": "Bank\\Cards\\Controls\\ctrlCardInfoWihFilter.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAA0wDcAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAcwDcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T17:18:22.587Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T17:18:22.587Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ctrlCardInfoWihFilter.cs [Design]",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\Controls\\ctrlCardInfoWihFilter.cs",
               "RelativeDocumentMoniker": "Bank\\Cards\\Controls\\ctrlCardInfoWihFilter.cs",
               "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\Controls\\ctrlCardInfoWihFilter.cs [Design]",
               "RelativeToolTip": "Bank\\Cards\\Controls\\ctrlCardInfoWihFilter.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T17:18:15.824Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-20T17:18:15.824Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ctrlCardInfo.cs",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\Controls\\ctrlCardInfo.cs",
               "RelativeDocumentMoniker": "Bank\\Cards\\Controls\\ctrlCardInfo.cs",
               "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\Controls\\ctrlCardInfo.cs",
               "RelativeToolTip": "Bank\\Cards\\Controls\\ctrlCardInfo.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAUwFcAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAkwFcAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T17:16:48.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T17:16:48.521Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "clsCards.cs",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsCards.cs",
               "RelativeDocumentMoniker": "BankBussiness\\clsCards.cs",
               "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\BankBussiness\\clsCards.cs",
               "RelativeToolTip": "BankBussiness\\clsCards.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAADwvzwAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAqwFcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T16:13:17.97Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "ctrlCardInfo.cs [Design]",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\Controls\\ctrlCardInfo.cs",
               "RelativeDocumentMoniker": "Bank\\Cards\\Controls\\ctrlCardInfo.cs",
               "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Cards\\Controls\\ctrlCardInfo.cs [Design]",
               "RelativeToolTip": "Bank\\Cards\\Controls\\ctrlCardInfo.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:48:12.187Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-20T11:48:12.187Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "frmReplaceForLostOrDamageCard.cs [Design]",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Applications\\Replace Lost Or Damage Card\\frmReplaceForLostOrDamageCard.cs",
               "RelativeDocumentMoniker": "Bank\\Applications\\Replace Lost Or Damage Card\\frmReplaceForLostOrDamageCard.cs",
@@ -134,13 +161,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "frmReplaceForLostOrDamageCard.cs",
               "DocumentMoniker": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Applications\\Replace Lost Or Damage Card\\frmReplaceForLostOrDamageCard.cs",
               "RelativeDocumentMoniker": "Bank\\Applications\\Replace Lost Or Damage Card\\frmReplaceForLostOrDamageCard.cs",
               "ToolTip": "D:\\Development\\C#\\My-Github\\Bank\\Bank\\Applications\\Replace Lost Or Damage Card\\frmReplaceForLostOrDamageCard.cs",
               "RelativeToolTip": "Bank\\Applications\\Replace Lost Or Damage Card\\frmReplaceForLostOrDamageCard.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAkwDkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAMwG4AAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T12:29:01.233Z",
               "EditorCaption": ""

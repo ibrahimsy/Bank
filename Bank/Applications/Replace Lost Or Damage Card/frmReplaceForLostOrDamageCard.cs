@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static BankBussiness.clsApplication;
+using static BankBussiness.clsCard;
 
 namespace Bank.Applications.Replace_Lost_Or_Damage_Card
 {
@@ -62,13 +64,58 @@ namespace Bank.Applications.Replace_Lost_Or_Damage_Card
             }
             
             if (!ctrlCardInfoWihFilter1.CardInfo.IsActive) 
-                return;
-            
+                return;   
            
         }
 
+        bool _HandleReplaceCardApplication(ref int ApplicationID)
+        {
+            clsApplication Application = new clsApplication();
+
+            Application.ApplicantAccountID = ctrlCardInfoWihFilter1.CardInfo.AccountID;
+            Application.ApplicationTypeID = (int)_IssueReason;
+            Application.ApplicationDate = DateTime.Now;
+            Application.Status = enApplicationStatus.Completed;
+            Application.PaidFees = clsApplicationType.FindApplicationTypeByID((int)_IssueReason).Fees;
+            Application.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
+
+
+            if (Application.Save())
+            {
+                ApplicationID = Application.ApplicationID;
+                return true;
+            }else
+                return false;
+        }
+
+
         private void btnIssue_Click(object sender, EventArgs e)
         {
+            int ReplaceApplicationID = -1;
+            if (!_HandleReplaceCardApplication(ref ReplaceApplicationID))
+            {
+                MessageBox.Show("An Error Occurred","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+            clsCard ReplacementCard = new clsCard();
+
+            ReplacementCard.AccountID = ctrlCardInfoWihFilter1.CardInfo.AccountID;
+            ReplacementCard.CardNumber = ctrlCardInfoWihFilter1.CardInfo.CardNumber;
+            ReplacementCard.PinCode = ctrlCardInfoWihFilter1.CardInfo.PinCode;
+            ReplacementCard.CVV = ctrlCardInfoWihFilter1.CardInfo.CVV;
+            ReplacementCard.IssueDate = DateTime.Now;
+            ReplacementCard.ExpirationDate = DateTime.Now.AddYears(clsCardType.FindCardTypeByID(ctrlCardInfoWihFilter1.CardInfo.CardTypeID).DefaultValidationLength);
+            ReplacementCard.Status = enCardStatus.Active;
+            ReplacementCard.CardTypeID = ctrlCardInfoWihFilter1.CardInfo.CardTypeID;
+            ReplacementCard.ApplicationID = ReplaceApplicationID;
+            ReplacementCard.IssueReason = (clsCard.enIssueReason)_IssueReason;
+            ReplacementCard.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
+
+
+
+
+
             llbShowNewCardInfo.Enabled = true;
         }
 
