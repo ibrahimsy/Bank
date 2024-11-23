@@ -1,4 +1,5 @@
 ﻿using Bank.Accounts;
+using Bank.Accounts.Account_Statement;
 using Bank.AccountTypes;
 using Bank.Application_Types;
 using Bank.Applications.New_Card_Application;
@@ -233,6 +234,12 @@ namespace Bank
         private void destroyedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReplaceForLostOrDamageCard frm = new frmReplaceForLostOrDamageCard(clsApplication.enApplicationTypes.ReplacementDamageCard);
+            frm.ShowDialog();
+        }
+
+        private void requestAccountStatmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAccountStatement frm = new frmAccountStatement();
             frm.ShowDialog();
         }
     }

@@ -64,30 +64,17 @@ namespace Bank.Applications.Replace_Lost_Or_Damage_Card
                 ctrlCardInfoWihFilter1.ResetCardInfo();
                 return;
             }
-            
-            if (!ctrlCardInfoWihFilter1.CardInfo.IsActive) 
-                return;   
-           
-        }
 
-        bool _HandleReplaceCardApplication(ref int ApplicationID)
-        {
-            clsApplication Application = new clsApplication();
-
-            Application.ApplicantAccountID = ctrlCardInfoWihFilter1.CardInfo.AccountID;
-            Application.ApplicationTypeID = (int)_ApplicationType;
-            Application.ApplicationDate = DateTime.Now;
-            Application.Status = enApplicationStatus.Completed;
-            Application.PaidFees = clsApplicationType.FindApplicationTypeByID((int)_ApplicationType).Fees;
-            Application.CreatedBy = clsGlobalSettings.CurrentUser.UserID;
-
-
-            if (Application.Save())
+            if (!ctrlCardInfoWihFilter1.CardInfo.IsActive)
             {
-                ApplicationID = Application.ApplicationID;
-                return true;
-            }else
-                return false;
+                MessageBox.Show("Selected License Is Not Active ,Choose Another One",
+                    "Not Allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                btnIssue.Enabled = false;
+                return;
+            } 
+           
         }
 
         clsCard.enIssueReason _GetIssueReason()
@@ -117,6 +104,9 @@ namespace Bank.Applications.Replace_Lost_Or_Damage_Card
             _NewCardID = NewCard.CardID;
             lblReplaceCardID.Text = NewCard.CardID.ToString();
             lblRApplicationID.Text = NewCard.ApplicationID.ToString();
+
+            MessageBox.Show($"Card Replaced Successfuly With ID [{_NewCardID}]","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
             btnIssue.Enabled = false;
             ctrlCardInfoWihFilter1.FilterEnabled = false;
             llbShowNewCardInfo.Enabled = true;

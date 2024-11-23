@@ -138,7 +138,10 @@ namespace BankBussiness
         }
 
        
-
+        public static DataTable GetAccountStatment(string AccountNumber,DateTime FromDate,DateTime ToDate)
+        {
+            return clsTransactionData.GetAccountStatmentByDateRange(AccountNumber, FromDate,ToDate);
+        }
 
         public bool Save()
         {

@@ -303,6 +303,40 @@ namespace BankDataAccess
             return dt;
         }
 
+        public static DataTable GetAccountStatmentByDateRange(string AccountNumber,DateTime StartDate,DateTime EndDate)
+        {
+            DataTable dt = new DataTable();
 
+            string query = @"SELECT * FROM Transactions_View
+                            WHERE AccountNumber = @AccountNumber 
+                            And TransactionDate Between @StartDate and @EndDate";
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlCommand command = new SqlCommand(query, connection);
+            
+            command.Parameters.AddWithValue("@AccountNumber", AccountNumber);
+            command.Parameters.AddWithValue("@StartDate", StartDate);
+            command.Parameters.AddWithValue("@EndDate", EndDate);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
     }
 }

@@ -250,6 +250,11 @@ namespace BankBussiness
             //DeActivate Old Card
             DeactivateCard();
 
+            //Withdraw Application Fees From Account
+
+            this.AccountInfo.Withdraw(Application.PaidFees);
+
+
             return NewCard;
         }
 

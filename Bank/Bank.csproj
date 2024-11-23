@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts\Account Statement\frmAccountStatement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounts\Account Statement\frmAccountStatement.Designer.cs">
+      <DependentUpon>frmAccountStatement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accounts\Controls\ctrlAccountCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -367,6 +373,9 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Accounts\Account Statement\frmAccountStatement.resx">
+      <DependentUpon>frmAccountStatement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounts\Controls\ctrlAccountCard.resx">
       <DependentUpon>ctrlAccountCard.cs</DependentUpon>
     </EmbeddedResource>
